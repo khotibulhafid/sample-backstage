@@ -361,16 +361,3 @@ spec:
   type: s3-bucket
   owner: default/infrastructure
   system: infrastructure/infra
----
-apiVersion: backstage.io/v1alpha1
-kind: Resource
-metadata:
-  name: k8s-infra-backup
-  namespace: infrastructure
-  description: to store image and asset for kasten backup system
-  tags:
-    - s3
-spec:
-  type: s3-bucket
-  owner: default/infrastructure
-  system: infrastructure/infra
