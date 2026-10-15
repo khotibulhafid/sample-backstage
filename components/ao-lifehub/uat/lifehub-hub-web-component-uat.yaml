@@ -1,0 +1,19 @@
+---     
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: hub-web-uat
+  namespace: ao-lifehub
+  description: web for Lifehub System
+  tags:
+    - frontend
+    - website
+    - lifehub
+    - uat
+spec:
+  type: website
+  lifecycle: experimental
+  owner: default/lifehub
+  system: lifehub
+  consumesApis: [bulk-service-api-uat,task-service-api-uat,user-service-api-uat]

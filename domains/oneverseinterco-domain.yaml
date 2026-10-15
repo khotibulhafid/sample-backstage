@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: oneverseinterco-domain
+  namespace: oneverseinterco-namespace
+  description: Everything Related to oneverseinterco Domain
+  title: 'oneverseinterco Domain'
+  links:
+    - url: https://domain
+      title: 'API for oneverseinterco'
+spec:
+  owner: default/oneverseinterco-group

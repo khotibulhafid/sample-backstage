@@ -1,0 +1,20 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: individu-customer-360-wrapper-uat
+  namespace: lifeforce-individu
+  description: The policy service for automation policy service
+  tags:
+    - api
+    - backend
+    - service
+    - uat
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: default/lifeforce-individu
+  system: lifeforce-individu
+  dependsOn: [resource:db-lifeforce]
+  providesApis: [individu-customer-360-wrapper-api-uat]

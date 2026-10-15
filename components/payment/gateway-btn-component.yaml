@@ -1,0 +1,68 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: gateway-btn
+  namespace: payment
+  description: Gateway to communicate with BTN for VA
+  tags:
+    - component
+    - backend
+    - service
+    - payment
+    - quarkus
+    - virtual-account
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFPY/repos/gateway-btn/browse
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:payment-gateway-btn
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/payment-release-gateway-btn
+    - title: Docker Image
+      url: docker://docker-paymenthub.artifact.ifg-life.id/paymenthub/service/gateway-btn-release:4
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-8spdr-prd-prod-payment-payment-release/browse?at=gateway-btn
+    - title: Base URL
+      url: http://gateway-btn:8080
+    - title: Liveness Endpoints
+      url: http://gateway-btn:8080/q/health/live
+    - title: Readiness Endpoints
+      url: http://gateway-btn:8080/q/health/ready
+    - title: Swagger / Open API
+      url: https://code.ifg-life.id/projects/IFSC/repos/ifpy---payment/browse/gateway-btn
+spec:
+  type: REST
+  owner: group:default/ifgpay
+  system: system:payment/ifgpay
+  domain: domain:payment/ifgpay
+  lifecycle: production
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+      version: 3.25.3
+  auth:
+    method: JWT
+    notes: >
+      Service uses JWT authorization to communicate with Payment Gateway/Banks
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  dependsOn: [
+    resource:payment/kafka,
+    resource:payment/kong
+  ]
+  runtime:
+    cluster: 8spdr
+    namespace: payment
+  consumesApis: [
+    gateway-biller-api,
+    core-service-api,
+    inquiry-core-service-api
+  ]
+  providesApis: [
+    gateway-btn-api
+  ]
+  limits: 'default kong'

@@ -1,0 +1,72 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: data-dedupe-service
+  namespace: data
+  description: Data Dedupe Service
+  title: Data Dedupe Service
+  tags:
+    - component
+    - backend
+    - service
+    - data
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFDA/repos/data-deduplication-service
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:data-dedup-service
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/data-release-dedup
+    - title: Docker Image
+      url: docker://docker-data.artifact.ifg-life.id/job/data-customer-dedup-service-release:46
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-m8ccz-prd-prod-graphdb-data-release/browse/dedup.yaml
+    - title: Base URL
+      url: https://data.ifg-life.id/api/v1/
+    - title: Liveness Endpoints
+      url: https://dedup-service:8080/q/health/live
+    - title: Readiness Endpoints
+      url: https://dedup-service:8080/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFDA/repos/data-deduplication-service/browse/README.md
+#    - title: Kafka Topic List
+#      url: https://code.ifg-life.id/projects/IFDA/repos/data-base-service/browse/kafka-topics.md
+#    - title: Sample Kafka Message
+#      url: https://code.ifg-life.id/projects/IFDA/repos/data-base-service/browse/kafka-topics.md
+spec:
+  type: REST
+  owner: group:data/data-lake
+  system: system:data/data-ingestion-system
+  domain: domain:data/data-platform
+  lifecycle: production
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.28.3
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: cluster-data-prd
+    namespace: data
+  limits: 'default kong'
+  dependsOn: [
+    resource:default/eks-data-prd, #EKS 
+    resource:infra/cluster-data-prd, #Cluster 
+    resource:infra/kafka-data, #Kafka
+    resource:database/mongodb, #Database
+    resource:data/kong #Gateway
+  ]
+  consumeApis: []
+  providesApis: [
+    api:data/dedupe-service-api
+  ]
+  usesLibraries:
+    - name: "rest-client"
+      implemented: False

@@ -1,0 +1,73 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: data-index
+  namespace: claim
+  description: >
+    Kogito Data Index used by Claim squad to query workflow instances,
+    process states, and user task metadata.
+  tags:
+    - kogito
+    - workflow
+    - data-index
+    - observability
+spec:
+  type: workflow-index
+  owner: group:automation/claim
+  system: system:workflow/workflow-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: data-index
+  namespace: fraud
+  description: >
+    Kogito Data Index used by Fraud squad to query workflow instances,
+    process states, and user task metadata.
+  tags:
+    - kogito
+    - workflow
+    - data-index
+    - observability
+spec:
+  type: datagrid
+  owner: group:automation/fraud
+  system: system:workflow/workflow-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: data-index
+  namespace: new-business
+  description: >
+    Kogito Data Index used by New Business squad to query workflow instances,
+    process states, and user task metadata.
+  tags:
+    - kogito
+    - workflow
+    - data-index
+    - observability
+spec:
+  type: datagrid
+  owner: group:automation/new-business
+  system: system:workflow/workflow-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: data-index
+  namespace: policy-squad
+  description: >
+    Kogito Data Index used by Policy squad to query workflow instances,
+    process states, and user task metadata.
+  tags:
+    - kogito
+    - workflow
+    - data-index
+    - observability
+spec:
+  type: datagrid
+  owner: group:automation/policy-squad
+  system: system:workflow/workflow-platform
+---

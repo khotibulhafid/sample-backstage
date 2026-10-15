@@ -1,0 +1,62 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: claim-analysis-service-uat
+  namespace: ao-claim
+  description: The services for calculate benefit claim (discharge process and benefit deduction process) and validate rules of claim analysis
+  tags:
+    - component
+    - backend
+    - service
+    - claim
+    - claim-analysis
+    - claim-analysis-uat
+    - analysis
+    - uat
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFCL/repos/claim-analysis-service/browse?at=refs%2Fheads%2Fuat
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/ao-claim-uat-claim-analysis-service
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-claim/claim-analysis-service-uat
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-pflcb-nprd-uat-automation-ao-claim-uat/browse?at=refs%2Fheads%2Fclaim-analysis-service
+    - title: Base URL
+      url: https://api-core-uat.ifg-life.id
+    - title: Liveness Endpoints
+      url: /q/health/live
+spec:
+  type: REST
+  owner: group:automation/claim
+  system: system:core/claim-core-system
+  domain: domain:core/core-business
+  lifecycle: experimental
+  environments: uat
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.28.1
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  dependsOn: [
+    resource:default/prd-automation, #EKS 
+    resource:infra/1awvh-prd-prod-automation-az2, #Cluster
+    resource:ao-workflow/ifgl-1awvh-prd-automation-db, #Database
+    resource:infra/kafka, #Database
+    resource:ao-kong/kong #Gateway
+  ]
+  runtime:
+    cluster: 1awvh
+    namespace: ao-claim
+  providesApis: [ao-claim/claim-analysis-service-api-uat]
+  consumeApis: []
+  limits: 'default kong'

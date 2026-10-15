@@ -1,0 +1,19 @@
+---     
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: pwa
+  namespace: oneifg
+  description: The portal for users to purchase products sold by IFG.
+  tags:
+    - component
+    - frontend
+    - one
+    - pwa
+spec:
+  type: website
+  lifecycle: production
+  owner: default/onebyifg
+  system: onebyifg
+  consumesApis: [admin-service-api,user-service-api,storage-service-api,transaction-service-api,product-service-api,meta-service-api,notification-service-api]

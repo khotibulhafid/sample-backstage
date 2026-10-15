@@ -1,0 +1,67 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: aml-scheduler-service
+  namespace: service-fraud
+  description: Scheduler service for AML.
+  tags:
+    - aml
+    - scheduler
+    - backend
+    - java
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFGF/repos/aml-scheduler-service/browse
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:aml-scheduler-service
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/service-fraud-release-aml-scheduler-service
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-fraud-version2/fraud-scheduler-service
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-l4qdb-prd-prod-legacy-ao-fraud-release/browse/deployment.yaml?at=refs%2Fheads%2Faml-scheduler-service
+    - title: Base URL
+      url: https://api-automation-v2.ifg-life.id
+    - title: Liveness Endpoints
+      url: https://aml-scheduler-service:8080/q/health/live
+    - title: Readiness Endpoints
+      url: https://aml-scheduler-service:8080/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFGF/repos/aml-scheduler-service/browse/README.md?at=refs%2Fheads%2Fdevelopment
+    - title: Kafka Topic List
+      url: https://code.ifg-life.id/projects/IFGF/repos/aml-scheduler-service/browse/kafka.md?at=development
+spec:
+  type: REST
+  owner: owner:automation/fraud
+  system: system:automation/fraud-detection-system
+  domain: domain:automation/process-automation
+  lifecycle: production
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.30.6
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: l4qdb
+    namespace: service-fraud
+  limits: "default kong"
+  dependsOn: [
+      resource:infra/prd-automation, #EKS
+      resource:infra/automation-core-prd, #Cluster
+      resource:aowf/kong,
+      resource:infra/kafka,
+      resource:infra/redis,
+    ]
+  provideApis: [aml-scheduler-service-api]
+  consumeApis: [aml-master-data-service-api, aml-common-service-api]
+  usesLibraries:
+    - name: "rest-client"
+      implemented: False

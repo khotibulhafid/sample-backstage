@@ -1,0 +1,21 @@
+---     
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bulk-service-uat
+  namespace: ao-lifehub
+  description: service to handle bulk for Lifehub System
+  tags:
+    - backend
+    - service
+    - lifehub
+    - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/lifehub
+  system: lifehub
+  providesApis: [bulk-service-api-uat]
+  dependsOn: [resource:ao-workflow/ifgl-1awvh-prd-automation-db, resource:default/kafka]
+  consumesApis: [ifgid/ekyc-service-api-uat, ifgid/user-service-api-uat, ao-workflow/ao-workflow-nb-wrapper-api-uat]

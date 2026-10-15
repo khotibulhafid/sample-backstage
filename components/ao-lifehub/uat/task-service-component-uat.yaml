@@ -1,0 +1,21 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: task-service-uat
+  namespace: ao-lifehub
+  description: service to handle case admin for Lifehub System
+  tags:
+    - backend
+    - service
+    - lifehub
+    - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/lifehub
+  system: lifehub
+  providesApis: [task-service-api-uat]
+  dependsOn: [resource:ao-workflow/ifgl-1awvh-prd-automation-db, resource:default/kafka]
+  consumesApis: [customer/user-wrapper-api-uat,customer/product-service-api-uat,ao-workflow/ao-workflow-policy-wrapper-api-uat,ao-workflow/ao-workflow-fraud-wrapper-api-uat,ao-product-engine/storage-service-api-uat,ao-workflow/ao-workflow-claim-wrapper-api-uat,ao-claim/claim-service-api-uat,ao-workflow/ao-workflow-fraud-wrapper-api-uat]

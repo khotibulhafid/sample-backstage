@@ -1,0 +1,19 @@
+---     
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ifgnet-admin-web-uat
+  namespace: lifenet-acquirer
+  description: web for Lifenet System
+  tags:
+    - frontend
+    - website
+    - lifenet
+    - uat
+spec:
+  type: website
+  lifecycle: experimental
+  owner: default/lifenet
+  system: lifenet
+  consumesApis: [provider-service-api-uat,report-service-api-uat,user-service-api-uat,storage-service-api-uat,scheduler-service-api-uat,scheduler-service-api-uat,acquirer-ifgl-network-service-api-uat,acquirer-other-ns-service-api-uat,acquirer-reference-service-api-uat,lifenet-acquirer-service-api-uat]

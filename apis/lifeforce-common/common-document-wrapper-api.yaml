@@ -1,0 +1,20 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: common-document-wrapper-api
+  namespace: lifeforce-common
+  description: the service for wrapper document service
+  tags:
+  - api
+  - backend
+  - service
+  - lifeforce-common
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/lifeforce-common
+  system: lifeforce-common
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/illf---lifeforce/browse/individu-customer-360-wrapper

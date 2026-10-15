@@ -1,0 +1,61 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: kogito-fraud
+  namespace: workflow-fraud
+  description: The kogito fraud service for automation fraud proses service
+  tags:
+    - workflow
+    - quarkus
+    - aml
+    - fraud
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFAO/repos/kogito-fraud/browse
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/workflow-fraud-release-kogito
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-l4qdb-prd-prod-legacy-ao-workflow-fraud-release/browse?at=refs%2Fheads%2Fkogito-fraud
+spec:
+  type: workflow
+  lifecycle: production
+  owner: group:automation/fraud
+  system: system:automation/fraud-detection-system
+  domain: domain:automation/process-automation
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.8.6.1
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: cluster-automation-prd
+    namespace: workflow-fraud
+  workflow:
+    version: 2.44.0.Alpha
+  consumeApis: []
+  usesLibraries:
+    - name: "infinispan"
+      implemented: True
+    - name: "dataindex"
+      implemented: True
+    - name: "management-console"
+      implemented: True
+    - name: "task-console"
+      implemented: True
+  auth:
+    method: none
+  limits: "-"
+  dependsOn:
+    [
+      resource:infra/kafka,
+      resource:database/infinispan,
+      resource:infra/keycloak,
+      resource:infra/EFS,
+    ]
+  providesApis: [kogito-fraud-api]
+  consumesApis: [ao-workflow/ao-workflow-aml-v2-wrapper-api]

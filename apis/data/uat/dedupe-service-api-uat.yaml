@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: dedupe-service-api-uat
+  namespace: data
+  description: Dedupe Service for Mongo DB
+  tags:
+    - api
+    - backend
+    - service
+    - data
+    - uat
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: default/data
+  system: data
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifda---data/browse/dedupe-service?at=uat
+

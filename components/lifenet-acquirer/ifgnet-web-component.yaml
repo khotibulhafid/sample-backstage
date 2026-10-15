@@ -1,0 +1,38 @@
+---     
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ifgnet-web
+  namespace: lifenet-acquirer
+  description: web for Lifenet Portal System
+  tags:
+    - frontend
+    - website
+    - lifenet
+    - nextjs
+  links:
+    - title: Source Repository
+    - url: https://code.ifg-life.id/projects/ILEN/repos/ifgnet-web/browse
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/lifenet-acquirer-release-ifgnet-web?resource=
+    - title: Docker image
+      url: docker://docker-hospital.artifact.ifg-life.id/library/node:trixie-slim
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-tu9b2-prd-prod-lifenet-lifenet-acquirer-release/browse/deployment.yaml
+    - title: Base Url
+      url: https://net-admin.life.id
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/ILEN/repos/ifgnet-web/browse/README.md
+spec:
+  type: website
+  domain: domain:channel/channel-platform
+  owner: owner:channel/lifenet
+  system: system:channel/lifenet-system
+  lifecycle: production
+  environments: prod
+  language: javascript
+  runtime:
+    cluster: automation-prd
+    namespace: epics-portal
+  consumesApis: [provider-service-api-uat,report-service-api-uat,user-service-api-uat,storage-service-api-uat,scheduler-service-api-uat,scheduler-service-api-uat,acquirer-ifgl-network-service-api-uat,acquirer-other-ns-service-api-uat,acquirer-reference-service-api-uat,lifenet-acquirer-service-api-uat]

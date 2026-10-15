@@ -1,0 +1,21 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: referral-service-uat
+  namespace: customer
+  description: The placeholder for all backend service for customerapps
+  tags:
+  - backend
+  - service
+  - lifebyifg
+  - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/lifebyifg
+  system: lifebyifg
+  providesApis: [referral-service-api-uat]
+  dependsOn: [resource:default/ifgl-bvl19-prd-prod-customer-customerapps, resource:default/kafka ]
+  consumesApis: [ customer/user-wrapper-service-api-uat ]

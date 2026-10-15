@@ -1,0 +1,67 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: group-bulk-service
+  namespace: lifeforce-group
+  description: Manages bulk process for lifeforce
+  title: Group Bulk Service
+  tags:
+    - component
+    - backend
+    - service
+    - lifeforce
+    - lifeforce-group
+    - quarkus
+links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/ILLF/repos/group-bulk-service/browse
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/lifeforce-group-dev-development-group-bulk-service
+    - title: Docker Image
+      url: docker://docker-lifeforce.artifact.ifg-life.id/lifeforce-group/group-bulk-service-development:latest
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-yi7ix-nprd-dev-lifeforce-lifeforce-group-dev/browse/deployment.yaml?at=refs%2Fheads%2Fgroup-bulk-service
+    - title: Base URL
+      url: https://api-force-dev.ifg-life.id
+    - title: Readiness Endpoints
+      url: http://bulk-service.lifeforce-group.svc:8080/api/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/ILLF/repos/group-bulk-service/browse/README.md
+    - title: Kafka Topic List
+      url: https://code.ifg-life.id/projects/ILLF/repos/group-bulk-service/browse/kafka-topics.md
+spec:
+  type: REST
+  lifecycle: experimental
+  domain: domain:channel/channel-platform
+  owner: group:channel/lifeforce-group
+  system: system:lifeforce-corporate
+  environments: uat
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.28.2
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: lifeforce-prd
+    namespace: lifeforce-group
+  limits: 'default kong'
+  dependsOn: [
+    resource:default/eks-lifeforce-prd, #EKS
+    resource:infra/cluster-lifeforce-prd, #Cluster
+    resource:infra/kafka, #Kafka
+    resource:database/pg-lifeforce, #Database Life Force
+    resource:lifeforce/kong #Gateway
+  ]
+  consumesApis: []
+  providesApis: [group-bulk-service-api]
+  usesLibraries:
+    - name: "rest-client"
+      implemented: False

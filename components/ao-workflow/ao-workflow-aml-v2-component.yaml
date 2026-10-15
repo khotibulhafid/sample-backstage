@@ -1,0 +1,76 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ao-workflow-aml
+  namespace: workflow-fraud
+  description: The workflow aml service for automation aml proses service
+  tags:
+    - workflow
+    - quarkus
+    - backend
+    - aml
+    - bpmn
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFAO/repos/ao-workflow-aml-v2/browse
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:ao-workflow-aml
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/workflow-fraud-release-aml-workflow
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-workflow-version2/backend-service/fraud-workflow-release:25
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-l4qdb-prd-prod-legacy-ao-workflow-fraud-release/browse?at=refs%2Fheads%aml-workflow
+    - title: Liveness Endpoints
+      url: https://ao-workflow-aml:8091/q/health/live
+    - title: Readiness Endpoints
+      url: https://ao-workflow-aml:8091/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFAO/repos/ao-workflow-aml-v2/browse/README.md
+    - title: Base URL
+      url: https://ao-workflow-aml:8091
+    - title: Kafka Topic List
+      url: https://code.ifg-life.id/projects/IFAO/repos/ao-workflow-aml-v2/browse/kafka.md
+spec:
+  type: workflow
+  lifecycle: production
+  owner: group:automation/fraud
+  system: system:automation/fraud-detection-system
+  domain: domain:automation/process-automation
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.8.6.1
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: l4qdb
+    namespace: workflow-fraud
+  workflow:
+    version: 2.44.0.Alpha
+  consumeApis: []
+  usesLibraries:
+    - name: "kogito"
+      implemented: True
+  auth:
+    method: none
+  limits: "-"
+  dependsOn: [
+      resource:infra/prd-automation, #EKS
+      resource:infra/automation-core-prd, #Cluster
+      resource:infra/kafka,
+      resource:infra/redis,
+    ]
+  providesApis: [ao-workflow-aml-v2-api]
+  consumesApis:
+    [
+      aml-common-service-api,
+      aml-master-data-service-api,
+      aml-claim-service-api,
+      aml-risk-service-api,
+      aml-screening-service-api,
+    ]

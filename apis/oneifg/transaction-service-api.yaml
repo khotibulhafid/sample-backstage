@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: transaction-service-api
+  namespace: oneifg
+  description: The Transaction service api for Create transaction to BTIM
+  tags:
+  - api
+  - backend
+  - service
+  - onebyifg
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/onebyifg
+  system: onebyifg
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifoi---one-ifg/browse/transaction-service

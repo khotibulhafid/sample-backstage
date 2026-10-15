@@ -1,0 +1,20 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: storage-service-uat
+  namespace: ao-product-engine
+  description: The storage service used for storing files.
+  tags:
+    - backend
+    - service
+    - storage-service
+    - uat
+spec:
+  type: service
+  lifecycle: experimental
+  system: ao-product-engine/pas
+  owner: default/pas
+  providesApis: [storage-service-api-uat]
+  dependsOn: [resource:ao-workflow/ifgl-1awvh-prd-automation-db, resource:default/prd-ao-policy, resource:ao-kong/kong]

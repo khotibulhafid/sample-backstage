@@ -1,0 +1,81 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ao-workflow-policy-wrapper
+  namespace: workflow-ps
+  description: The workflow wrapper policy service for automation policy service
+  tags:
+  - backend
+  - service
+  - policy
+  - ps
+  - wrapper
+  - workflow
+  - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFAO/repos/ao-workflow-policy-wrapper-version2/browse
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:ao-workflow-policy-wrapper
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/workflow-ps-release-policy-wrapper-workflow
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-workflow-version2/backend-service/policy-workflow-wrapper-release:17
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-l4qdb-prd-prod-legacy-ao-workflow-ps-release/browse/deployment.yaml?at=refs%2Fheads%2Fpolicy-wrapper-workflow
+    - title: Liveness Endpoints
+      url: http://ao-workflow-policy-wrapper:8093/q/health/live
+    - title: Readiness Endpoints
+      url: http://ao-workflow-policy-wrapper:8093/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFAO/repos/ao-workflow-policy-wrapper-version2/browse/README.md
+    - title: Base Url
+      url: https://api-automation-v2.ifg-life.id
+    - title: Kafka Topic List
+      url: https://code.ifg-life.id/projects/IFAO/repos/ao-workflow-policy-wrapper-version2/browse/kafka_topic_documentation.md?at=refs%2Fheads%2Fuat
+    - title: Sample Kafka Message
+      url: https://code.ifg-life.id/projects/IFAO/repos/ao-workflow-policy-wrapper-version2/browse/kafka_topic_documentation.md?at=refs%2Fheads%2Fuat
+spec:
+  type: workflow
+  owner: group:automation/policy-squad
+  system: system:automation/policy-automation-system
+  domain: domain:automation/process-automation
+  lifecycle: production
+  environment: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.24.3
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: automation-prd
+    namespace: workflow-ps
+  dependsOn: [
+    resource:default/prd-automation, # EKS
+    resource:infra/1awvh-prd-prod-automation-az2, # Cluster
+    resource:infra/kafka,
+    resource:aowf/kong
+  ]
+  providesApis: [ ao-workflow-policy-wrapper-api ]
+  consumesApis: [
+    ao-product-engine/notification-service-api,
+    ao-product-engine/product-config-service-api,
+    ao-new-business/billing-service-api,
+    ao-new-business/policy-service-v2-api,
+    ao-new-business/proposal-service-v2-api,
+    ao-lifehub/general-transaction-service-api,
+    ao-workflow/ao-workflow-policy-api,
+    ao-workflow/ao-workflow-policy-surrender-api,
+    ao-workflow/ao-workflow-corporate-policy-api,
+    ao-pos/pos-policy-service-api,
+    ifgid/ekyc-service-api
+  ]
+  limits: 'default kong'

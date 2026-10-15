@@ -1,0 +1,10 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: ifgpay
+  namespace: payment
+  description: System to handle Payment In and Payment Out.
+spec:
+  owner: default/ifgpay
+  domain: payment/ifgpay

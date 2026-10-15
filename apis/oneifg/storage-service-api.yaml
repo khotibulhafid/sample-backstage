@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: storage-service-api
+  namespace: oneifg
+  description: The Storage service api for Upload/Get Picture from users
+  tags:
+  - api
+  - backend
+  - service
+  - onebyifg
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/onebyifg
+  system: onebyifg
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifoi---one-ifg/browse/storage-service

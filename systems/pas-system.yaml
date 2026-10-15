@@ -1,0 +1,20 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: pas
+  namespace: ao-product-engine
+  description: Service used for document creation, notification center, and storage.
+spec:
+  owner: default/pas
+  domain: default/pas
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: pas
+  namespace: infrastructure
+  description: Service used for document creation, notification center, and storage.
+spec:
+  owner: default/pas
+  domain: default/pas

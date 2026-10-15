@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: claim-submission-reimbursement-service-api
+  namespace: ao-claim
+  description: The claim submission reimbursement service api in claim
+  tags:
+    - api
+    - backend
+    - service
+    - claim
+    - claim-submission-reimbursement
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/claim
+  system: claim
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifcl---claim/browse/claim-submission-reimbursement-service

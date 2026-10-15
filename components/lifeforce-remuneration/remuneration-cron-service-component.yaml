@@ -1,0 +1,47 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: remuneration-cron-service
+  namespace: lifeforce-remuneration
+  description: Service for running cron job lifeforce remuneration
+  title: Remuneration Cron Service
+  tags:
+  - backend
+  - service
+  - lifeforce
+  - lifeforce-remuneration
+  - cron
+  - scheduler
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/ILLF/repos/remuneration-cron-service/browse
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/lifeforce-remuneration-release-cron-service
+    - title: Docker Image
+      url: docker://docker-lifeforce.artifact.ifg-life.id/lifeforce-remuneration/cron-service-release:4
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFCJ/repos/ifgl-prd-yu30h-lifeforce-remuneration-service/browse
+    - title: Base URL
+      url: https://api-lifeforce-remuneration-release.ifg-life.id
+spec:
+  type: Scheduler
+  owner: group:channel/lifeforce-remuneration
+  system: system:channel/lifeforce-remuneration-system
+  domain: domain:channel/channel-platform
+  lifecycle: production
+  environment: prod
+  language: shell script
+  auth:
+    method: none
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: lifeforce-prd
+    namespace: lifeforce-remuneration
+  dependsOn: [ ]
+  providesApis: [ ]
+  consumesApis: [ ]
+  limits: '-'

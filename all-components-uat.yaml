@@ -1,0 +1,257 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: ifgl-components-uat
+  description: A collection of all Backstage IFGL components for Non Production
+spec:
+  targets:
+    # AAS
+    - ./components/aas/uat/account-service-component-uat.yaml
+    - ./components/aas/uat/balance-service-component-uat.yaml
+    - ./components/aas/uat/interest-service-component-uat.yaml
+
+    # Claim
+    - ./components/ao-claim/uat/claim-service-component-uat.yaml
+    - ./components/ao-claim/uat/scheduler-service-component-uat.yaml
+    - ./components/ao-claim/uat/claim-analysis-service-component-uat.yaml
+    - ./components/ao-claim/uat/claim-billing-service-component-uat.yaml
+    - ./components/ao-claim/uat/claim-common-service-component-uat.yaml
+    - ./components/ao-claim/uat/claim-submission-cashless-service-component-uat.yaml
+    - ./components/ao-claim/uat/claim-submission-reimbursement-service-component-uat.yaml
+    - ./components/ao-claim/uat/medical-pathway-service-component-uat.yaml
+
+    # FRAUD
+    - ./components/ao-fraud/uat/fraud-service-component-uat.yaml
+
+    # AO-HOSPITAL-NETWORK - ini masih salah
+    - ./components/ao-hospital-network/uat/hospital-service-component-uat.yaml
+
+    # LIFEHUB
+    - ./components/ao-lifehub/uat/bulk-service-component-uat.yaml
+    - ./components/ao-lifehub/uat/task-service-component-uat.yaml
+    - ./components/ao-lifehub/uat/user-service-component-uat.yaml
+    - ./components/ao-lifehub/uat/lifehub-wrapper-component-uat.yaml
+    - ./components/ao-lifehub/uat/lifehub-hub-web-component-uat.yaml
+
+    # NB UW
+    - ./components/ao-new-business/uat/audit-service-component-uat.yaml
+    - ./components/ao-new-business/uat/billing-service-component-uat.yaml
+    - ./components/ao-new-business/uat/journal-service-component-uat.yaml
+    - ./components/ao-new-business/uat/meta-service-component-uat.yaml
+    - ./components/ao-new-business/uat/new-business-service-component-uat.yaml
+    - ./components/ao-new-business/uat/new-business-service-v2-component-uat.yaml
+    - ./components/ao-new-business/uat/policy-service-component-uat.yaml
+    - ./components/ao-new-business/uat/policy-service-v2-component-uat.yaml
+    - ./components/ao-new-business/uat/proposal-service-component-uat.yaml
+    - ./components/ao-new-business/uat/proposal-service-v2-component-uat.yaml
+    #    - ./components/ao-new-business/underwriting-scheduler-service-component-uat.yaml
+    - ./components/ao-new-business/uat/underwriting-service-component-uat.yaml
+
+    # POS
+    - ./components/ao-pos/uat/alteration-service-component-uat.yaml
+    - ./components/ao-pos/uat/corporate-alteration-service-component-uat.yaml
+    - ./components/ao-pos/uat/scheduler-service-component-uat.yaml
+
+    # PAS - Product Engine + Correspondence
+    - ./components/ao-product-engine/uat/generator-service-component-uat.yaml
+    - ./components/ao-product-engine/uat/notification-service-component-uat.yaml
+    - ./components/ao-product-engine/uat/product-calculator-corporate-service-component-uat.yaml
+    - ./components/ao-product-engine/uat/product-calculator-service-component-uat.yaml
+    - ./components/ao-product-engine/uat/product-config-service-component-uat.yaml
+#    - ./components/ao-product-engine/product-formula-service-component-uat.yaml
+    - ./components/ao-product-engine/uat/product-formulation-corporate-service-component-uat.yaml
+    - ./components/ao-product-engine/uat/product-formulation-retail-service-component-uat.yaml
+    - ./components/ao-product-engine/uat/product-validator-corporate-service-component-uat.yaml
+    - ./components/ao-product-engine/uat/product-validator-service-component-uat.yaml
+    - ./components/ao-product-engine/uat/storage-service-component-uat.yaml
+
+    # Workflow NB + UW + PAS + POS + FRAUD + CLAIM
+    - ./components/ao-workflow/uat/ao-workflow-claim-component-uat.yaml
+    - ./components/ao-workflow/uat/ao-workflow-claim-wrapper-component-uat.yaml
+    - ./components/ao-workflow/uat/ao-workflow-corporate-policy-component-uat.yaml
+    - ./components/ao-workflow/uat/ao-workflow-corporate-policy-wrapper-component-uat.yaml
+    - ./components/ao-workflow/uat/ao-workflow-fraud-component-uat.yaml
+    - ./components/ao-workflow/uat/ao-workflow-fraud-wrapper-component-uat.yaml
+    - ./components/ao-workflow/uat/ao-workflow-nb-component-uat.yaml
+    - ./components/ao-workflow/uat/ao-workflow-nb-wrapper-component-uat.yaml
+    - ./components/ao-workflow/uat/ao-workflow-policy-component-uat.yaml
+    - ./components/ao-workflow/uat/ao-workflow-policy-wrapper-component-uat.yaml
+    #    - ./components/claim/ao-workflow-policy-reinstatement-component-uat.yaml
+    #    - ./components/claim/ao-workflow-policy-reinstatement-wrapper-component-uat.yaml
+
+    # LIFESPACE / Corporate
+    - ./components/corporate/uat/activity-service-component-uat.yaml
+    - ./components/corporate/uat/batch-service-component-uat.yaml
+    - ./components/corporate/uat/meta-service-component-uat.yaml
+    - ./components/corporate/uat/notification-service-component-uat.yaml
+    - ./components/corporate/uat/policy-service-component-uat.yaml
+    - ./components/corporate/uat/storage-service-component-uat.yaml
+    - ./components/corporate/uat/user-service-component-uat.yaml
+    - ./components/corporate/uat/lifespace-corporate-web-component-uat.yaml
+
+    # LIFEBYIFG / Customer
+    - ./components/customer/uat/config-service-component-uat.yaml
+    - ./components/customer/uat/content-service-component-uat.yaml
+    - ./components/customer/uat/event-service-component-uat.yaml
+    - ./components/customer/uat/leads-service-component-uat.yaml
+    - ./components/customer/uat/meta-service-component-uat.yaml
+    - ./components/customer/uat/notification-service-component-uat.yaml
+    - ./components/customer/uat/partner-service-component-uat.yaml
+    - ./components/customer/uat/policy-service-component-uat.yaml
+    - ./components/customer/uat/product-service-component-uat.yaml
+    - ./components/customer/uat/provider-service-component-uat.yaml
+    - ./components/customer/uat/referral-service-component-uat.yaml
+    - ./components/customer/uat/storage-service-component-uat.yaml
+    - ./components/customer/uat/transaction-service-component-uat.yaml
+    - ./components/customer/uat/user-wrapper-component-uat.yaml
+    - ./components/customer/uat/pwa-component-uat.yaml
+
+    # CWS
+    - ./components/cws/uat/cms-be-component-uat.yaml
+    - ./components/cws/uat/corporate-be-component-uat.yaml
+
+    # IFGID
+    - ./components/ifgid/uat/ekyc-service-component-uat.yaml
+    - ./components/ifgid/uat/meta-service-component-uat.yaml
+    - ./components/ifgid/uat/notification-service-component-uat.yaml
+    - ./components/ifgid/uat/organization-service-component-uat.yaml
+    - ./components/ifgid/uat/storage-service-component-uat.yaml
+    - ./components/ifgid/uat/user-service-component-uat.yaml
+    - ./components/ifgid/uat/entity-service-component-uat.yaml
+
+    # LIFEFORCE-CORPORATE / Lifeforce group
+    - ./components/lifeforce-group/uat/group-user-service-component-uat.yaml
+    - ./components/lifeforce-group/uat/group-user-wrapper-component-uat.yaml
+
+    # LIFEFORCE-CORPORATE / Lifeforce Admin
+    - ./components/lifeforce-admin/uat/admin-admin-service-component-uat.yaml
+
+    # LIFEFORCE-INDIVIDU
+    - ./components/lifeforce-individu/uat/individu-customer-360-wrapper-component-uat.yaml
+    - ./components/lifeforce-individu/uat/individu-lead-service-component-uat.yaml
+    - ./components/lifeforce-individu/uat/individu-new-business-service-component-uat.yaml
+    - ./components/lifeforce-individu/uat/individu-notification-service-component-uat.yaml
+
+    # LIFENET / Lifenet acquirer
+    - ./components/lifenet-acquirer/uat/acquirer-ifgl-network-service-component-uat.yaml
+    - ./components/lifenet-acquirer/uat/acquirer-other-ns-wrapper-service-component-uat.yaml
+    - ./components/lifenet-acquirer/uat/acquirer-reference-service-component-uat.yaml
+    - ./components/lifenet-acquirer/uat/lifenet-acquirer-admin-service-component-uat.yaml
+    - ./components/lifenet-acquirer/uat/provider-service-component-uat.yaml
+    - ./components/lifenet-acquirer/uat/scheduler-service-component-uat.yaml
+    - ./components/lifenet-acquirer/uat/storage-service-component-uat.yaml
+    - ./components/lifenet-acquirer/uat/user-service-component-uat.yaml
+
+    # LIFENET / Lifenet issuer
+    - ./components/lifenet-issuer/uat/issuer-ifgl-case-monitoring-service-component-uat.yaml
+    - ./components/lifenet-issuer/uat/issuer-ifgl-scheduler-service-component-uat.yaml
+    - ./components/lifenet-issuer/uat/issuer-ifgl-wrapper-service-component-uat.yaml
+    - ./components/lifenet-issuer/uat/network-issuer-ifgl-wrapper-service-component-uat.yaml
+
+    # LIFENET / Lifenet network
+    - ./components/lifenet-network/uat/acquirer-ifgl-wrapper-service-component-uat.yaml
+    - ./components/lifenet-network/uat/issuer-ifgl-issuer-wrapper-service-component-uat.yaml
+    - ./components/lifenet-network/uat/network-discovery-service-component-uat.yaml
+    - ./components/lifenet-network/uat/provider-mapping-network-service-component-uat.yaml
+
+    # ONEBYIFG
+    - ./components/oneifg/uat/admin-service-component-uat.yaml
+    - ./components/oneifg/uat/meta-service-component-uat.yaml
+    - ./components/oneifg/uat/notification-service-component-uat.yaml
+    - ./components/oneifg/uat/product-service-component-uat.yaml
+    - ./components/oneifg/uat/storage-service-component-uat.yaml
+    - ./components/oneifg/uat/transaction-service-component-uat.yaml
+    - ./components/oneifg/uat/user-service-component-uat.yaml
+    - ./components/oneifg/uat/admin-one-component-uat.yaml
+    - ./components/oneifg/uat/pwa-component-uat.yaml
+
+    # Partnership
+    # - ./components/partnership/bank-btn-service-component-uat.yaml (error)
+
+    # Payment
+    - ./components/payment/uat/core-services-component-uat.yaml
+    - ./components/payment/uat/dashboard-service-component-uat.yaml
+    - ./components/payment/uat/direct-bill-service-component-uat.yaml
+    - ./components/payment/uat/gateway-bcheck-component-uat.yaml
+    - ./components/payment/uat/gateway-biller-component-uat.yaml
+    - ./components/payment/uat/gateway-bni-component-uat.yaml
+    - ./components/payment/uat/gateway-bri-component-uat.yaml
+    - ./components/payment/uat/gateway-btn-component-uat.yaml
+    - ./components/payment/uat/gateway-cts-component-uat.yaml
+    - ./components/payment/uat/gateway-doku-component-uat.yaml
+    - ./components/payment/uat/gateway-frontend-component-uat.yaml
+    - ./components/payment/uat/gateway-linkaja-component-uat.yaml
+    - ./components/payment/uat/gateway-mandiri-component-uat.yaml
+    - ./components/payment/uat/gateway-midtrans-component-uat.yaml
+    - ./components/payment/uat/gateway-partnership-component-uat.yaml
+    - ./components/payment/uat/gateway-pospay-component-uat.yaml
+    - ./components/payment/uat/gateway-tokopedia-component-uat.yaml
+    - ./components/payment/uat/gateway-workflow-component-uat.yaml
+    - ./components/payment/uat/gateway-xendit-component-uat.yaml
+    - ./components/payment/uat/gateway-yokke-component-uat.yaml
+    - ./components/payment/uat/inquiry-core-service-component-uat.yaml
+    - ./components/payment/uat/out-core-service-component-uat.yaml
+    - ./components/payment/uat/out-gateway-channel-service-component-uat.yaml
+    - ./components/payment/uat/out-gateway-cts-service-component-uat.yaml
+    - ./components/payment/uat/out-gateway-mandiri-service-component-uat.yaml
+    - ./components/payment/uat/out-gateway-midtrans-service-component-uat.yaml
+    - ./components/payment/uat/recon-service-component-uat.yaml
+    - ./components/payment/uat/recurring-service-component-uat.yaml
+    - ./components/payment/uat/utility-kafka-listener-component-uat.yaml
+    - ./components/payment/uat/utility-scheduler-component-uat.yaml
+
+    # DATA
+    - ./components/data/uat/base-service-component-uat.yaml
+    - ./components/data/uat/customer-service-component-uat.yaml
+    - ./components/data/uat/dedupe-service-component-uat.yaml
+
+    # DPLK
+    - ./components/dplk/uat/cashin-service-component-uat.yaml
+    - ./components/dplk/uat/cashin-wrapper-service-component-uat.yaml
+    - ./components/dplk/uat/cashout-service-component-uat.yaml
+    - ./components/dplk/uat/cashout-wrapper-service-component-uat.yaml
+    - ./components/dplk/uat/document-reporting-service-component-uat.yaml
+    - ./components/dplk/uat/identity-service-component-uat.yaml
+    - ./components/dplk/uat/investment-service-component-uat.yaml
+    - ./components/dplk/uat/journal-service-component-uat.yaml
+    - ./components/dplk/uat/membership-service-component-uat.yaml
+    - ./components/dplk/uat/membership-wrapper-service-component-uat.yaml
+    - ./components/dplk/uat/monitoring-service-component-uat.yaml
+
+    # PSAK
+    - ./components/psak/uat/summary-service-component-uat.yaml
+    - ./components/psak/uat/upload-ecf-gbq-service-component-uat.yaml
+    - ./components/psak/uat/upload-ecf-dbpsak-service-component-uat.yaml
+    - ./components/psak/uat/upload-ecf-all-table-service-component-uat.yaml
+    - ./components/psak/uat/etl-run-job-service-component-uat.yaml
+    - ./components/psak/uat/etl-export-job-service-component-uat.yaml
+
+    # ONEVERSEINTERCO
+    - ./components/oneverseinterco/uat/meta-service-component-uat.yaml
+
+    # DOCTORHUB
+    - ./apis/lifenet-doctorhub/uat/doctorhub-acquirer-lms-service-component-uat.yaml
+    - ./apis/lifenet-doctorhub/uat/doctorhub-acquirer-mi-service-component-uat.yaml
+    - ./apis/lifenet-doctorhub/uat/doctorhub-acquirer-viva-service-component-uat.yaml
+    - ./apis/lifenet-doctorhub/uat/doctorhub-acquirer-yesdok-service-component-uat.yaml
+    - ./apis/lifenet-doctorhub/uat/doctorhub-appointment-service-component-uat.yaml
+    - ./apis/lifenet-doctorhub/uat/doctorhub-doctor-service-component-uat.yaml
+    - ./apis/lifenet-doctorhub/uat/doctorhub-one-wrapper-service-component-uat.yaml
+
+    # PARMACHYHUB
+    - ./apis/lifenet-pharmacyhub/uat/pharmacyhub-acquirer-fdn-service-component-uat.yaml
+    - ./apis/lifenet-pharmacyhub/uat/pharmacyhub-billing-service-component-uat.yaml
+    - ./apis/lifenet-pharmacyhub/uat/pharmacyhub-courier-service-component-uat.yaml
+    - ./apis/lifenet-pharmacyhub/uat/pharmacyhub-one-wrapper-service-component-uat.yaml
+    - ./apis/lifenet-pharmacyhub/uat/pharmacyhub-prescription-service-component-uat.yaml
+
+    # AO-HOSPITAL
+    - ./apis/ao-hospital/uat/hospital-service-component-uat.yaml
+    - ./components/oneverseinterco/uat/task-service-component-uat.yaml
+    - ./components/oneverseinterco/uat/user-service-component-uat.yaml
+    - ./components/oneverseinterco/uat/treaty-service-component-uat.yaml
+    - ./components/oneverseinterco/uat/interco-service-component-uat.yaml
+    - ./components/oneverseinterco/uat/transaction-service-component-uat.yaml
+    - ./components/oneverseinterco/uat/approval-workflow-service-component-uat.yaml
+    - ./components/oneverseinterco/uat/approval-workflow-wrapper-service-component-uat.yaml
+    - ./components/oneverseinterco/uat/audit-service-component-uat.yaml

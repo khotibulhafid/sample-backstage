@@ -1,0 +1,16 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: channel-platform
+  namespace: channel
+  title: Channel Platform Domain
+  description: >
+    Platform domain responsible for providing and managing digital channels and access layers through which users, 
+    partners, and systems interact with core business capabilities.
+  tags:
+    - core
+    - platform
+spec:
+  owner: group:channel
+---

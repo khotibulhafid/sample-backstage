@@ -1,0 +1,164 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ifgretail
+  namespace: database
+  description: to store transactional and master data for IFGRETAIL
+  tags:
+    - oracle
+    - legacy
+    - ifgretail
+  labels:
+    oracleVersion: '11'
+    size: 4TB
+    dbId: '2915834387'
+    environtment: prd
+spec:
+  type: database
+  owner: group:infra/dba
+  system: legacy
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ifgfinance
+  namespace: database
+  description: to store transactional and master data for IFGFINANCE
+  tags:
+    - oracle
+    - legacy
+    - ifgfinance
+    - esip
+  labels:
+    oracleVersion: '11'
+    size: 4TB
+    dbId: '987626610'
+    environtment: prd
+spec:
+  type: database
+  owner: group:infra/dba
+  system: legacy
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ifgebp
+  namespace: database
+  description: to store transactional and master data for IFGEBP
+  tags:
+    - oracle
+    - legacy
+    - ifgebp
+    - pladm
+  labels:
+    oracleVersion: '11'
+    size: 4TB
+    dbId: '4266015832'
+    environtment: prd
+spec:
+  type: database
+  owner: group:infra/dba
+  system: legacy
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ifgnonebp
+  namespace: database
+  description: to store transactional and master data for IFGNONEBP
+  tags:
+    - oracle
+    - legacy
+    - ifgnonebp
+    - pkadm
+  labels:
+    oracleVersion: '11'
+    size: 4TB
+    dbId: '297311587'
+    environtment: prd
+spec:
+  type: database
+  owner: group:infra/dba
+  system: legacy
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ifgagency
+  namespace: database
+  description: to store transactional and master data for IFGAGENCY
+  tags:
+    - oracle
+    - legacy
+    - ifgagency
+    - jaim
+  labels:
+    oracleVersion: '11'
+    size: 4TB
+    dbId: '2133204228'
+    environtment: prd
+spec:
+  type: database
+  owner: group:infra/dba
+  system: legacy
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ifgaskes
+  namespace: database
+  description: to store transactional and master data for IFGASKES
+  tags:
+    - oracle
+    - legacy
+    - ifgaskes
+    - askes
+  labels:
+    oracleVersion: '11'
+    size: 4TB
+    dbId: '1296212009'
+    environtment: prd
+spec:
+  type: database
+  owner: group:infra/dba
+  system: legacy
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ifgreas
+  namespace: database
+  description: to store transactional and master data for IFGREAS
+  tags:
+    - oracle
+    - legacy
+    - ifgreas
+  labels:
+    oracleVersion: '11'
+    size: 4TB
+    dbId: '2799969191'
+    environtment: prd
+spec:
+  type: database
+  owner: group:infra/dba
+  system: legacy
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ifgtools
+  namespace: database
+  description: to store transactional and master data for IFGTOOLS
+  tags:
+    - oracle
+    - legacy
+    - ifgtools
+  labels:
+    oracleVersion: '11'
+    size: 4TB
+    dbId: '1688655542'
+    environtment: prd
+spec:
+  type: database
+  owner: group:infra/dba
+  system: legacy

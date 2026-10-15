@@ -1,0 +1,56 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: acquirer-admin-service-uat
+  namespace: lifenet-acquirer
+  description: User Service for Lifenet Admin. Also connect to Azure SSO for Lifenet System
+  tags:
+  - backend
+  - service
+  - lifenet-acquirer
+  - lifenet
+  - uat
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/ILEN/repos/lifenet-acquirer-admin-service/browse?at=refs%2Fheads%2Fuat
+#    - title: Monitoring / Logs (Datadog)
+#      url: #Need to get value
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/lifenet-acquirer-uat-lifenet-acquirer-admin-service
+    - title: Docker Image
+      url: docker://docker-hospital.artifact.ifg-life.id/lifenet/lifenet-acquirer-admin-service-uat
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-7lddu-nprd-uat-lifenet-lifenet-acquirer-uat/browse?at=refs%2Fheads%2Flifenet-acquirer-admin-service
+    - title: Base URL
+      url: https://net-admin-uat.life.id
+    - title: Liveness Endpoints
+      url: /api/q/health/live
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/ILEN/repos/acquirer-admin-service/browse/README.md?at=refs%2Fheads%2Fuat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:channel/lifenet-acquirer
+  system: system:channel/lifenet-acquirer-system
+  domain: domain:lifenet/lifenet
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.19.4
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: lifenet-prd
+    namespace: lifenet-admin
+#  subcomponentOf: lifenet-admin-backend
+  dependsOn: [resource:lifenet-prd]
+  providesApis: [lifenet-acquirer/lifenet-acquirer-admin-service-api-uat]
+  consumesApis: [] #TODO need to be updated
+  limits: 'default kong'

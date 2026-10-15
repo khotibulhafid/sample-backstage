@@ -1,0 +1,10 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: lifeforce-common
+  namespace: lifeforce-common
+  description: System designed to handle document.
+spec:
+  owner: default/lifeforce-common
+  domain: lifeforce/lifeforce-common

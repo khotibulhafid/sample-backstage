@@ -1,0 +1,10 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: claim
+  namespace: ao-claim
+  description: Claim management system, from submitting request to settlement.
+spec:
+  owner: default/claim
+  domain: ao-kong/claim

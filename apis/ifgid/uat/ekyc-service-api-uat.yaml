@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: ekyc-service-api-uat
+  namespace: ifgid
+  description: The activity service api for logging user activity in IFGID
+  tags:
+    - api
+    - backend
+    - service
+    - ifgid
+    - uat
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: default/ifgid
+  system: ifgid
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifgi---ifgid/browse/ekyc-service?at=uat
+           

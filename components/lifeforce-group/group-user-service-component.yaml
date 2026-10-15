@@ -1,0 +1,64 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: group-user-service
+  namespace: lifeforce-group
+  description: The user-service for handling CRUD of sales Individual and Group
+  tags:
+    - component
+    - backend
+    - service
+    - lifeforce
+    - lifeforce-group
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/ILLF/repos/group-user-service/browse?at=release
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:lifeforcegrp-user-service
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/lifeforce-group-release-group-user-service?resource=
+    - title: Docker Image
+      url: docker://docker-lifeforce.artifact.ifg-life.id/lifeforce-group/group-user-service-release:latest
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-yu30h-prd-prod-lifeforce-lifeforce-group-release/browse/deployment.yaml?at=refs%2Fheads%2Fgroup-user-service
+    - title: Base URL
+      url: https://force.life.id
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/ILLF/repos/group-user-service/browse/README.md?at=release
+spec:
+  type: REST
+  lifecycle: production
+  domain: domain:channel/channel-platform
+  owner: group:channel/lifeforce-group
+  system: system:lifeforce-corporate
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.24.5
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: lifeforce-prd
+    namespace: lifeforce-group
+  limits: 'default kong'
+  dependsOn: [
+    resource:default/eks-lifeforce-prd,
+    resource:infra/cluster-lifeforce-prd,
+    resource:database/pg-lifeforce, #Database
+    resource:infra/kafka, #Kafka
+    resource:lifeforce/kong
+  ]
+  consumesApis: [ifgid/user-service-api]
+  providesApis: [group-user-service-api]
+  usesLibraries:
+    - name: "rest-client"
+      implemented: False

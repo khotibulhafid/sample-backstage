@@ -1,0 +1,21 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: notification-service-uat
+  namespace: ao-product-engine
+  description: The notification service used as a notification center.
+  tags:
+    - backend
+    - service
+    - notification
+    - uat
+spec:
+  type: service
+  lifecycle: experimental
+  system: ao-product-engine/pas
+  owner: default/pas
+  providesApis: [notification-service-api-uat]
+  consumesApis: [ao-product-engine/storage-service-api-uat]
+  dependsOn: [resource:ao-workflow/ifgl-1awvh-prd-automation-db, resource:default/kafka, resource:ao-kong/kong]

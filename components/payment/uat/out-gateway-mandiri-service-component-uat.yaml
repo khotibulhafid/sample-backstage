@@ -1,0 +1,22 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: out-gateway-mandiri-service-uat
+  namespace: payment
+  description: Gateway for IFG Pay payment out to communicate with Mandiri
+  tags:
+  - component
+  - backend
+  - service
+  - payment
+  - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/ifgpay
+  system: ifgpay
+  dependsOn: [ resource:default/kafka ]
+  consumesApis: [ out-core-service-api-uat ]
+  providesApis: [ out-gateway-mandiri-service-api-uat ]

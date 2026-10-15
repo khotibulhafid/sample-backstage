@@ -1,0 +1,23 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: keycloak
+  namespace: automation
+  description: >
+    Keycloak instance used by Automation Tribe as the identity and access
+    management (IAM) provider for Kogito services, including
+    workflow runtime, user tasks, Data Index, Task Console,
+    and Management Console.
+  tags:
+    - keycloak
+    - iam
+    - security
+    - sso
+    - kogito
+    - workflow
+spec:
+  type: iam
+  owner: group:automation/automation
+  system: system:workflow/workflow-platform
+---

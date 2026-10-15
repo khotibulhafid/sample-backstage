@@ -1,0 +1,20 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: config-service
+  namespace: customer
+  description: config service for customerapps
+  tags:
+  - backend
+  - service
+  - configservice
+  - lifebyifg
+spec:
+  type: service
+  lifecycle: production
+  owner: default/lifebyifg
+  system: lifebyifg
+#  subcomponentOf: life-by-ifg-backend
+  providesApis: [config-service-api]

@@ -1,0 +1,71 @@
+---     
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: user-service
+  namespace: epics-portal
+  description: consist of integrating with Kong and azure about OAuth2, grouping menu that will be show at OneVerse Hub
+  tags:
+    - backend
+    - service
+    - lifehub
+    - quarkus
+  links:
+    - title: Source Repository
+    - url: https://code.ifg-life.id/projects/IFLH/repos/user-service-version2/browse
+    - title: Monitoring / Logs (Datadog)
+    - url: https://app.datadoghq.com/apm/entity/service:epics-portal-user-service
+    - title: Deployment (ArgoCD)
+    - url: https://deploy.ifg-life.id/applications/argocd/epics-portal-release-user-service
+    - title: Docker Image
+    - url: docker://docker-automation-operation.artifact.ifg-life.id/epics-portal/user-service-release
+    - title: Deployment YAML (Env & Config)
+    - url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-l4qdb-prd-prod-legacy-ao-epics-portal-release/browse/deployment.yaml?at=refs%2Fheads%2Fuser-service
+    - title: Base URL
+    - url: https://api-automation.ifg-life.id
+    - title: Liveness Endpoints
+    - url: https://localhost:8080/lifehub/q/health/live
+    - title: Readiness Endpoints
+    - url: https://localhost:8080/lifehub/q/health/ready
+    - title: Documentation
+    - url: https://code.ifg-life.id/projects/IFLH/repos/user-service-version2/browse/README.md
+spec:
+  type: REST
+  domain: domain:channel/channel-platform
+  owner: owner:channel/lifehub
+  system: system:channel/lifehub-system
+  lifecycle: production
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.24.3
+  auth:
+    method: [ApiKey, Keycloak]
+    notes: >
+      Service uses Kong Api Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: automation-prd
+    namespace: epics-portal
+  limits: 'default kong'
+  providesApis: [ao-lifehub/user-service-api]
+  dependsOn: [
+    resource:infra/eks-automation-core-prd, #Eks
+    resource:infra/automation-core-prd, #Cluster
+    resource:database/pg-automation, #PostgreSQL DB
+    resource:aowf/kong,
+    resource:automation/keycloak
+  ]
+  consumesApis: [
+    ao-hospital-network/hospital-service-api,
+    ifgid/ekyc-service-api,
+    lifeforce-individu/individu-new-business-service-api,
+    corporate/contract-service-api,
+    customer/user-wrapper-api,
+    customer/partner-service-api,
+    ao-lifehub/task-service-api
+  ]

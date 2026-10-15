@@ -1,0 +1,1618 @@
+---    
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-group
+################## Add Groups Here ##################
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: guests
+spec:
+  type: team
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: operational-it
+spec:
+  type: department
+  profile:
+    displayName: Operasional dan TI
+  children: [enterprise-architecture-platform, digital, it-operational-governance, operation-officer]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: enterprise-architecture-platform
+spec:
+  type: department
+  profile:
+    displayName: Enterprise Architecture And Platform
+  children: [backend-platform, frontend-platform, rnd-platform, workflow-platform]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: backend-platform
+spec:
+  type: department
+  profile:
+    displayName: Backend Platform
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: frontend-platform
+spec:
+  type: department
+  profile:
+    displayName: Frontend Platform
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: rnd-platform
+spec:
+  type: department
+  profile:
+    displayName: RnD Platform
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: workflow-platform
+spec:
+  type: department
+  profile:
+    displayName: Workflow Platform
+  children: [automation]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: automation
+spec:
+  type: department
+  profile:
+    displayName: Automation Platform
+  children: []
+---
+# apiVersion: backstage.io/v1alpha1
+# kind: Group
+# metadata:
+#   name: infrastructure
+#   namespace: default
+# spec:
+#   type: department
+#   profile:
+#     displayName: infrastructure
+#   children: [devops,incident-management]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: devops
+spec:
+  type: department
+  profile:
+    displayName: DevOps
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: incident-management
+spec:
+  type: department
+  profile:
+    displayName: incident-management
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: digital
+spec:
+  type: department
+  profile:
+    displayName: Digital
+  children: [legacy,lifespace,lifeforce-individu,lifenet,hospital-network,fraud,lifebyifg,pas,core,ifgid,lifeforce-corporate,onebyifg,lifehub,ifgpay,partnership,nbuw,pos,cws,data,claim,dplk,psak,interco,lifeforce-admin,lifeforce-remuneration,lifeforce-common]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: lifespace
+spec:
+  type: department
+  profile:
+    displayName: Life SPACE
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: legacy
+spec:
+  type: department
+  profile:
+    displayName: Legacy
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: lifeforce-individu
+spec:
+  type: department
+  profile:
+    displayName: Lifeforce Individu
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: lifeforce-remuneration
+spec:
+  type: department
+  profile:
+    displayName: Lifeforce Remuneration
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: lifeforce-admin
+spec:
+  type: department
+  profile:
+    displayName: Lifeforce Admin
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: lifeforce-common
+spec:
+  type: department
+  profile:
+    displayName: Lifeforce Common
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: lifenet
+spec:
+  type: department
+  profile:
+    displayName: Life NET
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: hospital-network
+spec:
+  type: department
+  profile:
+    displayName: Hospital Network
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: fraud
+spec:
+  type: department
+  profile:
+    displayName: Fraud
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: lifebyifg
+spec:
+  type: department
+  profile:
+    displayName: LifeByIFG
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: pas
+spec:
+  type: department
+  profile:
+    displayName: PAS
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: core
+spec:
+  type: department
+  profile:
+    displayName: CORE
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: ifgid
+spec:
+  type: department
+  profile:
+    displayName: IFG ID
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: lifeforce-corporate
+spec:
+  type: department
+  profile:
+    displayName: Lifeforce Corporate
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: onebyifg
+spec:
+  type: department
+  profile:
+    displayName: OneByIFG
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: oneverseinterco-group
+spec:
+  type: department
+  profile:
+    displayName: oneverseinterco-group
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: lifehub
+spec:
+  type: department
+  profile:
+    displayName: Life HUB
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: ifgpay
+spec:
+  type: department
+  profile:
+    displayName: IFG Pay
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: partnership
+spec:
+  type: department
+  profile:
+    displayName: Partnership
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: nbuw
+spec:
+  type: department
+  profile:
+    displayName: New Business and Underwriting
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: pos
+spec:
+  type: department
+  profile:
+    displayName: POS
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: claim
+spec:
+  type: department
+  profile:
+    displayName: Claim
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: cws
+spec:
+  type: department
+  profile:
+    displayName: Customer Website
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: workflow
+spec:
+  type: department
+  profile:
+    displayName: Workflow
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: dplk
+spec:
+  type: department
+  profile:
+    displayName: Dplk
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: interco
+spec:
+  type: department
+  profile:
+    displayName: Interco
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  namespace: default
+  name: icomply
+spec:
+  type: department
+  profile:
+    displayName: Icomply
+  children: []
+---
+### Refactor Group ###
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: infrastructure
+  namespace: infra
+  description: Infrastructure Department
+spec:
+  type: department
+  children:
+    - group:infra/devsecops
+    - group:infra/dba
+    - group:infra/network
+    - group:infra/security
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: devsecops
+  namespace: infra
+  description: Team responsible for CI/CD, Kubernetes, cloud infrastructure, and platform security automation
+spec:
+  type: team
+  parent: group:infra/infrastructure
+  owner: group:infra/infrastructure
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: dba
+  namespace: infra
+  description: Team responsible for database provisioning, performance, backup, recovery, and data security
+spec:
+  type: team
+  parent: group:infra/infrastructure
+  owner: group:infra/infrastructure
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: network
+  namespace: infra
+  description: Team responsible for networking infrastructure, connectivity, VPN, and cloud network operations
+spec:
+  type: team
+  parent: group:infra/infrastructure
+  owner: group:infra/infrastructure
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: security
+  namespace: infra
+  description: Team responsible for platform security, access control, vulnerability management, and compliance
+spec:
+  type: team
+  parent: group:infra/infrastructure
+  owner: group:infra/infrastructure
+  children: []
+---
+### Automation ###
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: automation
+  namespace: automation
+  description: Department responsible for process automation, workflow orchestration, and automation platform governance.
+spec:
+  type: tribe
+  children:
+    - group:automation/new-business
+    - group:automation/claim
+    - group:automation/policy-squad
+    - group:automation/fraud
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: new-business
+  namespace: automation
+  description: Squad responsible for New Business automation processes, account setup, and workflow management.
+spec:
+  type: squad
+  parent: group:automation
+  owner: group:automation
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: claim
+  namespace: automation
+  description: Squad responsible for Claims process automation, claim validation, and claims workflow management.
+spec:
+  type: squad
+  parent: group:automation
+  owner: group:automation
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: policy-squad
+  namespace: automation
+  description: Squad responsible for Policy Servicing automation, policy updates, and lifecycle management.
+spec:
+  type: squad
+  parent: group:automation
+  owner: group:automation
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: fraud
+  namespace: automation
+  description: Squad responsible for Fraud Detection automation, monitoring, and alerting systems.
+spec:
+  type: squad
+  parent: group:automation
+  owner: group:automation
+  children: []
+---
+
+### Core ###
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: core
+  namespace: core
+  description: Core department responsible for owning and governing the organization’s core business systems and rules.
+spec:
+  type: tribe
+  children:
+    - group:core/aas
+    - group:core/dcms
+    - group:core/pas
+    - group:core/product
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: aas
+  namespace: core
+  description: Squad responsible for managing business account lifecycle, account structures, and account-related business rules.
+spec:
+  type: squad
+  parent: group:core
+  owner: group:core
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: dcms
+  namespace: core
+  description: Squad responsible for managing business document and content metadata, classification, and document relationships with core entities.
+spec:
+  type: squad
+  parent: group:core
+  owner: group:core
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: pas
+  namespace: core
+  description: Squad responsible for policy lifecycle management, coverage definitions, endorsements, and core policy business rules.
+spec:
+  type: squad
+  parent: group:core
+  owner: group:core
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: product
+  namespace: core
+  description: Squad responsible for managing product definitions, configurations, versioning, and product-level business rules.
+spec:
+  type: squad
+  parent: group:core
+  owner: group:core
+  children: []
+---
+
+### Data ###
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: data
+  namespace: data
+  description: Data Department
+spec:
+  type: department
+  children:
+    - group:data/data-access
+    - group:data/data-lake
+    - group:data/data-visualization
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: data-access
+  namespace: data
+  description: Squad responsible for data access layer and integration
+spec:
+  type: squad
+  parent: group:data
+  owner: group:data
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: data-lake
+  namespace: data
+  description: Squad responsible for data ingestion and data lake platform
+spec:
+  type: squad
+  parent: group:data
+  owner: group:data
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: data-visualization
+  namespace: data
+  description: Squad responsible for BI, dashboard, and reporting
+spec:
+  type: squad
+  parent: group:data
+  owner: group:data
+  children: []
+---
+
+### Channel ###
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: channel
+  namespace: channel
+  description: Channel Tribe
+spec:
+  type: tribe
+  children:
+    - group:channel/lifeforce-group
+    - group:channel/lifeforce-individu
+    - group:channel/lifeforce-remuneration
+    - group:channel/lifeforce-admin
+    - group:channel/lifeforce-common
+    - group:channel/lifehub
+    - group:channel/lifenet-acquirer
+    - group:channel/lifenet-network
+    - group:channel/lifenet-issuer
+    - group:channel/lifenet-doctorhub
+    - group:channel/lifenet-pharmacyhub
+    - group:channel/lifespace
+    - group:channel/partnership
+    - group:channel/ifgpay
+    - group:channel/ifgid
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: lifeforce-group
+  namespace: channel
+  description: Squad responsible for lifeforce-group
+spec:
+  type: squad
+  parent: group:channel
+  owner: group:channel
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: lifeforce-individu
+  namespace: channel
+  description: Squad responsible for lifeforce-individu
+spec:
+  type: squad
+  parent: group:channel
+  owner: group:channel
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: lifeforce-admin
+  namespace: channel
+  description: >
+    Squad responsible for lifeforce-admin
+spec:
+  type: squad
+  parent: group:channel
+  owner: group:channel
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: lifeforce-remuneration
+  namespace: channel
+  description: >
+    Squad responsible for lifeforce-remuneration
+spec:
+  type: squad
+  parent: group:channel
+  owner: group:channel
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: lifeforce-common
+  namespace: channel
+  description: >
+    Squad responsible for lifeforce-common
+spec:
+  type: squad
+  parent: group:channel
+  owner: group:channel
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: lifehub
+  namespace: channel
+  description: Squad responsible for lifehub
+spec:
+  type: squad
+  parent: group:channel
+  owner: group:channel
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: lifenet
+  namespace: channel
+  description: Squad responsible for lifenet
+spec:
+  type: squad
+  parent: group:channel
+  owner: group:channel
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: lifespace
+  namespace: channel
+  description: Squad responsible for lifespace
+spec:
+  type: squad
+  parent: group:channel
+  owner: group:channel
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: partnership
+  namespace: channel
+  description: Squad responsible for partnership
+spec:
+  type: squad
+  parent: group:channel
+  owner: group:channel
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: ifgpay
+  namespace: channel
+  description: Squad responsible for ifgpay
+spec:
+  type: squad
+  parent: group:channel
+  owner: group:channel
+  children: []
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: ifgid
+  namespace: channel
+  description: Squad responsible for ifgid
+spec:
+  type: squad
+  parent: group:channel
+  owner: group:channel
+  children: []
+---
+
+
+
+################## Add Users Here ##################
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: garry.alfanzo
+spec:
+  profile:
+    displayName: Garry Alfanzo
+  memberOf:
+    - enterprise-architecture-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: michael.kusuma
+spec:
+  profile:
+    displayName: Michael Kusuma
+  memberOf:
+    - frontend-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: kurnia.yusup
+spec:
+  profile:
+    displayName: Kurnia Yusup
+  memberOf:
+    - backend-platform
+    - cws
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: deta.satrio
+spec:
+  profile:
+    displayName: Deta Teguh Satrio
+  memberOf:
+    - frontend-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: arthur.caesar
+spec:
+  profile:
+    displayName: Arthur Caesar
+  memberOf:
+    - frontend-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: rana.dewadatta
+spec:
+  profile:
+    displayName: Gede Rana Dewadatta
+  memberOf:
+    - backend-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: ryifki.yidan
+spec:
+  profile:
+    displayName: Ryifki Yidan
+  memberOf:
+    - frontend-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: achmad.doohan
+spec:
+  profile:
+    displayName: Achmad Doohan
+  memberOf:
+    - devops
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: joshua.ellyson
+spec:
+  profile:
+    displayName: Joshua Roham Ellyson
+  memberOf:
+    - infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: adrian.taslim
+spec:
+  profile:
+    displayName: Adrian Putra Taslim
+  memberOf:
+    - digital
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: setyoadi.rahman
+spec:
+  profile:
+    displayName: Setyoadi Rahman
+  memberOf:
+    - devops
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: denny.ramadhan
+spec:
+  profile:
+    displayName: Denny Ramadhan
+  memberOf:
+    - devops
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: krisna.judha
+spec:
+  profile:
+    displayName: Krisna Judha
+  memberOf:
+    - devops
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: asep.ridwanullah
+spec:
+  profile:
+    displayName: Asep Ridwanullah
+  memberOf:
+    - lifespace
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: galih.tias
+spec:
+  profile:
+    displayName: Galih Tias
+  memberOf:
+    - lifebyifg
+    - partnership
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: dion.syam
+spec:
+  profile:
+    displayName: Dion Syam
+  memberOf:
+    - pas
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: dicky.adriansyah
+spec:
+  profile:
+    displayName: Dicky Adriansyah
+  memberOf:
+    - pas
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: arvan.novandianto
+spec:
+  profile:
+    displayName: Arvan Novandianto
+  memberOf:
+    - fraud
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: kevin.alvianda
+spec:
+  profile:
+    displayName: Kevin Alvianda
+  memberOf:
+    - onebyifg
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: zikri.khairan
+spec:
+  profile:
+    displayName: Zikri Khairan
+  memberOf:
+    - lifehub
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: fajri.illahi
+spec:
+  profile:
+    displayName: Fajri Illahi
+  memberOf:
+    - lifeforce-corporate
+    - legacy
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: ivo.setyadi
+spec:
+  profile:
+    displayName: Ivo Setyadi
+  memberOf:
+    - core
+    - pas
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: narpati.wisjnu
+spec:
+  profile:
+    displayName: Narpati Wisjnu
+  memberOf:
+    - lifenet
+    - hospital-network
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: fahmi.lubis
+spec:
+  profile:
+    displayName: Fahmi Otapriyansyah Lubis
+  memberOf:
+    - lifeforce-individu
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: khotibul.hafid
+spec:
+  profile:
+    displayName: Khotibul Hafid
+  memberOf:
+    - ifgid
+    - data
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: cherlie.gunawan
+spec:
+  profile:
+    displayName: Cherlie Gunawan
+  memberOf:
+    - ifgpay
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: ruchi
+spec:
+  profile:
+    displayName: Ruchi Intan
+  memberOf:
+    - claim
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: arif.rahman
+spec:
+  profile:
+    displayName: Arif Rahman Bintoro
+  memberOf:
+    - core
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: budi.suryadi
+spec:
+  profile:
+    displayName: Budi Suryadi
+  memberOf:
+    - pas
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: arief.syaifuddin
+spec:
+  profile:
+    displayName: Arief Syaifuddin
+  memberOf:
+    - legacy
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: frendy.wijaya
+spec:
+  profile:
+    displayName: Frendy Wijaya
+  memberOf:
+    - ifgpay
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: zuliady.azwin
+spec:
+  profile:
+    displayName: Zuliady Azwin
+  memberOf:
+    - lifehub
+    - fraud
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: felicia.wijaya
+spec:
+  profile:
+    displayName: Felicia Wijaya
+  memberOf:
+    - pos
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: fujhi.suryadi
+spec:
+  profile:
+    displayName: Fujhi Suryadi
+  memberOf:
+    - nbuw
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: fikri.arif
+spec:
+  profile:
+    displayName: Fikri Ibrahim Arif
+  memberOf:
+    - pas
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: halwa.zahra
+spec:
+  profile:
+    displayName: Halwa Raudhah Zahra
+  memberOf:
+    - pas
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: rendika.perlyanza
+spec:
+  profile:
+    displayName: Rendika Perlyanza
+  memberOf:
+    - lifespace
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: bobby.yohanes
+spec:
+  profile:
+    displayName: Bobby Yohanes
+  memberOf:
+    - core
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: daniel.arga
+spec:
+  profile:
+    displayName: Daniel Arga Amallo
+  memberOf:
+    - pas
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: nurgustianto.bahdar
+spec:
+  profile:
+    displayName: Nurgustianto Bahdar
+  memberOf:
+    - lifenet
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: arif.febriansyah
+spec:
+  profile:
+    displayName: Arif Febriansyah
+  memberOf:
+    - lifeforce-individu
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: fahmi.putra
+spec:
+  profile:
+    displayName: Fahmi Abdi Putra
+  memberOf:
+    - product-config
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: dian.zn
+spec:
+  profile:
+    displayName: Dian ZN
+  memberOf:
+    - lifehub
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: muhamad.muchlis
+spec:
+  profile:
+    displayName: Muhamad Muchlis
+  memberOf:
+    - product-config
+    - fraud
+    - pas
+    - core
+    - partnership
+    - nbuw
+    - pos
+    - claim
+    - dplk
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: muhammad.rosyadi
+spec:
+  profile:
+    displayName: Muhammad Rosyadi
+  memberOf:
+    - epics
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: sean.zeliq
+spec:
+  profile:
+    displayName: Sean Zeliq
+  memberOf:
+    - dplk
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: sudiwanta.eka
+spec:
+  profile:
+    displayName: Sudiwanta Eka
+  memberOf:
+    - legacy
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: iskandar.wahyudi
+spec:
+  profile:
+    displayName: Iskandar Wahyudi
+  memberOf:
+    - psak
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: salman.farid
+spec:
+  profile:
+    displayName: Salman Farid
+  memberOf:
+    - legacy
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: ivanny.silvi
+spec:
+  profile:
+    displayName: Ivanny Silvi
+  memberOf:
+    - lifebyifg
+    - claim
+    - fraud
+    - hospital-network
+    - lifehub
+    - nbuw
+    - pos
+    - pas
+    - lifeforce-individu
+    - lifeforce-corporate
+    - lifeforce-remuneration
+    - lifeforce-admin
+    - lifeforce-common
+    - partnership
+    - cws
+    - onebyifg
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: jonizar
+spec:
+  profile:
+    displayName: Jonizar
+  memberOf:
+    - interco
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: dedi.susanto
+spec:
+  profile:
+    displayName: Dedi Susanto
+  memberOf:
+    - interco
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: tiffan
+spec:
+  profile:
+    displayName: Tiffan
+  memberOf:
+    - interco
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: alfan.yatmoko
+spec:
+  profile:
+    displayName: Alfan Heru Yatmoko
+  memberOf:
+    - lifehub
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: ananda.ikhsan
+spec:
+  profile:
+    displayName: Ananda Muhammad Ikhsan
+  memberOf:
+    - nbuw
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: baiq.azmi
+spec:
+  profile:
+    displayName: Baiq Nurul Azmi
+  memberOf:
+    - interco
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: nando.hidayat
+spec:
+  profile:
+    displayName: Muhammad Nando Hidayat
+  memberOf:
+    - ifgpay
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: mochamad.pangaji
+spec:
+  profile:
+    displayName: Mochamad Nugroho Bondo Pangaji
+  memberOf:
+    - ifgpay
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: hario.wibowo
+spec:
+  profile:
+    displayName: Hario Tri Wibowo
+  memberOf:
+    - ifgpay
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: fadhil.darma
+spec:
+  profile:
+    displayName: Fadhil Darma Putera Zagato
+  memberOf:
+    - core
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: afdhal.yaned
+spec:
+  profile:
+    displayName: Afdhal Yaned
+  memberOf:
+    - partnership
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: doni.bramantya
+spec:
+  profile:
+    displayName: Doni Bramantya
+  memberOf:
+    - partnership
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: enrisa.pranata
+spec:
+  profile:
+    displayName: Enrisa Pranata
+  memberOf:
+    - ps
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: gery.octavansyah
+spec:
+  profile:
+    displayName: Gery Octavansyah
+  memberOf:
+    - aicoe
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: triana.rukmi
+spec:
+  profile:
+    displayName: Triana Mustika Rukmi
+  memberOf:
+    - operation-platform-department
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: arge.satria
+spec:
+  profile:
+    displayName: Arge Kurnia Satria
+  memberOf:
+    - nbuw
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: arvino
+spec:
+  profile:
+    displayName: Arvino
+  memberOf:
+    - icomply
+---
+apiVersion: backstage.io/v1alpha1
+kind: User
+metadata:
+  namespace: default
+  name: iwan.rendra
+spec:
+  profile:
+    displayName: Iwan Rendra
+  memberOf:
+    - icomply

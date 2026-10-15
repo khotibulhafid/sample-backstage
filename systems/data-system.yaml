@@ -1,0 +1,102 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: data-access-system
+  namespace: data
+  title: Data Access
+  description: >
+    Provides standardized access to data through APIs and query interfaces for internal and external consumers.
+  tags:
+    - data
+    - access
+    - api
+    - platform
+spec:
+  owner: group:data
+  domain: domain:data/data-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: data-ingestion-system
+  namespace: data
+  title: Data Ingestion
+  description: >
+    Handles ingestion of batch and streaming data from multiple sources into the data platform.
+  tags:
+    - data
+    - ingestion
+    - batch
+    - streaming
+spec:
+  owner: group:data
+  domain: domain:data/data-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: data-migration-system
+  namespace: data
+  title: Data Migration
+  description: >
+    Manages data migration, transformation, and backfilling across data stores and platforms.
+  tags:
+    - data
+    - migration
+    - transformation
+    - platform
+spec:
+  owner: group:data
+  domain: domain:data/data-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: data-reporting-system
+  namespace: data
+  title: Data Reporting
+  description: >
+    Provides reporting, analytics, and data visualization capabilities for business and operational use cases.
+  tags:
+    - data
+    - reporting
+    - analytics
+    - visualization
+spec:
+  owner: group:data
+  domain: domain:data/data-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: data-scheduler-system
+  namespace: data
+  title: Data Scheduler
+  description: >
+    Orchestrates scheduled data jobs, workflows, and pipeline executions across the data platform.
+  tags:
+    - data
+    - scheduler
+    - orchestration
+spec:
+  owner: group:data
+  domain: domain:data/data-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: data-stream-system
+  namespace: data
+  title: Data Streaming
+  description: >
+    Supports real-time data streaming, event processing, and stream-based integrations across the data platform.
+  tags:
+    - data
+    - streaming
+    - realtime
+    - events
+    - mongodb
+spec:
+  owner: group:data
+  domain: domain:data/data-platform

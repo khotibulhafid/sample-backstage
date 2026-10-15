@@ -1,0 +1,70 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: billing-service
+  namespace: ao-new-business
+  description: billing-service is service for managing the billing, invoicing, and payment settlement lifecycle
+  tags:
+    - component
+    - backend
+    - service
+    - billing
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFNB/repos/billing-service/browse
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:nb-billing-service
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/ao-new-business-release-billing-service
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-new-business/billing-service-release
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-1awvh-prd-prod-automation-ao-new-business-release/browse/deployment.yaml?at=refs%2Fheads%2Fbilling-service
+    - title: Liveness Endpoints
+      url: https://localhost:8080/q/health/live
+    - title: Readiness Endpoints
+      url: https://localhost:8080/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFNB/repos/billing-service/browse/README.md
+    - title: Base URL
+      url: https://api-core.ifg-life.id
+spec:
+  type: REST
+  owner: group:core/pas
+  system: system:core/policy-administration-system
+  domain: domain:core/core-business
+  lifecycle: production
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.24.3
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: 1awvh
+    namespace: ao-new-business
+  limits: 'default kong'
+  dependsOn: [
+    resource:default/eks-1awvh-prd, #EKS
+    resource:infra/cluster-1awvh-prd, #Cluster
+    resource:ao-workflow/ifgl-1awvh-prd-automation-db, #PostgreSQL DB
+    resource:core/kong #Gateway
+  ]
+  consumeApis: [
+    api:payment/gateway-biller-api #IFGPay
+  ]
+  providesApis: [
+    api:ao-new-business/billing-service-api
+  ]
+  usesLibraries:
+    - name: "rest-client"
+      implemented: False

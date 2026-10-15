@@ -1,0 +1,20 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: out-gateway-cts-service-api
+  namespace: payment
+  description: Gateway for IFG Pay payment out services to connect to CTS to do tokenization and detokenization
+  tags:
+  - api
+  - backend
+  - service
+  - payment
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/ifgpay
+  system: ifgpay
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifpy---payment/browse/out-gateway-cts-service

@@ -1,0 +1,21 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: utility-scheduler-uat
+  namespace: payment
+  description: Scheduler utility to trigger scheduled processes
+  tags:
+  - component
+  - backend
+  - service
+  - payment
+  - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/ifgpay
+  system: ifgpay
+  dependsOn: [ resource:db-payment ]
+  consumesApis: [ core-services-api-uat,recurring-service-api-uat ]

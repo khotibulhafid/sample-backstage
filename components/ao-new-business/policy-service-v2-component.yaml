@@ -1,0 +1,71 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: policy-service-v2
+  namespace: ao-new-business
+  description: The policy-service-v2 api in new-business
+  tags:
+    - component
+    - backend
+    - service
+    - policy
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFNB/repos/policy-service-v2/browse
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:nb-policy-service-v2
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/ao-new-business-release-policy-service-v2
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-new-business/policy-service-v2-release:100
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-1awvh-prd-prod-automation-ao-new-business-release/browse?at=refs%2Fheads%2Fpolicy-service-v2
+    - title: Liveness Endpoints
+      url: https://localhost:8080/q/health/live
+    - title: Readiness Endpoints
+      url: https://localhost:8080/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFNB/repos/policy-service-v2/browse/README.md
+    - title: Base URL
+      url: https://api-core.ifg-life.id
+spec:
+  type: service
+  lifecycle: production
+  owner: group:core/pas
+  system: system:core/policy-administration-system
+  domain: domain:core/core-business
+  consumeApis: [
+    api:ifgid/ekyc-service-api
+  ]
+  providesApis: [
+    api:ao-new-business/policy-service-v2-api
+  ]
+  dependsOn: [
+    resource:default/eks-1awvh-prd, #EKS
+    resource:infra/cluster-1awvh-prd, #Cluster
+    resource:ao-workflow/ifgl-1awvh-prd-automation-db, #PostgreSQL DB
+    resource:database/ifgretail, #Oracle DB
+    resource:database/ifgebp, #Oracle DB
+    resource:database/ifgnonebp, #Oracle DB
+    resource:database/ifgaskes, #Oracle DB
+    resource:core/kong #Gateway
+  ]
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.29.3
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: 1awvh
+    namespace: ao-new-business
+  limits: 'default kong'

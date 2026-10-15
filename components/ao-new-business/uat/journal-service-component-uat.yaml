@@ -1,0 +1,70 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: journal-service
+  namespace: ao-new-business
+  description: The journal-service is service that manages accounting journaling processes, including transaction processing (claims, settlement, general journals) and journal/slip template management
+  tags:
+    - component
+    - backend
+    - service
+    - journal
+    - quarkus
+    - uat
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFNB/repos/journal-service/browse
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:nb-journal-service
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/ao-new-business-uat-journal-service
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-new-business/journal-service-uat:latest
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-pflcb-nprd-uat-automation-ao-new-business-uat/browse/deployment.yaml?at=refs%2Fheads%2Fjournal-service
+    - title: Liveness Endpoints
+      url: https://localhost:8080/q/health/live
+    - title: Readiness Endpoints
+      url: https://localhost:8080/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFNB/repos/journal-service/browse/README.md
+spec:
+  type: REST
+  owner: group:core/pas
+  system: system:core/policy-administration-system
+  domain: domain:core/core-business
+  lifecycle: experimental
+  environments: uat
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.24.3
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: 1awvh
+    namespace: ao-new-business
+  limits: 'default kong'
+  dependsOn: [
+    resource:default/eks-1awvh-prd, #EKS
+    resource:infra/cluster-1awvh-prd, #Cluster
+    resource:database/ifgretail, #Oracle DB
+    resource:database/ifgfinance, #Oracle DB
+    resource:core/kong #Gateway
+  ]
+  consumeApis: [
+    #    api:core/policy-service-v2-api
+  ]
+  providesApis: [
+    #    api:core/journal-service-api
+  ]
+  usesLibraries:
+    - name: "rest-client"
+      implemented: False

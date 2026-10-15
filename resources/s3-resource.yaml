@@ -1,0 +1,376 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: lifebyifg-s3
+  namespace: default
+  description: to store image and asset forlife by ifg system
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/lifebyifg
+  system: lifebyifg
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: customer-cws
+  description: to store image and asset for customer-cws
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/cws
+  system: cws
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: lifespace-s3
+  description: to store image and asset for lifespace
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/lifespace
+  system: lifespace
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ifgid-s3
+  description: to store image and asset for ifgid-s3
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/ifgid
+  system: ifgid
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: onebyifg-s3
+  description: to store image and asset for onebyifg-s3
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/onebyifg
+  system: onebyifg
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: onebyifg-lb-log-s3
+  description: to store image and asset for onebyifg-lb-log-s3
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/onebyifg
+  system: onebyifg
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: prd-ao-policy
+  namespace: infrastructure
+  description: to store image and asset for correspondence system
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/pas
+  system: ao-product-engine/pas
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: prd-cm-recording
+  namespace: infrastructure
+  description: to store image and asset for recording infomedia
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/infrastructure
+  system: infrastructure/infra
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: prd-legacy-mifg
+  description: to store image and asset for legacy mifg
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/legacy
+  system: legacy
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: prd-legacy-welcomingcall
+  description: to store image and asset for legacy welcomingcall
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/legacy
+  system: legacy
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ctm-cts-accesslog
+  description: to store image and asset for ctm cts accesslog
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/ifgpay
+  system: ifgpay
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: internet-ifgpay-accesslogs
+  description: to store image and asset for internet ifgpay accesslogs
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/ifgpay
+  system: ifgpay
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: security-ctathenaresult
+  namespace: infrastructure
+  description: to store image and asset for security ctathenaresultlogs
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/infrastructure
+  system: infrastructure/infra
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: js-oracle-backup
+  namespace: infrastructure
+  description: to store image and asset for backup datafile oracle-js
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/infrastructure
+  system: infrastructure/infra
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: oracle-s3-bck
+  namespace: infrastructure
+  description: to store image and asset for backup datafile oracle-ifglife
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/infrastructure
+  system: infrastructure/infra
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: digitalcare-s3
+  description: to store image and asset forlife digitalcare system
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/infrastructure
+  system: infrastructure/infra
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: lifenet-s3
+  description: to store image and asset for lifenet system
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/lifenet
+  system: lifenet
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: lifeforce-group-s3
+  description: to store image and asset for lifeforce-group system
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/lifeforce
+  system: lifeforce
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: lifeforce-individu-s3
+  description: to store image and asset for lifeforce-individu system
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/lifeforce
+  system: lifeforce
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: lifeforce-s3
+  description: to store image and asset for lifeforce system
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/lifeforce
+  system: lifeforce
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: aims-s3
+  namespace: infrastructure
+  description: to store image and asset for aimslogs system
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/infrastructure
+  system: infrastructure/infra
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: aman-s3
+  namespace: infrastructure
+  description: to store image and asset for amanlogs system
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/infrastructure
+  system: infrastructure/infra
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: customer-s3
+  namespace: infrastructure
+  description: to store image and asset for customerlogs system
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/infrastructure
+  system: infrastructure/infra
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: h2hlegacy-s3
+  namespace: infrastructure
+  description: to store image and asset for h2hlegacylogs system
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/infrastructure
+  system: infrastructure/infra
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: tgw-logs-s3
+  namespace: infrastructure
+  description: to store image and asset for tgw-logs system
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/infrastructure
+  system: infrastructure/infra
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: artifact-prd
+  namespace: infrastructure
+  description: to store image and asset for artifact system
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/infrastructure
+  system: infrastructure/infra
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: database-backup-prd
+  namespace: infrastructure
+  description: to store image and asset for database backup system
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/infrastructure
+  system: infrastructure/infra
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: k8s-backup-prd
+  namespace: infrastructure
+  description: to store image and asset for kasten backup system
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/infrastructure
+  system: infrastructure/infra
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: k8s-infra-backup
+  namespace: infrastructure
+  description: to store image and asset for kasten backup system
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/infrastructure
+  system: infrastructure/infra
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: k8s-infra-backup
+  namespace: infrastructure
+  description: to store image and asset for kasten backup system
+  tags:
+    - s3
+spec:
+  type: s3-bucket
+  owner: default/infrastructure
+  system: infrastructure/infra

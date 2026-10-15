@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: hospital-service-api
+  namespace: ao-hospital-network
+  description: The hospital network service api in hospital network
+  tags:
+    - api
+    - backend
+    - service
+    - hospital-network
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/hospital-network
+  system: hospital-network
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifhn---hospital-network/browse/hospital-service

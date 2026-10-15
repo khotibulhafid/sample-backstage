@@ -1,0 +1,70 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: proposal-service-v2
+  namespace: ao-new-business
+  description: The proposal-service-v2 api in new-business
+  tags:
+    - component
+    - backend
+    - service
+    - proposal
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFNB/repos/proposal-service-v2/browse
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:nb-proposal-service-v2
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/ao-new-business-release-proposal-service-v2
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-new-business/proposal-service-v2-release:49
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-1awvh-prd-prod-automation-ao-new-business-release/browse?at=refs%2Fheads%2Fproposal-service-v2
+    - title: Liveness Endpoints
+      url: https://localhost:8080/q/health/live
+    - title: Readiness Endpoints
+      url: https://localhost:8080/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFNB/repos/proposal-service-v2/browse/README.md
+    - title: Base URL
+      url: https://api-core.ifg-life.id
+    - title: Kafka Topic List
+      url: https://code.ifg-life.id/projects/IFNB/repos/proposal-service-v2/browse/kafka_topic_documentation.md
+    - title: Sample Kafka Message
+      url: https://code.ifg-life.id/projects/IFNB/repos/proposal-service-v2/browse/kafka_topic_documentation.md
+spec:
+  type: service
+  lifecycle: production
+  owner: group:core/pas
+  system: system:core/policy-administration-system
+  domain: domain:core/core-business
+  consumeApis: []
+  providesApis: [
+    api:ao-new-business/proposal-service-v2-api
+  ]
+  dependsOn: [
+    resource:default/eks-1awvh-prd, #EKS
+    resource:infra/cluster-1awvh-prd, #Cluster
+    resource:ao-workflow/ifgl-1awvh-prd-automation-db, #PostgreSQL DB
+    resource:core/kong, #Gateway,
+    resource:infra/kafka
+  ]
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.29.3
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: 1awvh
+    namespace: ao-new-business
+  limits: 'default kong'

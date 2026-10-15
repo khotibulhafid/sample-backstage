@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: product-service-api
+  namespace: oneifg
+  description: The Product service api for Querying product lifesaver, JRP or BTIM
+  tags:
+  - api
+  - backend
+  - service
+  - onebyifg
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/onebyifg
+  system: onebyifg
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifoi---one-ifg/browse/product-service

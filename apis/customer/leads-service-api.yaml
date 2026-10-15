@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: config-service-api
+  namespace: customer
+  description: The config service api for Leads feature in customerapps
+  tags:
+    - api
+    - backend
+    - service
+    - customer
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/lifebyifg
+  system: lifebyifg
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ictr---customer/browse/leads-service

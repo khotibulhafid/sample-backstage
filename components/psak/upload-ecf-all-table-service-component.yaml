@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: upload-ecf-all-table-service-component
+  namespace: psak
+  description: Upload service for expected cashflow to GBQ and/or dbpsak
+  tags:
+    - component
+    - backend
+    - service
+    - psak
+    - uat
+spec:
+  type: service
+  lifecycle: production
+  owner: default/psak
+  system: psak
+  dependsOn: [
+    resource:default/cluster-psak-prd, #Cluster
+    resource:default/eks-psak-prd, #EKS
+    resource:default/psak, #Namespace
+    resource:psak/kong,
+    resource:psak/konga,
+    resource:default/mongo
+  ]
+  consumesApis: [ ]
+  providesApis: [ upload-ecf-all-table-service-api]

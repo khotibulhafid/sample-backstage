@@ -1,0 +1,10 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: pos
+  namespace: ao-pos
+  description: Policy Operation System management, handling day-to-day policy (during life cycle policy) and policy maintenance.
+spec:
+  owner: default/pos
+  domain: default/pos

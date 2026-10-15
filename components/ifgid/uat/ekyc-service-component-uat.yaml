@@ -1,0 +1,22 @@
+---     
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ekyc-service-uat
+  namespace: ifgid
+  description: Service for EKYC Related for All Channel / Tribe
+  tags:
+    - component
+    - backend
+    - service
+    - ifgid
+    - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/ifgid
+  system: ifgid
+  dependsOn: [ resource:default/ifgid-prd, resource:default/prd-ifgid, resource:default/ifgid-s3, resource:default/ifgid-prd-13-2, resource:default/third-party ]
+  consumesApis: [ user-service-api-uat, meta-service-api-uat, storage-service-api-uat ]
+  providesApis: [ ekyc-service-api-uat ]

@@ -1,0 +1,21 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: fraud-service-uat
+  namespace: ao-fraud
+  description: The fraud service for automation fraud service
+  tags:
+    - backend
+    - service
+    - fraud
+    - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/fraud
+  system: fraud
+#  subcomponentOf: pas-correspondence
+  dependsOn: [resource:database/ifgl-l4qdb-prd-automation,resource:ao-kong/kong]
+  providesApis: [ao-fraud/fraud-service-api-uat]

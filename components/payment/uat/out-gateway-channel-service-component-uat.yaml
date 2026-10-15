@@ -1,0 +1,22 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: out-gateway-channel-service-uat
+  namespace: payment
+  description: Gateway for channels to request payment out features from IFG Pay
+  tags:
+  - component
+  - backend
+  - service
+  - payment
+  - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/ifgpay
+  system: ifgpay
+  dependsOn: [ resource:default/kafka ]
+  consumesApis: [ out-core-service-api-uat ]
+  providesApis: [ out-gateway-channel-service-api-uat ]

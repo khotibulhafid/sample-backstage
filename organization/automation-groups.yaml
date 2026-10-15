@@ -1,0 +1,60 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: automation
+  namespace: automation
+  description: Department responsible for process automation, workflow orchestration, and automation platform governance.
+spec:
+  type: tribe
+  children:
+    - group:automation/new-business
+    - group:automation/claim
+    - group:automation/policy-squad
+    - group:automation/fraud
+    - group:automation/hospital
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: nb
+  namespace: automation
+  description: Squad responsible for New Business automation processes, account setup, and workflow management.
+spec:
+  type: squad
+  parent: group:automation
+  owner: group:automation
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: claim
+  namespace: automation
+  description: Squad responsible for Claims process automation, claim validation, and claims workflow management.
+spec:
+  type: squad
+  parent: group:automation
+  owner: group:automation
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: policy-squad
+  namespace: automation
+  description: Squad responsible for Policy Servicing automation, policy updates, and lifecycle management.
+spec:
+  type: squad
+  parent: group:automation
+  owner: group:automation
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: fraud
+  namespace: automation
+  description: Squad responsible for Fraud Detection automation, monitoring, and alerting systems.
+spec:
+  type: squad
+  parent: group:automation
+  owner: group:automation
+---

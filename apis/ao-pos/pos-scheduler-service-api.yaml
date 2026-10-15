@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: pos-scheduler-service-api
+  namespace: ao-pos
+  description: The pos scheduler service api for automatic trigger in pos
+  tags:
+    - api
+    - backend
+    - service
+    - pos-scheduler
+    - pos
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/pos
+  system: ao-pos/pos
+  domain: automation
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifpo---pos/browse/pos-scheduler-service

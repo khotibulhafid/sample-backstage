@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: correspondence-wrapper-api
+  namespace: customer
+  description: API wrapper to correspondence internal service
+  tags:
+    - api
+    - backend
+    - service
+    - correspondence
+spec:
+  type: openapi
+  owner: group:core/dcms
+  system: system:core/document-content-management-system
+  domain: domain:customer/lifebyifg
+  lifecycle: production
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifpc---correspondence/browse/correspondence-wrapper?at=release

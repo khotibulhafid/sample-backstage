@@ -1,0 +1,10 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: lifespace
+  namespace: corporate
+  description: LifeSPACE is a web-based insurance application owned by IFG Life, targeting corporate policyholders. Its primary focus is to provide services for downloading policy information, participant information, submitting policy changes, and processing claims.
+spec:
+  owner: default/lifespace
+  domain: corporate/lifespace

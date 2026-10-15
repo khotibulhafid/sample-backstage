@@ -1,0 +1,10 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: nbuw
+  namespace: ao-new-business
+  description: Handling the creation of proposals and created policy.
+spec:
+  owner: default/nbuw
+  domain: default/nbuw

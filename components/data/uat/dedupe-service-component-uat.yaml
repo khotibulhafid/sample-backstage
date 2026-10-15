@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: dedupe-service-uat
+  namespace: data
+  description: Dedupe Service for Mongo DB
+  tags:
+    - component
+    - backend
+    - service
+    - data
+    - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/data
+  system: data
+  dependsOn: [
+    resource:default/cluster-data-prd, #Cluster
+    resource:default/eks-data-prd, #EKS
+    resource:default/data, #Namespace
+    resource:data/kong,
+    resource:data/konga,
+    resource:default/mongo
+  ]
+  consumesApis: [ ]
+  providesApis: [ dedupe-service-api-uat ]

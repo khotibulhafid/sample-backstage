@@ -1,0 +1,74 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ao-workflow-claim
+  namespace: ao-workflow
+  description: The claim workflow service for automation claim service
+  tags:
+    - backend
+    - service
+    - claim
+    - workflow
+    - wrapper
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFAO/repos/ao-workflow-claim/browse
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:ao-workflow-claim
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/workflow-claim-release-claim-workflow
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-workflow-version2/backend-service/claim-workflow-release
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-l4qdb-prd-prod-legacy-ao-workflow-claim-release/browse/deployment.yaml?at=refs%2Fheads%2Fclaim-workflow
+    - title: Base URL
+      url: http://ao-workflow-claim:8080
+    - title: Liveness Endpoints
+      url: http://ao-workflow-claim:8080/q/health/live
+    - title: Readiness Endpoints
+      url: http://ao-workflow-claim:8080/q/health/ready
+    - title: Kafka Topic List
+      url: https://code.ifg-life.id/projects/IFAO/repos/ao-workflow-claim-version2/browse/kafka_topic_documentation.md
+    - title: Sample Kafka Message
+      url: https://code.ifg-life.id/projects/IFAO/repos/ao-workflow-claim-version2/browse/kafka_topic_documentation.md
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFAO/repos/ao-workflow-claim-version2/browse/README.md
+spec:
+  type: workflow
+  owner: group:automation/claim
+  system: system:automation/claim-automation-system
+  domain: domain:automation/process-automation
+  lifecycle: production
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.8.6.1
+  workflow:
+    version: 2.44.0.Alpha
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  dependsOn: [
+    resource:default/prd-automation, #EKS
+    resource:infra/1awvh-prd-prod-automation-az2, #Cluster
+    resource:infra/kafka,
+    resource:automation/keycloak,
+    resource:claim/data-index,
+    resource:claim/infinispan,
+    resource:claim/kogito-management-console,
+    resource:claim/kogito-task-console
+  ]
+  runtime:
+    cluster: 1awvh-prd-prod-automation-az2
+    namespace: ao-workflow
+  providesApis: [ ao-workflow-claim-api ]
+  consumeApis: [ ao-workflow-claim-wrapper-api ]
+  limits: '-'

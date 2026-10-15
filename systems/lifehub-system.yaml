@@ -1,0 +1,10 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: lifehub
+  namespace: ao-lifehub
+  description: Life Hub System
+spec:
+  owner: default/lifehub
+  domain: ao-lifehub/lifehub

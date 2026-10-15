@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: scheduler-service-api
+  namespace: ao-claim
+  description: The scheduler service in claim
+  tags:
+    - api
+    - backend
+    - service
+    - claim
+    - scheduler
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/claim
+  system: claim
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifcl---claim/browse/scheduler-service

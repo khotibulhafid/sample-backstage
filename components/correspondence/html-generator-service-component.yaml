@@ -1,0 +1,70 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: html-generator-service
+  namespace: dev-product-engine
+  description: Generate HTML output based on template and combine HTML sub-components to create a full document
+  tags:
+    - backend
+    - generator
+    - component
+    - dcms
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFPC/repos/html-generator-service/browse
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFPC/repos/html-generator-service/browse/README.md
+#    - title: Monitoring / Logs (Datadog)
+#      url: <url_datadog>
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/dev-product-engine-development-html-generator-service
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-product-engine/correspondence/document-generator-service-development:latest
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-pflcb-nprd-dev-automation-pas-corespondence-dev/browse?at=html-generator-service
+    - title: Base URL
+      url: https://api-core-dev.ifg-life.id
+    - title: Liveness Endpoints
+      url: http://html-generator-service:8080/q/health/live
+#    - title: Readiness Endpoints
+#      url: <url_readiness>
+    - title: Swagger / Open API
+      url: http://html-generator-service:8080/q/openapi
+#    - title: Kafka Topic List
+#      url: <url_kafka_topic_list>
+#    - title: Sample Kafka Message
+#      url: <url_sample_kafka_message>
+spec:
+  type: REST
+  owner: group:core/dcms
+  system: system:core/document-content-management-system
+  domain: domain:core/core-business
+  lifecycle: experimental
+  environments: development
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.26.2
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: autouat-pflcb-az2
+    namespace: dev-product-engine
+  limits: 'default kong'
+  providesApis: [
+    api:dev-product-engine/html-generator-service-api
+  ]
+  consumesApis: []
+  dependsOn: [
+    resource:cluster/autouat-pflcb-az2,
+    resource:namespace/dev-product-engine,
+    resource:kong/ao-kong
+  ]

@@ -1,0 +1,77 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kogito-management-console
+  namespace: claim
+  description: >
+    Kogito Management Console used by Claim squad to monitor and manage workflow executions, process instances, and system health.
+  tags:
+    - kogito
+    - management-console
+    - workflow
+    - monitoring
+spec:
+  type: ui
+  owner: group:automation/claim
+  system: system:workflow/workflow-platform
+  dependsOn:
+    - resource:claim/kogito-data-index
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kogito-management-console
+  namespace: fraud
+  description: >
+    Kogito Management Console used by Fraud squad to monitor and manage workflow executions, process instances, and system health.
+  tags:
+    - kogito
+    - management-console
+    - workflow
+    - monitoring
+spec:
+  type: ui
+  owner: group:automation/fraud
+  system: system:workflow/workflow-platform
+  dependsOn:
+    - resource:fraud/kogito-data-index
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kogito-management-console
+  namespace: new-business
+  description: >
+    Kogito Management Console used by new-business squad to monitor and manage workflow executions, process instances, and system health.
+  tags:
+    - kogito
+    - management-console
+    - workflow
+    - monitoring
+spec:
+  type: ui
+  owner: group:automation/new-business
+  system: system:workflow/workflow-platform
+  dependsOn:
+    - resource:new-business/kogito-data-index
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kogito-management-console
+  namespace: policy-squad
+  description: >
+    Kogito Management Console used by policy-squad squad to monitor and manage workflow executions, process instances, and system health.
+  tags:
+    - kogito
+    - management-console
+    - workflow
+    - monitoring
+spec:
+  type: ui
+  owner: group:automation/policy-squad
+  system: system:workflow/workflow-platform
+  dependsOn:
+    - resource:policy-squad/kogito-data-index
+---

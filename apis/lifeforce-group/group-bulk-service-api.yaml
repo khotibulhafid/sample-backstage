@@ -1,0 +1,20 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: group-bulk-service-api
+  namespace: lifeforce-group
+  description: the service for maintain bulk data at lifeforce
+  tags:
+  - api
+  - backend
+  - service
+  - lifeforce-corporate
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: default/lifeforce-corporate
+  system: lifeforce-corporate
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/illf---lifeforce/browse/group-bulk-service

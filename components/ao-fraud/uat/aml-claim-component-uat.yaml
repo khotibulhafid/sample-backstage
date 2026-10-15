@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: aml-claim-service
+  namespace: uat-service-fraud
+  description: Claim service for AML.
+  tags:
+    - aml
+    - claim
+    - backend
+    - java
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFGF/repos/aml-claim-service/browse
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/uat-service-fraud-uat-aml-claim-service
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-fraud-version2/fraud-claim-service
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-jg2mq-nprd-uat-legacy-ao-service-fraud/browse/deployment.yaml?at=refs%2Fheads%2Faml-claim-service
+    - title: Base URL
+      url: https://api-automation-uat-v2.ifg-life.id
+spec:
+  type: REST
+  owner: automation/fraud
+  system: fraud-detection-system
+  domain: process-automation
+  environments: uat
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.30.6
+  secretType: Kubernetes Secret
+  dependsOn:
+    [
+      component: uat-service-fraud/aml-master-data-service,
+      resource: database/ifgl-l4qdb-prd-automation,
+      resource: ao-kong/kong,
+      resource: infra/kafka-data,
+    ]
+  runtime:
+    cluster: k8s-aml
+    namespace: uat-service-fraud

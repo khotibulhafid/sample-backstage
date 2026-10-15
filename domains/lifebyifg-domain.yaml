@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: lifebyifg
+  namespace: customer
+  description: Everything Related to Life by Ifg Domain
+  title: 'Life By IFG Domain'
+  links:
+    - url: https://www.life.id
+      title: 'Life By IFG Readme'
+    - url: https://cms.ifg-life.id
+      title: 'CMS API'
+    - url: https://customer-portal-release.ifg-life.id
+      title: 'Customer Portal Release API'
+spec:
+  owner: default/lifebyifg

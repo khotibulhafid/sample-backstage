@@ -1,0 +1,65 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: kogito-ps
+  namespace: workflow-ps
+  description: The kogito ps service for automation ps proses service
+  tags:
+    - ps
+    - workflow
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFAO/repos/ao-workflow-kogito-ps/browse
+    - title: Monitoring / Logs (Datadog)
+      url: "https://app.datadoghq.com/apm/entity/service:infinispan-ps"
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/workflow-ps-release-kogito
+#    - title: Docker Image
+#      url: ""
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-l4qdb-prd-prod-legacy-ao-workflow-ps-release/browse
+    - title: Liveness Endpoints
+      url: https://infinispan-ps:11222/q/health/live
+    - title: Readiness Endpoints
+      url: https://infinispan-ps:11222/q/health/ready
+#    - title: Documentation
+#      url: https://code.ifg-life.id/projects/IFAO/repos/ao-workflow-kogito-ps/browse/Jenkinsfile/README.md
+    - title: Base Url
+      url: https://wf-infinispan-ps.ifg-life.id/console/welcome
+spec:
+  type: workflow
+  owner: automation/policy-squad
+  system: system:policy-automation-system
+  domain: domain:process-automation
+  lifecycle: production
+  environment: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.8.6.1
+  workflow:
+    version: 2.44.0.Alpha
+  usesLibraries:
+    - name: "infinispan"
+      implemented: True
+    - name: "dataindex"
+      implemented: True
+    - name: "management-console"
+      implemented: True
+    - name: "task-console"
+      implemented: True
+  auth:
+    method: none
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: automation-prd
+    namespace: workflow-ps
+  dependsOn: [ resource:infra/kafka resource:database/infinispan resource:infra/keycloak resource:infra/EFS ]
+  providesApis: [ kogito-ps-api ]
+  consumesApis: [ ]
+  limits: '-'

@@ -1,0 +1,19 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: poc-service
+  namespace: oneverseinterco
+  description: poc-service api
+  tags:
+  - backend
+  - service
+  - oneverseinterco
+spec:
+  type: service
+  lifecycle: production
+  owner: default/oneverseinterco
+  system: oneverseinterco/oneverseinterco
+  dependsOn: []
+  providesApis: [poc-service-api]

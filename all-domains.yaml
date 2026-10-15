@@ -1,8 +1,37 @@
 apiVersion: backstage.io/v1alpha1
 kind: Location
 metadata:
-  name: all-domains
-  description: A collection of all domains
+  name: ifgl-domains
+  description: A collection of all Backstage IFGL domains
 spec:
   targets:
-    - ./domains/sample-domain.yaml
+    # Default / Existing
+    - ./domains/claim-domain.yaml
+    - ./domains/fraud-domain.yaml
+    - ./domains/ifgid-domain.yaml
+    - ./domains/ifgpay-domain.yaml
+    - ./domains/legacy-domain.yaml
+    - ./domains/lifebyifg-domain.yaml
+    - ./domains/lifeforce-domain.yaml
+    - ./domains/lifehub-domain.yaml
+    - ./domains/lifenet-domain.yaml
+    - ./domains/lifespace-domain.yaml
+    - ./domains/nbuw-domain.yaml
+    - ./domains/onebyifg-domain.yaml
+    - ./domains/partnership-domain.yaml
+    - ./domains/pas-domain.yaml
+    - ./domains/pos-domain.yaml
+    - ./domains/cws-domain.yaml
+    - ./domains/hospitalnetwork-domain.yaml
+    - ./domains/workflow-domain.yaml
+    - ./domains/dplk-domain.yaml
+    - ./domains/psak-domain.yaml
+    - ./domains/oneverseinterco-domain.yaml
+
+    # Refactor
+    - ./domains/automation-domain.yaml
+    - ./domains/channel-domain.yaml
+    - ./domains/core-domain.yaml
+    - ./domains/data-domain.yaml
+  rules:
+    - allow: [ Domain ]

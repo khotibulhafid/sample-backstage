@@ -1,0 +1,39 @@
+---     
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: lifespace-web
+  namespace: corporate
+  description: The corporate lifespace-web frontend in corporate-web-component
+  title: Corporate Portal Web
+  tags:
+    - frontend
+    - web
+    - corporate
+    - nextjs
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFCO/repos/corporate-portal-web/browse
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/argocd/corporate-release-corporate-portal?view=tree&resource=
+    - title: Docker Image
+      url: docker://docker-corporate.artifact.ifg-life.id/corporate/corporate-portal-release:179
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-bvl19-prd-prod-customer-corporate-release/browse?at=refs%2Fheads%2Fcorporate-portal-web
+    - title: Base URL
+      url: https://space.life.id
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFCO/repos/corporate-portal-web/browse/README.md
+spec:
+  type: website
+  owner: default/lifespace
+  system: lifespace
+  domain: domain:lifespace-domain
+  lifecycle: production
+  environments: prod
+  language: javascript
+  runtime:
+    cluster: customer
+    namespace: corporate
+  consumesApis: [user-service-api,storage-service-api,batch-service-api,policy-service-api,corporate-portal-web-api,meta-service-api,notification-service-api]

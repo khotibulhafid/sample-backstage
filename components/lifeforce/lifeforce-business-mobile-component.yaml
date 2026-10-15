@@ -1,0 +1,30 @@
+---     
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: lifeforce-business-mobile
+  namespace: lifeforce
+  description: Mobile Apss for lifeforce
+  title: Lifeforce Business Mobile
+  tags:
+    - mobile-apps
+    - lifeforce
+    - react
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/ILLF/repos/lifeforce-business-mobile/browse
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/ILLF/repos/lifeforce-business-mobile/browse/README.md
+spec:
+  type: mobile-apps
+  domain: domain:channel/channel-platform
+  owner: group:channel/lifeforce
+  system: system:lifeforce
+  lifecycle: production
+  environments: prod
+  language: javascript
+  runtime:
+    cluster: lifeforce-prd
+    namespace: lifeforce
+  consumesApis: []

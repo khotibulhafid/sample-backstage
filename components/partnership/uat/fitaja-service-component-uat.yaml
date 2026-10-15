@@ -1,0 +1,21 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: fitaja-service-uat
+  namespace: partnership
+  description: Provides APIs for Get Data Mandiri InHealth
+  tags:
+    - backend
+    - service
+    - partnership
+    - component
+    - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/partnership
+  system: partnership
+  consumesApis: [ partnership-internal-service-api-uat ]
+  providesApis: [ fitaja-service-api-uat ]

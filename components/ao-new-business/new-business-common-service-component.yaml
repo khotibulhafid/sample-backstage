@@ -1,0 +1,67 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: new-business-common-service
+  namespace: ao-new-business
+  description: The new business service api in new-business-new-business-common-service
+  tags:
+    - service
+    - quarkus
+    - backend
+    - underwriting
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFNB/repos/new-business-common-service/browse
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:new-business-common-service
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/ao-new-business-release-new-business-common-service
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-new-business/new-business-common-service-release:99
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-1awvh-prd-prod-automation-ao-new-business-release/browse?at=refs%2Fheads%2Fnew-business-common-service
+    - title: Liveness Endpoints
+      url: https://new-business-common-service:8080/q/health/live
+    - title: Readiness Endpoints
+      url: https://new-business-common-service:8080/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFNB/repos/new-business-common-service/browse/README.md
+    - title: Base URL
+      url: https://api-core.ifg-life.id
+    - title: Kafka Topic List
+      url: https://code.ifg-life.id/projects/IFNB/repos/new-business-common-service/browse/kafka_topic_documentation.md
+    - title: Sample Kafka Message
+      url: https://code.ifg-life.id/projects/IFNB/repos/new-business-common-service/browse/kafka_topic_documentation.md
+spec:
+  type: REST
+  lifecycle: production
+  owner: group:automation/new-business
+  system: system:core/new-business-core-system
+  domain: domain:core-system
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.30.3
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: cluster-automation-prd
+    namespace: ao-new-business
+  consumeApis: [ ]
+  usesLibraries:
+    - name: "Postgres"
+      implemented: True
+  limits: "-"
+  auth:
+    method: apiKey
+  dependsOn: [
+    resource:default/prd-automation, # EKS
+    resource:infra/1awvh-prd-prod-automation-az2, # Cluster
+    resource:infra/kafka,
+    resource:core/kong
+  ]
+  providesApis: [ao-new-business/new-business-common-service-api]

@@ -1,0 +1,24 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ao-workflow-nb-uat
+  namespace: ao-workflow
+  description: The workflow nb service for automation nb proses service
+  tags:
+  - backend
+  - service
+  - nbservice
+  - pos
+  - workflow
+  - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/workflow
+  system: ao-workflow/workflow
+#  subcomponentOf: ao-workflow-nb-backend
+  dependsOn: [resource:ao-workflow/ifgl-1awvh-prd-automation-db,resource:default/kafka]
+  providesApis: [ao-workflow-nb-api-uat]
+  consumesApis: [ao-product-engine/notification-service-api-uat,ao-product-engine/product-config-service-api-uat,ifgid/ekyc-service-api-uat,ao-new-business/billing-service-api-uat,ao-new-business/journal-service-api-uat,ao-new-business/new-business-service-v2-api-uat,ao-new-business/policy-service-v2-api-uat,ao-new-business/proposal-service-v2-api-uat,ao-new-business/underwriting-service-api-uat,ao-workflow/ao-workflow-fraud-wrapper-api-uat,ao-workflow/ao-workflow-claim-wrapper-api-uat,customer/product-service-api-uat]

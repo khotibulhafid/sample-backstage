@@ -1,0 +1,61 @@
+---     
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: meta-service
+  namespace: corporate
+  description: The corporate meta-service api in corporate-meta-service
+  title: Corporate meta Service
+  tags:
+    - backend
+    - service
+    - metadata 
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFCO/repos/meta-service/browse
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service%3Acorporate-meta-service
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/argocd/corporate-release-meta-service?view=tree&resource=
+    - title: Docker Image
+      url: docker://docker-corporate.artifact.ifg-life.id/corporate/meta-service-release:26
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-bvl19-prd-prod-customer-corporate-release/browse?at=refs%2Fheads%2Fmeta-service
+    - title: Base URL
+      url: https://api-corporate-release.ifg-life.id
+    - title: Liveness Endpoints
+      url: https://meta-service:8080/api/q/health/live
+    - title: Readiness Endpoints
+      url: https://meta-service:8080/api/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFCO/repos/meta-service/browse/README.md
+spec:
+  type: REST
+  owner: default/lifespace
+  system: lifespace
+  domain: domain:lifespace-domain
+  lifecycle: production
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.30.3
+  auth:
+    method: OAuth2.0
+    notes: >
+      Service uses Kong OAuth2.0 for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: customer
+    namespace: corporate
+  limits: 'default kong'
+  dependsOn: [resource:default/ifgl-bvl19-prd-prod-customer-customerapps]
+  providesApis: [meta-service-api]
+  consumesApis: []
+  usesLibraries:
+    - name: "rest-client"
+      implemented: False

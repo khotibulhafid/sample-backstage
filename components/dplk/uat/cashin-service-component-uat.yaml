@@ -1,0 +1,20 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: cashin-service-component-uat
+  namespace: dplk
+  description: The service api for incoming cash management in DPLK
+  tags:
+    - backend
+    - service
+    - dplk
+    - uat
+    - dplk-cashin-component-uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/dplk
+  system: dplk
+  providesApis: [dplk/cashin-service-api-uat]

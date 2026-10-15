@@ -1,0 +1,21 @@
+---     
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: organization-service
+  namespace: ifgid
+  description: Service for Organization Related for All Channel / Tribe
+  tags:
+    - component
+    - backend
+    - service
+    - ifgid
+spec:
+  type: service
+  lifecycle: production
+  owner: default/ifgid
+  system: ifgid
+  dependsOn: [ resource:default/ifgid-prd, resource:default/prd-ifgid, resource:default/ifgid-prd-13-2 ]
+  consumesApis: [ ekyc-service-api, meta-service-api, storage-service-api ]
+  providesApis: [ organization-service-api ]

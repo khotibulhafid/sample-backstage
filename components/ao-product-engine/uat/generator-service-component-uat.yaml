@@ -1,0 +1,21 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: generator-service-uat
+  namespace: ao-product-engine
+  description: The generator service used to document creation.
+  tags:
+    - backend
+    - service
+    - generator
+    - uat
+spec:
+  type: service
+  lifecycle: experimental
+  system: ao-product-engine/pas
+  owner: default/pas
+  providesApis: [generator-service-api-uat]
+  consumesApis: [ao-product-engine/storage-service-api-uat, ao-product-engine/notification-service-api-uat, customer/user-wrapper-api-uat]
+  dependsOn: [resource:ao-workflow/ifgl-1awvh-prd-automation-db, resource:default/kafka, resource:ao-kong/kong]

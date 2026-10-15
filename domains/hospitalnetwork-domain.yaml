@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: hospital-network
+  namespace: default
+  description: Everything Related to Hospital Network Domain
+  title: 'Hospital Network Domain'
+  links:
+    - url: https://hospital.life.id
+      title: 'API for Hospital network'
+spec:
+  owner: default/hospital-network

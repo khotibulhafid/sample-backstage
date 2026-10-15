@@ -1,0 +1,54 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: lifenet
+  namespace: lifenet-acquirer-system
+  title : Lifenet Acquirer System
+  description: The LifeNet system is provided for managing the cashless processes from admission to discharge in a healthcare provider when a police holder using their insurance. With this system, a healthcare provider could be connected to the Policy issuer in managing the claim process. Our network will work as a connector which could map and connect between multiple insurance acquirer and multiple insurance policy issuer.
+  tags:
+    - lifenet
+    - lifenet-acquirer
+spec:
+  owner: group:channel/lifenet-admin
+  domain: domain:lifenet
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: lifenet
+  namespace: lifenet-issuer
+  description: The LifeNet system is provided for managing the cashless processes from admission to discharge in a healthcare provider when a police holder using their insurance. With this system, a healthcare provider could be connected to the Policy issuer in managing the claim process. Our network will work as a connector which could map and connect between multiple insurance acquirer and multiple insurance policy issuer.
+spec:
+  owner: group:channel/lifenet-admin
+  domain: domain:lifenet
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: lifenet
+  namespace: lifenet-network
+  description: The LifeNet system is provided for managing the cashless processes from admission to discharge in a healthcare provider when a police holder using their insurance. With this system, a healthcare provider could be connected to the Policy issuer in managing the claim process. Our network will work as a connector which could map and connect between multiple insurance acquirer and multiple insurance policy issuer.
+spec:
+  owner: group:channel/lifenet-admin
+  domain: domain:lifenet
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: lifenet
+  namespace: lifenet-doctorhub
+  description: #need to be filled
+spec:
+  owner: default/lifenet
+  domain: lifenet-doctorhub/lifenet
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: lifenet
+  namespace: lifenet-pharmacyhub
+  description: #need to be filled
+spec:
+  owner: default/lifenet
+  domain: lifenet-pharmacyhub/lifenet

@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: contract-service-api
+  namespace: corporate
+  description: The contract service api for logging user contract in LifeSpace
+  tags:
+    - api
+    - backend
+    - service
+    - lifespace
+    - corporate
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/lifespace
+  system: lifespace
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifco---corporate/browse/contract-service
+           

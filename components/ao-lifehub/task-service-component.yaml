@@ -1,0 +1,84 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: task-service
+  namespace: ao-lifehub
+  description: service to handle case admin for Lifehub System
+  tags:
+    - backend
+    - service
+    - lifehub
+    - quarkus
+  links:
+    - title: Source Repository
+    - url: https://code.ifg-life.id/projects/IFLH/repos/task-service-version2/browse
+    - title: Monitoring / Logs (Datadog)
+    - url: https://app.datadoghq.com/apm/entity/service:epics-portal-task-service
+    - title: Deployment (ArgoCD)
+    - url: https://deploy.ifg-life.id/applications/argocd/epics-portal-release-task-service
+    - title: Docker Image
+    - url: docker://docker-automation-operation.artifact.ifg-life.id/epics-portal/task-service-release
+    - title: Deployment YAML (Env & Config)
+    - url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-l4qdb-prd-prod-legacy-ao-epics-portal-release/browse/deployment.yaml?at=refs%2Fheads%2Ftask-service
+    - title: Base URL
+    - url: https://api-automation.ifg-life.id
+    - title: Liveness Endpoints
+    - url: https://epics-portal-task-service:8080/lifehub/q/health/live
+    - title: Readiness Endpoints
+    - url: https://epics-portal-task-service:8080/lifehub/q/health/ready
+    - title: Documentation
+    - url: https://code.ifg-life.id/projects/IFLH/repos/task-service-version2/browse/README.md
+    - title: Documentation Kafka
+    - url: https://code.ifg-life.id/projects/IFLH/repos/task-service-version2/browse/kafka_topic_documentation.md
+    - title: Documentation message kafka
+    - url: https://code.ifg-life.id/projects/IFLH/repos/task-service-version2/browse/kafka_topic_documentation.md
+spec:
+  type: REST
+  domain: domain:channel/channel-platform
+  owner: owner:channel/lifehub
+  system: system:channel/lifehub-system
+  lifecycle: production
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.30.3
+  auth:
+    method: ApiKey
+    notes: >
+      Service uses Kong Api Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: automation-prd
+    namespace: epics-portal
+  limits: 'default kong'
+  providesApis: [task-service-api]
+  dependsOn: [
+    resource:infra/eks-automation-core-prd, #eks
+    resource:infra/automation-core-prd, #Cluster
+    resource:database/pg-automation, #PostgreSQL DB
+    resource:aowf/kong,
+    resource:infra/kafka
+  ]
+  consumesApis: [
+    customer/user-wrapper-api,
+    customer/product-service-api,
+    ao-workflow/ao-workflow-policy-wrapper-api,
+    ao-workflow/ao-workflow-fraud-wrapper-api,
+    ao-product-engine/storage-service-api,
+    ao-workflow/ao-workflow-claim-wrapper-api,
+    ao-claim/claim-service-api,
+    ao-workflow/ao-workflow-fraud-wrapper-api
+    payment/core-service-api,
+    ifgid/ekyc-service-api,
+    ao-claim/claim-service-api,
+    ao-new-business/new-business-service,
+    ao-lifehub/general-transaction-service,
+    ao-product-engine/product-config-service-api,
+    ao-lifehub/user-service-api,
+    corporate/member-service-api
+  ]

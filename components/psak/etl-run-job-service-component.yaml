@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: etl-run-job-service-component
+  namespace: psak
+  description: etl run job service for extract, transform and load from db_psak, db_management and db_erp to db_psak, GBQ
+  tags:
+    - component
+    - backend
+    - service
+    - psak
+    - etl
+    - uat
+spec:
+  type: service
+  lifecycle: production
+  owner: default/psak
+  system: psak
+  dependsOn: [
+    resource:default/cluster-psak-prd, #Cluster
+    resource:default/eks-psak-prd, #EKS
+    resource:default/psak, #Namespace
+    resource:psak/kong,
+    resource:psak/konga,
+    resource:default/mongo
+  ]
+  consumesApis: [ ]
+  providesApis: [ etl-run-job-service-api ]

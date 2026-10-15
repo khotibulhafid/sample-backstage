@@ -1,0 +1,65 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: individu-storage-service
+  namespace: lifeforce-individu
+  description: the service for handle storage s3 at lifeforce individu
+  title: Individu Storage Service
+  tags:
+    - component
+    - backend
+    - service
+    - lifeforce
+    - lifeforce-individu
+    - quarkus
+links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/ILLF/repos/individu-storage-service/browse
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:lifeforceindv-storage-service
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/lifeforce-individu-release-storage-service
+    - title: Docker Image
+      url: docker://docker-lifeforce.artifact.ifg-life.id/lifeforce-individu/storage-service-release:38
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-yu30h-prd-prod-lifeforce-lifeforce-individu-release/browse/deployment.yaml?at=refs%2Fheads%storage-service
+    - title: Base URL
+      url: https://force.life.id
+    - title: Liveness Endpoints
+      url: http://storage-service.lifeforce-individu.svc:8080/api/q/health/live
+    - title: Readiness Endpoints
+      url: http://storage-service.lifeforce-individu.svc:8080/api/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/ILLF/repos/individu-storage-service/browse/README.md
+spec:
+  type: REST
+  owner: group:channel/lifeforce-individu
+  system: system:channel/lifeforce-individual-system
+  domain: domain:channel/channel-platform
+  lifecycle: production
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.24.5
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  dependsOn: [
+    resource:default/prd-lifeforce, #EKS 
+    resource:infra/lifeforce-prd, #Cluster
+    resource:lifeforce/kong, #Gateway
+    resource:default/lifeforce-individu-s3
+  ]
+  runtime:
+    cluster: lifeforce-prd
+    namespace: lifeforce-individu
+  providesApis: [lifeforce-individu/individu-storage-service-api]
+  consumeApis: []
+  limits: 'default kong'

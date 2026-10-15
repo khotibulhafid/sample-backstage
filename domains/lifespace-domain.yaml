@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: lifespace
+  namespace: corporate
+  description: Everything related to LifeSpace Domain
+  title: 'Life Space Domain'
+  links:
+    - url: https://space.life.id
+      title: 'API for LifeSpace'
+    - url: https://space.life.id
+      title: 'Website for LifeSpace Customer'
+spec:
+  owner: default/lifespace

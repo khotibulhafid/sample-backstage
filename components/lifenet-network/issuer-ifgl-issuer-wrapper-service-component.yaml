@@ -1,0 +1,54 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: issuer-ifgl-issuer-wrapper-service
+  namespace: lifenet-network
+  description: wrapper to connect network and issuer for Lifenet System
+  tags:
+    - backend
+    - service
+    - lifenet-network
+    - lifenet
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/ILEN/repos/issuer-ifgl-issuer-wrapper-service/browse
+#    - title: Monitoring / Logs (Datadog)
+#      url: #Need to get value
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/lifenet-network-release-issuer-ifgl-issuer-wrapper-service
+    - title: Docker Image
+      url: docker://docker-hospital.artifact.ifg-life.id/lifenet/issuer-ifgl-issuer-wrapper-service
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-tu9b2-prd-prod-lifenet-lifenet-network-release/browse?at=refs%2Fheads%2Fissuer-ifgl-issuer-wrapper-service
+    - title: Base URL
+      url: https://net-admin.life.id
+    - title: Liveness Endpoints
+      url: http://issuer-ifgl-issuer-wrapper-service.lifenet-network.svc:8080/api/q/health/live
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/ILEN/repos/issuer-ifgl-issuer-wrapper-service/browse/README.md
+spec:
+  type: REST
+  lifecycle: production
+  owner: group:channel/lifenet-network
+  system: system:channel/lifenet-network-system
+  domain: domain:lifenet/lifenet
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.25.4
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: lifenet-prd
+    namespace: lifenet-issuer
+#  subcomponentOf: lifenet-admin-backend
+  providesApis: [lifenet-network/issuer-ifgl-issuer-wrapper-service-api]
+  consumesApis: [lifenet-issuer/network-issuer-ifgl-wrapper-service-api]
+  limits: 'default kong'

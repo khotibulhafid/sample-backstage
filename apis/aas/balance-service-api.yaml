@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: balance-service-api
+  namespace: acct-mgmt-system
+  description: service that manages balance transactions and fund movements. It records all financial activities into a mutation table and integrates with other services to handle insurance-related processes like deposits, withdrawals, and interest.
+  tags:
+    - api
+    - backend
+    - service
+    - balance
+    - movement
+    - quarkus
+spec:
+  type: openapi
+  owner: group:core/aas
+  system: system:core/account-administration-system
+  domain: domain:core/core-business
+  lifecycle: production
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifca---account-administration-system/browse/balance-service?at=release

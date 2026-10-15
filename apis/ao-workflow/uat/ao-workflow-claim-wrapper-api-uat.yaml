@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: ao-workflow-claim-wrapper-api-uat
+  namespace: ao-workflow
+  description: The claim workflow wrapper
+  tags:
+  - api
+  - backend
+  - service
+  - claim
+  - workflow
+  - wrapper
+  - uat
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: default/claim
+  system: claim
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifao---automation-operation/browse/ao-workflow-claim-wrapper?at=uat

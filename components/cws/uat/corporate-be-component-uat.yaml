@@ -1,0 +1,20 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: corporate-be-uat
+  namespace: cws
+  description: The corporate backend for CWS
+  tags:
+  - backend
+  - service
+  - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/cws
+  system: cws
+#  subcomponentOf: pas-correspondence
+#  dependsOn: [resource:default/ifgl-1awvh-prd-automation-db]
+  providesApis: [corporate-be-api-uat]

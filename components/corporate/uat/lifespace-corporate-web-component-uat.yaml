@@ -1,0 +1,19 @@
+---     
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: lifespace-web-uat
+  namespace: corporate
+  description: The corporate lifespace-web frontend in corporate-web-component
+  tags:
+    - frontend
+    - web
+    - corporate
+    - uat
+spec:
+  type: website
+  lifecycle: experimental
+  owner: default/lifespace
+  system: lifespace
+  consumesApis: [user-service-api-uat,storage-service-api-uat,batch-service-api-uat,policy-service-api-uat,activity-service-api-uat,meta-service-api-uat,notification-service-api-uat]

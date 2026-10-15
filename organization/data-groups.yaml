@@ -1,0 +1,47 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: data
+  namespace: data
+  description: Data Department
+spec:
+  type: department
+  children:
+    - group:data/data-access
+    - group:data/data-lake
+    - group:data/data-visualization
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: data-access
+  namespace: data
+  description: Squad responsible for data access layer and integration
+spec:
+  type: squad
+  parent: group:data
+  owner: group:data
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: data-lake
+  namespace: data
+  description: Squad responsible for data ingestion and data lake platform
+spec:
+  type: squad
+  parent: group:data
+  owner: group:data
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: data-visualization
+  namespace: data
+  description: Squad responsible for BI, dashboard, and reporting
+spec:
+  type: squad
+  parent: group:data
+  owner: group:data
+---

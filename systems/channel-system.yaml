@@ -1,0 +1,162 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: lifeforce-individual-system
+  namespace: channel
+  title: LifeForce Individual System
+  description: >
+    Core system that handles individual life insurance customer journeys, including policy enrollment, 
+    personal profile management, premium payment, claims submission, and policy lifecycle management for individual customers.
+  tags:
+    - channel
+    - lifeforce
+    - individual
+    - customer
+    - insurance
+spec:
+  owner: group:channel/lifeforce-individu
+  domain: domain:channel-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: lifeforce-group-system
+  namespace: channel
+  title: LifeForce Group System
+  description: >
+    System responsible for group life insurance operations, including corporate policy management, group enrollment, 
+    member administration, premium calculation, billing, and group claims processing.
+  tags:
+    - channel
+    - lifeforce
+    - group
+    - corporate
+    - insurance
+spec:
+  owner: group:channel/lifeforce-group
+  domain: domain:channel-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: lifeforce-admin-system
+  namespace: channel
+  title: LifeForce Administration System
+  description: >
+    Internal administration system used by operational and business teams to manage LifeForce configurations, 
+    master data, underwriting rules, approvals, monitoring, reporting, 
+    and operational controls across individual and group products.
+  tags:
+    - channel
+    - lifeforce
+    - admin
+    - internal
+    - operations
+spec:
+  owner: group:channel/lifeforce-admin
+  domain: domain:channel-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: lifeforce-remuneration-system
+  namespace: channel
+  title: LifeForce Remuneration System
+  description: >
+    -
+  tags:
+    - channel
+    - lifeforce
+    - remuneration
+    - internal
+    - operations
+spec:
+  owner: group:channel/lifeforce-remuneration
+  domain: domain:channel-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: lifenet-acquirer-system
+  namespace: channel
+  title: Lifenet Admin Acquirer
+  description: >
+    -
+  tags:
+    - channel
+    - lifenet
+    - lifenet-network
+    - lifenet-admin
+spec:
+  owner: group:channel/lifenet-network
+  domain: domain:channel-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: lifenet-network-system
+  namespace: channel
+  title: Lifenet Admin Network
+  description: >
+    -
+  tags:
+    - channel
+    - lifenet
+    - lifenet-network
+    - lifenet-admin
+spec:
+  owner: group:channel/lifenet-network
+  domain: domain:channel-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: lifenet-issuer-system
+  namespace: channel
+  title: Lifenet Admin Issuer
+  description: >
+    -
+  tags:
+    - channel
+    - lifenet
+    - lifenet-issuer
+    - lifenet-admin
+spec:
+  owner: group:channel/lifenet-issuer
+  domain: domain:channel-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: lifenet-doctorhub-system
+  namespace: channel
+  title: Lifenet Admin Doctor Hub
+  description: >
+    -
+  tags:
+    - channel
+    - lifenet
+    - lifenet-doctorhub
+    - lifenet-admin
+spec:
+  owner: group:channel/lifenet-doctorhub
+  domain: domain:channel-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: lifenet-pharmacyhub-system
+  namespace: channel
+  title: Lifenet PharmacyHub
+  description: >
+    -
+  tags:
+    - channel
+    - lifenet
+    - lifenet-pharmacyhub
+    - lifenet-admin
+spec:
+  owner: group:channel/lifenet-pharmacyhub
+  domain: domain:channel-platform
+---

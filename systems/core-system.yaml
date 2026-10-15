@@ -1,0 +1,124 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: account-administration-system
+  namespace: core
+  title: Account Administration System
+  description: >
+    Core system responsible for managing business accounts, including account lifecycle,
+    account types, and relationships with core business entities.
+  tags:
+    - core-business
+    - account
+    - administration
+spec:
+  owner: group:core/aas
+  domain: domain:core-business
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: document-content-management-system
+  namespace: core
+  title: Document & Content Management System
+  description: >
+    Core system responsible for managing business document and content metadata,
+    classification, and relationships with core business entities.
+  tags:
+    - core-business
+    - document
+    - content
+spec:
+  owner: group:dcms
+  domain: domain:core-business
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: policy-administration-system
+  namespace: core
+  title: Policy Administration System
+  description: >
+    Core system responsible for managing the policy lifecycle, coverage definitions,
+    and enforcing core business rules related to policies.
+  tags:
+    - core-business
+    - policy
+    - administration
+spec:
+  owner: group:pas
+  domain: domain:core-business
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: product-management-system
+  namespace: core
+  title: Product Management System
+  description: >
+    Core system responsible for managing product definitions, configurations,
+    versions, and business rules used across core business processes.
+  tags:
+    - core-business
+    - product
+    - management
+spec:
+  owner: group:product
+  domain: domain:core-business
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: claim-core-system
+  namespace: core
+  title: Claim Core System
+  description: >
+    Core system responsible for managing insurance claim data and
+    essential claim services, including claim registration, validation,
+    calculation, and settlement support. Does not include automation or
+    workflow processes.
+  tags:
+    - core-business
+    - claim
+    - core-system
+spec:
+  owner: group:automation/claim
+  domain: domain:core-business
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: new-business-core-system
+  namespace: core
+  title: New Business Core System
+  description: >
+    Core system responsible for managing fundamental new business data and
+    business rules related to insurance policy acquisition, including proposal
+    registration, customer data validation, risk pre-assessment, and proposal
+    lifecycle management. Acts as the single source of truth for new business
+    domain data and does not include automation or workflow orchestration.
+  tags:
+    - core-business
+    - new-business
+    - core-system
+spec:
+  owner: group:automation/new-business
+  domain: domain:core-business
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: hospital-core-system
+  namespace: core
+  title: Hospital Core System
+  description: >
+    Core system responsible for managing Hospital Information and relationships with hospital network.
+  tags:
+    - core-business
+    - hospital
+    - core-system
+spec:
+  owner: group:automation/hospital
+  domain: domain:core-business
+---

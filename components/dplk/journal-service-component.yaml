@@ -1,0 +1,20 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: journal-service-component
+  namespace: dplk
+  description: The service that record journal for transaction in DPLK
+  tags:
+    - backend
+    - service
+    - dplk
+    - uat
+    - dplk-journal-service
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/dplk
+  system: dplk
+  providesApis: [dplk/journal-service-api]

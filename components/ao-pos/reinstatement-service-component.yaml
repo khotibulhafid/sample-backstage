@@ -1,0 +1,65 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: reinstatement-service
+  namespace: ao-pos
+  description: The Reinstatement Service is a supporting service used to facilitate the retail business workflow for reinstatement retail
+  tags:
+  - backend
+  - service
+  - policy
+  - ao-ps
+  - ao-pos
+  - reinstatement
+  - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFPO/repos/reinstatement-service/browse
+    - title: Monitoring / Logs (Datadog) # temporary using argo cd for check log. in next deployment service will add the datadog
+      url: https://app.datadoghq.com/apm/entity/service:reinstatement-service
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/ao-pos-release-reinstatement-service
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-pos/reinstatement-service-release:4
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-1awvh-prd-prod-automation-ao-pos-release/browse/deployment.yaml?at=refs%2Fheads%2Freinstatement-service
+    - title: Liveness Endpoints
+      url: http://reinstatement-service:8080/q/health/live
+    - title: Readiness Endpoints
+      url: http://reinstatement-service:8080/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFPO/repos/reinstatement-service/browse/README.md
+    - title: Base Url
+      url: https://api-core.ifg-life.id
+spec:
+  type: REST
+  owner: group:automation/policy-squad
+  system: system:automation/policy-automation-support-system
+  domain: domain:core/core-business
+  lifecycle: production
+  environment: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.24.3
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: 1awvh-prd-prod-automation-az2
+    namespace: ao-pos
+  dependsOn: [
+    resource:default/prd-automation, # EKS
+    resource:infra/1awvh-prd-prod-automation-az2, # Cluster
+    resource:database/pg-core,
+    resource:core/kong
+  ]
+  providesApis: [ ao-pos/reinstatement-service-api ]
+  consumesApis: [ ]
+  limits: 'default kong'

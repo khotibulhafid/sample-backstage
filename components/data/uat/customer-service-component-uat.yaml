@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: customer-service-uat
+  namespace: data
+  description: Customer Service for Inquiry data to Mongo DB
+  tags:
+    - component
+    - backend
+    - service
+    - data
+    - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/data
+  system: data
+  dependsOn: [
+    resource:default/cluster-data-prd, #Cluster
+    resource:default/eks-data-prd, #EKS
+    resource:default/data, #Namespace
+    resource:data/kong,
+    resource:data/konga,
+    resource:default/mongo
+  ]
+  consumesApis: [ ]
+  providesApis: [ customer-service-api-uat]

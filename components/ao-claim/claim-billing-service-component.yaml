@@ -1,0 +1,64 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: claim-billing-service
+  namespace: ao-claim
+  description: The services for calculate billing, especially for health claim
+  tags:
+    - component
+    - backend
+    - service
+    - claim
+    - claim-billing
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFCL/repos/claim-billing-service/browse
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:claim-billing-service
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/ao-claim-release-claim-billing-service
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-claim/claim-billing-service-release
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-1awvh-prd-prod-automation-ao-claim-release/browse/deployment.yaml?at=refs%2Fheads%2Fclaim-billing-service
+    - title: Base URL
+      url: https://api-core.ifg-life.id
+    - title: Liveness Endpoints
+      url: http://claim-billing-service:8080/q/health/live
+    - title: Readiness Endpoints
+      url: http://claim-billing-service/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFCL/repos/claim-billing-service/browse/README.md
+spec:
+  type: REST
+  owner: group:automation/claim
+  system: system:core/claim-core-system
+  domain: domain:core/core-business
+  lifecycle: production
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.28.1
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  dependsOn: [
+    resource:default/prd-automation, #EKS
+    resource:infra/1awvh-prd-prod-automation-az2, #Cluster
+    resource:database/pg-core, #Database
+    resource:core/kong #Gateway
+  ]
+  runtime:
+    cluster: 1awvh-prd-prod-automation-az2
+    namespace: ao-claim
+  providesApis: [ao-claim/claim-billing-service-api]
+  consumeApis: []
+  limits: 'default kong'

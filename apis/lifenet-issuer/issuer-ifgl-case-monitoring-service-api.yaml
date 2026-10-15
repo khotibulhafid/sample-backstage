@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: issuer-ifgl-case-monitoring-service-api
+  namespace: lifenet-issuer
+  description: Lifenet Issuer Case Monitoring
+  tags:
+    - api
+    - backend
+    - service
+    - lifenet-issuer
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/lifenet
+  system: lifenet
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ilen---lifenet/browse/issuer-ifgl-case-monitoring-service

@@ -1,0 +1,22 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: storage-service-api
+  namespace: ao-product-engine
+  description: The storage service api in correspondence
+  tags:
+    - api
+    - backend
+    - service
+    - correspondence
+    - s3
+    - storage
+    - dms
+spec:
+  type: openapi
+  owner: group:core/dcms
+  system: system:core/document-content-management-system
+  domain: domain:core/core-business
+  lifecycle: production
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifpc---correspondence/browse/storage-service?at=release

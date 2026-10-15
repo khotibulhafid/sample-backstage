@@ -1,0 +1,21 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: out-gateway-cts-service-uat
+  namespace: payment
+  description: Gateway for IFG Pay payment out services to connect to CTS to do tokenization and detokenization
+  tags:
+  - component
+  - backend
+  - service
+  - payment
+  - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/ifgpay
+  system: ifgpay
+  consumesApis: [ out-core-service-api-uat ]
+  providesApis: [ out-gateway-cts-service-api-uat ]

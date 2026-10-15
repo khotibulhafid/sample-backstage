@@ -1,0 +1,36 @@
+---     
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: icomply-frontend
+  namespace: icomply
+  description: web for iComply System
+  tags:
+    - frontend
+    - website
+    - icomply
+    - nextjs
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFIC/repos/icomply-frontend/browse
+    - title: Docker Image
+      url: docker://docker-icomply.artifact.ifg-life.id/icomply/icomply-frontend
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-ls4h5-prd-prod-icomply-comply-prod/browse/deployment.yaml?at=refs%2Fheads%2Ficomply-frontend
+    - title: Base URL
+      url: https://icomply.ifg-life.id
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFIC/repos/icomply-frontend/browse/README.md
+spec:
+  type: website
+  owner: group:default/icomply
+  system: system:icomply/icomply
+  domain: domain:icomply/compliance
+  lifecycle: production
+  environments: prod
+  language: javascript
+  runtime:
+    cluster: icomply-prd
+    namespace: icomply
+  consumesApis: [api:icomply/icomply-backend-api]

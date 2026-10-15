@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: pas-edoc-service-api
+  namespace: ao-product-engine
+  description: API orchestrator service to handle document creation, upload, and email sending
+  tags:
+    - api
+    - backend
+    - service
+    - correspondence
+spec:
+  type: openapi
+  owner: group:core/dcms
+  system: system:core/document-content-management-system
+  domain: domain:core/core-business
+  lifecycle: production
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifpc---correspondence/browse/pas-edoc-service?at=release

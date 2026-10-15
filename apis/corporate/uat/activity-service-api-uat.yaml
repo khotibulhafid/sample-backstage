@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: activity-service-api-uat
+  namespace: corporate
+  description: The activity service api for logging user activity in LifeSpace
+  tags:
+    - api
+    - backend
+    - service
+    - lifespace
+    - corporate
+    - uat
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: default/lifespace
+  system: lifespace
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifco---corporate/browse/activity-service?at=uat
+           

@@ -1,0 +1,22 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: scheduler-service-uat
+  namespace: ao-pos
+  description: The scheduler-service api in ao-pos
+  tags:
+    - backend
+    - service
+    - alteration
+    - pos
+    - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/pos
+  system: ao-pos/pos
+#  subcomponentOf: ao-pos-alteration-backend
+  providesApis: [ao-pos/scheduler-service-api-uat]
+  dependsOn: [resource:ao-workflow/ifgl-1awvh-prd-automation-db]

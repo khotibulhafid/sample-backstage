@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: user-service-api-uat
+  namespace: ifgid
+  description: The user service api for user management in IFGID
+  tags:
+    - api
+    - backend
+    - service
+    - ifgid
+    - uat
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: default/ifgid
+  system: ifgid
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifgi---ifgid/browse/user-service?at=uat
+           

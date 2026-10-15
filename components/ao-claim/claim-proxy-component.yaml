@@ -1,0 +1,58 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: claim-proxy
+  namespace: ao-claim
+  description: The services for nginx as reverse proxy configuration
+  tags:
+    - component
+    - backend
+    - service
+    - claim
+    - claim-proxy
+    - Docker
+    - nginx
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFCL/repos/proxy-nginx/browse
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/ao-claim-release-claim-proxy-nginx
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-claim/nginx-proxy-release
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-1awvh-prd-prod-automation-ao-claim-release/browse/deployment.yaml?at=refs%2Fheads%2Fclaim-proxy-nginx
+    - title: Base URL
+      url: https://claim.life.id
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFCL/repos/proxy-nginx/browse/README.md
+spec:
+  type: ClusterIP
+  owner: group:automation/claim
+  system: system:core/claim-core-system
+  domain: domain:core/core-business
+  lifecycle: production
+  environments: prod
+  language: NGINX Configuration Language
+  framework:
+    - name: NGINX
+    - version: stable-alpine
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  dependsOn: [
+    resource:default/prd-automation, #EKS
+    resource:infra/1awvh-prd-prod-automation-az2, #Cluster
+    resource:core/kong #Gateway
+  ]
+  runtime:
+    cluster: 1awvh-prd-prod-automation-az2
+    namespace: ao-claim
+  providesApis: []
+  consumeApis: []
+  limits: 'default kong'

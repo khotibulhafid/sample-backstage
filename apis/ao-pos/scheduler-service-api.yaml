@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: scheduler-service-api
+  namespace: ao-pos
+  description: The scheduler service api for language in ao-pos
+  tags:
+    - api
+    - backend
+    - service
+    - pos
+    - scheduler
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/pos
+  system: ao-pos/pos
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifpo---pos/browse/scheduler-service

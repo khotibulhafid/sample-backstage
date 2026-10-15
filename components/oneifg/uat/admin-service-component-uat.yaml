@@ -1,0 +1,21 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: admin-service-uat
+  namespace: oneifg
+  description: The Admin service api for Admin management in One by IFG Web Admin
+  tags:
+    - component
+    - backend
+    - service
+    - one
+    - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/onebyifg
+  system: onebyifg
+  dependsOn: [ resource:oneifg-prd,resource:prd-oneifg ]
+  providesApis: [ admin-service-api-uat ]

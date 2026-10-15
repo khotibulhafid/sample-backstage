@@ -1,0 +1,254 @@
+apiVersion: backstage.io/v1alpha1
+kind: Location
+metadata:
+  name: ifgl-api-uat
+  description: A collection of all Backstage IFGL components in Non Production
+spec:
+  targets:    
+    # Claim
+    - ./apis/ao-claim/uat/claim-service-api-uat.yaml
+    - ./apis/ao-claim/uat/scheduler-service-api-uat.yaml
+    - ./apis/ao-claim/uat/claim-analysis-service-api-uat.yaml
+    - ./apis/ao-claim/uat/claim-billing-service-api-uat.yaml
+    - ./apis/ao-claim/uat/claim-common-service-api-uat.yaml
+    - ./apis/ao-claim/uat/claim-submission-cashless-service-api-uat.yaml
+    - ./apis/ao-claim/uat/claim-submission-reimbursement-service-api-uat.yaml
+    - ./apis/ao-claim/uat/medical-pathway-service-api-uat.yaml
+
+    # FRAUD
+    - ./apis/ao-fraud/uat/fraud-service-api-uat.yaml
+
+    # AO-HOSPITAL-NETWORK - ini masih salah
+    - ./apis/ao-hospital-network/uat/hospital-service-api-uat.yaml
+
+    # LIFEHUB
+    - ./apis/ao-lifehub/uat/bulk-service-api-uat.yaml
+    - ./apis/ao-lifehub/uat/task-service-api-uat.yaml
+    - ./apis/ao-lifehub/uat/user-service-api-uat.yaml
+    - ./apis/ao-lifehub/uat/lifehub-wrapper-api-uat.yaml
+
+    # NB UW
+    - ./apis/ao-new-business/uat/billing-service-api-uat.yaml
+    - ./apis/ao-new-business/uat/journal-service-api-uat.yaml
+    - ./apis/ao-new-business/uat/new-business-service-api-uat.yaml
+    - ./apis/ao-new-business/uat/new-business-service-v2-api-uat.yaml
+    - ./apis/ao-new-business/uat/policy-service-api-uat.yaml
+    - ./apis/ao-new-business/uat/policy-service-v2-api-uat.yaml
+    - ./apis/ao-new-business/uat/proposal-service-api-uat.yaml
+    - ./apis/ao-new-business/uat/proposal-service-v2-api-uat.yaml
+#    - ./apis/ao-new-business/underwriting-scheduler-service-api-uat.yaml
+    - ./apis/ao-new-business/uat/underwriting-service-api-uat.yaml
+
+    # POS
+    - ./apis/ao-pos/uat/alteration-service-api-uat.yaml
+    - ./apis/ao-pos/uat/corporate-alteration-service-api-uat.yaml
+    - ./apis/ao-pos/uat/scheduler-service-api-uat.yaml
+
+    # PAS - Product Engine
+    - ./apis/ao-product-engine/uat/product-calculator-corporate-service-api-uat.yaml
+    - ./apis/ao-product-engine/uat/product-calculator-service-api-uat.yaml
+    - ./apis/ao-product-engine/uat/product-config-service-api-uat.yaml
+#    - ./apis/ao-product-engine/product-formula-service-api-uat.yaml
+    - ./apis/ao-product-engine/uat/product-formulation-corporate-service-api-uat.yaml
+    - ./apis/ao-product-engine/uat/product-formulation-retail-service-api-uat.yaml
+    - ./apis/ao-product-engine/uat/product-validator-corporate-service-api-uat.yaml
+    - ./apis/ao-product-engine/uat/product-validator-service-api-uat.yaml
+
+    # Correspondence
+    - ./apis/correspondence/uat/correspondence-wrapper-api.yaml
+    - ./apis/correspondence/uat/generator-service-api.yaml
+    - ./apis/correspondence/uat/notification-service-api.yaml
+    - ./apis/correspondence/uat/pas-edoc-service-api.yaml
+    - ./apis/correspondence/uat/pas-migration-service-api.yaml
+    - ./apis/correspondence/uat/storage-service-api.yaml
+
+    # Workflow NB + UW + PAS + POS + FRAUD + CLAIM
+    - ./apis/ao-workflow/uat/ao-workflow-claim-api-uat.yaml
+    - ./apis/ao-workflow/uat/ao-workflow-claim-wrapper-api-uat.yaml
+    - ./apis/ao-workflow/uat/ao-workflow-corporate-policy-api-uat.yaml
+    - ./apis/ao-workflow/uat/ao-workflow-corporate-policy-wrapper-api-uat.yaml
+    - ./apis/ao-workflow/uat/ao-workflow-fraud-api-uat.yaml
+    - ./apis/ao-workflow/uat/ao-workflow-fraud-wrapper-api-uat.yaml
+    - ./apis/ao-workflow/uat/ao-workflow-nb-api-uat.yaml
+    - ./apis/ao-workflow/uat/ao-workflow-nb-wrapper-api-uat.yaml
+    - ./apis/ao-workflow/uat/ao-workflow-policy-api-uat.yaml
+    - ./apis/ao-workflow/uat/ao-workflow-policy-wrapper-api-uat.yaml
+#    - ./apis/claim/ao-workflow-policy-reinstatement-api-uat.yaml
+#    - ./apis/claim/ao-workflow-policy-reinstatement-wrapper-api-uat.yaml
+
+    # LIFESPACE / Corporate
+    - ./apis/corporate/uat/activity-service-api-uat.yaml
+    - ./apis/corporate/uat/batch-service-api-uat.yaml
+    - ./apis/corporate/uat/meta-service-api-uat.yaml
+    - ./apis/corporate/uat/notification-service-api-uat.yaml
+    - ./apis/corporate/uat/policy-service-api-uat.yaml
+    - ./apis/corporate/uat/storage-service-api-uat.yaml
+    - ./apis/corporate/uat/user-service-api-uat.yaml
+
+    # LIFEBYIFG / Customer
+    - ./apis/customer/uat/config-service-api-uat.yaml
+    - ./apis/customer/uat/content-service-api-uat.yaml
+    - ./apis/customer/uat/event-service-api-uat.yaml
+    - ./apis/customer/uat/leads-service-api-uat.yaml
+    - ./apis/customer/uat/meta-service-api-uat.yaml
+    - ./apis/customer/uat/notification-service-api-uat.yaml
+    - ./apis/customer/uat/partner-service-api-uat.yaml
+    - ./apis/customer/uat/policy-service-api-uat.yaml
+    - ./apis/customer/uat/product-service-api-uat.yaml
+    - ./apis/customer/uat/provider-service-api-uat.yaml
+    - ./apis/customer/uat/referral-service-api-uat.yaml
+    - ./apis/customer/uat/storage-service-api-uat.yaml
+    - ./apis/customer/uat/transaction-service-api-uat.yaml
+    - ./apis/customer/uat/user-wrapper-api-uat.yaml
+
+    # CWS
+    - ./apis/cws/uat/cms-be-api-uat.yaml
+    - ./apis/cws/uat/corporate-be-api-uat.yaml
+
+    # IFGID
+    - ./apis/ifgid/uat/ekyc-service-api-uat.yaml
+    - ./apis/ifgid/uat/meta-service-api-uat.yaml
+    - ./apis/ifgid/uat/notification-service-api-uat.yaml
+    - ./apis/ifgid/uat/organization-service-api-uat.yaml
+    - ./apis/ifgid/uat/storage-service-api-uat.yaml
+    - ./apis/ifgid/uat/user-service-api-uat.yaml
+    - ./apis/ifgid/uat/entity-service-api-uat.yaml
+
+    # LIFEFORCE-CORPORATE / Lifeforce group
+    - ./apis/lifeforce-group/uat/group-user-service-api-uat.yaml
+    - ./apis/lifeforce-group/uat/group-user-wrapper-api-uat.yaml
+
+    # LIFEFORCE-CORPORATE / Lifeforce Admin
+    - ./apis/lifeforce-admin/uat/admin-admin-service-api-uat.yaml
+
+    # LIFEFORCE-INDIVIDU
+    - ./apis/lifeforce-individu/uat/individu-customer-360-wrapper-api-uat.yaml
+    - ./apis/lifeforce-individu/uat/individu-lead-service-api-uat.yaml
+    - ./apis/lifeforce-individu/uat/individu-new-business-service-api-uat.yaml
+    - ./apis/lifeforce-individu/uat/individu-notification-service-api-uat.yaml
+
+    # LIFENET / Lifenet acquirer
+    - ./apis/lifenet-acquirer/uat/acquirer-ifgl-network-service-api-uat.yaml
+    - ./apis/lifenet-acquirer/uat/acquirer-other-ns-wrapper-service-api-uat.yaml
+    - ./apis/lifenet-acquirer/uat/acquirer-reference-service-api-uat.yaml
+    - ./apis/lifenet-acquirer/uat/lifenet-acquirer-admin-service-api-uat.yaml
+    - ./apis/lifenet-acquirer/uat/provider-service-api-uat.yaml
+    - ./apis/lifenet-acquirer/uat/report-service-api-uat.yaml
+    - ./apis/lifenet-acquirer/uat/scheduler-service-api-uat.yaml
+    - ./apis/lifenet-acquirer/uat/storage-service-api-uat.yaml
+    - ./apis/lifenet-acquirer/uat/user-service-api-uat.yaml
+
+    # LIFENET / Lifenet issuer
+    - ./apis/lifenet-issuer/uat/issuer-ifgl-case-monitoring-service-api-uat.yaml
+    - ./apis/lifenet-issuer/uat/issuer-ifgl-scheduler-service-api-uat.yaml
+    - ./apis/lifenet-issuer/uat/issuer-ifgl-wrapper-service-api-uat.yaml
+    - ./apis/lifenet-issuer/uat/network-issuer-ifgl-wrapper-service-api-uat.yaml
+
+    # LIFENET / Lifenet network
+    - ./apis/lifenet-network/uat/acquirer-ifgl-wrapper-service-api-uat.yaml
+    - ./apis/lifenet-network/uat/issuer-ifgl-issuer-wrapper-service-api-uat.yaml
+    - ./apis/lifenet-network/uat/network-discovery-service-api-uat.yaml
+    - ./apis/lifenet-network/uat/provider-mapping-network-service-api-uat.yaml
+
+    # ONEBYIFG
+    - ./apis/oneifg/uat/admin-service-api-uat.yaml
+    - ./apis/oneifg/uat/meta-service-api-uat.yaml
+    - ./apis/oneifg/uat/notification-service-api-uat.yaml
+    - ./apis/oneifg/uat/product-service-api-uat.yaml
+    - ./apis/oneifg/uat/storage-service-api-uat.yaml
+    - ./apis/oneifg/uat/transaction-service-api-uat.yaml
+    - ./apis/oneifg/uat/user-service-api-uat.yaml
+
+    # Partnership
+    - ./apis/partnership/uat/be-dashboard-client-api-uat.yaml
+    - ./apis/partnership/uat/fitaja-service-api-uat.yaml
+    - ./apis/partnership/uat/partnership-internal-service-api-uat.yaml
+    - ./apis/partnership/uat/service-btn-api-uat.yaml
+
+    # Payment
+    - ./apis/payment/uat/core-services-api-uat.yaml
+    - ./apis/payment/uat/dashboard-service-api-uat.yaml
+    - ./apis/payment/uat/direct-bill-service-api-uat.yaml
+    - ./apis/payment/uat/gateway-bcheck-api-uat.yaml
+    - ./apis/payment/uat/gateway-biller-api-uat.yaml
+    - ./apis/payment/uat/gateway-bni-api-uat.yaml
+    - ./apis/payment/uat/gateway-bri-api-uat.yaml
+    - ./apis/payment/uat/gateway-btn-api-uat.yaml
+    - ./apis/payment/uat/gateway-cts-api-uat.yaml
+    - ./apis/payment/uat/gateway-doku-api-uat.yaml
+    - ./apis/payment/uat/gateway-frontend-api-uat.yaml
+    - ./apis/payment/uat/gateway-linkaja-api-uat.yaml
+    - ./apis/payment/uat/gateway-mandiri-api-uat.yaml
+    - ./apis/payment/uat/gateway-midtrans-api-uat.yaml
+    - ./apis/payment/uat/gateway-partnership-api-uat.yaml
+    - ./apis/payment/uat/gateway-pospay-api-uat.yaml
+    - ./apis/payment/uat/gateway-tokopedia-api-uat.yaml
+    - ./apis/payment/uat/gateway-workflow-api-uat.yaml
+    - ./apis/payment/uat/gateway-xendit-api-uat.yaml
+    - ./apis/payment/uat/gateway-yokke-api-uat.yaml
+    - ./apis/payment/uat/inquiry-core-service-api-uat.yaml
+    - ./apis/payment/uat/out-core-service-api-uat.yaml
+    - ./apis/payment/uat/out-gateway-channel-service-api-uat.yaml
+    - ./apis/payment/uat/out-gateway-cts-service-api-uat.yaml
+    - ./apis/payment/uat/out-gateway-mandiri-service-api-uat.yaml
+    - ./apis/payment/uat/out-gateway-midtrans-service-api-uat.yaml
+    - ./apis/payment/uat/recon-service-api-uat.yaml
+    - ./apis/payment/uat/recurring-service-api-uat.yaml
+    - ./apis/payment/uat/utility-kafka-listener-api-uat.yaml
+    - ./apis/payment/uat/utility-scheduler-api-uat.yaml
+
+    # DATA
+    - ./apis/data/uat/base-service-api-uat.yaml
+    - ./apis/data/uat/customer-service-api-uat.yaml
+    - ./apis/data/uat/dedupe-service-api-uat.yaml
+
+    # DPLK
+    - ./apis/dplk/uat/cashin-service-api-uat.yaml
+    - ./apis/dplk/uat/cashin-wrapper-service-api-uat.yaml
+    - ./apis/dplk/uat/cashout-service-api-uat.yaml
+    - ./apis/dplk/uat/cashout-wrapper-service-api-uat.yaml
+    - ./apis/dplk/uat/document-reporting-service-api-uat.yaml
+    - ./apis/dplk/uat/identity-service-api-uat.yaml
+    - ./apis/dplk/uat/investment-service-api-uat.yaml
+    - ./apis/dplk/uat/journal-service-api-uat.yaml
+    - ./apis/dplk/uat/membership-service-api-uat.yaml
+    - ./apis/dplk/uat/membership-wrapper-service-api-uat.yaml
+    - ./apis/dplk/uat/monitoring-service-api-uat.yaml
+
+    # PSAK
+    - ./apis/psak/uat/summary-service-api-uat.yaml
+    - ./apis/psak/uat/upload-ecf-gbq-service-api-uat.yaml
+    - ./apis/psak/uat/upload-ecf-dbpsak-service-api-uat.yaml
+    - ./apis/psak/uat/upload-ecf-all-table-service-api-uat.yaml
+    - ./apis/psak/uat/etl-run-job-service-api-uat.yaml
+    - ./apis/psak/uat/etl-export-job-service-api-uat.yaml
+
+    # ONEVERSEINTERCO
+    - ./apis/oneverseinterco/uat/meta-service-api-uat.yaml
+
+    # DOCTORHUB
+    - ./apis/lifenet-doctorhub/uat/doctorhub-acquirer-lms-service-api-uat.yaml
+    - ./apis/lifenet-doctorhub/uat/doctorhub-acquirer-mi-service-api-uat.yaml
+    - ./apis/lifenet-doctorhub/uat/doctorhub-acquirer-viva-service-api-uat.yaml
+    - ./apis/lifenet-doctorhub/uat/doctorhub-acquirer-yesdok-service-api-uat.yaml
+    - ./apis/lifenet-doctorhub/uat/doctorhub-appointment-service-api-uat.yaml
+    - ./apis/lifenet-doctorhub/uat/doctorhub-doctor-service-api-uat.yaml
+    - ./apis/lifenet-doctorhub/uat/doctorhub-one-wrapper-service-api-uat.yaml
+
+    # PARMACHYHUB
+    - ./apis/lifenet-pharmacyhub/uat/pharmacyhub-acquirer-fdn-service-api-uat.yaml
+    - ./apis/lifenet-pharmacyhub/uat/pharmacyhub-billing-service-api-uat.yaml
+    - ./apis/lifenet-pharmacyhub/uat/pharmacyhub-courier-service-api-uat.yaml
+    - ./apis/lifenet-pharmacyhub/uat/pharmacyhub-one-wrapper-service-api-uat.yaml
+    - ./apis/lifenet-pharmacyhub/uat/pharmacyhub-prescription-service-api-uat.yaml
+
+    # AO-HOSPITAL
+    - ./apis/lifenet-hospital/uat/hospital-service-api-uat.yaml
+    - ./apis/oneverseinterco/uat/task-service-api-uat.yaml
+    - ./apis/oneverseinterco/uat/user-service-api-uat.yaml
+    - ./apis/oneverseinterco/uat/treaty-service-api-uat.yaml
+    - ./apis/oneverseinterco/uat/interco-service-api-uat.yaml
+    - ./apis/oneverseinterco/uat/transaction-service-api-uat.yaml
+    - ./apis/oneverseinterco/uat/approval-workflow-service-api-uat.yaml
+    - ./apis/oneverseinterco/uat/approval-workflow-wrapper-service-api-uat.yaml
+    - ./apis/oneverseinterco/uat/audit-service-api-uat.yaml

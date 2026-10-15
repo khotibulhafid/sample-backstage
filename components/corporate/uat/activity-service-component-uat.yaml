@@ -1,0 +1,23 @@
+---     
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: activity-service-uat
+  namespace: corporate
+  description: The corporate activity-service api in corporate-activity-service
+  tags:
+    - backend
+    - service
+    - activity
+    - log
+    - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/lifespace
+  system: lifespace
+  dependsOn: [resource:default/ifgl-bvl19-prd-prod-customer-customerapps,resource:default/kafka]
+  providesApis: [activity-service-api-uat]
+  consumesApis: [user-service-api-uat]
+  

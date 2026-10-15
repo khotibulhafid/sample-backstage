@@ -1,0 +1,55 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: acquirer-ifgl-wrapper-service-uat
+  namespace: lifenet-network
+  description: wrapper which connect acquirer to lifenet-network for Lifenet System
+  tags:
+    - backend
+    - service
+    - lifenet-network
+    - lifenet
+    - uat
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/ILEN/repos/acquirer-ifgl-wrapper-service/browse?at=refs%2Fheads%2Fuat
+#    - title: Monitoring / Logs (Datadog)
+#      url: #Need to get value
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/lifenet-network-uat-acquirer-ifgl-wrapper-service
+    - title: Docker Image
+      url: docker://docker-hospital.artifact.ifg-life.id/lifenet/acquirer-ifgl-wrapper-service-uat
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-7lddu-nprd-uat-lifenet-lifenet-network-uat/browse?at=refs%2Fheads%2Facquirer-ifgl-wrapper-service
+    - title: Base URL
+      url: https://net-admin-uat.life.id
+    - title: Liveness Endpoints
+      url: /api/q/health/live
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/ILEN/repos/acquirer-ifgl-wrapper-service/browse/README.md?at=refs%2Fheads%2Fuat
+spec:
+  type: REST
+  lifecycle: experimental
+  owner: group:channel/lifenet-network
+  system: system:channel/lifenet-network-system
+  domain: domain:lifenet/lifenet
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.25.4
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: lifenet-prd
+    namespace: lifenet-issuer
+#  subcomponentOf: lifenet-admin-backend
+  providesApis: [lifenet-network/acquirer-ifgl-wrapper-service-api-uat]
+  consumesApis: [network-discovery-service]
+  limits: 'default kong'

@@ -1,0 +1,22 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: gateway-tokopedia-uat
+  namespace: payment
+  description: Gateway to communicate with Tokopedia for Ecommerce
+  tags:
+    - component
+    - backend
+    - service
+    - payment
+    - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/ifgpay
+  system: ifgpay
+  dependsOn: [ resource:default/kafka ]
+  consumesApis: [ ]
+  providesApis: [ gateway-tokopedia-api-uat ]

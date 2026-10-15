@@ -1,0 +1,40 @@
+---     
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: group-sales-portal-web
+  namespace: lifeforce-group
+  description: Sales portal for lifeforce group
+  title: Group Sales Portal Web
+  tags:
+    - frontend
+    - web
+    - lifeforce
+    - lifeforce-group
+    - nextjs
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/ILLF/repos/group-sales-portal-web/browse
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/lifeforce-group-release-sales-portal
+    - title: Docker Image
+      url: docker://docker-lifeforce.artifact.ifg-life.id/lifeforce-group/sales-portal-release:25
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-yu30h-prd-prod-lifeforce-lifeforce-group-release/browse/deployment.yaml?at=refs%2Fheads%2Fsales-portal
+    - title: Base URL
+      url: https://force.life.id
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/ILLF/repos/group-sales-portal-web/browse/README.md
+spec:
+  type: website
+  domain: domain:channel/channel-platform
+  owner: group:channel/lifeforce-group
+  system: system:lifeforce-corporate
+  lifecycle: production
+  environments: prod
+  language: javascript
+  runtime:
+    cluster: lifeforce-prd
+    namespace: lifeforce-group
+  consumesApis: [group-user-service-api]

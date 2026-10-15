@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: pas
+  namespace: default
+  description: Everything Related to Policy Administration System Domain
+  title: 'Policy Administration System Domain'
+  links:
+    - url: https://api-automation.ifg-life.id
+      title: 'Life By IFG Readme'
+    - url: https://api.powerbi.com
+      title: power BI
+      icon: dashboard
+spec:
+  owner: default/pas

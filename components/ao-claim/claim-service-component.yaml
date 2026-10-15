@@ -1,0 +1,63 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: claim-service
+  namespace: ao-claim
+  description: The claim service for automation claim service
+  tags:
+    - component
+    - backend
+    - service
+    - claim
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFCL/repos/claim-service/browse
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:claim-service
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/ao-claim-release-claim-service
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-claim/claim-service-release
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-1awvh-prd-prod-automation-ao-claim-release/browse/deployment.yaml
+    - title: Base URL
+      url: https://api-core.ifg-life.id
+    - title: Liveness Endpoints
+      url: http://claim-service:8080/q/health/live
+    - title: Readiness Endpoints
+      url: http://claim-service:8080/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFCL/repos/claim-service/browse/README.md
+spec:
+  type: REST
+  owner: group:automation/claim
+  system: system:core/claim-core-system
+  domain: domain:core/core-business
+  lifecycle: production
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.28.1
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  dependsOn: [
+    resource:default/prd-automation, #EKS
+    resource:infra/1awvh-prd-prod-automation-az2, #Cluster
+    resource:database/pg-core, #Database
+    resource:core/kong #Gateway
+  ]
+  runtime:
+    cluster: 1awvh-prd-prod-automation-az2
+    namespace: ao-claim
+  providesApis: [ao-claim/claim-service-api]
+  consumeApis: []
+  limits: 'default kong'

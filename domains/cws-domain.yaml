@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: cws
+  namespace: cws
+  description: Everything Related to Corporate Website Domain
+  title: 'CWS Domain'
+  links:
+    - url: https://ifg-life.id
+      title: 'IFG Life Url'
+    - url: https://ifg-life.id/cms
+      title: 'IFG Life Corporate Website CMS'
+    - url: https://ifg-life.id/api
+      title: 'IFG Life API'
+    - url: https://konga-cws.ifg-life.id
+      title: 'Konga CWS Portal'
+spec:
+  owner: default/cws

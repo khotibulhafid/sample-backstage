@@ -1,0 +1,21 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: gateway-xendit-api-uat
+  namespace: payment
+  description: Gateway to communicate with Xendit payment gateway for Card, OVO, and ShopeePay
+  tags:
+  - api
+  - backend
+  - service
+  - payment
+  - uat
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: default/ifgpay
+  system: ifgpay
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifpy---payment/browse/gateway-xendit?at=uat

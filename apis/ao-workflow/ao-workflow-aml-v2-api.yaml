@@ -1,0 +1,23 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ao-workflow-aml-v2-api
+  namespace: workflow-fraud
+  description: The workflow aml openapi for automation aml proses service
+  tags:
+    - workflow
+    - quarkus
+    - backend
+    - aml
+    - bpmn
+    - api
+spec:
+  type: openapi
+  lifecycle: production
+  owner: group:automation/fraud
+  system: system:automation/fraud-detection-system
+  domain: domain:automation/process-automation
+#  definition:
+#    $text: https://code.ifg-life.id/projects/IFSC/repos/ifao---automation-operation/browse/ao-workflow-aml-v2-api

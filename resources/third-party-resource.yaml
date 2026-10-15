@@ -1,0 +1,12 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: third-party
+  description: Third party Service
+  tags:
+    - third-party
+spec:
+  type: third-party
+  owner: default/infrastructure
+  system: infrastructure/infra

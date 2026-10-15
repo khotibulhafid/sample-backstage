@@ -1,0 +1,68 @@
+---     
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: general-transaction-service
+  namespace: epics-portal
+  description: Storage Data
+  tags:
+    - backend
+    - service
+    - lifehub
+    - storage-data
+    - quarkus
+  links:
+    - title: Source Repository
+    - url: https://code.ifg-life.id/projects/IFLH/repos/general-transaction-version2/browse
+    - title: Monitoring / Logs (Datadog)
+    - url: https://app.datadoghq.com/apm/entity/service:general-transaction-service.epics-portal.svc
+    - title: Deployment (ArgoCD)
+    - url: https://deploy.ifg-life.id/applications/argocd/epics-portal-release-general-transaction-service
+    - title: Docker Image
+    - url: docker://docker-automation-operation.artifact.ifg-life.id/epics-portal/general-transaction-service-release
+    - title: Deployment YAML (Env & Config)
+    - url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-l4qdb-prd-prod-legacy-ao-epics-portal-release/browse/deployment.yaml?at=refs%2Fheads%2Fgeneral-transaction-service
+    - title: Base URL
+    - url: https://api-automation.ifg-life.id
+    - title: Liveness Endpoints
+    - url: https://localhost:8080/lifehub/q/health/live
+    - title: Readiness Endpoints
+    - url: https://localhost:8080/lifehub/q/health/ready
+    - title: Documentation
+    - url: https://code.ifg-life.id/projects/IFLH/repos/general-transaction-version2/browse/README.md
+    - title: Documention kafka
+    - url: https://code.ifg-life.id/projects/IFLH/repos/general-transaction-version2/browse/kafka-documentation.md
+    - title: Documentation message kafka
+    - url: https://code.ifg-life.id/projects/IFLH/repos/general-transaction-version2/browse/kafka-documentation.md
+spec:
+  type: REST
+  domain: domain:channel/channel-platform
+  owner: owner:channel/lifehub
+  system: system:channel/lifehub-system
+  lifecycle: production
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.24.2
+  auth:
+    method: ApiKey
+    notes: >
+      Service uses Kong Api Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: automation-prd
+    namespace: epics-portal
+  limits: 'default kong'
+  providesApis: [general-transaction-service-api]
+  dependsOn: [
+    resource:infra/eks-automation-core-prd, #eks
+    resource:infra/automation-core-prd, #Cluster
+    resource:database/pg-automation, #PostgreSQL DB
+    resource:infra/kafka,
+    resource:aowf/kong
+  ]
+  consumesApis: []

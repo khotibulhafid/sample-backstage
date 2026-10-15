@@ -1,0 +1,69 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: kogito-claim
+  namespace: ao-workflow
+  description: The kogito claim service for automation claim proses service
+  tags:
+    - claim
+    - kogito
+    - infinispan
+    - dataindex
+    - workflow
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFAO/repos/ao-workflow-kogito-claim/browse
+    - title: Monitoring / Logs (Datadog)
+      url: "https://app.datadoghq.com/apm/entity/service:infinispan-claim"
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/workflow-claim-release-kogito
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-l4qdb-prd-prod-legacy-ao-workflow-claim-release/browse
+    - title: Liveness Endpoints
+      url: https://infinispan-claim:11222/q/health/live
+    - title: Readiness Endpoints
+      url: https://infinispan-claim:11222/q/health/ready
+    - title: Base Url
+      url: https://wf-infinispan-claim.ifg-life.id
+spec:
+  type: service
+  owner: group:automation/claim
+  system: system:automation/claim-automation-system
+  domain: domain:workflow
+  lifecycle: production
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 2.16.12.Final
+  workflow:
+    version: 1.44.1.Final
+  usesLibraries:
+    - name: "infinispan"
+      implemented: True
+    - name: "dataindex"
+      implemented: True
+    - name: "management-console"
+      implemented: True
+    - name: "task-console"
+      implemented: True
+  auth:
+    method: none
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: 1awvh-prd-prod-automation-az2
+    namespace: ao-workflow
+  dependsOn: [ 
+    resource:infra/kafka,
+    resource:database/infinispan,
+    resource:infra/keycloak,
+    resource:infra/EFS 
+  ]
+  providesApis: [kogito-claim-api]
+  consumeApis: [ao-workflow-claim-api, ao-workflow-claim-cashless-api]
+  limits: 'default kong'

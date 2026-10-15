@@ -1,0 +1,22 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: policy-service
+  namespace: customer
+  description: The policy service for customerapps
+  tags:
+  - backend
+  - service
+  - policyservice
+  - lifebyifg  
+spec:
+  type: service
+  lifecycle: production
+  owner: default/lifebyifg
+  system: lifebyifg
+#  subcomponentOf: life-by-ifg-backend
+  dependsOn: [resource:default/ifgl-bvl19-prd-prod-customer-customerapps,resource:legacy/ifgebp,resource:legacy/ifgnonebp,resource:legacy/ifgfinance]
+  providesApis: [policy-service-api]
+  consumesApis: [ customer/product-service-api, customer/user-wrapper-service-api, customer/partner-service-api, customer/referral-service-api ]

@@ -1,0 +1,10 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: dplk
+  namespace: dplk
+  description: DPLK management system.
+spec:
+  owner: default/dplk
+  domain: dplk/dplk

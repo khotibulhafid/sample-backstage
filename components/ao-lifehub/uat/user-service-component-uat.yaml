@@ -1,0 +1,21 @@
+---     
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: user-service-uat
+  namespace: ao-lifehub
+  description: service to handle user dan wrapper for Lifehub System
+  tags:
+    - backend
+    - service
+    - lifehub
+    - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/lifehub
+  system: lifehub
+  providesApis: [user-service-api-uat]
+  dependsOn: [resource:ao-workflow/ifgl-1awvh-prd-automation-db]
+  consumesApis: [ao-claim/claim-service-api-uat,ao-workflow/ao-workflow-claim-wrapper-api-uat,ao-fraud/fraud-service-api-uat,ao-workflow/ao-workflow-fraud-wrapper-api-uat,ao-hospital-network/hospital-service-api-uat,ao-workflow/ao-workflow-policy-api-uat,ao-product-engine/notification-service-api-uat,ao-product-engine/storage-service-api-uat,ifgid/meta-service-api-uat,ifgid/ekyc-service-api-uat,ifgid/organization-service-api-uat,lifeforce-individu/individu-new-business-service-api-uat,corporate/policy-service-api-uat,corporate/storage-service-api-uat,customer/event-service-api-uat,customer/storage-service-api-uat,customer/product-service-api-uat,customer/transaction-service-api-uat,customer/user-wrapper-api-uat,customer/partner-service-api-uat]

@@ -1,0 +1,22 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: gateway-midtrans-uat
+  namespace: payment
+  description: Gateway to communicate with Midtrans for Gopay
+  tags:
+  - component
+  - backend
+  - service
+  - payment
+  - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/ifgpay
+  system: ifgpay
+  dependsOn: [ resource:default/kafka ]
+  consumesApis: [ core-services-api-uat ]
+  providesApis: [ gateway-midtrans-api-uat ]

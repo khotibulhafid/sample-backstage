@@ -1,0 +1,74 @@
+---     
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: bulk-service
+  namespace: epics-portal
+  description: consist of bulk operation at OneVerse Hub like bulk policy upload, master rate, bulk regulator and bulk fraud checking
+  tags:
+    - backend
+    - service
+    - lifehub
+    - bulk
+    - quarkus
+  links:
+    - title: Source Repository
+    - url: https://code.ifg-life.id/projects/IFLH/repos/bulk-service-version2/browse
+    - title: Monitoring / Logs (Datadog)
+    - url: https://app.datadoghq.com/apm/entity/service:epics-portal-bulk-service
+    - title: Deployment (ArgoCD)
+    - url: https://deploy.ifg-life.id/applications/argocd/epics-portal-release-bulk-service
+    - title: Docker Image
+    - url: docker://docker-automation-operation.artifact.ifg-life.id/epics-portal/bulk-service-release
+    - title: Deployment YAML (Env & Config)
+    - url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-l4qdb-prd-prod-legacy-ao-epics-portal-release/browse/deployment.yaml?at=refs%2Fheads%2Fbulk-service
+    - title: Base URL
+    - url: https://api-automation.ifg-life.id
+    - title: Liveness Endpoints
+    - url: https://localhost:8080/lifehub/q/health/live
+    - title: Readiness Endpoints
+    - url: https://localhost:8080/lifehub/q/health/ready
+    - title: Documentation
+    - url: https://code.ifg-life.id/projects/IFLH/repos/bulk-service-version2/browse/README.md
+    - title: Documentation Kafka topic list
+    - url: https://code.ifg-life.id/projects/IFLH/repos/bulk-service-version2/browse/kafka_topic_documentation.md
+    - title: Documentation sample kafka message
+    - url: https://code.ifg-life.id/projects/IFLH/repos/bulk-service-version2/browse/kafka_topic_documentation.md
+spec:
+  type: REST
+  domain: domain:channel/channel-platform
+  owner: owner:channel/lifehub
+  system: system:channel/lifehub-system
+  lifecycle: production
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.30.3
+  auth:
+    method: ApiKey
+    notes: >
+      Service uses Kong Api Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: automation-prd
+    namespace: epics-portal
+  limits: 'default kong'
+  providesApis: [ao-lifehub/bulk-service-api]
+  dependsOn: [
+    resource:infra/eks-automation-core-prd, #eks
+    resource:infra/automation-core-prd, #Cluster
+    resource:database/pg-automation, #PostgreSQL DB
+    resource:infra/kafka,
+    resource:aowf/kong
+  ]
+  consumesApis: [
+    ifgid/ekyc-service-api,
+    ao-lifehub/user-service,
+    ao-lifehub/task-service,
+    ao-lifehub/internal-wrapper,
+    ao-lifehub/general-transaction
+  ]

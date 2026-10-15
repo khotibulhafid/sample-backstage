@@ -1,0 +1,20 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: product-validator-service-uat
+  namespace: ao-product-engine
+  description: The product validator service api
+  tags:
+    - backend
+    - service
+    - product-validator
+    - uat
+spec:
+  type: service
+  lifecycle: experimental
+  system: ao-pos/pos
+  owner: default/pos
+  providesApis: [product-validator-service-api-uat]
+  dependsOn: [resource:ao-workflow/ifgl-1awvh-prd-automation-db, resource:ao-kong/kong]

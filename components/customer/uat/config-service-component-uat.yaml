@@ -1,0 +1,22 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: config-service-uat
+  namespace: customer
+  description: config service for customerapps
+  tags:
+  - backend
+  - service
+  - configservice
+  - lifebyifg
+  - nprd
+  - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/lifebyifg
+  system: lifebyifg
+#  subcomponentOf: life-by-ifg-backend
+  providesApis: [config-service-api-uat]

@@ -1,0 +1,58 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: claim-service-uat
+  namespace: ao-claim
+  description: The claim service for automation claim service
+  tags:
+    - component
+    - backend
+    - service
+    - claim
+    - uat
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFCL/repos/claim-service/browse?at=refs%2Fheads%2Fuat
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/ao-claim-uat-claim-service
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-claim/claim-service-uat
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-pflcb-nprd-uat-automation-ao-claim-uat/browse/deployment.yaml
+    - title: Base URL
+      url: https://api-core-uat.ifg-life.id
+    - title: Liveness Endpoints
+      url: /q/health/live
+spec:
+  type: REST
+  owner: group:automation/claim
+  system: system:core/claim-core-system
+  domain: domain:core/core-business
+  lifecycle: experimental
+  environments: uat
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.28.1
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  dependsOn: [
+    resource:default/prd-automation, #EKS 
+    resource:infra/1awvh-prd-prod-automation-az2, #Cluster
+    resource:ao-workflow/ifgl-1awvh-prd-automation-db, #Database
+    resource:ao-kong/kong #Gateway
+  ]
+  runtime:
+    cluster: 1awvh
+    namespace: ao-claim
+  providesApis: [ao-claim/claim-service-api-uat]
+  consumeApis: []
+  limits: 'default kong'

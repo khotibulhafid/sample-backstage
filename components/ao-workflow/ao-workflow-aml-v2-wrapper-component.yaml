@@ -1,0 +1,67 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ao-workflow-aml-wrapper
+  namespace: workflow-fraud
+  description: The AML workflow wrapper service for automation AML service
+  tags:
+    - backend
+    - service
+    - aml
+    - workflow
+    - wrapper
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFAO/repos/ao-workflow-aml-wrapper-v2/browse
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:ao-workflow-aml-wrapper
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/workflow-fraud-release-aml-wrapper-workflow
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-workflow-version2/backend-service/fraud-wrapper-release
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-l4qdb-prd-prod-legacy-ao-workflow-fraud-release/browse?at=refs%2Fheads%2Faml-wrapper-workflow
+    - title: Base URL
+      url: https://api-automation-v2.ifg-life.id
+    - title: Liveness Endpoints
+      url: http://10.10.9.73:8089/q/health/live
+    - title: Readiness Endpoints
+      url: http://10.10.9.73:8089/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFAO/repos/ao-workflow-aml-wrapper-v2/browse/README.md
+    - title: Kafka Topic List
+      url: https://code.ifg-life.id/projects/IFAO/repos/ao-workflow-aml-wrapper-v2/browse/kafka.md
+spec:
+  type: REST
+  owner: group:automation/fraud
+  system: system:automation/fraud-detection-system
+  domain: domain:automation/process-automation
+  lifecycle: production
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.24.3
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  dependsOn: [
+      resource:infra/prd-automation, #EKS
+      resource:infra/automation-core-prd, #Cluster
+      resource:aowf/kong,
+      resource:infra/kafka,
+      resource:infra/redis,
+    ]
+  runtime:
+    cluster: l4qdb
+    namespace: workflow-fraud
+  providesApis: [ao-workflow-aml-v2-wrapper-api]
+  consumesApis: [ao-workflow-aml-v2-api]
+  limits: "default kong"

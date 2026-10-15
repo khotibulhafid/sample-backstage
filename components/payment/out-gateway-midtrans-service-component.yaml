@@ -1,0 +1,20 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: out-gateway-midtrans-service
+  namespace: payment
+  description: Gateway for IFG Pay payment out to communicate with Midtrans
+  tags:
+  - component
+  - backend
+  - service
+  - payment
+spec:
+  type: service
+  lifecycle: production
+  owner: default/ifgpay
+  system: ifgpay
+  consumesApis: [ out-core-service-api ]
+  providesApis: [ out-gateway-midtrans-service-api ]

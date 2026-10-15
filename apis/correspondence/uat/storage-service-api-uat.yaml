@@ -1,0 +1,22 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: storage-service-api-uat
+  namespace: ao-product-engine
+  description: The storage service api in correspondence
+  tags:
+    - api
+    - backend
+    - service
+    - correspondence
+    - s3
+    - storage
+    - dms
+    - uat
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: default/pas
+  system: ao-product-engine/pas
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifpc---correspondence/browse/storage-service?at=uat

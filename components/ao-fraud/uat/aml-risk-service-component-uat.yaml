@@ -1,0 +1,45 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: aml-risk-service
+  namespace: uat-service-fraud
+  description: Risk scoring and risk model calculation service for AML.
+  tags:
+    - aml
+    - risk
+    - backend
+    - java
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFGF/repos/aml-risk-service/browse
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/uat-service-fraud-uat-aml-risk-service
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-fraud-version2/fraud-risk-service
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-jg2mq-nprd-uat-legacy-ao-service-fraud/browse/deployment.yaml?at=refs%2Fheads%2Faml-risk-service
+    - title: Base URL
+      url: https://api-automation-uat-v2.ifg-life.id
+spec:
+  type: REST
+  owner: automation/fraud
+  system: fraud-detection-system
+  domain: process-automation
+  environments: uat
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.30.6
+  secretType: Kubernetes Secret
+  dependsOn:
+    [
+      component: uat-service-fraud/aml-master-data-service,
+      component: uat-service-fraud/aml-common-service,
+      resource: database/ifgl-l4qdb-prd-automation,
+      resource: ao-kong/kong,
+      resource: infra/kafka-data,
+    ]
+  runtime:
+    cluster: k8s-aml
+    namespace: uat-service-fraud

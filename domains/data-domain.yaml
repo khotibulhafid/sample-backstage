@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: data-platform
+  namespace: data
+  title: Data Platform Domain
+  description: >
+    Platform domain responsible for managing data pipelines, storage, analytics, and data access to support reporting, 
+    insights, and data-driven decision making.
+  tags:
+    - data
+    - platform
+spec:
+  owner: group:data

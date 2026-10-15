@@ -1,0 +1,10 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: partnership
+  namespace: partnership
+  description: Services to integrate purchases made outside the IFG Life platform.
+spec:
+  owner: default/partnership
+  domain: partnership/partnership

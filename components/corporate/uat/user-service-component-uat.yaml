@@ -1,0 +1,22 @@
+---     
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: user-service-uat
+  namespace: corporate
+  description: The corporate user-service api in corporate-user-service
+  tags:
+    - backend
+    - service
+    - user-management
+    - role-management
+    - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/lifespace
+  system: lifespace
+  dependsOn: [resource:default/ifgl-bvl19-prd-prod-customer-customerapps,resource:default/kafka,resource:legacy/IFGEBP,resource:legacy/IFGNONEBP]
+  providesApis: [user-service-api-uat]
+  consumesApis: [activity-service-api-uat]

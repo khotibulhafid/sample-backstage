@@ -1,0 +1,20 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: utility-scheduler-api
+  namespace: payment
+  description: Utility service for schedulers to trigger checks
+  tags:
+  - api
+  - backend
+  - service
+  - payment
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/ifgpay
+  system: ifgpay
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifpy---payment/browse/utility-scheduler

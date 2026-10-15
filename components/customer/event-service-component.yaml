@@ -1,0 +1,19 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: event-service
+  namespace: customer
+  description: The placeholder for all backend service for customerapps
+  tags:
+  - backend
+  - service
+  - lifebyifg
+spec:
+  type: service
+  lifecycle: production
+  owner: default/lifebyifg
+  system: lifebyifg
+  providesApis: [event-service-api]
+  consumesApis: [ customer/product-service-api, customer/user-wrapper-service-api, customer/referral-service-api ]

@@ -1,0 +1,56 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: doctorhub-one-wrapper-service-uat
+  namespace: lifenet-doctorhub
+  description: Microservice that serves as a unified gateway for One by IFG. It orchestrates API calls to multiple provider backend services, applies shared business logic, and provides a single.
+  tags:
+  - backend
+  - service
+  - lifenet-doctorhub
+  - lifenet
+  - admin
+  - uat
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/ILEN/repos/doctorhub-one-wrapper-service/browse?at=refs%2Fheads%2Fuat
+#    - title: Monitoring / Logs (Datadog)
+#      url: #Need to get value
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/lifenet-doctorhub-uat-doctorhub-one-wrapper-service
+    - title: Docker Image
+      url: docker://docker-hospital.artifact.ifg-life.id/lifenet/doctorhub-one-wrapper-service-uat
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-7lddu-nprd-uat-lifenet-lifenet-doctorhub-uat/browse?at=refs%2Fheads%2Fdoctorhub-one-wrapper-service
+#    - title: Base URL
+#      url: #TODO need to get value
+    - title: Liveness Endpoints
+      url: /api/q/health/live
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/ILEN/repos/doctorhub-one-wrapper-service/browse/README.md?at=refs%2Fheads%2Fuat
+spec:
+  type: REST
+  lifecycle: experimental
+  owner: group:channel/lifenet-doctorhub
+  system: system:channel/lifenet-system
+  domain: domain:channel/channel-platform
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.19.4
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: lifenet-prd
+    namespace: lifenet-admin
+  dependsOn: [] #TODO need to get value
+  providesApis: [lifenet-doctorhub/doctorhub-one-wrapper-service-api-uat]
+  consumesApis: [] #TODO need to get value
+  limits: 'default kong'

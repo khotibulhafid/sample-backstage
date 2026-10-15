@@ -1,0 +1,20 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: core-services-api
+  namespace: payment
+  description: Core service of Payment, used to access database and process payments
+  tags:
+  - api
+  - backend
+  - service
+  - payment
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/ifgpay
+  system: ifgpay
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifpy---payment/browse/core-services

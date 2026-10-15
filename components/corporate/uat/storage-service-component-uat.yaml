@@ -1,0 +1,21 @@
+---     
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: storage-service-uat
+  namespace: corporate
+  description: The corporate storage-service api in corporate-storage-service
+  tags:
+    - backend
+    - service
+    - storage
+    - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/lifespace
+  system: lifespace
+  dependsOn: [resource:default/ifgl-bvl19-prd-prod-customer-customerapps,resource:default/kafka,resource:default/lifespace-s3]
+  providesApis: [storage-service-api-uat]
+  consumesApis: [activity-service-api-uat,policy-service-api-uat]

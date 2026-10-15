@@ -1,0 +1,21 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: gateway-xendit
+  namespace: payment
+  description: Gateway to communicate with Xendit payment gateway for Card, OVO, and ShopeePay
+  tags:
+  - component
+  - backend
+  - service
+  - payment
+spec:
+  type: service
+  lifecycle: production
+  owner: default/ifgpay
+  system: ifgpay
+  dependsOn: [ resource:default/kafka ]
+  consumesApis: [ core-services-api ]
+  providesApis: [ gateway-xendit-api ]

@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: policy-service-v2-api
+  namespace: ao-new-business
+  description: The policy service api in new business
+  tags:
+    - api
+    - backend
+    - service
+    - policy
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/nbuw
+  system: ao-new-business/nbuw
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifnb---new-business/browse/policy-service-v2
+

@@ -1,0 +1,19 @@
+---     
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: admin-one
+  namespace: oneifg
+  description: The portal for administrators to control who can approve or reject KYC and transactions.
+  tags:
+    - component
+    - frontend
+    - one
+    - admin-one
+spec:
+  type: website
+  lifecycle: production
+  owner: default/onebyifg
+  system: onebyifg
+  consumesApis: [admin-service-api,user-service-api,storage-service-api,transaction-service-api,product-service-api,meta-service-api,notification-service-api]

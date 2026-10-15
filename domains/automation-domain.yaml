@@ -1,0 +1,52 @@
+#apiVersion: backstage.io/v1alpha1
+#kind: Domain
+#metadata:
+#  name: automation
+#  namespace: ao-kong
+#  description: Everything Related to Automation Domain
+#  title: 'Automation Domain'
+#  links:
+#    - url: https://api-automation.ifg-life.id
+#      title: 'Automation API Domain'
+#    - url: https://konga-automation.ifg-life.id
+#      title: 'Konga Automation Domain'
+#spec:
+#  owner: default/automation
+#---
+#apiVersion: backstage.io/v1alpha1
+#kind: Domain
+#metadata:
+#  name: dataindex
+#  namespace: ao-workflow
+#  description: Everything Related to Automation Domain
+#  title: 'Automation Domain'
+#  links:
+#    - url: https://wf-index.ifg-life.id
+#      title: 'Kogito Data Index URL'
+#    - url: https://wf-infinispan.ifg-life.id
+#      title: 'Kogito Infinispan URL'
+#    - url: https://wf-kc.ifg-life.id
+#      title: 'Kogito Keycloak URL'
+#    - url: https://wf-mgmt.ifg-life.id
+#      title: 'Kogito Management URL'
+#    - url: https://wf-task.ifg-life.id
+#      title: 'Kogito Task URL'
+#spec:
+#  owner: default/automation
+---
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: process-automation
+  namespace: automation
+  title: Process Automation Domain
+  description: >
+    Domain responsible for designing, orchestrating, and operating automation workflows to streamline business processes, 
+    reduce manual work, and improve operational efficiency.
+  tags:
+    - automation
+    - platform
+    - workflow
+spec:
+  owner: group:automation
+---

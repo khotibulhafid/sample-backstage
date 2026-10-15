@@ -1,0 +1,21 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: leads-service
+  namespace: customer
+  description: Leads service for customerapps
+  tags:
+  - backend
+  - service
+  - leadsservice
+  - lifebyifg
+spec:
+  type: service
+  lifecycle: production
+  owner: default/lifebyifg
+  system: lifebyifg
+#  subcomponentOf: life-by-ifg-backend
+  providesApis: [leads-service-api]
+  consumesApis: [ ifgid/meta-service-api]

@@ -1,0 +1,21 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: group-user-service-uat
+  namespace: lifeforce-group
+  description: The user-service for handling CRUD of sales Individual and Group
+  tags:
+    - api
+    - backend
+    - service
+    - uat
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: default/lifeforce-corporate
+  system: lifeforce-corporate
+  dependsOn: [resource:db-lifeforce]
+  providesApis: [group-user-service-api-uat]
+  consumesApis: [ifgid/user-service-api-uat]

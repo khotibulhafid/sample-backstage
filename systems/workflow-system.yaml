@@ -1,0 +1,11 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: workflow-platform
+  namespace: workflow
+  description: >
+    Enterprise workflow platform providing BPMN/DMN orchestration
+    capabilities for multiple squads.
+spec:
+  owner: group:automation/automation
+  domain: domain:automation/process-automation

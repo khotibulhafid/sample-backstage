@@ -1,0 +1,20 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: partnership-internal-service
+  namespace: partnership
+  description: Provides APIs for Submission & Get Products Lifesaver
+  tags:
+    - backend
+    - service
+    - partnership
+    - component
+spec:
+  type: service
+  lifecycle: production
+  owner: default/partnership
+  system: partnership
+  dependsOn: [ resource:partnership-prd ]
+  providesApis: [ partnership-internal-service-api ]

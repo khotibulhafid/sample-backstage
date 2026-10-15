@@ -1,0 +1,38 @@
+---     
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: hub-web
+  namespace: ao-lifehub
+  description: web for Lifehub System
+  tags:
+    - frontend
+    - website
+    - lifehub
+    - nextjs
+  links:
+    - title: Source Repository
+    - url: https://code.ifg-life.id/projects/IFLH/repos/hub-web-new-version2/browse
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/argocd/epics-portal-release-hub-web-new?view=tree&resource=
+    - title: Docker image
+      url: docker://docker-lifehub.artifact.ifg-life.id/epics-portal/hub-web-new
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-l4qdb-prd-prod-legacy-ao-epics-portal-release/browse/deployment.yaml
+    - title: Base Url
+      url: https://api-automation.ifg-life.id
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFLH/repos/hub-web-new-version2/browse/README.md
+spec:
+  type: website
+  domain: domain:channel/channel-platform
+  owner: owner:channel/lifehub
+  system: system:channel/lifehub-system
+  lifecycle: production
+  environments: prod
+  language: javascript
+  runtime:
+    cluster: automation-prd
+    namespace: epics-portal
+  consumesApis: [bulk-service-api,task-service-api,user-service-api]

@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: alteration-service-api-uat
+  namespace: ao-pos
+  description: The alteration service api for language in pos
+  tags:
+    - api
+    - backend
+    - service
+    - alteration
+    - pos
+    - uat
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: default/pos
+  system: ao-pos/pos
+  domain: automation
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifpo---pos/browse/alteration-service?at=uat

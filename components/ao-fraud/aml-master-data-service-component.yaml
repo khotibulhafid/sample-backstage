@@ -1,0 +1,67 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: aml-master-data-service
+  namespace: service-fraud
+  description: Master data reference service for AML (risk, country, transaction type, parameter).
+  tags:
+    - aml
+    - master-data
+    - backend
+    - java
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFGF/repos/aml-master-data-service/browse
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:aml-master-data-service
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/service-fraud-release-aml-master-data-service
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-fraud-version2/fraud-master-data-service
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-l4qdb-prd-prod-legacy-ao-fraud-release/browse/deployment.yaml?at=refs%2Fheads%2Faml-master-data-service
+    - title: Base URL
+      url: https://api-automation-v2.ifg-life.id
+    - title: Liveness Endpoints
+      url: https://aml-master-data-service:8080/q/health/live
+    - title: Readiness Endpoints
+      url: https://aml-master-data-service:8080/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFGF/repos/aml-master-data-service/browse/README.md?at=refs%2Fheads%2Fdevelopment
+    - title: Kafka Topic List
+      url: https://code.ifg-life.id/projects/IFGF/repos/aml-master-data-service/browse/kafka.md?at=development
+spec:
+  type: REST
+  owner: owner:automation/fraud
+  system: system:automation/fraud-detection-system
+  domain: domain:automation/process-automation
+  lifecycle: production
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.30.6
+  auth:
+    method: OAuth2
+    notes: Used by internal AML services
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: l4qdb
+    namespace: service-fraud
+  limits: "default kong"
+  dependsOn: [
+      resource:infra/prd-automation, #EKS
+      resource:infra/automation-core-prd, #Cluster
+      resource:database/ifgl-l4qdb-prd-automation,
+      resource:aowf/kong,
+      resource:infra/kafka,
+      resource:infra/redis,
+    ]
+  provideApis: [aml-master-data-service-api]
+  consumeApis: []
+  usesLibraries:
+    - name: "rest-client"
+      implemented: False

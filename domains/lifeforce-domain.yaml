@@ -1,0 +1,44 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: lifeforce
+  namespace: lifeforce
+  description: Everything Related to Lifeforce Individu Domain
+  title: 'Lifeforce Domain'
+  links:
+    - url: https://api-lifeforce.life.id
+      title: 'API for Lifeforce'
+    - url: https://force.life.id
+      title: 'API for Lifeforce Individu'
+spec:
+  owner: default/lifeforce-individu
+---
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: lifeforce
+  namespace: lifeforce
+  description: Everything Related to Lifeforce Group Domain
+  title: 'Lifeforce Corporate Domain'
+  links:
+    - url: https://force.life.id/api
+      title: 'API for Lifeforce'
+    - url: https://force.life.id
+      title: 'API for Lifeforce Individu'
+spec:
+  owner: default/lifeforce-corporate
+---
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: lifeforce-admin
+  namespace: lifeforce-admin
+  description: Everything Related to Lifeforce Admin Domain
+  title: 'Lifeforce Admin Domain'
+  links:
+    - url: https://force-admin.life.id/api
+      title: 'API for Lifeforce'
+    - url: https://force-admin.life.id
+      title: 'API for Lifeforce Admin'
+spec:
+  owner: default/lifeforce-corporate

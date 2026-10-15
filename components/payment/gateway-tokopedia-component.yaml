@@ -1,0 +1,65 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: gateway-tokopedia
+  namespace: payment
+  description: Gateway Tokopedia is a backend service that acts as a payment gateway for transaction integration with Tokopedia.
+  tags:
+    - component
+    - backend
+    - service
+    - quarkus
+    - payment
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFPY/repos/gateway-tokopedia/browse
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:payment-gateway-tokopedia
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/payment-release-gateway-tokopedia
+    - title: Docker Image
+      url: docker-paymenthub.artifact.ifg-life.id/paymenthub/service/gateway-tokopedia-release:2
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-8spdr-prd-prod-payment-payment-release/browse?at=refs%2Fheads%2Fgateway-tokopedia
+    - title: Base URL
+      url: http://gateway-tokopedia:8080
+    - title: Liveness Endpoints
+      url: http://gateway-tokopedia:8080/q/health/live
+    - title: Readiness Endpoints
+      url: http://gateway-tokopedia:8080/q/health/ready
+    - title: Swagger / Open API
+      url: https://code.ifg-life.id/projects/IFSC/repos/ifpy---payment/browse/gateway-tokopedia
+spec:
+  type: REST
+  owner: group:default/ifgpay
+  system: system:payment/ifgpay
+  domain: domain:payment/ifgpay
+  lifecycle: production
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+      version: 3.29.0
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  dependsOn: [
+    resource:payment/kafka
+  ]
+  runtime:
+    cluster: 8spdr
+    namespace: payment
+  consumesApis: [
+    gateway-cts-api,
+    direct-bill-service-api
+  ]
+  providesApis: [
+    gateway-tokopedia-api
+  ]
+  limits: 'default kong'

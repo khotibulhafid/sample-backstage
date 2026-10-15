@@ -1,0 +1,24 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: transaction-service-uat
+  namespace: customer
+  description: The transaction service for customerapps
+  tags:
+  - backend
+  - service
+  - transactionservice
+  - lifebyifg
+  - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/lifebyifg
+  system: lifebyifg
+#  subcomponentOf: life-by-ifg-backend
+  dependsOn: [resource:default/ifgl-bvl19-prd-prod-customer-customerapps]
+  providesApis: [transaction-service-api-uat]
+  consumesApis: [ customer/product-service-api-uat, customer/user-wrapper-service-api-uat, customer/partner-service-api-uat, customer/referral-service-api-uat ]
+#  consumesApis: [pas-policy-service-api]

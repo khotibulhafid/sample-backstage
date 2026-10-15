@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: claim
+  namespace: ao-kong
+  description: Everything Related to Claim Domain
+  title: 'Claim Domain'
+  links:
+    - url: https://claim.life.id
+      title: 'Claim API Eksternal'
+    - url: https://api-automation.ifg-life.id
+      title: 'Claim API Internal'
+spec:
+  owner: default/claim

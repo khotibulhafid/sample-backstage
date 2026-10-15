@@ -1,0 +1,21 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: transaction-service
+  namespace: oneifg
+  description: The Transaction service api for Create transaction to BTIM
+  tags:
+    - component
+    - backend
+    - service
+    - one
+spec:
+  type: service
+  lifecycle: production
+  owner: default/onebyifg
+  system: onebyifg
+  dependsOn: [ resource:oneifg-prd,resource:kafka,resource:prd-oneifg ]
+  consumesApis: [ product-service-api,admin-service-api,user-service-api ]
+  providesApis: [ transaction-service-api ]

@@ -1,0 +1,20 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: document-reporting-service-component-uat
+  namespace: dplk
+  description: Service to manage document upload/download in DPLK
+  tags:
+    - backend
+    - service
+    - dplk
+    - uat
+    - dplk-document-reporting-service-uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/dplk
+  system: dplk
+  providesApis: [dplk/document-reporting-service-api-uat]

@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: transaction-service-api-uat
+  namespace: customer
+  description: The transaction service api for transaction payment history in customerapps
+  tags:
+    - api
+    - backend
+    - service
+    - customer
+    - uat
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: default/lifebyifg
+  system: lifebyifg
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ictr---customer/browse/transaction-service?at=uat

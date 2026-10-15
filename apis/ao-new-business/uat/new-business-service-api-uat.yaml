@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: new-business-service-api-uat
+  namespace: ao-new-business
+  description: The new business service api in new business
+  tags:
+    - api
+    - backend
+    - service
+    - new-business
+    - uat
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: default/nbuw
+  system: ao-new-business/nbuw
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifnb---new-business/browse/new-business-service?at=uat
+

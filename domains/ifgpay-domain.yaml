@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: ifgpay
+  namespace: payment
+  description: Everything Related to Payment Domain
+  title: 'Payment Domain'
+  links:
+    - url: https://ifgpay.life.id
+      title: 'Payment URL'
+    - url: https://ifgpay.life.id/api
+      title: 'Payment API for CDE environments'
+    - url: https://ifgpay.ifg-life.id/api
+      title: 'Payment API for Non-CDE environments'
+    - url: https://ifgpay-hub.life.id
+      title: 'Payment Hub URL'
+    - url: https://ifgpayout.ifg-life.id/api
+      title: 'Payment API for payment out'
+spec:
+  owner: default/ifgpay

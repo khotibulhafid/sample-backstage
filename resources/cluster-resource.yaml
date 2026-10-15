@@ -1,0 +1,288 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: oneifg-prd
+  description: Production cluster for OnebyIFG platform workloads.
+  namespace: infra
+  tags: [ cluster, prd ]
+spec:
+  type: cluster
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [ resource:eks-oneifg-prd ]
+  aws-account: ifg-0fg73-prd-oneifg
+  project: OneByIFG
+  API Endpoint: https://640BAB487477CB409A96C055A06EA242.yl4.ap-southeast-3.eks.amazonaws.com
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: interco-prd
+  description: Production cluster for Interco platform services.
+  namespace: infra
+  tags: [ cluster, prd ]
+spec:
+  type: cluster
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [ resource:eks-interco-prd ]
+  aws-account: ifg-revw0-prd-oneverseinterco
+  project: Interco
+  API Endpoint: https://777BB5C080C84B343211E7D54EF2438C.sk1.ap-southeast-3.eks.amazonaws.com
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: dmz-prd
+  description: Production DMZ cluster for API Management and edge services.
+  namespace: infra
+  tags: [ cluster, prd, dmz ]
+spec:
+  type: cluster
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [ resource:eks-dmz-prd ]
+  aws-account: ifg-by1wc-prd-dmz
+  project: APIM
+  API Endpoint: https://019CE6802242CFFB55F604BFE51E15D2.sk1.ap-southeast-3.eks.amazonaws.com
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ifgid-prd
+  description: Production cluster for IFGID identity services.
+  namespace: infra
+  tags: [ cluster, prd, identity ]
+spec:
+  type: cluster
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [ resource:eks-ifgid-prd ]
+  aws-account: ifgl-u6ngf-prd-ifgid
+  project: IFGID
+  API Endpoint: https://800B41ADD5E23FA9556D52F252E51F98.gr7.ap-southeast-3.eks.amazonaws.com
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: lifenet-prd
+  description: Production cluster supporting Lifenet services.
+  namespace: infra
+  tags: [ cluster, prd ]
+spec:
+  type: cluster
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [ resource:eks-lifenet-prd ]
+  aws-account: ifgl-tu9b2-prd-lifenet
+  project: LifeNET
+  API Endpoint: https://BB6526E7AE63C92C4332039D0A3C834A.sk1.ap-southeast-3.eks.amazonaws.com
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: data-prod
+  description: Production data cluster for GraphDB and Customer360 workloads.
+  namespace: infra
+  tags: [ cluster, prd, data ]
+spec:
+  type: cluster
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [ resource:eks-data-prod ]
+  aws-account: ifgl-m8ccz-prd-graphdb
+  project: Customer360
+  API Endpoint: https://7DCC73FFD398509167C0686286823603.gr7.ap-southeast-3.eks.amazonaws.com
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: legacy-prod
+  description: Production cluster hosting legacy platform services.
+  namespace: infra
+  tags: [ cluster, prd, legacy ]
+spec:
+  type: cluster
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [ resource:eks-legacy-prod ]
+  aws-account: ifgl-l4qdb-prd-legacy
+  project: Legacy
+  API Endpoint: https://379088C96D99C77BD5580978343ABDAE.yl4.ap-southeast-3.eks.amazonaws.com
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: automation-core-prd
+  description: Production core automation cluster.
+  namespace: infra
+  tags: [ cluster, prd, automation ]
+spec:
+  type: cluster
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [ resource:eks-automation-core-prd ]
+  aws-account: ifgl-l4qdb-prd-legacy
+  project: Automation
+  API Endpoint: https://6110BC748BD670C38862A89174E41F83.gr7.ap-southeast-3.eks.amazonaws.com
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: partner-prd
+  description: Production cluster for partnership integrations.
+  namespace: infra
+  tags: [ cluster, prd, partnership ]
+spec:
+  type: cluster
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [ resource:eks-partner-prd ]
+  aws-account: ifgl-dcwoy-prd-partnership
+  project: Partnership
+  API Endpoint: https://743EC9676F0F551615B4ED63CF7F49B6.gr7.ap-southeast-3.eks.amazonaws.com
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ifg-pay_8spdr
+  description: Production cluster for IFG Payment services.
+  namespace: infra
+  tags: [ cluster, prd, payment ]
+spec:
+  type: cluster
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [ resource:eks-ifg-pay_8spdr ]
+  aws-account: ifgl-8spdr-prd-ifgpay
+  project: Payment
+  API Endpoint: https://B26ECA6509E538317AD999FD8ED4EA1C.gr7.ap-southeast-3.eks.amazonaws.com
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: 1awvh-prd-prod-automation-az2
+  description: Production automation cluster (AZ2).
+  namespace: infra
+  tags: [ cluster, prd, automation ]
+spec:
+  type: cluster
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [ resource:eks-1awvh-prd-prod-automation-az2 ]
+  aws-account: ifgl-1awvh-prd-automation
+  project: Automation
+  API Endpoint: https://718E117F8E0C4D74D087E4CFDB0DD153.yl4.ap-southeast-3.eks.amazonaws.com
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: bvl19-prd-prod-customer-az1
+  description: Production customer cluster for LifebyIFG and LifebySpace (AZ1).
+  namespace: infra
+  tags: [ cluster, prd, customer ]
+spec:
+  type: cluster
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [ resource:eks-bvl19-prd-prod-customer-az1 ]
+  aws-account: ifgl-bvl19-prd-customer
+  project: LifebyIFG
+  API Endpoint: https://FDE07552A7BE65BF47FD36886AB727FD.yl4.ap-southeast-3.eks.amazonaws.com
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: lifeforce-prd
+  description: Production cluster for Lifeforce platform services.
+  namespace: infra
+  tags: [ cluster, prd, lifeforce ]
+spec:
+  type: cluster
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [ resource:eks-lifeforce-prd ]
+  aws-account: ifgl-yu30h-prd-lifeforce
+  project: Lifeforce
+  API Endpoint: https://19E580B5EEF6405ADE4A969F9BB65E50.gr7.ap-southeast-3.eks.amazonaws.com
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: prd-dc
+  description: Production cluster for Digital Care services.
+  namespace: infra
+  tags: [ cluster, prd, digitalcare ]
+spec:
+  type: cluster
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [ resource:eks-prd-dc ]
+  aws-account: ifgl-tzr3y-prd-digitalcare
+  project: digitalcare
+  API Endpoint: https://EE7CCE4F82B942DFAA3E83C8AE7187E6.yl4.ap-southeast-3.eks.amazonaws.com
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: siem-prd
+  description: Production cluster for SIEM and security monitoring.
+  namespace: infra
+  tags: [ cluster, prd, security ]
+spec:
+  type: cluster
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [ resource:eks-siem-prd ]
+  aws-account: ifgl-djd5i-prd-siem
+  project: SIEM
+  API Endpoint: https://CC5F91BA06172ABAED2D250BF74645E8.yl4.ap-southeast-3.eks.amazonaws.com
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: devopsint_az2
+  description: Production cluster for DevOps and DevSecOps tooling.
+  namespace: infra
+  tags: [ cluster, prd, devops ]
+spec:
+  type: cluster
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [ resource:eks-devopsint_az2 ]
+  aws-account: ifgl-zstrv-prd-devsecops
+  project: DevOps Tools
+  API Endpoint: https://4235503BD81447D71B2841F8D2EEE372.sk1.ap-southeast-3.eks.amazonaws.com
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ifgl-dplk-prd
+  description: Production cluster for DPLK services.
+  namespace: infra
+  tags: [ cluster, prd ]
+spec:
+  type: cluster
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [ resource:eks-ifgl-dplk-prd ]
+  aws-account: ifgl-oi9eb-prd-dplk
+  project: DPLK
+  API Endpoint: https://4770D66CB21700BC4477EF00097CB923.yl4.ap-southeast-3.eks.amazonaws.com
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ifgl-coe-prd
+  description: Production cluster for AI Center of Excellence workloads.
+  namespace: infra
+  tags: [ cluster, prd, ai ]
+spec:
+  type: cluster
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [ resource:eks-ifgl-coe-prd ]
+  aws-account: ifgl-sryl6-prd-aicoe
+  project: Ai-COE
+  API Endpoint: https://37ED475FFF8C5173327ED94751FF3670.gr7.ap-southeast-3.eks.amazonaws.com
+---

@@ -1,0 +1,20 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: product-service
+  namespace: customer
+  description: The placeholder for all backend service for customerapps
+  tags:
+  - backend
+  - service
+  - lifebyifg
+spec:
+  type: service
+  lifecycle: production
+  owner: default/lifebyifg
+  system: lifebyifg
+  providesApis: [product-service-api]
+  dependsOn: [resource:default/ifgl-bvl19-prd-prod-customer-customerapps, resource:default/kafka]
+  consumesApis: [ customer/user-wrapper-service-api, customer/event-service-api, customer/policy-service-api, customer/partner-service-api, customer/transaction-service-api, customer/storage-service-api, customer/referral-service-api ]

@@ -1,0 +1,65 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: debezium
+  namespace: data
+  title: Debezium Service
+  description: >
+    Change Data Capture (CDC) service based on Debezium that captures
+    database changes and streams them to downstream data platforms.
+    This service is part of the data access layer and is operated by
+    the team for configuration, deployment, and operational support.
+  tags:
+    - data-platform
+    - data-lake
+    - cdc
+    - debezium
+    - data-streaming
+    - kafka
+    - infrastructure
+    - dockerized
+  links:
+    - title: Documentation
+      url: https://debezium.io/documentation/
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:debezium-connect
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/data-release-debezium?resource=
+    - title: Docker Image
+      url: docker://docker-data.artifact.ifg-life.id/data/data-customer-debezium-service-release:26
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-m8ccz-prd-prod-graphdb-data-release/browse/debezium.yaml?at=debezium
+#    - title: Kafka Topic List
+#      url: https://docs.company.id/data/debezium/kafka-topics
+
+spec:
+  type: service
+  lifecycle: production
+  owner: group:data/data-lake
+  system: system:data/data-ingestion-system
+  domain: domain:data/data-platform
+  environments:
+    - dev
+    - uat
+    - prod
+  language: java
+  framework:
+    - name: debezium
+      version: 3.1.1.Final
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: cluster-data-prd
+    namespace: data
+  dependsOn: [
+    resource:default/eks-data-prd, #EKS
+    resource:infra/cluster-data-prd, #Cluster
+    resource:infra/kafka-data, #Kafka
+    resource:database/mongodb #Database
+  ]
+  providesApis: []

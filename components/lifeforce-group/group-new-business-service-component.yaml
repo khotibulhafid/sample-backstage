@@ -1,0 +1,72 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: group-new-business-service
+  namespace: lifeforce-group
+  description: Group New Business Service
+  tags:
+    - component
+    - backend
+    - service
+    - lifeforce
+    - lifeforce-group
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/ILLF/repos/group-new-business-service/browse?at=release
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:lifeforcegrp-new-business-service
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/lifeforce-group-release-group-new-business-service?resource=
+    - title: Docker Image
+      url: docker://docker-lifeforce.artifact.ifg-life.id/lifeforce-group/group-new-business-service-release:latest
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-yu30h-prd-prod-lifeforce-lifeforce-group-release/browse/deployment.yaml?at=refs%2Fheads%2Fgroup-new-business-service
+    - title: Base URL
+      url: https://force.life.id
+#    - title: Liveness Endpoints
+#      url: https://localhost:8080/api/q/health/live
+#    - title: Readiness Endpoints
+#      url: https://localhost:8080/api/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/ILLF/repos/group-new-business-service/browse/README.md?at=release
+#    - title: Kafka Topic List
+#      url: https://code.ifg-life.id/projects/IFDA/repos/data-base-service/browse/kafka-topics.md
+#    - title: Sample Kafka Message
+#      url: https://code.ifg-life.id/projects/IFDA/repos/data-base-service/browse/kafka-topics.md
+spec:
+  type: REST
+  lifecycle: production
+  domain: domain:channel/channel-platform
+  owner: group:channel/lifeforce-group
+  system: system:lifeforce-corporate
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.24.5
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: lifeforce-prd
+    namespace: lifeforce-group
+  limits: 'default kong'
+  dependsOn: [
+    resource:default/eks-lifeforce-prd, #EKS
+    resource:infra/cluster-lifeforce-prd, #Cluster
+    resource:infra/kafka, #Kafka
+    resource:database/lifeforce, #Database Life Force
+    resource:lifeforce/kong #Gateway
+  ]
+  consumesApis: [ifgid/user-service-api, ao-workflow/ao-workflow-general-transaction-api, ao-fraud/fraud-service-api, ao-workflow/ao-workflow-corporate-nb-api, ao-product-engine/product-calculator-corporate-service-api, /ao-product-engine/product-validator-corporate-service-api]
+  providesApis: [group-new-business-service-api]
+  usesLibraries:
+    - name: "rest-client"
+      implemented: False

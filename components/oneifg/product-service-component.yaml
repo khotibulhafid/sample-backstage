@@ -1,0 +1,21 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: product-service
+  namespace: oneifg
+  description: The Product service api for Querying product lifesaver, JRP or BTIM
+  tags:
+    - component
+    - backend
+    - service
+    - one
+spec:
+  type: service
+  lifecycle: production
+  owner: default/onebyifg
+  system: onebyifg
+  dependsOn: [ resource:oneifg-prd,resource:prd-oneifg ]
+  consumesApis: [ storage-service-api,user-service-api ]
+  providesApis: [ product-service-api ]

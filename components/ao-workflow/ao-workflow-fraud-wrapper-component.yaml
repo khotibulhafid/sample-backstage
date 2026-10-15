@@ -1,0 +1,23 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ao-workflow-fraud-wrapper
+  namespace: ao-workflow
+  description: The fraud service for automation fraud service
+  tags:
+  - backend
+  - service
+  - fraud
+  - workflow
+  - wrapper
+spec:
+  type: service
+  lifecycle: production
+  owner: default/workflow
+  system: default/workflow
+#  subcomponentOf: pas-correspondence
+  dependsOn: [resource:ao-workflow/ifgl-1awvh-prd-automation-db]
+  providesApis: [ao-workflow-fraud-wrapper-api]
+  consumesApis: [ao-workflow-fraud-api]

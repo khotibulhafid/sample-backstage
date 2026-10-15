@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: etl-export-job-service-api
+  namespace: psak
+  description: etl export job service api for get file outpus table sas and put into sharepoint
+  tags:
+    - api
+    - backend
+    - service
+    - psak
+    - etl
+    - uat
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/psak
+  system: psak
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifps---psak/browse/etl-export-job-service
+

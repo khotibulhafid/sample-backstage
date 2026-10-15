@@ -1,0 +1,20 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: individu-lead-service-api
+  namespace: lifeforce-individu
+  description: the service for maintain leads data at lifeforce individu
+  tags:
+  - api
+  - backend
+  - service
+  - lifeforce-individu
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/lifeforce-individu
+  system: lifeforce-individu
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/illf---lifeforce/browse/individu-lead-service

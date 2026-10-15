@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: upload-ecf-gbq-service-api
+  namespace: psak
+  description: Upload service api for expected cashflow to GBQ
+  tags:
+    - api
+    - backend
+    - service
+    - psak
+    - uat
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/psak
+  system: psak
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifps-psak/browse/upload-ecf-gbq-service
+

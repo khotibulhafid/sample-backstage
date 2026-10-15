@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: product-config-service-api
+  namespace: ao-product-engine
+  description: The product config service api
+  tags:
+    - api
+    - backend
+    - service
+    - product-engine
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/pas
+  system: ao-product-engine/pas
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifpe-product-engine/browse/product-config-service

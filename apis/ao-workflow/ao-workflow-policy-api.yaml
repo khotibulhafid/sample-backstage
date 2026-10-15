@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: ao-workflow-policy-api
+  namespace: ao-workflow
+  description: The automation workflow service api for language in policy service
+  tags:
+  - api
+  - backend
+  - workflow
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/pos
+  system: workflow
+  domain: automation
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifao---automation-operation/browse/ao-workflow-policy

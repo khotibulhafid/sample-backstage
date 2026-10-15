@@ -1,0 +1,68 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ao-workflow-policy-reinstatement-wrapper
+  namespace: ao-workflow
+  description: The workflow policy reinstatement wrapper is wrapper for workflow corporate policy reinstatement
+  tags:
+  - backend
+  - service
+  - policy
+  - ps
+  - wrapper
+  - workflow
+  - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFAO/repos/ao-workflow-policy-reinstatement-wrapper/browse
+#    - title: Monitoring / Logs (Datadog)
+#      url: "-"
+#    - title: Deployment (ArgoCD)
+#      url: "-"
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-workflow/backend-service/ao-workflow-reinstatement-wrapper-release:6
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-1awvh-prd-prod-automation-ao-workflow-release/browse?at=refs%2Fheads%2Fao-workflow-reinstatement-wrapper
+    - title: Liveness Endpoints
+      url: http://ao-workflow-policy-reinstatement-wrapper:8093/q/health/live
+    - title: Readiness Endpoints
+      url: http://ao-workflow-policy-reinstatement-wrapper:8093/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFAO/repos/ao-workflow-policy-reinstatement-wrapper/browse/README.md
+    - title: Base Url
+      url: https://api-automation.ifg-life.id
+spec:
+  type: workflow
+  owner: group:automation/policy-squad
+  system: system:automation/policy-automation-system
+  domain: domain:automation/process-automation
+  lifecycle: deprecated
+  environment: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.5.2
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: 1awvh-prd-prod-automation-az2
+    namespace: ao-workflow
+  dependsOn: [
+    resource:default/prd-automation, #EKS
+    resource:infra/1awvh-prd-prod-automation-az2, #Cluster
+    resource:ao-kong/kong #Gateway
+  ]
+  providesApis: [ ao-workflow-policy-reinstatement-wrapper-api ]
+  consumesApis: [
+    ao-product-engine/notification-service-api,
+    ao-product-engine/product-config-service-api,
+    ao-workflow/ao-workflow-reinstatement-service-api
+  ]
+  limits: 'default kong'

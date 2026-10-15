@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: psak
+  namespace: psak
+  description: Everything Related to Data Domain
+  title: 'PSAK Domain'
+  links:
+    - url: https://data.ifg-life.id/api/psak117  # saat ini PSAK masih menumpang dengan team data
+      title: 'API for PSAK'
+spec:
+  owner: default/psak

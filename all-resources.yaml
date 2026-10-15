@@ -1,13 +1,23 @@
 apiVersion: backstage.io/v1alpha1
 kind: Location
 metadata:
-  name: all-resources
-  description: A collection of all resources
+  name: ifgl-resources
+  description: A collection of all Backstage Resource
 spec:
   targets:
-    - ./resources/sample-kafka.yaml
-    - ./resources/sample-mongo.yaml
-    - ./resources/sample-postgres.yaml
-    - ./resources/sample-pvc.yaml
-    - ./resources/sample-third-party.yaml
-    
+    - ./resources/oracle-resource.yaml
+    - ./resources/postgres-resource.yaml
+    - ./resources/s3-resource.yaml
+    - ./resources/eks-resource.yaml
+    - ./resources/mysql-resource.yaml
+    - ./resources/kong-resource.yaml
+    - ./resources/third-party-resource.yaml
+    - ./resources/cluster-resource.yaml
+    - ./resources/partner-resource.yaml
+    - ./resources/mongo-resource.yaml
+    - ./resources/kafka-resource.yaml
+    - ./resources/data-index-resource.yaml
+    - ./resources/infinispan-resource.yaml
+    - ./resources/keycloak-resource.yaml
+    - ./resources/kogito-management-console-resource.yaml
+    - ./resources/kogito-task-console-resource.yaml

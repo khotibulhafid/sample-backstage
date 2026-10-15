@@ -1,0 +1,21 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: identity-service-api
+  namespace: dplk
+  description: The meta service api for identity in DPLK
+  tags:
+    - api
+    - backend
+    - service
+    - dplk
+    - dplk-identity-service
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/dplk
+  system: dplk
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifdk---dplk/browse/identity-service

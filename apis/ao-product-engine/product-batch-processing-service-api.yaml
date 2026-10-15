@@ -1,0 +1,19 @@
+#---
+## https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
+#apiVersion: backstage.io/v1alpha1
+#kind: API
+#metadata:
+#  name: product-batch-processing-service-api
+#  description: The product batch processing service api
+#  tags:
+#  - api
+#  - backend
+#  - service
+#  - product-engine
+#spec:
+#  type: openapi
+#  lifecycle: production
+#  owner: default/pas
+#  system: ao-product-engine/pas
+#  definition:
+#    $text: https://code.ifg-life.id/projects/IFSC/repos/ifpe-product-engine/browse/product-batch-processing-service

@@ -1,8 +1,37 @@
 apiVersion: backstage.io/v1alpha1
 kind: Location
 metadata:
-  name: all-systems
-  description: A collection of all systems
+  name: ifgl-systems
+  description: A collection of all Backstage IFGL systems
 spec:
   targets:
-    - ./systems/sample-system.yaml
+    - ./systems/claim-system.yaml
+    - ./systems/cws-system.yaml
+    - ./systems/fraud-system.yaml
+    - ./systems/infra-system.yaml
+    - ./systems/legacy-system.yaml
+    - ./systems/lifebyifg-system.yaml
+    - ./systems/lifeforcecorporate-system.yaml
+    - ./systems/lifeforceadmin-system.yaml
+    - ./systems/lifeforceindividu-system.yaml
+    - ./systems/lifeforceremuneration-system.yaml
+    - ./systems/lifeforcecommon-system.yaml
+    - ./systems/lifehub-system.yaml
+    - ./systems/lifenet-system.yaml
+    - ./systems/lifespace-system.yaml
+    - ./systems/nbuw-system.yaml
+    - ./systems/onebyifg-system.yaml
+    - ./systems/partnership-system.yaml
+    - ./systems/pas-system.yaml
+    - ./systems/ifgpay-system.yaml
+    - ./systems/pos-system.yaml
+    - ./systems/hospitalnetwork-system.yaml
+    - ./systems/ifgid-system.yaml
+    - ./systems/workflow-system.yaml
+    - ./systems/data-system.yaml
+    - ./systems/dplk-system.yaml
+    - ./systems/psak-system.yaml
+    - ./systems/oneverseinterco-system.yaml
+    - ./systems/channel-system.yaml
+    - ./systems/core-system.yaml
+    - ./systems/automation-system.yaml

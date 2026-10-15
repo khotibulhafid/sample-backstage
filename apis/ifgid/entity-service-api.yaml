@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: entity-service-api
+  namespace: ifgid
+  description: Entity service api for Entity management in IFGID
+  tags:
+    - api
+    - backend
+    - service
+    - ifgid
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/ifgid
+  system: ifgid
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifgi---ifgid/browse/entity-service
+           

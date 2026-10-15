@@ -1,0 +1,10 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: fraud
+  namespace: ao-fraud
+  description: A fraud System to identify and prevent fraudulent activities
+spec:
+  owner: default/fraud
+  domain: default/fraud

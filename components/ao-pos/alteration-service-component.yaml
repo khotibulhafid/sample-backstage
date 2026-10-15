@@ -1,0 +1,73 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: alteration-service
+  namespace: ao-pos
+  description: The POS Alteration Service functions as a supporting service that enables KKPM processes in both retail and corporate operations.
+  tags:
+  - backend
+  - service
+  - policy
+  - ao-ps
+  - ao-pos
+  - alteration-service
+  - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFPO/repos/alteration-service/browse
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:pos-alteration-service
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/ao-pos-release-alteration-service
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-pos/alteration-service-release:44
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-1awvh-prd-prod-automation-ao-pos-release/browse/deployment.yaml
+    - title: Liveness Endpoints
+      url: http://alteration-service:8080/q/health/live
+    - title: Readiness Endpoints
+      url: http://alteration-service:8080/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFPO/repos/alteration-service/browse/README.md
+    - title: Base Url
+      url: https://api-core.ifg-life.id
+    - title: Kafka Topic List
+      url: https://code.ifg-life.id/projects/IFPO/repos/alteration-service/browse/kafka_topic_documentation.md
+    - title: Sample Kafka Message
+      url: https://code.ifg-life.id/projects/IFPO/repos/alteration-service/browse/kafka_topic_documentation.md
+spec:
+  type: REST
+  owner: group:automation/policy-squad
+  system: system:automation/policy-automation-support-system
+  domain: domain:core/core-business
+  lifecycle: production
+  environment: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.22.2
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: 1awvh-prd-prod-automation-az2
+    namespace: ao-pos
+  dependsOn: [
+    resource:default/prd-automation, # EKS
+    resource:infra/1awvh-prd-prod-automation-az2, # Cluster
+    resource:database/pg-core,
+    resource:infra/kafka,
+    resource:core/kong
+  ]
+  providesApis: [ ao-pos/alteration-service-api ]
+  consumesApis: [
+    ao-workflow/ao-workflow-policy-wrapper-api,
+    ifgid/ekyc-service-api
+  ]
+  limits: 'default kong'

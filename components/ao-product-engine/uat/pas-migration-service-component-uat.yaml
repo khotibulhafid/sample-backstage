@@ -1,0 +1,20 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: pas-migration-service-uat
+  namespace: ao-product-engine
+  description: service for s3 file migration
+  tags:
+    - dcms
+    - migration
+    - uat
+spec:
+  type: service
+  lifecycle: experimental
+  system: ao-product-engine/pas
+  owner: default/pas
+  providesApis: [pas-migration-service-api-uat]
+  consumesApis: []
+  dependsOn: [resource:ao-workflow/ifgl-1awvh-prd-automation-db, resource:default/kafka, resource:default/prd-ao-policy]

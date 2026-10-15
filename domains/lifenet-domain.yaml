@@ -1,0 +1,23 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: lifenet
+  namespace: lifenet
+  description: Everything Related to Lifenet Domain
+  title: 'Life Net Domain'
+  links:
+    - url: https://net.life.id
+      title: 'API for Lifenet Customer'
+    - url: https://net.life.id
+      title: 'website for Lifenet Customer'
+    - url: https://net-admin.life.id
+      title: 'API for Lifenet Admin'
+    - url: https://net-admin.life.id
+      title: 'website for Lifenet Admin'
+    - url: https://api-lifenet.ifg-life.id
+      title: 'API of Lifenet to be accessed by other Tribe'
+    - url: https://api.powerbi.com
+      title: power BI
+      icon: dashboard
+spec:
+  owner: default/lifenet

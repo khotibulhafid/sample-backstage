@@ -1,0 +1,13 @@
+---     
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: pwa
+  namespace: customer
+spec:
+  type: website
+  lifecycle: production
+  owner: default/lifebyifg
+  system: lifebyifg
+  consumesApis: [meta-service-api,config-service-api,policy-service-api,transaction-service-api]

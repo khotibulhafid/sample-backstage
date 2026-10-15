@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: policy-service-api
+  namespace: corporate
+  description: The policy service api for policy management in LifeSpace
+  tags:
+    - api
+    - backend
+    - service
+    - lifespace
+    - corporate
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/lifespace
+  system: lifespace
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifco---corporate/browse/policy-service
+           

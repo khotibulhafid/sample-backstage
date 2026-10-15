@@ -1,0 +1,68 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: individu-notification-service
+  namespace: lifeforce-individu
+  description: the service for handle push notification at lifeforce individu
+  title: Individu Notification Service
+  tags:
+    - component
+    - backend
+    - service
+    - lifeforce
+    - lifeforce-individu
+    - quarkus
+links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/ILLF/repos/individu-notification-service/browse
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:lifeforceindv-notification-service
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/lifeforce-individu-release-notification-service
+    - title: Docker Image
+      url: docker://docker-lifeforce.artifact.ifg-life.id/lifeforce-individu/notification-service-release:38
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-yu30h-prd-prod-lifeforce-lifeforce-individu-release/browse/deployment.yaml?at=refs%2Fheads%notification-service
+    - title: Base URL
+      url: https://force.life.id
+    - title: Liveness Endpoints
+      url: http://notification-service.lifeforce-individu.svc:8080/api/q/health/live
+    - title: Readiness Endpoints
+      url: http://notification-service.lifeforce-individu.svc:8080/api/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/ILLF/repos/individu-notification-service/browse/README.md
+    - title: Kafka Topic List
+      url: https://code.ifg-life.id/projects/ILLF/repos/individu-notification-service/browse/kafka-topics.md
+spec:
+  type: REST
+  owner: group:channel/lifeforce-individu
+  system: system:channel/lifeforce-individual-system
+  domain: domain:channel/channel-platform
+  lifecycle: production
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.24.5
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  dependsOn: [
+    resource:default/prd-lifeforce, #EKS 
+    resource:infra/lifeforce-prd, #Cluster
+    resource:database/pg-lifeforce, #Database
+    resource:infra/kafka, #Kafka
+    resource:lifeforce/kong #Gateway
+  ]
+  runtime:
+    cluster: lifeforce-prd
+    namespace: lifeforce-individu
+  providesApis: [lifeforce-individu/individu-notification-service-api]
+  consumeApis: []
+  limits: 'default kong'

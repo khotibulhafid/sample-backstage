@@ -1,0 +1,80 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: pos-member-service
+  namespace: ao-pos
+  description: The POS Policy Service is a supporting service designed to facilitate corporate AO workflows, particularly for processes such as add member, remove member, and minor alteration
+  tags:
+  - backend
+  - service
+  - policy
+  - ao-ps
+  - ao-pos
+  - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFPO/repos/pos-member-service/browse
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:pos-member-service
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/ao-pos-release-pos-member-service
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-pos/pos-member-service-release:62
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-1awvh-prd-prod-automation-ao-pos-release/browse/deployment.yaml?at=refs%2Fheads%2Fpos-member-service
+    - title: Liveness Endpoints
+      url: http://pos-member-service:8080/q/health/live
+    - title: Readiness Endpoints
+      url: http://pos-member-service:8080/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFPO/repos/pos-member-service/browse/README.md
+    - title: Base Url
+      url: https://api-core.ifg-life.id
+    - title: Kafka Topic List
+      url: https://code.ifg-life.id/projects/IFPO/repos/pos-member-service/browse/kafka_topic_documentation.md
+    - title: Sample Kafka Message
+      url: https://code.ifg-life.id/projects/IFPO/repos/pos-member-service/browse/kafka_topic_documentation.md
+spec:
+  type: REST
+  owner: group:automation/policy-squad
+  system: system:automation/policy-automation-support-system
+  domain: domain:core/core-business
+  lifecycle: production
+  environment: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.24.3
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: 1awvh-prd-prod-automation-az2
+    namespace: ao-pos
+  dependsOn: [
+    resource:default/prd-automation, # EKS
+    resource:infra/1awvh-prd-prod-automation-az2, # Cluster
+    resource:database/pg-core,
+    resource:infra/kafka,
+    resource:core/kong
+  ]
+  providesApis: [ ao-pos/pos-member-service-api ]
+  consumesApis: [
+    ao-product-engine/notification-service-api,
+    ao-product-engine/product-config-service-api,
+    ao-new-business/billing-service-api,
+    ao-new-business/policy-service-v2-api,
+    ao-workflow/ao-workflow-nb-wrapper-api,
+    ao-workflow/ao-workflow-fraud-wrapper-api,
+    ao-workflow/ao-workflow-claim-wrapper-api,
+    ao-lifehub/general-transaction-service-api,
+    customer/product-service-api,
+    ifgid/ekyc-service-api
+  ]
+  limits: 'default kong'

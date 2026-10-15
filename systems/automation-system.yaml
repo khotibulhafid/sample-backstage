@@ -1,0 +1,120 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: new-business-automation-system
+  namespace: automation
+  title: New Business Automation System
+  description: >
+    A process automation system responsible for orchestrating and automating
+    new business workflows, including submission, validation, approval,
+    and issuance, by coordinating events and interactions with core business systems.
+  tags:
+    - new-business
+    - automation
+    - workflow
+    - orchestration
+spec:
+  owner: group:automation/new-business
+  domain: domain:process-automation
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: claim-automation-system
+  namespace: automation
+  title: Claim Automation System
+  description: >
+    A process automation system responsible for orchestrating and automating
+    claim-related workflows, including claim intake, validation, assessment,
+    approval, and settlement coordination, by integrating with core claim
+    and supporting business systems.
+  tags:
+    - claim
+    - automation
+    - workflow
+    - orchestration
+spec:
+  owner: group:automation/claim
+  domain: domain:process-automation
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: fraud-detection-system
+  namespace: automation
+  title: Fraud Detection System
+  description: >
+    A detection and automation system responsible for identifying potential
+    fraudulent activities by applying rules, scoring, and pattern analysis,
+    and triggering automated actions or reviews by integrating with
+    business and automation workflows.
+  tags:
+    - fraud
+    - detection
+    - risk
+    - automation
+spec:
+  owner: group:automation/fraud
+  domain: domain:process-automation
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: policy-automation-system
+  namespace: automation
+  title: Policy Automation System
+  description: >
+    A process automation system responsible for orchestrating and automating
+    policy lifecycle workflows such as renewal, cancellation,
+    and state transitions, by coordinating events and interactions with
+    policy administration and other supporting systems.
+  tags:
+    - policy
+    - automation
+    - workflow
+    - orchestration
+spec:
+  owner: group:automation/ps
+  domain: domain:process-automation
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: policy-automation-support-system
+  namespace: automation
+  title: Policy Automation Support System
+  description: >
+    A supporting system that provides auxiliary capabilities such as data
+    enrichment, triggers, and helper services required to enable and
+    streamline policy automation workflows, without owning core policy data.
+  tags:
+    - policy
+    - automation
+    - support
+    - integration
+spec:
+  owner: group:automation/ps
+  domain: domain:process-automation
+---
+
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: hospital-automation-system
+  namespace: automation
+  title: Hospital Automation Support System
+  description: >
+    A supporting system that provides hospital related data such as hospital
+    information and hospital network
+  tags:
+    - ao-hospital
+    - automation
+    - data
+spec:
+  owner: group:automation/ao-hospital
+  domain: domain:process-automation
+---

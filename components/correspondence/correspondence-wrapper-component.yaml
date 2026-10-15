@@ -1,0 +1,74 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: correspondence-wrapper
+  namespace: customer
+  description: DCMS Wrapper service
+  tags:
+    - backend
+    - wrapper
+    - component
+    - dcms
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFPC/repos/correspondence-wrapper/browse
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFPC/repos/correspondence-wrapper/browse/README.md
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:customer-correspondence-wrapper
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/customer-release-correspondence-wrapper
+    - title: Docker Image
+      url: docker://docker-customer.artifact.ifg-life.id/customer/correspondence-wrapper-release:9
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-bvl19-prd-prod-customer-customer-release/browse?at=correspondence-wrapper
+    - title: Base URL
+      url: https://www.life.id
+    - title: Liveness Endpoints
+      url: http://correspondence-wrapper:8080/q/health/live
+    #    - title: Readiness Endpoints
+    #      url: <url_readiness>
+    - title: Swagger / Open API
+      url: http://correspondence-wrapper:8080/q/openapi
+#    - title: Kafka Topic List
+#      url: <url_kafka_topic_list>
+#    - title: Sample Kafka Message
+#      url: <url_sample_kafka_message>
+spec:
+  type: REST
+  owner: group:core/dcms
+  system: system:core/document-content-management-system
+  domain: domain:core/core-business
+  lifecycle: production
+  environments: production
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.19.3
+  auth:
+    method: jwt
+    notes: Some routes on the service use JWT for authentication
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: bvl19-prd-prod-customer-az1
+    namespace: customer
+  limits: 'default kong'
+  providesApis: [
+    api:correspondence/correspondence-wrapper-api
+  ]
+  consumesApis: [
+    api:correspondence/notification-service-api,
+    api:correspondence/storage-service-api,
+    api:customer/referral-service-api
+  ]
+  dependsOn: [
+    resource:cluster/bvl19-prd-prod-customer-az1,
+    resource:eks/prd-customer,
+    resource:namespace/customer,
+    resource:gateway/kong
+  ]

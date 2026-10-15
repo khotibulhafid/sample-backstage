@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: customer-service-api
+  namespace: data
+  description: Customer Service for Inquiry data to Mongo DB
+  tags:
+    - api
+    - data
+    - openapi
+    - quarkus
+spec:
+  type: openapi
+  lifecycle: production
+  owner: group:data-access
+  system: system:data-access-system
+  domain: domain:data-platform
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifda---data/browse/customer-service
+           

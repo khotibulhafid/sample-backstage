@@ -1,0 +1,10 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: lifeforce-corporate
+  namespace: lifeforce-group
+  description: Portal for admin corporate and individual business salesforce registration and creation
+spec:
+  owner: default/lifeforce-corporate
+  domain: lifeforce/lifeforce-admin

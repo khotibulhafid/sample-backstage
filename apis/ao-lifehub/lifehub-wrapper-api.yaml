@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: lifehub-wrapper-api
+  namespace: ao-lifehub
+  description: The service api for wrapper in Lifehub
+  tags:
+    - api
+    - backend
+    - service
+    - lifehub
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/lifehub
+  system: lifehub
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/iflh---lifehub/browse/lifehub-wrapper

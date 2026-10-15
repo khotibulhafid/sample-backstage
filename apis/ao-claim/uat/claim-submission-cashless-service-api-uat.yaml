@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: claim-submission-cashless-service-api-uat
+  namespace: ao-claim
+  description: The claim submission cashless service api in claim
+  tags:
+    - api
+    - backend
+    - service
+    - claim
+    - claim-submission-cashless-uat
+    - cashless
+    - uat
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: default/claim
+  system: claim
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifcl---claim/browse/claim-submission-cashless-service?at=uat

@@ -1,0 +1,21 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: storage-service
+  namespace: oneifg
+  description: The Storage service api for Upload/Get Picture from user
+  tags:
+    - component
+    - backend
+    - service
+    - one
+spec:
+  type: service
+  lifecycle: production
+  owner: default/onebyifg
+  system: onebyifg
+  dependsOn: [ resource:oneifg-prd,resource:onebyifg-s3,resource:prd-oneifg ]
+  consumesApis: [ transaction-service-api,admin-service-api,user-service-api ]
+  providesApis: [ storage-service-api ]

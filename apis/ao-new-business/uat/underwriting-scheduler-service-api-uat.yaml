@@ -1,0 +1,19 @@
+#---
+## https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
+#apiVersion: backstage.io/v1alpha1
+#kind: API
+#metadata:
+#  name: ao-nbuw-service-api
+#  description: The nb service api for language in ao-nb
+#  tags:
+#  - api
+#  - backend
+#  - service
+#spec:
+#  type: openapi
+#  lifecycle: production
+#  owner: default/nbuw
+#  system: ao-new-business/nbuw
+#  definition:
+#    $text: https://code.ifg-life.id/projects/IFSC/repos/ifgl-1awvh-prd-nbuw/browse/openapi-ao-nbuw-service?at=uat
+#

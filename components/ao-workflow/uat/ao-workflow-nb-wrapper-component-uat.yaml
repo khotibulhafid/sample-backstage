@@ -1,0 +1,25 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ao-workflow-nb-wrapper-uat
+  namespace: ao-workflow
+  description: The workflow wrapper nb service for automation nb proses service
+  tags:
+  - backend
+  - service
+  - nbservice
+  - pos
+  - wrapper
+  - workflow
+  - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/workflow
+  system: ao-workflow/workflow
+#  subcomponentOf: ao-workflow-nb-wrapper-backend
+  dependsOn: [resource:ao-workflow/ifgl-1awvh-prd-automation-db]
+  providesApis: [ao-workflow-nb-wrapper-api-uat]
+  consumesApis: [ao-product-engine/notification-service-api-uat,ifgid/ekyc-service-api-uat,ao-workflow-nb-api-uat]

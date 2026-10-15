@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: dplk
+  namespace: dplk
+  description: Everything Related to DPLK Domain
+  title: 'DPLK Domain'
+  links:
+    - url: https://dplk-uat.life.id
+      title: 'DPLK API Eksternal NPRD'
+    - url: https://dplk.life.id
+      title: 'DPLK API Eksternal PRD'
+    - url: https://api-dplk-uat.life.id
+      title: 'DPLK API Internal with Kong NPRD'
+    - url: https://api-dplk.life.id
+      title: 'DPLK API Internal with Kong PRD'
+spec:
+  owner: default/dplk

@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: poc-service-api
+  namespace: oneverseinterco
+  description: The POC service api for Master Data in Oneverse Interco Web Admin or Oneverse Interco Apps
+  tags:
+  - api
+  - backend
+  - service
+  - oneverseinterco
+  - uat
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: default/oneverseinterco
+  system: oneverseinterco/oneverseinterco
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifg---oneverseinterco/browse/interco-workflow-test?at=uat

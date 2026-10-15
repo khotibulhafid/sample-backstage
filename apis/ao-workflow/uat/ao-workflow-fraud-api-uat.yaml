@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: ao-workflow-fraud-api-uat
+  namespace: ao-workflow
+  description: The automation workflow service api in fraud
+  tags:
+  - api
+  - backend
+  - workflow
+  - fraud
+  - uat
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: default/fraud
+  system: fraud
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifao---automation-operation/browse/ao-workflow-fraud?at=uat

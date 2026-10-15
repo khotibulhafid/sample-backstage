@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: summary-service-api-uat
+  namespace: psak
+  description: Summary service api for get expected cashflow from GBQ
+  tags:
+    - api
+    - backend
+    - service
+    - psak
+    - uat
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: default/psak
+  system: psak
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifps-psak/browse/summary-service?at=uat

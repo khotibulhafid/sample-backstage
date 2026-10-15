@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: ao-workflow-claim-api
+  namespace: ao-workflow
+  description: The claim workflow
+  tags:
+  - api
+  - backend
+  - service
+  - claim
+  - workflow
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/claim
+  system: claim
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifao---automation-operation/browse/ao-workflow-claim

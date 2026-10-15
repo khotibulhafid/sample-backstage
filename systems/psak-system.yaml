@@ -1,0 +1,10 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: psak
+  namespace: psak
+  description: psak117 api service for summaty, upload, extract, transform, and load (ETL) processes to GBQ
+spec:
+  owner: default/psak
+  domain: default/psak

@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: claim-service-api
+  namespace: ao-claim
+  description: The claim service api in claim
+  tags:
+    - api
+    - backend
+    - service
+    - claim
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/claim
+  system: claim
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifcl---claim/browse/claim-service

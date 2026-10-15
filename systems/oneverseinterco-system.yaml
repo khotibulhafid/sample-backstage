@@ -1,0 +1,10 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: oneverseinterco-system
+  namespace: oneverseinterco-namespace
+  description: oneverseinterco system
+spec:
+  owner: default/oneverseinterco-group
+  domain: oneverseinterco-namespace/oneverseinterco-domain

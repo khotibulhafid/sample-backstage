@@ -1,0 +1,16 @@
+#---
+## https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+#apiVersion: backstage.io/v1alpha1
+#kind: Component
+#metadata:
+#  name: product-formula-service
+#  namespace: ao-product-engine
+#  tags:
+#    - backend
+#    - service
+#    - product-formula
+#spec:
+#  type: service
+#  lifecycle: production
+#  owner: automation
+#  providesApis: [product-formula-service-api]

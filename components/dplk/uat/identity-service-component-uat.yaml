@@ -1,0 +1,20 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: identity-service-component-uat
+  namespace: dplk
+  description: The service that handle user management in DPLK
+  tags:
+    - backend
+    - service
+    - dplk
+    - uat
+    - dplk-identity-service-uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/dplk
+  system: dplk
+  providesApis: [dplk/identity-service-api-uat]

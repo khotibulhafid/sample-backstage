@@ -1,0 +1,19 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: cms-be
+  namespace: cws
+  description: The cms backend for CWS
+  tags:
+  - backend
+  - service
+spec:
+  type: service
+  lifecycle: production
+  owner: default/cws
+  system: cws
+#  subcomponentOf: pas-correspondence
+#  dependsOn: [resource:default/ifgl-1awvh-prd-automation-db]
+  providesApis: [cms-be-api]

@@ -1,0 +1,15 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: legacy
+  namespace: default
+  description: Everything Related to Legacy Domain
+  title: 'Legacy Domain'
+  links:
+    - url: https://ifg-life.id
+      title: 'Legacy Url'
+    - url: https://api.powerbi.com
+      title: power BI
+      icon: dashboard
+spec:
+  owner: default/legacy

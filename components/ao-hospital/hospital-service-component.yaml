@@ -1,0 +1,48 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: hospital-service
+  namespace: ao-hospital
+  description: ##TODO Desc Required
+  tags:
+    - backend
+    - service
+    - ao-hospital
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFHN/repos/hospital-service/browse
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/ao-hospital-network-release-hospital-service
+    - title: Docker Image
+      url: docker://docker-hospital.artifact.ifg-life.id/ao-hospital-network/hospital-service
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-1awvh-prd-prod-automation-ao-hospital-network-release/browse?at=refs%2Fheads%2Fhospital-service
+#    - title: Base URL
+#      url: #TODO need to get value
+#    - title: Liveness Endpoints
+#      url: #TODO get value from where?
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFHN/repos/hospital-service/browse/README.md
+spec:
+  type: REST
+  lifecycle: production
+  owner: group:automation/hospital
+  system: system:core/hospital-core-system
+  domain: domain:channel/channel-platform
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.28.1
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  dependsOn: [] #TODO need to be updated?
+  providesApis: [ao-hospital/hospital-service-api]
+  consumesApis: [] #TODO need to get value

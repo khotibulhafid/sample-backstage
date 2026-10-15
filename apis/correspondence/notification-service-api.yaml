@@ -1,0 +1,26 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: notification-service-api
+  namespace: ao-product-engine
+  description: The notification service api in correspondence
+  tags:
+    - api
+    - backend
+    - service
+    - correspondence
+    - notification
+    - whatsapp
+    - email
+    - sms
+    - pushnotification
+spec:
+  type: openapi
+  owner: group:core/dcms
+  system: system:core/document-content-management-system
+  domain: domain:core/core-business
+  lifecycle: production
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifpc---correspondence/browse/notification-service?at=release

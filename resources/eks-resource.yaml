@@ -1,0 +1,209 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: prd-automation
+  description: EKS Server
+  tags:
+    - eks
+  labels:
+    eksVersion: '1.24'
+    environment: prd
+  links:
+    - url: https://718E117F8E0C4D74D087E4CFDB0DD153.yl4.ap-southeast-3.eks.amazonaws.com
+spec:
+  type: eks
+  owner: default/infrastructure
+  system: infrastructure/infra
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: prd-customer
+  description: EKS Server
+  tags:
+    - eks
+  labels:
+    eksVersion: '1.24'
+    environment: prd
+  links:
+    - url: https://FDE07552A7BE65BF47FD36886AB727FD.yl4.ap-southeast-3.eks.amazonaws.com
+spec:
+  type: eks
+  owner: default/infrastructure
+  system: infrastructure/infra
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: prd-ifgpay
+  description: EKS Server
+  tags:
+    - eks
+  labels:
+    eksVersion: '1.24'
+    environment: prd
+  links:
+    - url: https://B26ECA6509E538317AD999FD8ED4EA1C.gr7.ap-southeast-3.eks.amazonaws.com
+spec:
+  type: eks
+  owner: default/infrastructure
+  system: infrastructure/infra
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: prd-lifenet
+  description: EKS Server
+  tags:
+    - eks
+  labels:
+    eksVersion: '1.25'
+    environment: prd
+  links:
+    - url: https://BB6526E7AE63C92C4332039D0A3C834A.sk1.ap-southeast-3.eks.amazonaws.com
+spec:
+  type: eks
+  owner: default/infrastructure
+  system: infrastructure/infra
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: prd-digitalcare
+  description: EKS Server
+  tags:
+    - eks
+  labels:
+    eksVersion: '1.24'
+    environment: prd
+  links:
+    - url: https://EE7CCE4F82B942DFAA3E83C8AE7187E6.yl4.ap-southeast-3.eks.amazonaws.com
+spec:
+  type: eks
+  owner: default/infrastructure
+  system: infrastructure/infra
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: prd-lifeforce
+  description: EKS Server
+  tags:
+    - eks
+  labels:
+    eksVersion: '1.24'
+    environment: prd
+  links:
+    - url: https://19E580B5EEF6405ADE4A969F9BB65E50.gr7.ap-southeast-3.eks.amazonaws.com
+spec:
+  type: eks
+  owner: default/infrastructure
+  system: infrastructure/infra
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: prd-ifgid
+  description: EKS Server
+  tags:
+    - eks
+  labels:
+    eksVersion: '1.24'
+    environment: prd
+  links:
+    - url: https://800B41ADD5E23FA9556D52F252E51F98.gr7.ap-southeast-3.eks.amazonaws.com
+spec:
+  type: eks
+  owner: default/infrastructure
+  system: infrastructure/infra
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: prd-oneifg
+  description: EKS Server
+  tags:
+    - eks
+  labels:
+    eksVersion: '1.24'
+    environment: prd
+  links:
+    - url: https://AA8B0F19D0CFA426FE69F77718F3964D.yl4.ap-southeast-3.eks.amazonaws.com
+spec:
+  type: eks
+  owner: default/infrastructure
+  system: infrastructure/infra
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kafka
+  description: Kafka Server
+  tags:
+    - eks
+  labels:
+    eksVersion: '1.24'
+    environment: prd
+  links:
+    - url: https://b-1.mtlsprd.d735xd.c2.kafka.ap-southeast-3.amazonaws.com:9094
+    - url: https://b-2.mtlsprd.d735xd.c2.kafka.ap-southeast-3.amazonaws.com:9094
+    - url: https://b-3.mtlsprd.d735xd.c2.kafka.ap-southeast-3.amazonaws.com:9094
+spec:
+  type: eks
+  owner: default/infrastructure
+  system: infrastructure/infra
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: eks-data-prd
+  description: EKS Server
+  tags:
+    - eks
+    - data
+  labels:
+    eksVersion: '1.24'
+    environment: prd
+  links:
+    - url: https://7DCC73FFD398509167C0686286823603.gr7.ap-southeast-3.eks.amazonaws.com
+spec:
+  type: eks
+  owner: default/infrastructure
+  system: infrastructure/infra
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: eks-psak-prd
+  description: EKS Server
+  tags:
+    - eks
+    - psak
+  labels:
+    eksVersion: '1.24'
+    environment: prd
+  links:
+    - url: https://7DCC73FFD398509167C0686286823603.gr7.ap-southeast-3.eks.amazonaws.com
+spec:
+  type: eks
+  owner: default/infrastructure
+  system: infrastructure/infra
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: eks-automation-core-prd
+  description: EKS Server
+  tags:
+    - eks
+    - automation
+  labels:
+    eksVersion: '1.24'
+    environment: prd
+  links:
+    - url: https://6110BC748BD670C38862A89174E41F83.gr7.ap-southeast-3.eks.amazonaws.com
+spec:
+  type: eks
+  owner: default/infrastructure
+  system: infrastructure/infra
+---

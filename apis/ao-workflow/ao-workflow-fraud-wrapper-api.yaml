@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: ao-workflow-fraud-wrapper-api
+  namespace: ao-workflow
+  description: The automation workflow service api in fraud
+  tags:
+    - api
+    - backend
+    - workflow
+    - fraud
+    - wrapper
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/fraud
+  system: fraud
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifao---automation-operation/browse/ao-workflow-fraud-wrapper

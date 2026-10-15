@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: ao-workflow-nb-wrapper-api
+  namespace: ao-workflow
+  description: The automation wrapper service api controlling workflow traffic for language in nb service
+  tags:
+  - api
+  - backend
+  - workflow
+  - new-business
+  - wrapper
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/nbuw
+  system: workflow
+  domain: automation
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifao---automation-operation/browse/ao-workflow-nb-wrapper

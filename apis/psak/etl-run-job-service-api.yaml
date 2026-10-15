@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: etl-run-job-service-api
+  namespace: psak
+  description: etl run job service api for extract, transform and load from db_psak, db_management and db_erp to db_psak, GBQ
+  tags:
+    - api
+    - backend
+    - service
+    - psak
+    - etl
+    - uat
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/psak
+  system: psak
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifps---psak/browse/etl-run-job-service
+

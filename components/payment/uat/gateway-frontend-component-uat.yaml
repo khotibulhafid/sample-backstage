@@ -1,0 +1,21 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: gateway-frontend-uat
+  namespace: payment
+  description: Gateway for IFG Pay UI to bridge communcation between UI and Core
+  tags:
+  - component
+  - backend
+  - service
+  - payment
+  - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/ifgpay
+  system: ifgpay
+  consumesApis: [ core-services-api-uat ]
+  providesApis: [ gateway-frontend-api-uat ]

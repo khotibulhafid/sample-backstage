@@ -1,0 +1,61 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ifglife-wrapper
+  namespace: icomply
+  description: Integration hub microservice for Keycloak OIDC authentication exchange and AWS SES email sending / SQS event polling.
+  tags:
+    - component
+    - backend
+    - service
+    - wrapper
+    - icomply
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFIC/repos/ifglife-wrapper/browse
+    - title: Docker Image
+      url: docker://docker-icomply.artifact.ifg-life.id/icomply/ifglife-wrapper
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-ls4h5-prd-prod-icomply-comply-prod/browse/deployment.yaml?at=refs%2Fheads%2Fifglife-wrapper
+    - title: Base URL
+      url: http://ifglife-wrapper:9091
+    - title: Liveness Endpoints
+      url: http://localhost:9091/q/health/live
+    - title: Readiness Endpoints
+      url: http://localhost:9091/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFIC/repos/ifglife-wrapper/browse/README.md
+spec:
+  type: REST
+  owner: group:default/icomply
+  system: system:icomply/icomply
+  domain: domain:icomply/compliance
+  lifecycle: production
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+      version: 3.39.4
+  auth:
+    method: Basic Auth
+    notes: >
+      Server-to-server internal communication secured by HTTP Basic Authentication
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  dependsOn: [
+    resource:default/icomply-prd, #EKS
+    resource:auth/keycloak, #Auth OIDC
+    resource:infra/aws-ses, #Email Service
+    resource:infra/aws-sqs #Event Queue
+  ]
+  runtime:
+    cluster: icomply-prd
+    namespace: icomply
+  providesApis: [
+    api:icomply/ifglife-wrapper-api
+  ]
+  consumesApis: []

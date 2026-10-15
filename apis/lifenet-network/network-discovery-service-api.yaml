@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: network-discovery-service-api
+  namespace: lifenet-network
+  description: Lifenet Network
+  tags:
+    - api
+    - backend
+    - service
+    - lifenet-network
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/lifenet
+  system: lifenet
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ilen---lifenet/browse/network-discovery-service

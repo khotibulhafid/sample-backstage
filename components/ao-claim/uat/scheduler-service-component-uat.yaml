@@ -1,0 +1,22 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: scheduler-service-uat
+  namespace: ao-claim
+  description: The claim service for automation claim service
+  tags:
+  - backend
+  - service
+  - claim
+  - scheduler
+  - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:automation/claim
+  system: claim
+#  subcomponentOf: pas-correspondence
+  dependsOn: [resource:ao-kong/kong]
+  providesApis: [ao-claim/scheduler-service-api-uat]

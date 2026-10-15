@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: network-issuer-ifgl-wrapper-service-api
+  namespace: lifenet-issuer
+  description: Lifenet Network issuer
+  tags:
+    - api
+    - backend
+    - service
+    - lifenet
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/lifenet
+  system: lifenet
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ilen---lifenet/browse/network-issuer-ifgl-wrapper-service

@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: pos
+  namespace: default
+  description: everything related to POS Domain
+  title: 'Policy Operation System Domain'
+  links:
+    - url: https://api-automation.ifg-life.id
+      title: 'API API Internal'
+spec:
+  owner: default/pos

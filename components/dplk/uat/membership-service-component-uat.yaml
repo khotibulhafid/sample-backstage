@@ -1,0 +1,20 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: membership-service-component-uat
+  namespace: dplk
+  description: The service for manage participants and companies in DPLK
+  tags:
+    - backend
+    - service
+    - dplk
+    - uat
+    - dplk-membership-service-uat
+spec:
+  type: service
+  lifecycle: experimental # ex: production
+  owner: default/dplk # ex: digital/lifebyifgttribe
+  system: dplk # ex: lifebyifg
+  providesApis: [dplk/membership-service-api-uat]

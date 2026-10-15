@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: acquirer-reference-service-api
+  namespace: lifenet-acquirer
+  description: Lifenet Acquirer Reference API
+  tags:
+  - api
+  - backend
+  - service
+  - lifenet-acquirer
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/lifenet
+  system: lifenet
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ilen---lifenet/browse/acquirer-reference-service

@@ -1,0 +1,17 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ifgl-l4qdb-prd-legacy-dt
+  namespace: database
+  description: to store transactional and master data to database mifg
+  tags:
+    - mysql
+  labels:
+    postgreVersion: '8'
+    size: 1TB
+spec:
+  type: database
+  owner: default/legacy
+  system: legacy
+---

@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: interest-service-api
+  namespace: acct-mgmt-system
+  description: service for managing interest rate reference data, featuring capabilities for creating, updating, retrieving, and automated transaction logging.
+  tags:
+    - api
+    - backend
+    - service
+    - interest
+    - reference-rate
+    - quarkus
+spec:
+  type: openapi
+  owner: group:core/aas
+  system: system:core/account-administration-system
+  domain: domain:core/core-business
+  lifecycle: production
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifca---account-administration-system/browse/interest-service?at=release

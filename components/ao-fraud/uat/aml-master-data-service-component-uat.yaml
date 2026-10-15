@@ -1,0 +1,46 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: aml-master-data-service
+  namespace: uat-service-fraud
+  description: Master data reference service for AML (risk, country, transaction type, parameter).
+  tags:
+    - aml
+    - master-data
+    - backend
+    - java
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFGF/repos/aml-master-data-service/browse
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/uat-service-fraud-uat-aml-master-data-service
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-fraud-version2/fraud-master-data-service
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-jg2mq-nprd-uat-legacy-ao-service-fraud/browse/deployment.yaml?at=refs%2Fheads%2Faml-master-data-service
+    - title: Base URL
+      url: https://api-automation-uat-v2.ifg-life.id
+spec:
+  type: REST
+  owner: automation/fraud
+  system: fraud-detection-system
+  domain: process-automation
+  environments: uat
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.30.6
+  auth:
+    method: OAuth2
+    notes: Used by internal AML services
+  secretType: Kubernetes Secret
+  dependsOn:
+    [
+      resource: database/ifgl-l4qdb-prd-automation,
+      resource: ao-kong/kong,
+      resource: infra/kafka-data,
+    ]
+  runtime:
+    cluster: k8s-aml
+    namespace: uat-service-fraud

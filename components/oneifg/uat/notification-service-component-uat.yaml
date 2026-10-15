@@ -1,0 +1,21 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: notification-service-uat
+  namespace: oneifg
+  description: The Notification service api
+  tags:
+    - component
+    - backend
+    - service
+    - one
+    - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/onebyifg
+  system: onebyifg
+  dependsOn: [ resource:oneifg-prd,resource:kafka,resource:prd-oneifg ]
+  providesApis: [ notification-service-api-uat ]

@@ -1,0 +1,22 @@
+# MongoDB Atlas
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: mongodb
+  title: MongoDB Atlas
+  namespace: database
+  description: MongoDB Atlas instance
+  tags:
+    - database
+    - mongodb
+    - platform
+    - data
+  annotations:
+    mongo/cluster-tier: M50
+    mongo/storage-size: 500GB
+spec:
+  type: database
+  owner: group:infra/dba
+  system: infrastructure/infra
+---

@@ -1,0 +1,25 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ao-workflow-policy-wrapper-uat
+  namespace: ao-workflow
+  description: The workflow wrapper policy service for automation policy proses service
+  tags:
+  - backend
+  - service
+  - policyservice
+  - pos
+  - wrapper
+  - workflow
+  - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/workflow
+  system: default/workflow
+#  subcomponentOf: ao-workflow-policy-wrapper-backend
+  dependsOn: [resource:ao-workflow/ifgl-1awvh-prd-automation-db]
+  providesApis: [ao-workflow-policy-wrapper-api-uat]
+  consumesApis: [ao-workflow-policy-api-uat]

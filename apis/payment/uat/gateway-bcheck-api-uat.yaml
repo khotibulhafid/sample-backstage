@@ -1,0 +1,21 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: gateway-bcheck-api-uat
+  namespace: payment
+  description: Gateway to communicate with third-party to get BIN code data
+  tags:
+  - api
+  - backend
+  - service
+  - payment
+  - uat
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: default/ifgpay
+  system: ifgpay
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifpy---payment/browse/gateway-bcheck?at=uat

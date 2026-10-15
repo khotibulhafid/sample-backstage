@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: proposal-service-v2-api
+  namespace: ao-new-business
+  description: The proposal service api in new business
+  tags:
+    - api
+    - backend
+    - service
+    - proposal-v2
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/nbuw
+  system: ao-new-business/nbuw
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifnb---new-business/browse/proposal-service-v2
+

@@ -1,0 +1,24 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ao-workflow-policy-uat
+  namespace: ao-workflow
+  description: The workflow policy service for automation policy proses service
+  tags:
+  - backend
+  - service
+  - policyservice
+  - aopos
+  - workflow
+  - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/workflow
+  system: default/workflow
+#  subcomponentOf: ao-workflow-policy-backend
+  dependsOn: [resource:ao-workflow/ifgl-1awvh-prd-automation-db,resource:default/kafka]
+  providesApis: [ao-workflow-policy-api-uat]
+  consumesApis: [ ao-product-engine/notification-service-api-uat,ifgid/ekyc-service-api-uat,ao-pos/alteration-service-api-uat ]

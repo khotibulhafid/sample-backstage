@@ -1,0 +1,72 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: audit-service
+  namespace: ao-new-business
+  description: The audit-service is service for create log activity
+  tags:
+    - component
+    - backend
+    - service
+    - audit
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFNB/repos/audit-service
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:pas-audit-service
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/ao-new-business-release-audit-service
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-new-business/audit-service-release:6
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-1awvh-prd-prod-automation-ao-new-business-release/browse/deployment.yaml?at=refs%2Fheads%2Faudit-service
+    - title: Base URL
+      url: https://api-core.ifg-life.id
+    - title: Liveness Endpoints
+      url: https://localhost:8080/q/health/live
+    - title: Readiness Endpoints
+      url: https://localhost:8080/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFNB/repos/audit-service/browse/README.md
+#    - title: Kafka Topic List
+#      url: https://code.ifg-life.id/projects/IFDA/repos/data-base-service/browse/kafka-topics.md
+#    - title: Sample Kafka Message
+#      url: https://code.ifg-life.id/projects/IFDA/repos/data-base-service/browse/kafka-topics.md
+spec:
+  type: REST
+  owner: group:core/pas
+  system: system:core/policy-administration-system
+  domain: domain:core/core-business
+  lifecycle: production
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.24.3
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: 1awvh
+    namespace: ao-new-business
+  limits: 'default kong'
+  dependsOn: [
+    resource:default/eks-1awvh-prd, #EKS
+    resource:infra/cluster-1awvh-prd, #Cluster
+    resource:ao-workflow/ifgl-1awvh-prd-automation-db,
+    resource:core/kong #Gateway
+  ]
+  consumeApis: []
+  providesApis: [
+    api:ao-new-business/audit-service-api
+  ]
+  usesLibraries:
+    - name: "rest-client"
+      implemented: False

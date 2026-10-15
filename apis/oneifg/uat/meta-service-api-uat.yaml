@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: meta-service-api-uat
+  namespace: oneifg
+  description: The Meta service api for Master Data in One by IFG Web Admin or One by IFG Apps
+  tags:
+  - api
+  - backend
+  - service
+  - onebyifg
+  - uat
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: default/onebyifg
+  system: onebyifg
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifoi---one-ifg/browse/meta-service?at=uat

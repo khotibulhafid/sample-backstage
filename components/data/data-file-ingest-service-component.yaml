@@ -1,0 +1,72 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: data-file-ingest-service
+  namespace: data
+  description: Data File Ingest Service
+  title: Data File Ingest Service
+  tags:
+    - component
+    - backend
+    - service
+    - data
+    - fastapi
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFDA/repos/data-file-ingest-service/browse
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:data-file-ingest-service
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/data-release-data-file-ingest-service?resource=
+    - title: Docker Image
+      url: docker://docker-data.artifact.ifg-life.id/data/data-file-ingest-service-release:6
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-m8ccz-prd-prod-graphdb-data-release/browse/deployment.yaml?at=data-file-ingest-service
+    - title: Base URL
+      url: https://data.ifg-life.id/api/v1/
+    - title: Liveness Endpoints
+      url: https://data-file-ingest-service:8080/api/q/health/live
+    - title: Readiness Endpoints
+      url: https://data-file-ingest-service:8080/api/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFDA/repos/data-file-ingest-service/browse/readme.md
+#    - title: Kafka Topic List
+#      url: https://code.ifg-life.id/projects/IFDA/repos/data-base-service/browse/kafka-topics.md
+#    - title: Sample Kafka Message
+#      url: https://code.ifg-life.id/projects/IFDA/repos/data-base-service/browse/kafka-topics.md
+spec:
+  type: REST
+  owner: group:data/data-lake
+  system: system:data/data-ingestion-system
+  domain: domain:data/data-platform
+  lifecycle: production
+  environments: prod
+  language: python3.12
+  framework:
+    - name: FastAPI
+    - version: 0.124.4
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: cluster-data-prd
+    namespace: data
+  limits: 'default kong'
+  dependsOn: [
+    resource:default/eks-data-prd, #EKS 
+    resource:infra/cluster-data-prd, #Cluster 
+#    resource:infra/kafka-data, #Kafka
+    resource:database/mongodb, #Database
+    resource:data/kong #Gateway
+  ]
+  consumeApis: []
+  providesApis: [
+#    api:data/data-file-ingest-service-api
+  ]
+  usesLibraries:
+    - name: "rest-client"
+      implemented: False

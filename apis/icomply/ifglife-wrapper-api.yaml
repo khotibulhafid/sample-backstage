@@ -1,0 +1,21 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: ifglife-wrapper-api
+  namespace: icomply
+  description: Service api for ifglife wrapper in iComply
+  tags:
+    - api
+    - backend
+    - service
+    - icomply
+    - ifglife-wrapper
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/icomply
+  system: icomply
+  definition:
+    $text: https://code.ifg-life.id/projects/IFIC/repos/ifglife-wrapper/browse

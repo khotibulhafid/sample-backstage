@@ -1,0 +1,20 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: hospital-service-uat
+  namespace: ao-hospital-network
+  description: The Hospital Network service
+  tags:
+  - backend
+  - service
+  - hospital-network
+  - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/hospital-network
+  system: hospital-network
+  dependsOn: [resource:ao-workflow/ifgl-1awvh-prd-automation-db, resource:ao-kong/kong]
+  providesApis: [hospital-service-api-uat]

@@ -1,0 +1,21 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: new-business-service-v2-uat
+  namespace: ao-new-business
+  description: The new-business-service-v2 api in new-business
+  tags:
+    - backend
+    - service
+    - policy
+    - new-business
+    - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/nbuw
+  system: ao-new-business/nbuw
+  providesApis: [new-business-service-v2-api-uat]
+  dependsOn: [resource:ao-workflow/ifgl-1awvh-prd-automation-db]

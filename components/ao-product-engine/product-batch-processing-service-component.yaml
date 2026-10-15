@@ -1,0 +1,61 @@
+---
+  # https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+  apiVersion: backstage.io/v1alpha1
+  kind: Component
+  metadata:
+    name: product-batch-processing-service
+    namespace: ao-product-engine
+    description: The services for insert batch processing product config service.
+    tags:
+      - backend
+      - service
+      - product-batch-processing
+      - quarkus
+  links:
+        - title: Source Repository
+          url: https://code.ifg-life.id/projects/IFPE/repos/product-batch-processing-service/browse
+        - title: Monitoring / Logs (Datadog)
+          url: https://app.datadoghq.com/apm/entity/service%3Acore-product-batch-processing-service?dependencyMap.showNetworkMetrics=false&env=prd&graphType=span_list&groupMapByOperation=null&operationName=netty.request&shouldShowLegend=true&traceQuery=&start=1768383681773&end=1768387281773&paused=false
+        - title: Deployment (ArgoCD)
+          url: https://deploy.ifg-life.id/applications/ao-product-engine-release-product-batch-processing-service
+        - title: Deployment YAML (Env & Config)
+          url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-1awvh-prd-prod-automation-ao-product-engine-release/browse?at=refs%2Fheads%2Fproduct-batch-processing-service
+        - title: Docker Image
+          url: docker://docker-automation-operation.artifact.ifg-life.id/ao-product-engine/product-batch-processing-service-release:3
+        - title: Liveness Endpoints
+          url: https://localhost:8080/api/q/health/live
+        - title: Readiness Endpoints
+          url: https://localhost:8080/api/q/health/ready
+        - title: Documentation
+          url: https://code.ifg-life.id/projects/IFPE/repos/product-batch-processing-service/browse/README.md?at=refs%2Fheads%2Fuat
+        - title: Kafka Documentation
+          url: https://code.ifg-life.id/projects/IFPE/repos/product-batch-processing-service/browse/DocumentationKafka.md?at=refs%2Fheads%2Fuat
+  spec:
+    type: CONSUMER
+    owner: group:core/product
+    system: system:core/product-management-system
+    domain: domain:core/core-business
+    lifecycle: production
+    environments: prod
+    language: java
+    framework:
+      - name: Quarkus
+      - version: 3.8.3
+    auth:
+      method: API Key
+      notes: >
+        Service uses Kong API Key for authorization
+    secretType: Kubernetes Secret
+    security:
+      rotationPolicy: manual
+    dependsOn: [
+      resource:default/prd-automation, #EKS
+      resource:infra/1awvh-prd-prod-automation-az2, #Cluster
+      resource:database/pg-core, #Database
+      resource:infra/kafka #Message Brocker
+    ]
+    runtime:
+      cluster: 1awvh-prd-prod-automation-az2
+      namespace: ao-product-engine
+    consumeApis: [ ]
+    limits: 'default kong'

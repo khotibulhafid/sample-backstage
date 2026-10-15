@@ -1,0 +1,40 @@
+---     
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: admin-sales-admin-web
+  namespace: lifeforce-admin
+  description: The lifeforce admin frontend for web admin portal
+  title: Admin Sales Admin Web
+  tags:
+    - frontend
+    - web
+    - lifeforce
+    - lifeforce-admin
+    - nextjs
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/ILLF/repos/admin-sales-admin-web/browse
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/lifeforce-admin-release-admin-service
+    - title: Docker Image
+      url: docker://docker-lifeforce.artifact.ifg-life.id/lifeforce-admin/sales-admin-release:47
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-yu30h-prd-prod-lifeforce-lifeforce-admin-release/browse/deployment.yaml?at=refs%2Fheads%2Fsales-admin
+    - title: Base URL
+      url: https://force-admin.life.id
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/ILLF/repos/admin-sales-admin-web/browse/README.md
+spec:
+  type: website
+  owner: group:channel/lifeforce-admin
+  system: system:channel/lifeforce-admin-system
+  domain: domain:channel/channel-platform
+  lifecycle: production
+  environments: prod
+  language: javascript
+  runtime:
+    cluster: lifeforce-prd
+    namespace: lifeforce-admin
+  consumesApis: [admin-admin-service-api]

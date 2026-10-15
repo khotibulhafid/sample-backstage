@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: policy-service-api
+  namespace: customer
+  description: The policy service api for Policy in customerapps
+  tags:
+    - api
+    - backend
+    - service
+    - customer
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/lifebyifg
+  system: lifebyifg
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ictr---customer/browse/policy-service

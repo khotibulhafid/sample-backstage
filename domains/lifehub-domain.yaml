@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: lifehub
+  namespace: ao-lifehub
+  description: Everything Related to Lifehub Domain
+  title: 'Lifehub Domain'
+  links:
+    - url: https://hub.life.id/api
+      title: 'API for Lifehub'
+    - url: https://hub.life.id
+      title: 'Website for Lifehub Customer'
+spec:
+  owner: default/lifehub

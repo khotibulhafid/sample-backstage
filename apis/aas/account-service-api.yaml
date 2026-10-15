@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: account-service-api
+  namespace: acct-mgmt-system
+  description: service to manage account information and monitor balances (real, locked, and available). It supports single or bulk updates for account data and interest rates.
+  tags:
+    - api
+    - backend
+    - service
+    - account
+    - quarkus
+spec:
+  type: openapi
+  owner: group:core/aas
+  system: system:core/account-administration-system
+  domain: domain:core/core-business
+  lifecycle: production
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifca---account-administration-system/browse/account-service?at=refs%2Fheads%2Frelease

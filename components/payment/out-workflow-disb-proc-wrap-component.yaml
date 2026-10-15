@@ -1,0 +1,66 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: out-workflow-disb-proc-wrap
+  namespace: payment
+  description: Out Workflow Disbursement Proc Wrapper is a wrapper for a workflow service that processes disbursement transactions.
+  tags:
+    - component
+    - backend
+    - service
+    - quarkus
+    - payment
+    - workflow
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFPY/repos/out-workflow-disb-proc-wrapper
+    - title: Monitoring / Logs (Datadog)
+      url:
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/workflow-payment-release-out-workflow-disb-proc-wrap
+    - title: Docker Image
+      url: docker-paymenthub.artifact.ifg-life.id/paymenthub/service/out-workflow-disb-proc-wrap-release:9
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-8spdr-prd-prod-payment-workflow-payment-release/browse?at=refs%2Fheads%2Fout-workflow-disb-proc-wrap
+    - title: Base URL
+      url: http://out-workflow-disb-proc-wrap.workflow-payment.svc:8080
+    - title: Liveness Endpoints
+      url: http://out-workflow-disb-proc-wrap.workflow-payment.svc:8080/q/health/live
+    - title: Readiness Endpoints
+      url: http://out-workflow-disb-proc-wrap.workflow-payment.svc:8080/q/health/ready
+    - title: Swagger / Open API
+      url: https://code.ifg-life.id/projects/IFSC/repos/ifpy---payment/browse/out-workflow-disb-proc-wrap
+spec:
+  type: REST
+  owner: group:default/ifgpay
+  system: system:payment/ifgpay
+  domain: domain:payment/ifgpay
+  lifecycle: production
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+      version: 3.31.0
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  dependsOn: [
+    resource:payment/kafka
+  ]
+  runtime:
+    cluster: 8spdr
+    namespace: payment
+  consumesApis: [
+    out-workflow-disb-proc-api,
+    out-workflow-wrap-api
+  ]
+  providesApis: [
+    out-workflow-disb-proc-wrap-api
+  ]
+  limits: 'default kong'

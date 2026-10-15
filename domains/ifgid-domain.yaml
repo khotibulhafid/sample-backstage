@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: ifgid
+  namespace: ifgid
+  description: Everything Related to IFG ID Domain
+  title: 'IFG ID Domain'
+  links:
+    - url: https://api-ifgid.ifg-life.id
+      title: 'API for IFG ID'
+spec:
+  owner: default/ifgid

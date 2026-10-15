@@ -1,0 +1,64 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: remuneration-config-service
+  namespace: lifeforce-remuneration
+  description: The calculator service for remuneration engine
+  title: Remuneration Config Service
+  tags:
+    - component
+    - backend
+    - service
+    - lifeforce
+    - lifeforce-remuneration
+    - quarkus
+links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/ILLF/repos/remuneration-config-service/browse
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:lifeforceremun-config-service
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/lifeforce-remuneration-release-config-service
+    - title: Docker Image
+      url: docker://docker-lifeforce.artifact.ifg-life.id/lifeforce-remuneration/config-service-release:14
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-yu30h-prd-prod-lifeforce-lifeforce-remuneration-release/browse/deployment.yaml?at=refs%2Fheads%config-service
+    - title: Liveness Endpoints
+      url: http://config-service.lifeforce-remuneration.svc:8080/api/q/health/live
+    - title: Readiness Endpoints
+      url: http://config-service.lifeforce-remuneration.svc:8080/api/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/ILLF/repos/remuneration-config-service/browse/README.md
+spec:
+  type: REST
+  owner: group:channel/lifeforce-remuneration
+  system: system:channel/lifeforce-remuneration-system
+  domain: domain:channel/channel-platform
+  lifecycle: production
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.24.5
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  dependsOn: [
+    resource:default/prd-lifeforce, #EKS 
+    resource:infra/lifeforce-prd, #Cluster
+    resource:database/pg-lifeforce, #Database
+    resource:lifeforce/kong, #Gateway
+    resource:infra/redis
+  ]
+  runtime:
+    cluster: lifeforce-prd
+    namespace: lifeforce-remuneration
+  providesApis: [lifeforce-remuneration/remuneration-config-service-api]
+  consumeApis: []
+  limits: 'default kong'

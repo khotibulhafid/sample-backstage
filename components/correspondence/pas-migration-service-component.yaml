@@ -1,0 +1,76 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: pas-migration-service
+  namespace: ao-product-engine
+  description: Handle document migration/conversion from non-standard DCMS format to standard DCMS format
+  tags:
+    - backend
+    - converter
+    - component
+    - dcms
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFPC/repos/pas-migration-service/browse
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFPC/repos/migration-service/browse/README.md
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:correspondence-pas-migration-service
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/ao-product-engine-release-pas-migration-service
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-product-engine/correspondence/pas-migration-service-release:3
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-1awvh-prd-prod-automation-pas-corespondence-release/browse?at=pas-migration-service
+    - title: Base URL
+      url: https://api-core.ifg-life.id
+    - title: Liveness Endpoints
+      url: http://pas-migration-service:8080/api/q/health/live
+#    - title: Readiness Endpoints
+#      url: <url_readiness>
+    - title: Swagger / Open API
+      url: http://pas-migration-service:8080/api/q/openapi
+    - title: Kafka Topic List
+      url: https://code.ifg-life.id/projects/IFPC/repos/pas-migration-service/browse/kafka_topic_documentation.md
+    - title: Sample Kafka Message
+      url: https://code.ifg-life.id/projects/IFPC/repos/pas-migration-service/browse/kafka_topic_documentation.md
+spec:
+  type: REST
+  owner: group:core/dcms
+  system: system:core/document-content-management-system
+  domain: domain:core/core-business
+  lifecycle: production
+  environments: production
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.26.2
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: 1awvh-prd-prod-automation-az2
+    namespace: ao-product-engine
+  limits: 'default kong'
+  providesApis: [
+    api:correspondence/pas-migration-service-api
+  ]
+  consumesApis: [
+    api:correspondence/storage-service-api
+  ]
+  dependsOn: [
+    resource:cluster/prd-1awvh-prod-automation-az2, #must update to '1awvh-prd-prod-automation-az2'
+    resource:eks/prd-automation,
+    resource:namespace/ao-product-engine,
+    resource:infra/kafka,
+    resource:database/ifgl-1awvh-prd-automation-db,
+    resource:gateway/kong,
+    resource:s3-bucket/prd-ao-policy
+  ]

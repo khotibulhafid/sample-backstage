@@ -1,0 +1,10 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: lifeforce-individu
+  namespace: lifeforce-individu
+  description: Portal for Agency, Worksite, and Bancassurance business salesforce, assisting the sales process for Retail, Individual Insurance products, and individual banking insurance products
+spec:
+  owner: default/lifeforce-individu
+  domain: lifeforce/lifeforce-individu

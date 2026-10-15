@@ -1,0 +1,66 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: gateway-bni
+  namespace: payment
+  description: Gateway to communicate with BNI for Virtual Account
+  tags:
+    - component
+    - backend
+    - service
+    - payment
+    - quarkus
+    - virtual-account
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFPY/repos/gateway-bni/browse
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:payment-gateway-bni
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/payment-release-gateway-bni
+    - title: Docker Image
+      url: docker://docker-paymenthub.artifact.ifg-life.id/paymenthub/service/gateway-bni-release:6
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-8spdr-prd-prod-payment-payment-release/browse?at=gateway-bni
+    - title: Base URL
+      url: http://gateway-bni:8080
+    - title: Liveness Endpoints
+      url: http://gateway-bni:8080/q/health/live
+    - title: Readiness Endpoints
+      url: http://gateway-bni:8080/q/health/ready
+    - title: Swagger / Open API
+      url: https://code.ifg-life.id/projects/IFSC/repos/ifpy---payment/browse/gateway-bni
+spec:
+  type: REST
+  owner: group:default/ifgpay
+  system: system:payment/ifgpay
+  domain: domain:payment/ifgpay
+  lifecycle: production
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+      version: 3.29.0
+  auth:
+    method: JWT
+    notes: >
+      Service uses JWT authorization to communicate with Payment Gateway/Banks
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  dependsOn: [
+    resource:payment/kafka,
+    resource:payment/kong
+  ]
+  runtime:
+    cluster: 8spdr
+    namespace: payment
+  consumesApis: [
+    core-service-api
+  ]
+  providesApis: [
+    gateway-bni-api
+  ]
+  limits: 'default kong'

@@ -1,0 +1,678 @@
+#---
+#apiVersion: backstage.io/v1alpha1
+#kind: Resource
+#metadata:
+#  name: ifgl-1awvh-prd-automation-db
+#  namespace: ao-workflow
+#  description: to store transactional and master data to database automation db, must be maintained by flyway for master data
+#  tags:
+#    - postgres
+#  labels:
+#    postgreVersion: '13.10'
+#    size: 250GB
+#    environment: prd
+#  links:
+#    - url: postgresql://ifgl-1awvh-prd-automation-db.cztnzvglgehr.ap-southeast-3.rds.amazonaws.com
+#spec:
+#  type: database
+#  owner: default/infrastructure
+#  system: infrastructure/infra
+##  dependsOn: [resource:ao-lifehub, resource:ao-new-business, resource:ao-product-engine, resource:ao-pos, resource:ao-fraud, resource:ao-product-engine, resource:ao-workflow, resource:ao-hospital-network, resource:ao-kong]
+#---
+#apiVersion: backstage.io/v1alpha1
+#kind: Resource
+#metadata:
+#  name: lifenet-prd
+#  description: to store transactional and master data to database lifenet db, must be maintained by flyway for master data
+#  tags:
+#    - postgre
+#  labels:
+#    postgreVersion: '13.10'
+#    size: 50GB
+#    environment: prd
+#  links:
+#    - url: postgresql://lifenet-prd.cpvuwiwl0pah.ap-southeast-3.rds.amazonaws.com
+#spec:
+#  type: database
+#  owner: default/lifenet
+#  system: lifenet
+##  dependsOn: [resource:lifenet]
+#---
+#apiVersion: backstage.io/v1alpha1
+#kind: Resource
+#metadata:
+#  name: db-payment
+#  namespace: payment
+#  description: to store transactional and master data to database payment db, must be maintained by flyway for master data
+#  tags:
+#    - postgre
+#  labels:
+#    postgreVersion: '13.10'
+#    size: 100GB
+#    environment: prd
+#  links:
+#    - url: postgresql://db-payment.cpvhwvxypbmz.ap-southeast-3.rds.amazonaws.com
+#spec:
+#  type: database
+#  owner: default/ifgpay
+#  system: ifgpay
+##  dependsOn: [resource:payment]
+#---
+#apiVersion: backstage.io/v1alpha1
+#kind: Resource
+#metadata:
+#  name: oneifg-prd
+#  namespace: oneifg
+#  description: to store transactional and master data to database onebyifg db, must be maintained by flyway for master data
+#  tags:
+#    - postgre
+#  labels:
+#    postgreVersion: '13.10'
+#    size: 50GB
+#    environment: prd
+#  links:
+#    - url: postgresql://oneifg-prd.cs1c0h5iuobh.ap-southeast-3.rds.amazonaws.com
+#spec:
+#  type: database
+#  owner: default/onebyifg
+#  system: onebyifg
+##  dependsOn: [resource:oneifg]
+#---
+#apiVersion: backstage.io/v1alpha1
+#kind: Resource
+#metadata:
+#  name: db-lifeforce
+#  namespace: lifeforce-individu
+#  description: to store transactional and master data to database lifeforce individu & lifeforce corporate db, must be maintained by flyway for master data
+#  tags:
+#    - postgre
+#  labels:
+#    postgreVersion: '13.9'
+#    size: 100GB
+#    environment: prd
+#  links:
+#    - url: postgresql://db-lifeforce.cztgmnndx1px.ap-southeast-3.rds.amazonaws.com
+#spec:
+#  type: database
+#  owner: default/lifeforce-individu
+#  system: lifeforce-individu
+##  dependsOn: [resource:lifeforce-individu]
+#---
+#apiVersion: backstage.io/v1alpha1
+#kind: Resource
+#metadata:
+#  name: db-lifeforce
+#  namespace: lifeforce-group
+#  description: to store transactional and master data to database lifeforce corporate db, must be maintained by flyway for master data
+#  tags:
+#    - postgre
+#  labels:
+#    postgreVersion: '19'
+#    size: 1TB
+#    environment: prd
+#  links:
+#    - url: postgresql://db-lifeforce.cztgmnndx1px.ap-southeast-3.rds.amazonaws.com
+#spec:
+#  type: database
+#  owner: default/lifeforce-corporate
+#  system: lifeforce-corporate
+##  dependsOn: [resource:lifeforce-group]
+#---
+#apiVersion: backstage.io/v1alpha1
+#kind: Resource
+#metadata:
+#  name: db-lifeforce
+#  namespace: lifeforce-admin
+#  description: to store transactional and master data to database lifeforce corporate db, must be maintained by flyway for master data
+#  tags:
+#    - postgre
+#  labels:
+#    postgreVersion: '19'
+#    size: 1TB
+#    environment: prd
+#  links:
+#    - url: postgresql://db-lifeforce.cztgmnndx1px.ap-southeast-3.rds.amazonaws.com
+#spec:
+#  type: database
+#  owner: default/lifeforce-corporate
+#  system: lifeforce-corporate
+##  dependsOn: [resource:lifeforce-group]
+#---
+#apiVersion: backstage.io/v1alpha1
+#kind: Resource
+#metadata:
+#  name: ifgid-prd-13-2
+#  description: to store transactional and master data to database ifgid reader db, must be maintained by flyway for master data
+#  tags:
+#    - postgre
+#  labels:
+#    postgreVersion: '13.8'
+#    size: 1TB
+#    environment: prd
+#  links:
+#    - url: postgresql://ifgid-prd-13-2.cglr0qzgtef7.ap-southeast-3.rds.amazonaws.com
+#spec:
+#  type: database
+#  owner: default/ifgid
+#  system: ifgid
+##  dependsOn: [resource:ifgid]
+#---
+#apiVersion: backstage.io/v1alpha1
+#kind: Resource
+#metadata:
+#  name: db-digitalcare
+#  description: to store transactional and master data to database db-digitalcare db, must be maintained by flyway for master data
+#  tags:
+#    - postgre
+#  labels:
+#    postgreVersion: '13.10'
+#    size: 50GB
+#    environment: prd
+#  links:
+#    - url: postgresql://db-digitalcare.cxhsxzg3iruu.ap-southeast-3.rds.amazonaws.com
+#spec:
+#  type: database
+#  owner: default/infrastructure
+#  system: infrastructure/infra
+#---
+#apiVersion: backstage.io/v1alpha1
+#kind: Resource
+#metadata:
+#  name: ifgl-bvl19-prd-prod-customer-customerapps
+#  description: to store transactional and master data to database customer db, must be maintained by flyway for master data (share with corporate)
+#  tags:
+#    - postgre
+#  labels:
+#    postgreVersion: '13.10'
+#    size: 150GB
+#    environment: prd
+#  links:
+#    - url: postgresql://ifgl-bvl19-prd-prod-customer-customerapps.cynm4xjzlatm.ap-southeast-3.rds.amazonaws.com
+#spec:
+#  type: database
+#  owner: default/lifebyifg
+#  system: lifebyifg
+##  dependsOn: [resource:customer, resource:corporate]
+#---
+#apiVersion: backstage.io/v1alpha1
+#kind: Resource
+#metadata:
+#  name: partnership-prd
+#  description: to store transactional and master data to database partnership-prd db, must be maintained by flyway for master data
+#  tags:
+#    - postgre
+#  labels:
+#    postgreVersion: '13.10'
+#    size: 50GB
+#    environment: prd
+#  links:
+#    - url: postgresql://partnership-prd.cbpm89a13sh6.ap-southeast-3.rds.amazonaws.com
+#spec:
+#  type: database
+#  owner: default/partnership
+#  system: partnership
+##  dependsOn: [resource:partner]
+#---
+#apiVersion: backstage.io/v1alpha1
+#kind: Resource
+#metadata:
+#  name: db-datamanagement
+#  namespace: database
+#  description: >
+#    Database used for reporting, analytics, and dashboard purposes across multiple teams
+#  tags:
+#    - postgres
+#    - database
+#    - reporting
+#    - analytics
+#    - dashboard
+#  annotations:
+#    postgres/version: '13.10'
+#    postgres/storage-size: 500GB
+#  links:
+#    - url: postgresql://db-datamanagement.chsmo2my6jdk.ap-southeast-3.rds.amazonaws.com
+#      title: Connection Info
+#spec:
+#  type: database
+#  owner: group:infra/dba
+#  system: infrastructure/infra
+#---
+#apiVersion: backstage.io/v1alpha1
+#kind: Resource
+#metadata:
+#  name: db-devops
+#  description: to store infra application data
+#  tags:
+#    - postgres
+#    - database
+#  labels:
+#    postgresVersion: '13.10'
+#    size: 100GB
+#    environment: prd
+#  links:
+#    - url: postgresql://db-devops.cwdd6l1or5is.ap-southeast-3.rds.amazonaws.com
+#spec:
+#  type: database
+#  owner: default/devops
+#  system: devops
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: pg-onebyifg
+  namespace: database
+  description: >
+    Database for OneByIFG
+  tags:
+    - postgres
+    - database
+    - rds
+spec:
+  type: database
+  owner: group:infra/dba
+  system: infrastructure/infra
+  aws-account: ifg-0fg73-prd-oneifg
+  project: OneByIFG
+  rds-endpoint: prd-oneifg.cs1c0h5iuobh.ap-southeast-3.rds.amazonaws.com
+  db-identifier: prd-oneifg
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: pg-interco
+  namespace: database
+  description: >
+    Database for Interco
+  tags:
+    - postgres
+    - database
+    - rds
+spec:
+  type: database
+  owner: group:infra/dba
+  system: infrastructure/infra
+  aws-account: ifg-revw0-prd-oneverseinterco
+  project: Interco
+  rds-endpoint: interco-db-prd.cvmm8u684trb.ap-southeast-3.rds.amazonaws.com
+  db-identifier: interco-db-prd
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: pg-apim
+  namespace: database
+  description: >
+    Database for APIM
+  tags:
+    - postgres
+    - database
+    - rds
+spec:
+  type: database
+  owner: group:infra/dba
+  system: infrastructure/infra
+  aws-account: ifg-by1wc-prd-dmz
+  project: APIM
+  rds-endpoint: db-fe.cfezyzu1k3z3.ap-southeast-3.rds.amazonaws.com
+  db-identifier: db-fe
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: pg-ifgid-1
+  namespace: database
+  description: >
+    Database for IFGID
+  tags:
+    - postgres
+    - database
+    - aurora
+spec:
+  type: database
+  owner: group:infra/dba
+  system: infrastructure/infra
+  aws-account: ifgl-u6ngf-prd-ifgid
+  project: IFGID
+  rds-endpoint: ifgid-prd-13-1.cglr0qzgtef7.ap-southeast-3.rds.amazonaws.com
+  db-identifier: ifgid-prd-13-1
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: pg-ifgid-2
+  namespace: database
+  description: >
+    Database for IFGID
+  tags:
+    - postgres
+    - database
+    - aurora
+spec:
+  type: database
+  owner: group:infra/dba
+  system: infrastructure/infra
+  aws-account: ifgl-u6ngf-prd-ifgid
+  project: IFGID
+  rds-endpoint: ifgid-prd-13-2.cglr0qzgtef7.ap-southeast-3.rds.amazonaws.com
+  db-identifier: ifgid-prd-13-2
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: pg-lifenet
+  namespace: database
+  description: >
+    Database for LifeNet
+  tags:
+    - postgres
+    - database
+    - rds
+spec:
+  type: database
+  owner: group:infra/dba
+  system: infrastructure/infra
+  aws-account: ifgl-tu9b2-prd-lifenet
+  project: LifeNET
+  rds-endpoint: lifenet-prd.cpvuwiwl0pah.ap-southeast-3.rds.amazonaws.com
+  db-identifier: lifenet-prd
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: pg-datamanagement
+  namespace: database
+  description: >
+    Database for Customer360
+  tags:
+    - postgres
+    - database
+    - rds
+spec:
+  type: database
+  owner: group:infra/dba
+  system: infrastructure/infra
+  aws-account: ifgl-m8ccz-prd-graphdb
+  project: Customer360
+  rds-endpoint: db-datamanagement.chsmo2my6jdk.ap-southeast-3.rds.amazonaws.com
+  db-identifier: db-datamanagement
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: pg-mis
+  namespace: database
+  description: >
+    Database for Customer360 - MIS
+  tags:
+    - postgres
+    - database
+    - rds
+spec:
+  type: database
+  owner: group:infra/dba
+  system: infrastructure/infra
+  aws-account: ifgl-m8ccz-prd-graphdb
+  project: Customer360
+  rds-endpoint: db-mis-prd.chsmo2my6jdk.ap-southeast-3.rds.amazonaws.com
+  db-identifier: db-mis-prd
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: pg-eventdb
+  namespace: database
+  description: >
+    Database for Event DB ERP
+  tags:
+    - postgres
+    - database
+    - rds
+spec:
+  type: database
+  owner: group:infra/dba
+  system: infrastructure/infra
+  aws-account: ifgl-vcv7f-prd-erp
+  project: ERP
+  rds-endpoint: ifgl-vcv7f-prd-erp.c1v39betdccp.ap-southeast-3.rds.amazonaws.com
+  db-identifier: ifgl-vcv7f-prd-erp
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: pg-psak
+  namespace: database
+  description: >
+    Database for ERP - PSAK
+  tags:
+    - postgres
+    - database
+    - rds
+spec:
+  type: database
+  owner: group:infra/dba
+  system: infrastructure/infra
+  aws-account: ifgl-vcv7f-prd-erp
+  project: ERP
+  rds-endpoint: db-psak.c1v39betdccp.ap-southeast-3.rds.amazonaws.com
+  db-identifier: db-psak
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: pg-legacy
+  namespace: database
+  description: >
+    Database for Legacy
+  tags:
+    - postgres
+    - database
+    - rds
+spec:
+  type: database
+  owner: group:infra/dba
+  system: infrastructure/infra
+  aws-account: ifgl-l4qdb-prd-legacy
+  project: Legacy
+  rds-endpoint: ifgl-l4qdb-prd-legacy-dt.ctit7ucfsfpz.ap-southeast-3.rds.amazonaws.com
+  db-identifier: ifgl-l4qdb-prd-legacy-dt
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: pg-automation
+  namespace: database
+  description: >
+    Database for Automation
+  tags:
+    - postgres
+    - database
+    - rds
+spec:
+  type: database
+  owner: group:infra/dba
+  system: infrastructure/infra
+  aws-account: ifgl-l4qdb-prd-legacy
+  project: Legacy
+  rds-endpoint: ifgl-l4qdb-prd-automation.ctit7ucfsfpz.ap-southeast-3.rds.amazonaws.com
+  db-identifier: ifgl-l4qdb-prd-automation
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: pg-partnership
+  namespace: database
+  description: >
+    Database for Partnership
+  tags:
+    - postgres
+    - database
+    - rds
+spec:
+  type: database
+  owner: group:infra/dba
+  system: infrastructure/infra
+  aws-account: ifgl-dcwoy-prd-partnership
+  project: Partnership
+  rds-endpoint: partnership-prd.cbpm89a13sh6.ap-southeast-3.rds.amazonaws.com
+  db-identifier: partnership-prd
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: pg-payment
+  namespace: database
+  description: >
+    Database for Payment
+  tags:
+    - postgres
+    - database
+    - rds
+spec:
+  type: database
+  owner: group:infra/dba
+  system: infrastructure/infra
+  aws-account: ifgl-8spdr-prd-ifgpay
+  project: payment
+  rds-endpoint: db-payment.cpvhwvxypbmz.ap-southeast-3.rds.amazonaws.com
+  db-identifier: db-payment
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: pg-payment-noncde
+  namespace: database
+  description: >
+    Database for Payment Non CDE
+  tags:
+    - postgres
+    - database
+    - rds
+spec:
+  type: database
+  owner: group:infra/dba
+  system: infrastructure/infra
+  aws-account: ifgl-8spdr-prd-ifgpay
+  project: payment
+  rds-endpoint: db-payment-noncde.cpvhwvxypbmz.ap-southeast-3.rds.amazonaws.com
+  db-identifier: db-payment-noncde
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: pg-core
+  namespace: database
+  description: >
+    Database for Core
+  tags:
+    - postgres
+    - database
+    - rds
+spec:
+  type: database
+  owner: group:infra/dba
+  system: infrastructure/infra
+  aws-account: ifgl-1awvh-prd-automation
+  project: automation
+  rds-endpoint: ifgl-1awvh-prd-automation-db.cztnzvglgehr.ap-southeast-3.rds.amazonaws.com
+  db-identifier: ifgl-1awvh-prd-automation-db
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: pg-automation-dcms
+  namespace: database
+  description: >
+    Database for Automation DCMS
+  tags:
+    - postgres
+    - database
+    - rds
+spec:
+  type: database
+  owner: group:infra/dba
+  system: infrastructure/infra
+  aws-account: ifgl-1awvh-prd-automation
+  project: core
+  rds-endpoint: ifgl-1awvh-prd-automation-dcms.cztnzvglgehr.ap-southeast-3.rds.amazonaws.com
+  db-identifier: ifgl-1awvh-prd-automation-dcms
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: pg-automation-dcms
+  namespace: database
+  description: >
+    Database for Automation DCMS
+  tags:
+    - postgres
+    - database
+    - rds
+spec:
+  type: database
+  owner: group:infra/dba
+  system: infrastructure/infra
+  aws-account: ifgl-bvl19-prd-customer
+  project: LifeByIFG, CWS, LifeBySpace
+  rds-endpoint: ifgl-bvl19-prd-prod-customer-customerapps.cynm4xjzlatm.ap-southeast-3.rds.amazonaws.com
+  db-identifier: ifgl-bvl19-prd-prod-customer-customerapps
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: pg-lifeforce
+  namespace: database
+  description: >
+    Database for LifeForce
+  tags:
+    - postgres
+    - database
+    - rds
+spec:
+  type: database
+  owner: group:infra/dba
+  system: infrastructure/infra
+  aws-account: ifgl-yu30h-prd-lifeforce
+  project: Lifeforce
+  rds-endpoint: db-lifeforce.cztgmnndx1px.ap-southeast-3.rds.amazonaws.com
+  db-identifier: db-lifeforce
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: pg-digitalcare
+  namespace: database
+  description: >
+    Database for Digital Care
+  tags:
+    - postgres
+    - database
+    - rds
+spec:
+  type: database
+  owner: group:infra/dba
+  system: infrastructure/infra
+  aws-account: ifgl-tzr3y-prd-digitalcare
+  project: digitalcare
+  rds-endpoint: db-digitalcare.cxhsxzg3iruu.ap-southeast-3.rds.amazonaws.com
+  db-identifier: db-digitalcare
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: pg-devops
+  namespace: database
+  description: >
+    Database for DevOps Tools
+  tags:
+    - postgres
+    - database
+    - rds
+spec:
+  type: database
+  owner: group:infra/dba
+  system: infrastructure/infra
+  aws-account: ifgl-zstrv-prd-devsecops
+  project: DevOps Tools
+  rds-endpoint: db-devops.cwdd6l1or5is.ap-southeast-3.rds.amazonaws.com
+  db-identifier: db-devops
+---

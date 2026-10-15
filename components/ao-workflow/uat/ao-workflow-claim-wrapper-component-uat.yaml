@@ -1,0 +1,61 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: ao-workflow-claim-wrapper-uat
+  namespace: ao-workflow
+  description: The claim workflow wrapper service for automation claim service
+  tags:
+  - backend
+  - service
+  - claim
+  - workflow
+  - wrapper
+  - uat
+  - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFAO/repos/ao-workflow-claim-wrapper/browse?at=refs%2Fheads%2Fuat
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/argocd/ao-workflow-uat-ao-workflow-claim-wrapper
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-workflow-version2/backend-service/claim-workflow-wrapper-uat
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-l4qdb-prd-prod-legacy-ao-workflow-claim-uat/browse/deployment.yaml?at=refs%2Fheads%2Fclaim-wrapper-workflow
+    - title: Base URL
+      url: https://api-automation-v2-uat.ifg-life.id
+    - title: Liveness Endpoints
+      url: /q/health/live
+    - title: Readiness Endpoints
+      url: /q/health/ready
+spec:
+  type: workflow
+  owner: group:automation/claim
+  system: system:automation/claim-automation-system
+  domain: domain:workflow
+  lifecycle: experimental
+  environments: uat
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.24.3
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  dependsOn: [
+    resource:default/prd-automation, #EKS 
+    resource:infra/1awvh-prd-prod-automation-az2, #Cluster
+    resource:default/kafka, #Database
+    resource:ao-kong/kong #Gateway
+  ]
+  runtime:
+    cluster: 1awvh-prd-prod-automation-az2
+    namespace: ao-workflow
+  providesApis: [ao-workflow-claim-wrapper-api]
+  consumeApis: [ao-workflow-claim-api-uat]
+  limits: 'default kong'

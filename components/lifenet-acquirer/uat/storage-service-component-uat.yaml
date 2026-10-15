@@ -1,0 +1,55 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: storage-service-uat
+  namespace: lifenet-acquirer
+  description: storage service for Lifenet System
+  tags:
+    - backend
+    - service
+    - lifenet-acquirer
+    - lifenet
+    - uat
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/ILEN/repos/storage-service/browse?at=refs%2Fheads%2Fuat
+#    - title: Monitoring / Logs (Datadog)
+#      url: #Need to get value
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/lifenet-acquirer-uat-storage-service
+    - title: Docker Image
+      url: docker://docker-hospital.artifact.ifg-life.id/lifenet/storage-service-uat
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-7lddu-nprd-uat-lifenet-lifenet-acquirer-uat/browse?at=refs%2Fheads%2Fstorage-service
+#    - title: Base URL
+#      url: #Need to get value
+    - title: Liveness Endpoints
+      url: /api/q/health/live
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/ILEN/repos/storage-service/browse/README.md?at=refs%2Fheads%2Fuat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: group:channel/lifenet-acquirer
+  system: system:channel/lifenet-acquirer-system
+  domain: domain:lifenet/lifenet
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.19.4
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: lifenet-prd
+    namespace: lifenet-admin
+#  subcomponentOf: lifenet-admin-backend
+  dependsOn: [resource:lifenet-s3]
+  providesApis: [storage-service-api-uat]
+  limits: 'default kong'

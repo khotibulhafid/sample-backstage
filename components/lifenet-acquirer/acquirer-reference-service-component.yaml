@@ -1,0 +1,55 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: acquirer-reference-service
+  namespace: lifenet-acquirer
+  description: reference/dropdown for both Lifenet Admin (Acquirer, Netowk, Issuer) and Lifenet Portal for Lifenet System
+  tags:
+    - backend
+    - service
+    - lifenet-acquirer
+    - lifenet
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/ILEN/repos/acquirer-reference-service/browse
+#    - title: Monitoring / Logs (Datadog)
+#      url: #Need to get value
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/lifenet-acquirer-release-acquirer-reference-service
+    - title: Docker Image
+      url: docker://docker-hospital.artifact.ifg-life.id/lifenet/acquirer-reference-service-uat
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-tu9b2-prd-prod-lifenet-lifenet-acquirer-release/browse?at=refs%2Fheads%2Facquirer-reference-service
+    - title: Base URL
+      url: https://net-admin.life.id
+    - title: Liveness Endpoints
+      url: http://acquirer-reference-service.lifenet-admin.svc:8080/api/q/health/live
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/ILEN/repos/acquirer-reference-service/browse/README.md
+spec:
+  type: REST
+  lifecycle: production
+  owner: group:channel/lifenet-acquirer
+  system: system:channel/lifenet-acquirer-system
+  domain: domain:lifenet/lifenet
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.19.4
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: lifenet-prd
+    namespace: lifenet-admin
+#  subcomponentOf: lifenet-admin-backend
+  dependsOn: [resource:lifenet-prd]
+  providesApis: [lifenet-acquirer/acquirer-reference-service-api]
+  consumesApis: [ao-claim/claim-service-api]
+  limits: 'default kong'

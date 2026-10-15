@@ -1,0 +1,10 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: legacy
+  namespace: legacy
+  description: Legacy System
+spec:
+  owner: default/legacy
+  domain: default/legacy

@@ -1,0 +1,21 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: membership-service-api
+  namespace: dplk
+  description: The meta service api for membership in DPLK
+  tags:
+    - api
+    - backend
+    - service
+    - dplk
+    - dplk-membership-service
+spec:
+  type: openapi
+  lifecycle: production # ex: production
+  owner: default/dplk # ex: digital/lifebyifgttribe
+  system: dplk # ex: lifebyifg
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifdk---dplk/browse/membership-service

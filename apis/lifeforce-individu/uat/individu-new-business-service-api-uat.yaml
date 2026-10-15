@@ -1,0 +1,21 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: individu-new-business-service-api-uat
+  namespace: lifeforce-individu
+  description: the service for handle new business at lifeforce individu
+  tags:
+    - api
+    - backend
+    - service
+    - lifeforce-individu
+    - uat
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: default/lifeforce-individu
+  system: lifeforce-individu
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/illf---lifeforce/browse/individu-new-business-service?at=uat

@@ -1,0 +1,19 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: notification-service
+  namespace: customer
+  description: The placeholder for all backend service for customerapps
+  tags:
+  - backend
+  - service
+  - lifebyifg
+spec:
+  type: service
+  lifecycle: production
+  owner: default/lifebyifg
+  system: lifebyifg
+  providesApis: [notification-service-api]
+  dependsOn: [resource:default/kafka]

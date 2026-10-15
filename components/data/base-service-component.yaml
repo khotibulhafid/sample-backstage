@@ -1,0 +1,61 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: base-service
+  namespace: data
+  description: Consumer for MongoDB Transformation Collection from Base Producer Service
+  title: Base Service
+  tags:
+    - component
+    - backend
+    - service
+    - data
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFDA/repos/data-base-service
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:data-base-service
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/data-release-base-service
+    - title: Docker Image
+      url: docker://docker-data.artifact.ifg-life.id/job/data-base-service-release:19
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-m8ccz-prd-prod-graphdb-data-release/browse/deployment.yaml?at=refs%2Fheads%2Fbase-service
+    - title: Liveness Endpoints
+      url: https://base-service:8080/q/health/live
+    - title: Readiness Endpoints
+      url: https://base-service:8080/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFDA/repos/data-base-service/browse/README.md
+#    - title: Kafka Topic List
+#      url: https://code.ifg-life.id/projects/IFDA/repos/data-base-service/browse/kafka-topics.md
+#    - title: Sample Kafka Message
+#      url: https://code.ifg-life.id/projects/IFDA/repos/data-base-service/browse/kafka-topics.md
+spec:
+  type: Consumer
+  owner: group:data/data-lake
+  system: system:data/data-ingestion-system
+  domain: domain:data/data-platform
+  lifecycle: deprecated
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.24.3
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: cluster-data-prd
+    namespace: data
+  dependsOn: [
+    resource:default/eks-data-prd, #EKS
+    resource:infra/cluster-data-prd, #Cluster
+    resource:infra/kafka-data, #Kafka
+    resource:database/mongodb #Database
+  ]
+  consumeApis: [ ]
+  usesLibraries:
+    - name: "rest-client"
+      implemented: False

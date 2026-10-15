@@ -1,0 +1,68 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: document-registry-service
+  namespace: dev-product-engine
+  description: Service to generate enota number and template
+  tags:
+    - backend
+    - component
+    - dcms
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFPC/repos/document-registry-service/browse
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFPC/repos/document-registry-service/browse/README.md
+    - title: Monitoring / Logs (Datadog)
+      url: todo
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/dev-product-engine-development-document-registry-service
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-product-engine/correspondence/document-registry-service-development
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-pflcb-nprd-dev-automation-pas-corespondence-dev/browse?at=document-registry-service
+    - title: Base URL
+      url: https://api-core-dev.ifg-life.id
+    - title: Liveness Endpoints
+      url: http://document-registry-service:8080/q/health/live
+#    - title: Readiness Endpoints
+#      url: <url_readiness>
+    - title: Swagger / Open API
+      url: http://generator-service:8080/q/openapi
+#    - title: Kafka Topic List
+#      url: <url_kafka_topic_list>
+#    - title: Sample Kafka Message
+#      url: <url_sample_kafka_message>
+spec:
+  type: REST
+  owner: group:core/dcms
+  system: system:core/document-content-management-system
+  domain: domain:core/core-business
+  lifecycle: experimental
+  environments: development
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.26.2
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: 1awvh-prd-prod-automation-az2
+    namespace: ao-product-engine
+  limits: 'default kong'
+  providesApis: []
+  consumesApis: []
+  dependsOn: [
+    resource:cluster/autouat-pflcb-az2,
+    resource:namespace/dev-product-engine,
+    resource:kong/ao-kong,
+    resource:database/ifgl-pflcb-nprd-automation-db
+  ]

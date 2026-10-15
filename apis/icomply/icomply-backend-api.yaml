@@ -1,0 +1,21 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: icomply-backend-api
+  namespace: icomply
+  description: Service api for icomply backend in iComply
+  tags:
+    - api
+    - backend
+    - service
+    - icomply
+    - icomply-backend
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/icomply
+  system: icomply
+  definition:
+    $text: https://code.ifg-life.id/projects/IFIC/repos/icomply-backend/browse

@@ -1,0 +1,55 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: network-discovery-service-uat
+  namespace: lifenet-network
+  description: network-discovery service for Lifenet System
+  tags:
+    - backend
+    - service
+    - lifenet-network
+    - lifenet
+    - uat
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/ILEN/repos/network-discovery-service/browse?at=refs%2Fheads%2Fuat
+#    - title: Monitoring / Logs (Datadog)
+#      url: #Need to get value
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/lifenet-network-uat-network-discovery-service
+    - title: Docker Image
+      url: docker://docker-hospital.artifact.ifg-life.id/lifenet/network-discovery-service-uat
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-7lddu-nprd-uat-lifenet-lifenet-network-uat/browse?at=refs%2Fheads%2Fnetwork-discovery-service
+    - title: Base URL
+      url: https://net-admin-uat.life.id
+    - title: Liveness Endpoints
+      url: /api/q/health/live
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/ILEN/repos/network-discovery-service/browse/README.md?at=refs%2Fheads%2Fuat
+spec:
+  type: REST
+  lifecycle: experimental
+  owner: group:channel/lifenet-network
+  system: system:channel/lifenet-network-system
+  domain: domain:lifenet/lifenet
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.19.4
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: lifenet-prd
+    namespace: lifenet-issuer
+#  subcomponentOf: lifenet-admin-backend
+  providesApis: [lifenet-network/network-discovery-service-api-uat]
+  consumesApis: [issuer-ifgl-issuer-wrapper-service-api-uat]
+  limits: 'default kong'

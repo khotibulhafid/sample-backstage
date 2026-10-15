@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: claim-analysis-service-api-uat
+  namespace: ao-claim
+  description: The claim analysis service api in claim
+  tags:
+    - api
+    - backend
+    - service
+    - claim
+    - claim-analysis-uat
+    - analysis
+    - uat
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: default/claim
+  system: claim
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifcl---claim/browse/claim-analysis-service?at=uat

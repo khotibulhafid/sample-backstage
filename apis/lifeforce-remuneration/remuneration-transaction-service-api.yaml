@@ -1,0 +1,20 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: remuneration-transaction-service-api
+  namespace: lifeforce-remuneration
+  description: Main service for Remunerations (generation & validation)
+  tags:
+    - api
+    - backend
+    - service
+    - lifeforce-remuneration
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/lifeforce-remuneration
+  system: lifeforce-remuneration
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/illf---lifeforce/browse/remuneration-transaction-service

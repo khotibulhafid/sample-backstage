@@ -1,0 +1,64 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: life-payment-manual-service
+  namespace: payment
+  description: Life Payment Manual Service is a backend service that handles the flagging process for payments that have already been made by users.
+  tags:
+    - component
+    - backend
+    - service
+    - quarkus
+    - payment
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFPY/repos/life-payment-manual-service/browse
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:payment-life-payment-manual-service
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/payment-release-life-payment-manual-service
+    - title: Docker Image
+      url: docker-paymenthub.artifact.ifg-life.id/paymenthub/service/life-payment-manual-service-release:7
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-8spdr-prd-prod-payment-payment-release/browse?at=refs%2Fheads%2Flife-payment-manual-service
+    - title: Base URL
+      url: http://life-payment-manual-service:8080
+    - title: Liveness Endpoints
+      url: http://life-payment-manual-service:8080/q/health/live
+    - title: Readiness Endpoints
+      url: http://life-payment-manual-service:8080/q/health/ready
+    - title: Swagger / Open API
+      url: https://code.ifg-life.id/projects/IFSC/repos/ifpy---payment/browse/life-payment-manual-service
+spec:
+  type: REST
+  owner: group:default/ifgpay
+  system: system:payment/ifgpay
+  domain: domain:payment/ifgpay
+  lifecycle: production
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+      version: 3.23.4
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  dependsOn: [
+    resource:payment/kafka
+  ]
+  runtime:
+    cluster: 8spdr
+    namespace: payment
+  consumesApis: [
+    out-gateway-cts-service-api
+  ]
+  providesApis: [
+    life-payment-manual-service-api
+  ]
+  limits: 'default kong'

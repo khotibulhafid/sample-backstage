@@ -1,0 +1,18 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: user-service-api
+  namespace: ao-lifehub
+  description: The user service api for user management in Lifehub
+  tags:
+    - api
+    - backend
+    - service
+    - lifehub
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/lifehub
+  system: lifehub
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/iflh---lifehub/browse/user-service

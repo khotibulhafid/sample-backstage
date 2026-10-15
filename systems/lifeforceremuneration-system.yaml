@@ -1,0 +1,11 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: lifeforce-remuneration
+  namespace: lifeforce-remuneration
+  description: System designed to handle employee remuneration, payroll processing, 
+        and benefits administration with precision and efficiency.
+spec:
+  owner: default/lifeforce-individu
+  domain: lifeforce/lifeforce-individu

@@ -1,0 +1,59 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: core
+  namespace: core
+  description: Core department responsible for owning and governing the organization’s core business systems and rules.
+spec:
+  type: tribe
+  children:
+    - group:core/aas
+    - group:core/dcms
+    - group:core/pas
+    - group:core/product
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: aas
+  namespace: core
+  description: Squad responsible for managing business account lifecycle, account structures, and account-related business rules.
+spec:
+  type: squad
+  parent: group:core
+  owner: group:core
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: dcms
+  namespace: core
+  description: Squad responsible for managing business document and content metadata, classification, and document relationships with core entities.
+spec:
+  type: squad
+  parent: group:core
+  owner: group:core
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: pas
+  namespace: core
+  description: Squad responsible for policy lifecycle management, coverage definitions, endorsements, and core policy business rules.
+spec:
+  type: squad
+  parent: group:core
+  owner: group:core
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: product
+  namespace: core
+  description: Squad responsible for managing product definitions, configurations, versioning, and product-level business rules.
+spec:
+  type: squad
+  parent: group:core
+  owner: group:core
+---

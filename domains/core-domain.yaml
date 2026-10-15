@@ -1,0 +1,16 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: core-business
+  namespace: core
+  title: Core Business Domain
+  description: >
+    Domain responsible for managing core business capabilities, rules, and processes that represent the primary value 
+    and critical operations of the organization.
+  tags:
+    - core
+    - platform
+spec:
+  owner: group:core
+---

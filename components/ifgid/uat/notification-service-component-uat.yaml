@@ -1,0 +1,22 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: notification-service-uat
+  namespace: ifgid
+  description: Service for Notification Related by IFG ID
+  tags:
+    - component
+    - backend
+    - service
+    - ifgid
+    - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/ifgid
+  system: ifgid
+  dependsOn: [ resource:default/ifgid-prd, resource:default/prd-ifgid, resource:default/ifgid-prd-13-2, resource:default/third-party, resource:default/kafka ]
+  consumesApis: [ ao-product-engine/notification-service-api-uat ]
+  providesApis: [ notification-service-api-uat ]

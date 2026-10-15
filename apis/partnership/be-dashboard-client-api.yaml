@@ -1,0 +1,20 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: be-dashboard-client-api
+  namespace: partnership
+  description: Partnership API
+  tags:
+  - api
+  - backend
+  - service
+  - partnership
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/partnership
+  system: partnership
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ipts---partnership/browse/dashboard-service

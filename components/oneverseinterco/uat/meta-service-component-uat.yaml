@@ -1,0 +1,23 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: meta-service-uat
+  namespace: oneverseinterco-namespace
+  description: The Meta service api for Master Data in oneverseinterco
+  tags:
+    - component
+    - backend
+    - service
+    - oneverseinterco
+    - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/oneverseinterco-group
+  # https://catalog.ifg-life.id/catalog/?filters%5Bkind%5D=system&filters%5Buser%5D=all&filters%5Bowners%5D=group%3Adefault%2Foneverseinterco-group
+  # use system name from url above
+  system: oneverseinterco-namespace/oneverseinterco-system
+  dependsOn: [ resource:oneverseinterco-cluster ]
+  providesApis: [ meta-service-api-uat ]

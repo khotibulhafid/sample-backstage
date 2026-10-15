@@ -1,0 +1,47 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: individu-cron-service
+  namespace: lifeforce-individu
+  description: Service for running cron job lifeforce individu
+  title: Individu Cron Service
+  tags:
+  - backend
+  - service
+  - lifeforce
+  - lifeforce-individu
+  - cron
+  - scheduler
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/ILLF/repos/individu-cron-service/browse
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/lifeforce-individu-release-individu-cron-service
+    - title: Docker Image
+      url: docker://docker-lifeforce.artifact.ifg-life.id/lifeforce-individu/individu-cron-service-release:6
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFCJ/repos/ifgl-prd-yu30h-lifeforce-individu-leads-distribution-service/browse
+    - title: Base URL
+      url: https://force.life.id
+spec:
+  type: Scheduler
+  owner: group:channel/lifeforce-individu
+  system: system:channel/lifeforce-individual-system
+  domain: domain:channel/channel-platform
+  lifecycle: production
+  environment: prod
+  language: shell script
+  auth:
+    method: none
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: lifeforce-prd
+    namespace: lifeforce-individu
+  dependsOn: [ ]
+  providesApis: [ ]
+  consumesApis: [ ]
+  limits: '-'

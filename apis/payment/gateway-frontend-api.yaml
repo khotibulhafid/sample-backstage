@@ -1,0 +1,20 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: gateway-frontend-api
+  namespace: payment
+  description: Gateway for IFG Pay UI to bridge communcation between UI and Core
+  tags:
+  - api
+  - backend
+  - service
+  - payment
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/ifgpay
+  system: ifgpay
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifpy---payment/browse/gateway-frontend

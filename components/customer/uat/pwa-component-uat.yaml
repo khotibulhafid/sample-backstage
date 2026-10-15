@@ -1,0 +1,13 @@
+---     
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: pwa-uat
+  namespace: customer
+spec:
+  type: website
+  lifecycle: experimental
+  owner: default/lifebyifg
+  system: lifebyifg
+  consumesApis: [meta-service-api-uat,config-service-api-uat,policy-service-api-uat,transaction-service-api-uat]

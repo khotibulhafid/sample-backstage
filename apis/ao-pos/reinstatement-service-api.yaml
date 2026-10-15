@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: reinstatement-service-api
+  namespace: ao-pos
+  description: The reinstatement service api for reinstatement feature in pos
+  tags:
+    - api
+    - backend
+    - service
+    - reinstatement
+    - pos
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/pos
+  system: ao-pos/pos
+  domain: automation
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifpo---pos/browse/reinstatement-service

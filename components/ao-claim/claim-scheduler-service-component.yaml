@@ -1,0 +1,50 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: claim-scheduler-service
+  namespace: ao-claim
+  description: The services for cronJob configuration
+  tags:
+    - component
+    - backend
+    - service
+    - scheduler
+    - claim
+    - cronJob
+    - Docker
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFCL/repos/claim-scheduler-service/browse
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/ao-claim-release-cron-claim-service
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-claim/claim-scheduler-service-release
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFCJ/repos/ifgl-prd-1awvh-automation-claim-service/browse
+    # - title: Base URL
+    #   url: -
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFCL/repos/claim-scheduler-service/browse/README.md
+spec:
+  type: Scheduler
+  owner: group:automation/claim
+  system: system:core/claim-core-system
+  domain: domain:core/core-business
+  lifecycle: production
+  environments: prod
+  language: shell script
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  dependsOn: [
+    resource:default/prd-automation, #EKS 
+    resource:infra/1awvh-prd-prod-automation-az2, #Cluster
+  ]
+  runtime:
+    cluster: 1awvh-prd-prod-automation-az2
+    namespace: ao-claim
+  providesApis: []
+  consumeApis: []
+  limits: 'default kong'

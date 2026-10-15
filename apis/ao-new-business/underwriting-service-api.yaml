@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: underwriting-service-api
+  namespace: ao-new-business
+  description: The underwriting service api in new business
+  tags:
+    - api
+    - backend
+    - service
+    - underwriting
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/nbuw
+  system: ao-new-business/nbuw
+  domain: automation
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifnb---new-business/browse/underwriting-service
+

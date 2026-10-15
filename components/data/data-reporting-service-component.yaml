@@ -1,0 +1,81 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: data-reporting-service
+  namespace: data
+  description: Data Reporting Service
+  title: Data Reporting Service
+  tags:
+    - component
+    - backend
+    - service
+    - data
+    - fastapi
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFDA/repos/data-reporting-service/browse
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:data-reporting-service
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/data-release-data-reporting-service?resource=
+    - title: Docker Image
+      url: docker://docker-data.artifact.ifg-life.id/data/data-reporting-service-release:30
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-m8ccz-prd-prod-graphdb-data-release/browse/deployment.yaml?at=data-reporting-service
+    - title: Base URL
+      url: https://data.ifg-life.id/api/v1/
+    - title: Liveness Endpoints
+      url: https://data-reporting-service:8080/api/q/health/live
+    - title: Readiness Endpoints
+      url: https://data-reporting-service:8080/api/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFDA/repos/data-reporting-service/browse/README.md
+#    - title: Kafka Topic List
+#      url: https://code.ifg-life.id/projects/IFDA/repos/data-base-service/browse/kafka-topics.md
+#    - title: Sample Kafka Message
+#      url: https://code.ifg-life.id/projects/IFDA/repos/data-base-service/browse/kafka-topics.md
+spec:
+  type: REST
+  owner: group:data/data-lake
+  system: system:data/data-ingestion-system
+  domain: domain:data/data-platform
+  lifecycle: production
+  environments: prod
+  language: python3.12
+  framework:
+    - name: FastAPI
+    - version: 0.128.0
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: cluster-data-prd
+    namespace: data
+  limits: 'default kong'
+  dependsOn: [
+    resource:default/eks-data-prd, #EKS 
+    resource:infra/cluster-data-prd, #Cluster 
+    resource:infra/kafka-data, #Kafka
+    resource:infra/redis, #Redis
+    resource:database/mongodb, #Database
+    resource:database/automation, #Database Automation
+    resource:database/data-management, #Database Data Management
+    resource:database/ifgid, #Database IFG ID
+    resource:database/ifgaskes, #Database IFG ASKES
+    resource:database/ifgebp, #Database IFG EBP
+    resource:database/ifgnonebp, #Database IFG NON EBP
+    resource:database/ifgretail, #Database IFG RETAIL
+    resource:database/ifgfinance, #Database IFG FINANCE
+    resource:data/kong #Gateway
+  ]
+  consumeApis: []
+  providesApis: [
+#    api:data/data-reporting-service-api
+  ]
+  usesLibraries:
+    - name: "rest-client"
+      implemented: False

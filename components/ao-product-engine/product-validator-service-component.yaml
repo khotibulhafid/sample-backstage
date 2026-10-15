@@ -1,0 +1,64 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: product-validator-service
+  namespace: ao-product-engine
+  description: The services for validate request and generate formula request product retail.
+  tags:
+    - backend
+    - service
+    - product-validator
+    - quarkus
+  links:
+      - title: Source Repository
+        url: https://code.ifg-life.id/projects/IFPE/repos/product-validator-service/browse?at=refs%2Fheads%2Frelease
+      - title: Monitoring / Logs (Datadog)
+        url: https://app.datadoghq.com/apm/entity/service%3Acore-product-validator-service?dependencyMap.showNetworkMetrics=false&env=prd&graphType=span_list&groupMapByOperation=null&operationName=netty.request&shouldShowLegend=true&traceQuery=&start=1768443601362&end=1768447201362&paused=false
+      - title: Deployment (ArgoCD)
+        url: https://deploy.ifg-life.id/applications/ao-product-engine-release-product-validator-service
+      - title: Deployment YAML (Env & Config)
+        url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-1awvh-prd-prod-automation-ao-product-engine-release/browse?at=refs%2Fheads%2Fproduct-validator-service
+      - title: Docker Image
+        url: docker://docker-automation-operation.artifact.ifg-life.id/ao-product-engine/product-validator-service-release:23
+      - title: Base URL
+        url: https://api-core.ifg-life.id
+      - title: Liveness Endpoints
+        url: https://localhost:8080/api/q/health/live
+      - title: Readiness Endpoints
+        url: https://localhost:8080/api/q/health/ready
+      - title: Documentation
+        url: https://code.ifg-life.id/projects/IFPE/repos/product-validator-service/browse/README.md?at=refs%2Fheads%2Fuat
+spec:
+  type: REST
+  owner: group:core/product
+  system: system:core/product-management-system
+  domain: domain:core/core-business
+  lifecycle: production
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.30.3
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  dependsOn: [
+    resource:default/prd-automation, #EKS
+    resource:infra/1awvh-prd-prod-automation-az2, #Cluster
+    resource:database/pg-core, #Database
+    resource:core-kong/kong #Gateway
+  ]
+  runtime:
+    cluster: 1awvh-prd-prod-automation-az2
+    namespace: ao-product-engine
+  consumeApis: [
+    api:ao-product-engine/product-formulation-retail-service-api,
+    api:ao-product-engine/product-calculator-service-api
+  ]
+  limits: 'default kong'

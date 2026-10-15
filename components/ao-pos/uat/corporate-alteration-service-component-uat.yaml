@@ -1,0 +1,22 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: corporate-alteration-service-uat
+  namespace: ao-pos
+  description: The corporate-alteration service api in ao-pos corporate-alteration-service
+  tags:
+    - backend
+    - service
+    - alteration
+    - pos
+    - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/pos
+  system: ao-pos/pos
+#  subcomponentOf: ao-pos-alteration-backend
+  providesApis: [ao-pos/corporate-alteration-service-api-uat]
+  dependsOn: [resource:ao-workflow/ifgl-1awvh-prd-automation-db]

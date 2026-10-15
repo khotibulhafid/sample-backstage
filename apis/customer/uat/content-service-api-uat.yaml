@@ -1,0 +1,21 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: content-service-api-uat
+  namespace: customer
+  description: The content service api for connect data from cms in customer apps
+  tags:
+    - api
+    - backend
+    - service
+    - customer
+    - uat
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: default/lifebyifg
+  system: lifebyifg
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ictr---customer/browse/content-service?at=uat

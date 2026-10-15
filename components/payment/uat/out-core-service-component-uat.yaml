@@ -1,0 +1,22 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: out-core-service-uat
+  namespace: payment
+  description: Core service for payment out, used to access database and process payment out
+  tags:
+  - component
+  - backend
+  - service
+  - payment
+  - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/ifgpay
+  system: ifgpay
+  dependsOn: [ resource:db-payment ]
+  consumesApis: [ out-gateway-channel-service-api-uat,out-gateway-mandiri-service-api-uat,out-gateway-midtrans-service-api-uat ]
+  providesApis: [ out-core-service-api-uat ]

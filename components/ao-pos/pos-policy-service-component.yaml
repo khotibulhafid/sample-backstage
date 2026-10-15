@@ -1,0 +1,75 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: pos-policy-service
+  namespace: ao-pos
+  description: The POS Policy Service is a supporting service designed to facilitate retail AO workflows, particularly for processes such as business renewal and minor alterations
+  tags:
+  - backend
+  - service
+  - policy
+  - ao-ps
+  - ao-pos
+  - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFPO/repos/pos-policy-service/browse
+    - title: Monitoring / Logs (Datadog) # temporary using argo cd for check log. in next deployment service will add the datadog
+      url: https://app.datadoghq.com/apm/entity/service:pos-policy-service
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/ao-pos-release-pos-policy-service
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-pos/pos-policy-service-release:12
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-1awvh-prd-prod-automation-ao-pos-release/browse?at=refs%2Fheads%2Fpos-policy-service
+    - title: Liveness Endpoints
+      url: http://pos-policy-service:8080/q/health/live
+    - title: Readiness Endpoints
+      url: http://pos-policy-service:8080/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFPO/repos/pos-policy-service/browse/README.md
+    - title: Base Url
+      url: https://api-core.ifg-life.id
+spec:
+  type: REST
+  owner: group:automation/policy-squad
+  system: system:automation/policy-automation-support-system
+  domain: domain:core/core-business
+  lifecycle: production
+  environment: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.24.3
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: 1awvh-prd-prod-automation-az2
+    namespace: ao-pos
+  dependsOn: [
+    resource:default/prd-automation, # EKS
+    resource:infra/1awvh-prd-prod-automation-az2, # Cluster
+    resource:database/pg-core,
+    resource:database/pg-automation,
+    resource:core/kong
+  ]
+  providesApis: [ ao-pos/pos-policy-service-api ]
+  consumesApis: [
+    ao-product-engine/notification-service-api,
+    ao-product-engine/product-config-service-api,
+    ao-new-business/billing-service-api,
+    ao-new-business/policy-service-v2-api,
+    ao-workflow/ao-workflow-fraud-wrapper-api,
+    ao-lifehub/general-transaction-service-api,
+    customer/product-service-api,
+    ifgid/ekyc-service-api,
+    ao-pos/pos-policy-service-api
+  ]
+  limits: 'default kong'

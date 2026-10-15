@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: aas
+  namespace: core-business
+  description: Everything Related to AAS Domain
+  title: 'AAS Domain'
+  links:
+    - url: https://api-aas.ifg-life.id
+      title: 'AAS API Internal'
+spec:
+  owner: group/core

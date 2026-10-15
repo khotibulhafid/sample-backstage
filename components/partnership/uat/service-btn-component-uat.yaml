@@ -1,0 +1,22 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: service-btn-uat
+  namespace: partnership
+  description: Provides APIs for Submission and Get Products with BTN Mobile
+  tags:
+    - backend
+    - service
+    - partnership
+    - component
+    - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/partnership
+  system: partnership
+  dependsOn: [ resource:partnership-prd ]
+  consumesApis: [ partnership-internal-service-api-uat ]
+  providesApis: [ service-btn-api-uat ]

@@ -1,0 +1,621 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: aas
+  title: Kong AAS
+  description: Kong API Gateway instance dedicated for AAS team. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - aas
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-aas.ifg-life.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: aowf
+  title: Kong AO Workflow
+  description: Kong API Gateway instance dedicated for AO Workflow team. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - aowf
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-aowfv2.ifg-life.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: automation
+  title: Kong Automation
+  description: Kong API Gateway instance dedicated for automation team. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - automation
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-automation.ifg-life.id
+    - title: Base URL
+      url: https://automation.ifg-life.id
+spec:
+  type: gateway
+  owner: group/infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: data
+  title: Kong Data
+  description: Kong API Gateway instance dedicated for Data team. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - data
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-data.ifg-life.id
+    - title: Base URL
+      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: coe
+  title: Kong COE
+  description: Kong API Gateway instance dedicated for COE team. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - coe
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-coe.ifg-life.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: core
+  title: Kong Core
+  description: Kong API Gateway instance dedicated for Core team. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - core
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-core.ifg-life.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: corporate
+  title: Kong Corporate
+  description: Kong API Gateway instance dedicated for Corporate team. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - corporate
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-corporate.ifg-life.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: customer
+  title: Kong Customer
+  description: Kong API Gateway instance dedicated for Customer team. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - customer
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-customer.ifg-life.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: cws
+  title: Kong CWS
+  description: Kong API Gateway instance dedicated for CWS team. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - cws
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-cws.ifg-life.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: digitalcare
+  title: Kong Digital Care
+  description: Kong API Gateway instance dedicated for Digital Care team. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - digitalcare
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-digitalcare.ifg-life.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: dplk
+  title: Kong DPLK
+  description: Kong API Gateway instance dedicated for DPLK team. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - digitalcare
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-dplk.ifg-life.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: erp
+  title: Kong ERP
+  description: Kong API Gateway instance dedicated for ERP team. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - erp
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-erp.ifg-life.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: ifgid
+  title: Kong IFGID
+  description: Kong API Gateway instance dedicated for IFGID team. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - ifgid
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-ifgid.ifg-life.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: legacy
+  title: Kong Legacy
+  description: Kong API Gateway instance dedicated for Legacy team. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - legacy
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-legacy.ifg-life.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: legacy-mifg
+  title: Kong MIFG
+  description: Kong API Gateway instance dedicated for Legacy MIFG team. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - legacy-mifg
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-mifg.ifg-life.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: lifeforce
+  title: Kong Lifeforce
+  description: Kong API Gateway instance dedicated for Lifeforce team. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - lifeforce
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-lifeforce.ifg-life.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: lifeforce-admin
+  title: Kong Lifeforce Admin
+  description: Kong API Gateway instance dedicated for Lifeforce Admin team. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - lifeforce-admin
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-lifeforce-admin.ifg-life.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: lifeforce-remuneration
+  title: Kong Lifeforce Remuneration
+  description: Kong API Gateway instance dedicated for Lifeforce Remuneration team. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - lifeforce-remuneration
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-lf-remuneration.ifg-life.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: lifehub
+  title: Kong Lifehub
+  description: Kong API Gateway instance dedicated for Lifehub team. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - lifehub
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-lifehub.ifg-life.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: lifenet-acquirer
+  title: Kong Lifenet Acquirer
+  description: Kong API Gateway instance dedicated for Lifenet Acquirer team. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - lifenet-acquirer
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-lifenet.ifg-life.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: lifenet-doctorhub
+  title: Kong Lifenet Doctorhub
+  description: Kong API Gateway instance dedicated for Lifenet Doctor Hub team. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - lifenet-doctorhub
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-lifenet-doctorhub.ifg-life.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: lifenethub-acquirer
+  title: Kong Lifenet Hub Acquirer
+  description: Kong API Gateway instance dedicated for Lifenet Hub Acquirer. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - lifenethub-acquirer
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-lifenethub.ifg-life.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: lifenet-issuer
+  title: Kong Lifenet Issuer
+  description: Kong API Gateway instance dedicated for Lifenet Issuer. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - lifenet-issuer
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-lifenet-issuer.ifg-life.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: lifenet-network
+  title: Kong Lifenet Network
+  description: Kong API Gateway instance dedicated for Lifenet Network. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - lifenet-network
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-lifenet-network.ifg-life.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: lifenet-pharmacyhub
+  title: Kong Lifenet Pharmacy Hub
+  description: Kong API Gateway instance dedicated for Kong Lifenet Pharmacy Hub. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - lifenet-pharmacyhub
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-lifenet-pharmacyhub.ifg-life.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: oneifg
+  title: Kong One IFG
+  description: Kong API Gateway instance dedicated for Kong One IFG. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - oneifg
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-oneifg.ifg.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: oneversehub
+  title: Kong One Verse Hub
+  description: Kong API Gateway instance dedicated for Kong One Verse Hub. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - oneversehub
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-interco.ifg.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: partnership
+  title: Kong Partnership
+  description: Kong API Gateway instance dedicated for Kong Partnership. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - partnership
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-partnership.ifg-life.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: payment
+  title: Kong Payment
+  description: Kong API Gateway instance dedicated for Kong Payment. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - payment
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-payment.ifg-life.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: payment-intra
+  title: Kong Payment Intra
+  description: Kong API Gateway instance dedicated for Kong Payment Intra. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - payment-intra
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-payment-intra.ifg-life.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kong
+  namespace: payment-non-cde
+  title: Kong Payment Non CDE
+  description: Kong API Gateway instance dedicated for Kong Payment Non CDE. Managed by DevSecOps/Infrastructure team.
+  tags:
+    - gateway
+    - kong
+    - payment-non-cde
+  links:
+    - title: Kong Admin
+      url: https://kong-admin-payment-noncde.ifg-life.id
+#    - title: Base URL
+#      url: https://data.ifg-life.id
+spec:
+  type: gateway
+  owner: group:infrastructure
+---

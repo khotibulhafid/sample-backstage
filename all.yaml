@@ -1,14 +1,14 @@
 apiVersion: backstage.io/v1alpha1
 kind: Location
 metadata:
-  name: sample-company
-  description: A collection of sample company
+  name: ifgl-all
+  description: A collection of all IFGL entities, except users, groups, and templates
 spec:
   targets:
     - ./all-apis.yaml
     - ./all-components.yaml
     - ./all-domains.yaml
-    - ./all-groups.yaml
     - ./all-resources.yaml
     - ./all-systems.yaml
-    - ./all-services.yaml
+#    - ./all-apis-uat.yaml
+#    - ./all-components-uat.yaml

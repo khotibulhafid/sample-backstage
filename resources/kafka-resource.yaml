@@ -1,0 +1,51 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kafka-data
+  namespace: infra
+  title: Kafka Data
+  description: Kafka instance dedicated for the Data team, used for internal pipelines and ingestion jobs.
+  tags:
+    - data
+    - messaging
+    - kafka
+  links:
+    - url: datamskprd.yp5ewg.c2.kafka.ap-southeast-3.amazonaws.com:9092
+spec:
+  type: kafka
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kafka
+  namespace: infra
+  title: Kafka
+  description: Kafka instance available for all departments and squads for inter-team communication.
+  tags:
+    - messaging
+    - kafka
+    - shared
+  links:
+    - url: mtlsprd.d735xd.c2.kafka.ap-southeast-3.amazonaws.com:9094
+spec:
+  type: kafka
+  owner: group:infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: kafka
+  namespace: payment
+  title: Kafka
+  description: Kafka instance dedicated for the Payment team, used for internal pipelines and ingestion jobs.
+  tags:
+    - payment
+    - messaging
+    - kafka
+  links:
+    - url: ifglpaymentprd.aele85.c2.kafka.ap-southeast-3.amazonaws.com:9092
+spec:
+  type: kafka
+  owner: group:infrastructure

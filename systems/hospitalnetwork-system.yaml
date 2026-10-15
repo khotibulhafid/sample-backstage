@@ -1,0 +1,10 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: hospital-network
+  namespace: ao-hospital-network
+  description: The Hospital Network system
+spec:
+  owner: default/hospital-network
+  domain: default/hospital-network

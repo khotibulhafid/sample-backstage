@@ -1,0 +1,22 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: ao-workflow-corporate-policy-api
+  namespace: ao-workflow
+  description: The workflow corporate policy api
+  tags:
+    - api
+    - backend
+    - service
+    - claim
+    - workflow
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/pos
+  system: workflow
+  domain: automation
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifao---automation-operation/browse/ao-workflow-corporate-policy

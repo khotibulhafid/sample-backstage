@@ -1,0 +1,58 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: infrastructure
+  namespace: infra
+  description: Infrastructure Department
+spec:
+  type: department
+  children:
+    - group:infra/devsecops
+    - group:infra/dba
+    - group:infra/network
+    - group:infra/security
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: devsecops
+  namespace: infra
+  description: Team responsible for CI/CD, Kubernetes, cloud infrastructure, and platform security automation
+spec:
+  type: team
+  parent: group:infra/infrastructure
+  owner: group:infra/infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: dba
+  namespace: infra
+  description: Team responsible for database provisioning, performance, backup, recovery, and data security
+spec:
+  type: team
+  parent: group:infra/infrastructure
+  owner: group:infra/infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: network
+  namespace: infra
+  description: Team responsible for networking infrastructure, connectivity, VPN, and cloud network operations
+spec:
+  type: team
+  parent: group:infra/infrastructure
+  owner: group:infra/infrastructure
+---
+apiVersion: backstage.io/v1alpha1
+kind: Group
+metadata:
+  name: security
+  namespace: infra
+  description: Team responsible for platform security, access control, vulnerability management, and compliance
+spec:
+  type: team
+  parent: group:infra/infrastructure
+  owner: group:infra/infrastructure

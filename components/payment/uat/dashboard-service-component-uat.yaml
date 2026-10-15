@@ -1,0 +1,22 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: dashboard-service-uat
+  namespace: payment
+  description: Service for IFG Pay Hub UI to do CRUD operations
+  tags:
+  - component
+  - backend
+  - service
+  - payment
+  - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/ifgpay
+  system: ifgpay
+  dependsOn: [ resource:db-payment ]
+  consumesApis: [ core-services-api-uat,recon-service-api-uat]
+  providesApis: [ dashboard-service-api-uat ]

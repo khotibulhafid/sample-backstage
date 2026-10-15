@@ -1,0 +1,28 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: etl-export-job-service-component
+  namespace: psak
+  description: etl export job service api for get file outpus table sas and put into sharepoint
+  tags:
+    - component
+    - backend
+    - service
+    - psak
+    - etl
+    - uat
+spec:
+  type: service
+  lifecycle: production
+  owner: default/psak
+  system: psak
+  dependsOn: [
+    resource:default/cluster-psak-prd, #Cluster
+    resource:default/eks-psak-prd, #EKS
+    resource:default/psak, #Namespace
+    resource:psak/kong,
+    resource:psak/konga,
+    resource:default/mongo
+  ]
+  consumesApis: [ ]
+  providesApis: [ etl-export-job-service-api ]

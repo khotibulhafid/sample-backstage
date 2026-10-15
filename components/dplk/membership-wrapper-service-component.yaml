@@ -1,0 +1,20 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-api
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: membership-wrapper-service-component
+  namespace: dplk
+  description: The wrapper service for membership service in DPLK
+  tags:
+    - backend
+    - service
+    - dplk
+    - uat
+    - dplk-membership-wrapper-service
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/dplk
+  system: dplk
+  providesApis: [dplk/membership-wrapper-service-api]

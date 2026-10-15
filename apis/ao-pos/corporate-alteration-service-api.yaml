@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: corporate-alteration-service-api
+  namespace: ao-pos
+  description: The corporate alteration service api for language in pos
+  tags:
+    - api
+    - backend
+    - service
+    - pos
+    - corporate-alteration
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/pos
+  system: ao-pos/pos
+  domain: automation
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifpo---pos/browse/corporate-alteration-service

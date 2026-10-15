@@ -1,0 +1,22 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: core-services-uat
+  namespace: payment
+  description: Core service of Payment, used to access database and process payments
+  tags:
+  - component
+  - backend
+  - service
+  - payment
+  - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/ifgpay
+  system: ifgpay
+  dependsOn: [ resource:db-payment,resource:default/kafka ]
+  consumesApis: [ gateway-bcheck-api-uat,gateway-biller-api-uat,gateway-bri-api-uat,gateway-btn-api-uat,gateway-cts-api-uat,gateway-doku-api-uat,gateway-frontend-api-uat,gateway-mandiri-api-uat,gateway-midtrans-api-uat,gateway-pospay-api-uat,gateway-xendit-api-uat,gateway-yokke-api-uat,recurring-service-api-uat,inquiry-core-service-api-uat ]
+  providesApis: [ core-services-api-uat ]

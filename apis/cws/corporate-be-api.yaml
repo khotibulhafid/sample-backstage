@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: corporate-be-api
+  namespace: cws
+  description: The corporate backend service
+  tags:
+    - api
+    - backend
+    - service
+    - cws
+    - corporate-website
+spec:
+  type: openapi
+  lifecycle: production
+  owner: default/cws
+  system: cws
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifcw---cws/browse/corporate-be

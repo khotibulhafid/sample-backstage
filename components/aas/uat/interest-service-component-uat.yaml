@@ -1,0 +1,61 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: interest-service-uat
+  namespace: acct-mgmt-system
+  description: service for managing interest rate reference data, featuring capabilities for creating, updating, retrieving, and automated transaction logging. (UAT)
+  tags:
+    - backend
+    - service
+    - interest
+    - uat
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFCA/repos/interest-service/browse
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:interest-service
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/uat-acct-mgmt-system-uat-interest-service
+    - title: Docker Image
+      url: docker://docker-aas.artifact.ifg-life.id/uat-acct-mgmt-system/interest-service
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-pflcb-nprd-uat-automation-uat-acct-mgmt-system-uat/browse/deployment.yaml?at=refs%2Fheads%2Finterest-service
+    - title: Base URL
+      url: https://api-aas-uat.ifg-life.id
+    - title: Liveness Endpoints
+      url: http://localhost:8080/q/health/live
+    - title: Readiness Endpoints
+      url: http://localhost:8080/q/health/ready
+spec:
+  type: REST
+  owner: group:core/aas
+  system: system:core/account-administration-system
+  domain: domain:core-business/aas
+  lifecycle: experimental
+  environments: uat
+  language: java
+  framework:
+    - name: Quarkus
+      version: 3.28.5
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  dependsOn: [
+    resource:default/prd-automation, #EKS
+    resource:infra/1awvh-prd-prod-automation-az2, #Cluster
+    resource:ao-workflow/ifgl-1awvh-prd-automation-db, #Database
+    resource:aas-kong/kong #Gateway
+  ]
+  runtime:
+    cluster: cluster-core
+    namespace: uat-acct-mgmt-system
+  providesApis: [interest-service-api-uat]
+  consumeApis: []
+  limits: 'default kong'

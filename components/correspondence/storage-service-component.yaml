@@ -1,0 +1,72 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: storage-service
+  namespace: ao-product-engine
+  description: The storage service used for storing files.
+  tags:
+    - backend
+    - storage
+    - component
+    - dcms
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFPC/repos/storage-service/browse
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFPC/repos/storage-service/browse/README.md
+    - title: Monitoring / Logs (Datadog)
+      url: https://app.datadoghq.com/apm/entity/service:correspondence-storage-service
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/ao-product-engine-release-storage-service
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-product-engine/correspondence/storage-service-release:34
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-1awvh-prd-prod-automation-pas-corespondence-release/browse?at=storage-service
+    - title: Base URL
+      url: https://api-core.ifg-life.id
+    - title: Liveness Endpoints
+      url: http://storage-service:8080/q/health/live
+#    - title: Readiness Endpoints
+#      url: <url_readiness>
+    - title: Swagger / Open API
+      url: http://storage-service:8080/q/openapi
+#    - title: Kafka Topic List
+#      url: <url_kafka_topic_list>
+#    - title: Sample Kafka Message
+#      url: <url_sample_kafka_message>
+spec:
+  type: REST
+  owner: group:core/dcms
+  system: system:core/document-content-management-system
+  domain: domain:core/core-business
+  lifecycle: production
+  environments: production
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.19.3
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: 1awvh-prd-prod-automation-az2
+    namespace: ao-product-engine
+  limits: 'default kong'
+  providesApis: [
+    api:correspondence/storage-service-api
+  ]
+  dependsOn: [
+    resource:cluster/prd-1awvh-prod-automation-az2, #must update to '1awvh-prd-prod-automation-az2'
+    resource:eks/prd-automation,
+    resource:namespace/ao-product-engine,
+    resource:database/ifgl-1awvh-prd-automation-db,
+    resource:gateway/kong,
+    resource:s3-bucket/prd-ao-policy
+  ]

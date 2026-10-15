@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: onebyifg
+  namespace: oneifg
+  description: Everything Related to One by IFG Domain
+  title: 'One by IFG Domain'
+  links:
+    - url: https://one.ifg.id
+      title: 'API for One by IFG'
+    - url: https://one.ifg.id
+      title: 'Website for One by IFG Users'
+    - url: https://adminone.ifg.id
+      title: 'Website for One by IFG Admin'
+spec:
+  owner: default/onebyifg

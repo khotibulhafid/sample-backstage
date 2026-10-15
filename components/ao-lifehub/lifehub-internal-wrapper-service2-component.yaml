@@ -1,0 +1,76 @@
+---     
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: lifehub-internal-wrapper-version2
+  namespace: epics-portal
+  description: consist of wrapping service from same Automation cluster like Fraud, PS, Claim and NB
+  tags:
+    - backend
+    - service
+    - wrapper
+    - lifehub
+    - java
+    - quarkus
+  links:
+    - title: Source Repository
+    - url: https://code.ifg-life.id/projects/IFLH/repos/lifehub-internal-wrapper-version2/browse
+    - title: Monitoring / Logs (Datadog)
+    - url: https://app.datadoghq.com/apm/entity/service:epics-portal-internal-wrapper
+    - title: Deployment (ArgoCD)
+    - url: https://deploy.ifg-life.id/applications/argocd/epics-portal-release-lifehub-internal-wrapper
+    - title: Docker Image
+    - url: docker://docker-automation-operation.artifact.ifg-life.id/epics-portal/lifehub-internal-wrapper-release
+    - title: Deployment YAML (Env & Config)
+    - url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-l4qdb-prd-prod-legacy-ao-epics-portal-release/browse/deployment.yaml?at=refs%2Fheads%2Flifehub-external-wrapper
+    - title: Base URL
+    - url: https://api-automation.ifg-life.id
+    - title: Liveness Endpoints
+    - url: https://epics-portal-internal-wrapper:8080/lifehub/q/health/live
+    - title: Readiness Endpoints
+    - url: https://epics-portal-internal-wrapper:8080/lifehub/q/health/ready
+    - title: Documentation
+    - url: https://code.ifg-life.id/projects/IFLH/repos/lifehub-internal-wrapper-version2/browse/README.md
+spec:
+  type: REST
+  domain: domain:channel/channel-platform
+  owner: owner:channel/lifehub
+  system: system:channel/lifehub-system
+  lifecycle: production
+  environments: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.24.4
+  auth:
+    method: ApiKey
+    notes: >
+      Service uses Kong Api Key for authorization
+  secretType:  Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: automation-prd
+    namespace: epics-portal
+  limits: 'default kong'
+  providesApis: [lifehub-internal-wrapper-api]
+  dependsOn: [
+    resource:default/prd-automation, # EKS
+    resource:infra/prd-1awvh-prod-automation-az2, # Cluster
+    resource:kong/kong
+  ]
+  consumesApis: [
+    ao-lifehub/bulk-service-api,
+    ao-lifehub/lifehub-external-wrapper-api,
+    ifgid/meta-service-api,
+    ifgid/ekyc-service-api,
+    payment/core-service-api,
+    ao-fraud/fraud-service-api,
+    ao-product-engine/product-config-service-api,
+    ao-new-business/new-business-service-api,
+    ao-claim/claim-service-api,
+    ao-lifehub/general-transaction-service-api,
+    ao-pos/corporate-alteration-service-api,
+    ao-lifehub/task-service-api,
+  ]

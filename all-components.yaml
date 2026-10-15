@@ -1,12 +1,337 @@
 apiVersion: backstage.io/v1alpha1
 kind: Location
 metadata:
-  name: all-components
-  description: A collection of all components
+  name: ifgl-components
+  description: A collection of all Backstage IFGL components
 spec:
   targets:
-    # Sample Service
-    - ./components/sample-service-a.yaml
-    - ./components/sample-service-b.yaml
-    - ./components/sample-service-c.yaml
-    
+    # AAS
+    - ./components/aas/account-service-component.yaml
+    - ./components/aas/balance-service-component.yaml
+    - ./components/aas/interest-service-component.yaml
+
+    # Claim
+    - ./components/ao-claim/claim-analysis-service-component.yaml
+    - ./components/ao-claim/claim-billing-service-component.yaml
+    - ./components/ao-claim/claim-common-service-component.yaml
+    - ./components/ao-claim/claim-proxy-component.yaml
+    - ./components/ao-claim/claim-scheduler-service-component.yaml
+    - ./components/ao-claim/claim-service-component.yaml
+    - ./components/ao-claim/claim-submission-cashless-service-component.yaml
+    - ./components/ao-claim/claim-submission-reimbursement-service-component.yaml
+    - ./components/ao-claim/medical-pathway-service-component.yaml
+    - ./components/ao-claim/scheduler-service-component.yaml
+
+    # FRAUD
+    - ./components/ao-fraud/aml-claim-component.yaml
+    - ./components/ao-fraud/aml-common-component.yaml
+    - ./components/ao-fraud/aml-master-data-service-component.yaml
+    - ./components/ao-fraud/aml-risk-service-component.yaml
+    - ./components/ao-fraud/aml-scheduler-component.yaml
+    - ./components/ao-fraud/aml-screening-component.yaml
+    - ./components/ao-fraud/fraud-service-component.yaml
+
+    # AO-HOSPITAL-NETWORK - ini masih salah
+    - ./components/ao-hospital-network/hospital-service-component.yaml
+
+    # LIFEHUB
+    - ./components/ao-lifehub/bulk-service-component.yaml
+    - ./components/ao-lifehub/general-transaction-service-component.yaml
+    - ./components/ao-lifehub/lifehub-external-wrapper-service-component.yaml
+    - ./components/ao-lifehub/lifehub-hub-web-component.yaml
+    - ./components/ao-lifehub/lifehub-internal-wrapper-service2-component.yaml
+    - ./components/ao-lifehub/lifehub-wrapper-component.yaml
+    - ./components/ao-lifehub/task-service-component.yaml
+    - ./components/ao-lifehub/user-service-component.yaml
+
+    # NB UW
+    - /components/ao-new-business/audit-service-component.yaml
+    - /components/ao-new-business/billing-service-component.yaml
+    - /components/ao-new-business/cron-core-pas-service-component.yaml
+    - /components/ao-new-business/journal-service-component.yaml
+    - /components/ao-new-business/meta-service-component.yaml
+    - /components/ao-new-business/new-business-common-service-component.yaml
+    - /components/ao-new-business/new-business-service-component.yaml
+    - /components/ao-new-business/new-business-service-v2-component.yaml
+    - /components/ao-new-business/policy-service-component.yaml
+    - /components/ao-new-business/policy-service-v2-component.yaml
+    - /components/ao-new-business/proposal-service-component.yaml
+    - /components/ao-new-business/proposal-service-v2-component.yaml
+    - /components/ao-new-business/scheduler-service-component.yaml
+    - /components/ao-new-business/transaction-management-component.yaml
+    - /components/ao-new-business/underwriting-scheduler-service-component.yaml
+    - /components/ao-new-business/underwriting-service-component.yaml
+
+    # POS
+    - ./components/ao-pos/alteration-service-component.yaml
+    - ./components/ao-pos/corporate-alteration-service-component.yaml
+    - ./components/ao-pos/cron-pos-service-component.yaml
+    - ./components/ao-pos/pos-member-service-component.yaml
+    - ./components/ao-pos/pos-policy-service-component.yaml
+    - ./components/ao-pos/pos-scheduler-service-component.yaml
+    - ./components/ao-pos/reinstatement-service-component.yaml
+    - ./components/ao-pos/scheduler-service-component.yaml
+
+    # PAS - Product Engine + Correspondence
+    - ./components/ao-product-engine/cron-service-component.yaml
+    - ./components/ao-product-engine/product-batch-processing-service-component.yaml
+    - ./components/ao-product-engine/product-calculation-service-component.yaml
+    - ./components/ao-product-engine/product-calculator-corporate-service-component.yaml
+    - ./components/ao-product-engine/product-calculator-service-component.yaml
+    - ./components/ao-product-engine/product-config-service-component.yaml
+    - ./components/ao-product-engine/product-config-service-v2-component.yaml
+    - ./components/ao-product-engine/product-formulation-corporate-service-component.yaml
+    - ./components/ao-product-engine/product-formulation-retail-service-component.yaml
+    - ./components/ao-product-engine/product-initial-validation-service-component.yaml
+    - ./components/ao-product-engine/product-post-validation-service-component.yaml
+    - ./components/ao-product-engine/product-validator-corporate-service-component.yaml
+    - ./components/ao-product-engine/product-validator-service-component.yaml
+
+    # Correspondence
+    - ./components/correspondence/correspondence-wrapper-component.yaml
+    - ./components/correspondence/cron-sqs-info-service-component.yaml
+    - ./components/correspondence/document-generator-service-component.yaml
+    - ./components/correspondence/document-registry-service-component.yaml
+    - ./components/correspondence/generator-service-component.yaml
+    - ./components/correspondence/html-generator-service-component.yaml
+    - ./components/correspondence/notification-service-component.yaml
+    - ./components/correspondence/pas-edoc-service-component.yaml
+    - ./components/correspondence/pas-migration-service-component.yaml
+    - ./components/correspondence/storage-service-component.yaml
+
+    # Workflow NB + UW + PAS + POS + FRAUD + CLAIM
+    - ./components/ao-workflow/ao-workflow-aml-v2-component.yaml
+    - ./components/ao-workflow/ao-workflow-aml-v2-wrapper-component.yaml
+    - ./components/ao-workflow/ao-workflow-claim-cashless-component.yaml
+    - ./components/ao-workflow/ao-workflow-claim-component.yaml
+    - ./components/ao-workflow/ao-workflow-claim-wrapper-component.yaml
+    - ./components/ao-workflow/ao-workflow-corporate-policy-component.yaml
+    - ./components/ao-workflow/ao-workflow-corporate-policy-wrapper-component.yaml
+    - ./components/ao-workflow/ao-workflow-fraud-component.yaml
+    - ./components/ao-workflow/ao-workflow-fraud-wrapper-component.yaml
+    - ./components/ao-workflow/ao-workflow-nb-bulk-component.yaml
+    - ./components/ao-workflow/ao-workflow-nb-component.yaml
+    - ./components/ao-workflow/ao-workflow-nb-corporate-component.yaml
+    - ./components/ao-workflow/ao-workflow-nb-wrapper-component.yaml
+    - ./components/ao-workflow/ao-workflow-policy-component.yaml
+    - ./components/ao-workflow/ao-workflow-policy-reinstatement-component.yaml
+    - ./components/ao-workflow/ao-workflow-policy-reinstatement-wrapper-component.yaml
+    - ./components/ao-workflow/ao-workflow-policy-surrender-component.yaml
+    - ./components/ao-workflow/ao-workflow-policy-v2-component.yaml
+    - ./components/ao-workflow/ao-workflow-policy-wrapper-component.yaml
+    - ./components/ao-workflow/ao-workflow-ps-major-alteration-component.yaml
+    - ./components/ao-workflow/ao-workflow-ps-withdrawal-component.yaml
+#    - ./components/ao-workflow/kogito-claim-component.yaml
+#    - ./components/ao-workflow/kogito-fraud-component.yaml
+#    - ./components/ao-workflow/kogito-nb-component.yaml
+#    - ./components/ao-workflow/kogito-ps-component.yaml
+
+    # LIFESPACE / Corporate
+    - ./components/corporate/activity-service-component.yaml
+    - ./components/corporate/admin-service-component.yaml
+    - ./components/corporate/batch-service-component.yaml
+    - ./components/corporate/billing-service-component.yaml
+    - ./components/corporate/claim-service-component.yaml
+    - ./components/corporate/contract-service-component.yaml
+    - ./components/corporate/corporate-wrapper-component.yaml
+    - ./components/corporate/lifespace-corporate-web-component.yaml
+    - ./components/corporate/member-service-component.yaml
+    - ./components/corporate/meta-service-component.yaml
+    - ./components/corporate/notification-service-component.yaml
+    - ./components/corporate/policy-service-component.yaml
+    - ./components/corporate/storage-service-component.yaml
+    - ./components/corporate/submission-service-component.yaml
+    - ./components/corporate/user-service-component.yaml
+
+    # LIFEBYIFG / Customer
+    - ./components/customer/config-service-component.yaml
+    - ./components/customer/content-service-component.yaml
+    - ./components/customer/event-service-component.yaml
+    - ./components/customer/leads-service-component.yaml
+    - ./components/customer/meta-service-component.yaml
+    - ./components/customer/notification-service-component.yaml
+    - ./components/customer/partner-service-component.yaml
+    - ./components/customer/policy-service-component.yaml
+    - ./components/customer/product-service-component.yaml
+    - ./components/customer/provider-service-component.yaml
+    - ./components/customer/pwa-component.yaml
+    - ./components/customer/referral-service-component.yaml
+    - ./components/customer/storage-service-component.yaml
+    - ./components/customer/transaction-service-component.yaml
+    - ./components/customer/user-wrapper-component.yaml
+
+    # CWS
+    - ./components/cws/cms-be-component.yaml
+    - ./components/cws/corporate-be-component.yaml
+
+    # DATA
+    - ./components/data/base-producer-service-component.yaml
+    - ./components/data/base-service-component.yaml
+    - ./components/data/bi-connector-component.yaml
+    - ./components/data/data-customer-service-component.yaml
+    - ./components/data/data-dedupe-service-component.yaml
+    - ./components/data/data-file-ingest-service-component.yaml
+    - ./components/data/data-ingest-service-component.yaml
+    - ./components/data/data-migration-service-component.yaml
+    - ./components/data/data-reporting-service-component.yaml
+    - ./components/data/data-scheduler-service-component.yaml
+    - ./components/data/data-stream-service-component.yaml
+    - ./components/data/debezium-component.yaml
+    - ./components/data/monitoring-service-component.yaml
+
+    # DPLK
+    - ./components/dplk/cashin-service-component.yaml
+    - ./components/dplk/cashin-wrapper-service-component.yaml
+    - ./components/dplk/cashout-service-component.yaml
+    - ./components/dplk/cashout-wrapper-service-component.yaml
+    - ./components/dplk/document-reporting-service-component.yaml
+    - ./components/dplk/identity-service-component.yaml
+    - ./components/dplk/investment-service-component.yaml
+    - ./components/dplk/journal-service-component.yaml
+    - ./components/dplk/membership-service-component.yaml
+    - ./components/dplk/membership-wrapper-service-component.yaml
+    - ./components/dplk/monitoring-service-component.yaml
+
+    # IFGID
+    - ./components/ifgid/ekyc-service-component.yaml
+    - ./components/ifgid/entity-service-component.yaml
+    - ./components/ifgid/meta-service-component.yaml
+    - ./components/ifgid/notification-service-component.yaml
+    - ./components/ifgid/organization-service-component.yaml
+    - ./components/ifgid/storage-service-component.yaml
+    - ./components/ifgid/user-service-component.yaml
+
+    # LIFEFORCE
+    - ./components/lifeforce/lifeforce-business-mobile-component.yaml
+
+    # LIFEFORCE ADMIN
+    - ./components/lifeforce-admin/admin-admin-service-component.yaml
+    - ./components/lifeforce-admin/admin-sales-admin-web-component.yaml
+
+    # LIFEFORCE COMMON
+    - ./components/lifeforce-common/common-document-wrapper-component.yaml
+
+    # LIFEFORCE GROUP
+    - ./components/lifeforce-group/group-bulk-service-component.yaml
+    - ./components/lifeforce-group/group-new-business-service-component.yaml
+    - ./components/lifeforce-group/group-policy-service-component.yaml
+    - ./components/lifeforce-group/group-sales-portal-web-component.yaml
+    - ./components/lifeforce-group/group-storage-service-component.yaml
+    - ./components/lifeforce-group/group-user-service-component.yaml
+    - ./components/lifeforce-group/group-user-wrapper-component.yaml
+
+    # LIFEFORCE INDIVIDU
+    - ./components/lifeforce-individu/individu-cron-service-component.yaml
+    - ./components/lifeforce-individu/individu-customer-360-wrapper-component.yaml
+    - ./components/lifeforce-individu/individu-leads-service-component.yaml
+    - ./components/lifeforce-individu/individu-new-business-service-component.yaml
+    - ./components/lifeforce-individu/individu-notification-service-component.yaml
+    - ./components/lifeforce-individu/individu-storage-service-component.yaml
+
+    # LIFEFORCE RENUMERATION
+    - ./components/lifeforce-remuneration/remuneration-config-service-component.yaml
+    - ./components/lifeforce-remuneration/remuneration-cron-service-component.yaml
+    - ./components/lifeforce-remuneration/remuneration-transaction-service-component.yaml
+
+    # LIFENET / Lifenet acquirer
+    - ./components/lifenet-acquirer/acquirer-ifgl-network-service-component.yaml
+    - ./components/lifenet-acquirer/acquirer-other-ns-wrapper-service-component.yaml
+    - ./components/lifenet-acquirer/acquirer-reference-service-component.yaml
+    - ./components/lifenet-acquirer/lifenet-acquirer-admin-service-component.yaml
+    - ./components/lifenet-acquirer/provider-service-component.yaml
+    - ./components/lifenet-acquirer/report-service-component.yaml
+    - ./components/lifenet-acquirer/scheduler-service-component.yaml
+    - ./components/lifenet-acquirer/storage-service-component.yaml
+
+    # LIFENET / Lifenet issuer
+    - ./components/lifenet-issuer/issuer-ifgl-case-monitoring-service-component.yaml
+    - ./components/lifenet-issuer/issuer-ifgl-scheduler-service-component.yaml
+    - ./components/lifenet-issuer/issuer-ifgl-wrapper-service-component.yaml
+    - ./components/lifenet-issuer/network-issuer-ifgl-wrapper-service-component.yaml
+
+    # LIFENET / Lifenet network
+    - ./components/lifenet-network/acquirer-ifgl-wrapper-service-component.yaml
+    - ./components/lifenet-network/issuer-ifgl-issuer-wrapper-service-component.yaml
+    - ./components/lifenet-network/network-discovery-service-component.yaml
+    - ./components/lifenet-network/provider-mapping-network-service-component.yaml
+
+    # ONEBYIFG
+    - ./components/oneifg/admin-one-component.yaml
+    - ./components/oneifg/admin-service-component.yaml
+    - ./components/oneifg/meta-service-component.yaml
+    - ./components/oneifg/notification-service-component.yaml
+    - ./components/oneifg/product-service-component.yaml
+    - ./components/oneifg/pwa-component.yaml
+    - ./components/oneifg/storage-service-component.yaml
+    - ./components/oneifg/transaction-service-component.yaml
+    - ./components/oneifg/user-service-component.yaml
+
+    # ONEVERSEINTERCO
+
+    # Partnership
+    - ./components/partnership/be-dashboard-client-component.yaml
+    - ./components/partnership/fitaja-service-component.yaml
+    - ./components/partnership/partnership-internal-service-component.yaml
+    - ./components/partnership/service-btn-component.yaml
+
+    # Payment
+    - ./components/payment/core-services-component.yaml
+    - ./components/payment/dashboard-service-component.yaml
+    - ./components/payment/direct-bill-service-component.yaml
+    - ./components/payment/gateway-bcheck-component.yaml
+    - ./components/payment/gateway-biller-component.yaml
+    - ./components/payment/gateway-bni-component.yaml
+    - ./components/payment/gateway-bri-component.yaml
+    - ./components/payment/gateway-btn-component.yaml
+    - ./components/payment/gateway-cts-component.yaml
+    - ./components/payment/gateway-doku-component.yaml
+    - ./components/payment/gateway-frontend-component.yaml
+    - ./components/payment/gateway-linkaja-component.yaml
+    - ./components/payment/gateway-mandiri-component.yaml
+    - ./components/payment/gateway-midtrans-component.yaml
+    - ./components/payment/gateway-partnership-component.yaml
+    - ./components/payment/gateway-pospay-component.yaml
+    - ./components/payment/gateway-tokopedia-component.yaml
+    - ./components/payment/gateway-workflow-component.yaml
+    - ./components/payment/gateway-xendit-component.yaml
+    - ./components/payment/gateway-yokke-component.yaml
+    - ./components/payment/inquiry-core-service-component.yaml
+    - ./components/payment/out-core-service-component.yaml
+    - ./components/payment/out-gateway-channel-service-component.yaml
+    - ./components/payment/out-gateway-cts-service-component.yaml
+    - ./components/payment/out-gateway-mandiri-service-component.yaml
+    - ./components/payment/out-gateway-midtrans-service-component.yaml
+    - ./components/payment/recon-service-component.yaml
+    - ./components/payment/recurring-service-component.yaml
+    - ./components/payment/utility-kafka-listener-component.yaml
+    - ./components/payment/utility-scheduler-component.yaml
+
+    # PSAK
+    - ./components/psak/etl-export-job-service-component.yaml
+    - ./components/psak/etl-run-job-service-component.yaml
+
+    # ONEVERSEINTERCO
+    - ./components/oneverseinterco/poc-service-component.yaml
+
+    # DOCTORHUB
+    - ./apis/lifenet-doctorhub/uat/doctorhub-acquirer-lms-service-component.yaml
+    - ./apis/lifenet-doctorhub/uat/doctorhub-acquirer-mi-service-component.yaml
+    - ./apis/lifenet-doctorhub/uat/doctorhub-acquirer-viva-service-component.yaml
+    - ./apis/lifenet-doctorhub/uat/doctorhub-acquirer-yesdok-service-component.yaml
+    - ./apis/lifenet-doctorhub/uat/doctorhub-appointment-service-component.yaml
+    - ./apis/lifenet-doctorhub/uat/doctorhub-doctor-service-component.yaml
+    - ./apis/lifenet-doctorhub/uat/doctorhub-one-wrapper-service-component.yaml
+
+    # PARMACHYHUB
+    - ./apis/lifenet-pharmacyhub/pharmacyhub-acquirer-fdn-service-component.yaml
+    - ./apis/lifenet-pharmacyhub/pharmacyhub-billing-service-component.yaml
+    - ./apis/lifenet-pharmacyhub/pharmacyhub-courier-service-component.yaml
+    - ./apis/lifenet-pharmacyhub/pharmacyhub-one-wrapper-service-component.yaml
+    - ./apis/lifenet-pharmacyhub/pharmacyhub-prescription-service-component.yaml
+
+    # AO-HOSPITAL
+    - ./apis/ao-hospital/hospital-service-component.yaml
+    - ./components/psak/summary-service-component.yaml
+    - ./components/psak/upload-ecf-all-table-service-component.yaml
+    - ./components/psak/upload-ecf-dbpsak-service-component.yaml
+    - ./components/psak/upload-ecf-gbq-service-component.yaml

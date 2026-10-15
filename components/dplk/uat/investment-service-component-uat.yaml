@@ -1,0 +1,20 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: investment-service-component-uat
+  namespace: dplk
+  description: The service handle calculation and valuation in DPLK
+  tags:
+    - backend
+    - service
+    - dplk
+    - uat
+    - dplk-investment-service-uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/dplk
+  system: dplk
+  providesApis: [dplk/investment-service-api-uat]

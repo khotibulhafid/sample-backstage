@@ -1,0 +1,64 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: corporate-alteration-service
+  namespace: ao-pos
+  description: The corporate-alteration service api in ao-pos corporate-alteration-service
+  tags:
+  - backend
+  - service
+  - policy
+  - ao-ps
+  - ao-pos
+  - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFPO/repos/corporate-alteration-service/browse
+    #      - title: Monitoring / Logs (Datadog)
+    #        url: ""
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/ao-pos-release-corporate-alteration-service
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-pos/corporate-alteration-service-release:9
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-1awvh-prd-prod-automation-ao-pos-release/browse/deployment.yaml?at=refs%2Fheads%2Fcorporate-alteration-service
+    - title: Liveness Endpoints
+      url: http://corporate-alteration-service:8080/q/health/live
+    - title: Readiness Endpoints
+      url: http://corporate-alteration-service:8080/q/health/ready
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFPO/repos/corporate-alteration-service/browse/README.md
+    - title: Base Url
+      url: https://api-core.ifg-life.id
+spec:
+  type: REST
+  owner: group:automation/policy-squad
+  system: system:automation/policy-automation-support-system
+  domain: domain:core/core-business
+  lifecycle: deprecated
+  environment: prod
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.24.3
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: 1awvh-prd-prod-automation-az2
+    namespace: ao-pos
+  dependsOn: [
+    resource:default/prd-automation, # EKS
+    resource:infra/1awvh-prd-prod-automation-az2, # Cluster
+    resource:database/postgres,
+    resource:core/kong
+  ]
+  providesApis: [ ao-pos/corporate-alteration-service-api ]
+  consumesApis: [ ]
+  limits: 'default kong'

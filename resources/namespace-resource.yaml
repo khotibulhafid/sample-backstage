@@ -1,0 +1,336 @@
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: corporate
+  description: corporate namespace
+  tags:
+    - namespace
+    - corporate
+spec:
+  type: namespace
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [resource:bvl19-prd-prod-customer-az1]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: customer
+  description: customer namespace
+  tags:
+    - namespace
+    - customer
+spec:
+  type: namespace
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [resource:bvl19-prd-prod-customer-az1]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: cws
+  description: cws namespace
+  tags:
+    - namespace
+    - cws
+spec:
+  type: namespace
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [resource:bvl19-prd-prod-customer-az1]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ifgid
+  description: ifgid namespace
+  tags:
+    - namespace
+    - ifgid
+spec:
+  type: namespace
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [resource:ifgid-prd]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: lifeforce-group
+  description: lifeforce-group namespace
+  tags:
+    - namespace
+    - lifeforce-group
+spec:
+  type: namespace
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [resource:lifeforce-prd]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: lifeforce-admin
+  description: lifeforce-admin namespace
+  tags:
+    - namespace
+    - lifeforce-admin
+spec:
+  type: namespace
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [resource:lifeforce-prd]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: lifeforce-individu
+  description: lifeforce-individu namespace
+  tags:
+    - namespace
+    - lifeforce-individu
+spec:
+  type: namespace
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [resource:lifeforce-prd]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: lifenet
+  description: lifenet namespace
+  tags:
+    - namespace
+    - lifenet
+spec:
+  type: namespace
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [resource:lifenet-prd]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: partnership
+  description: partnership namespace
+  tags:
+    - namespace
+    - partnership
+spec:
+  type: namespace
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [resource:partner-prd]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ao-claim
+  description: ao-claim namespace
+  tags:
+    - namespace
+    - ao-claim
+spec:
+  type: namespace
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [resource:prd-1awvh-prod-automation-az2]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ao-fraud
+  description: ao-fraud namespace
+  tags:
+    - namespace
+    - ao-fraud
+spec:
+  type: namespace
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [resource:prd-1awvh-prod-automation-az2]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ao-hospital-network
+  description: ao-hospital-network namespace
+  tags:
+    - namespace
+    - ao-hospital-network
+spec:
+  type: namespace
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [resource:prd-1awvh-prod-automation-az2]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ao-kong
+  description: ao-kong namespace
+  tags:
+    - namespace
+    - ao-kong
+spec:
+  type: namespace
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [resource:prd-1awvh-prod-automation-az2]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ao-lifehub
+  description: ao-lifehub namespace
+  tags:
+    - namespace
+    - ao-lifehub
+spec:
+  type: namespace
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [resource:prd-1awvh-prod-automation-az2]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ao-new-business
+  description: ao-new-business namespace
+  tags:
+    - namespace
+    - ao-new-business
+spec:
+  type: namespace
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [resource:prd-1awvh-prod-automation-az2]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ao-pos
+  description: ao-pos namespace
+  tags:
+    - namespace
+    - ao-pos
+spec:
+  type: namespace
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [resource:prd-1awvh-prod-automation-az2]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ao-product-engine
+  description: ao-product-engine namespace
+  tags:
+    - namespace
+    - ao-product-engine
+spec:
+  type: namespace
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [resource:prd-1awvh-prod-automation-az2]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: ao-workflow
+  description: ao-workflow namespace
+  tags:
+    - namespace
+    - ao-workflow
+spec:
+  type: namespace
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [resource:prd-1awvh-prod-automation-az2]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: payment
+  description: payment namespace
+  tags:
+    - namespace
+    - payment
+spec:
+  type: namespace
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [resource:ifg-pay-8spdr]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: data
+  description: data namespace
+  tags:
+    - namespace
+    - data
+spec:
+  type: namespace
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [resource:cluster-data-prd]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: dplk
+  description: dplk namespace
+  tags:
+    - namespace
+    - dplk
+spec:
+  type: namespace
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [resource:ifgl-dplk-nprd]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: psak
+  description: psak namespace
+  tags:
+    - namespace
+    - psak
+spec:
+  type: namespace
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [resource:ifgl-psak-nprd]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: oneverseinterco-namespace
+  description: oneverseinterco namespace
+  tags:
+    - namespace
+    - oneverseinterco
+spec:
+  type: namespace
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [resource:oneverseinterco-cluster]
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: epics-portal
+  description: epics-portal namespace
+  tags:
+    - namespace
+    - epics-portal
+    - lifehub
+spec:
+  type: namespace
+  owner: default/infrastructure
+  system: infrastructure/infra
+  dependsOn: [resource:prd-1awvh-prod-automation-az2]

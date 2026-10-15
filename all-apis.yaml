@@ -1,8 +1,266 @@
 apiVersion: backstage.io/v1alpha1
 kind: Location
 metadata:
-  name: all-api
-  description: A collection of all API
+  name: ifgl-api
+  description: A collection of all Backstage IFGL components
 spec:
   targets:
-    - ./apis/sample-rest-api-a.yaml
+    # Claim
+    - ./apis/ao-claim/claim-service-api.yaml
+    - ./apis/ao-claim/scheduler-service-api.yaml
+    - ./apis/ao-claim/claim-analysis-service-api.yaml
+    - ./apis/ao-claim/claim-billing-service-api.yaml
+    - ./apis/ao-claim/claim-common-service-api.yaml
+    - ./apis/ao-claim/claim-submission-cashless-service-api.yaml
+    - ./apis/ao-claim/claim-submission-reimbursement-service-api.yaml
+    - ./apis/ao-claim/medical-pathway-service-api.yaml
+
+    # FRAUD
+    - ./apis/ao-fraud/fraud-service-api.yaml
+
+    # AO-HOSPITAL-NETWORK - ini masih salah
+    - ./apis/ao-hospital-network/hospital-service-api.yaml
+
+    # LIFEHUB
+    - ./apis/ao-lifehub/bulk-service-api.yaml
+    - ./apis/ao-lifehub/task-service-api.yaml
+    - ./apis/ao-lifehub/user-service-api.yaml
+    - ./apis/ao-lifehub/lifehub-wrapper-api.yaml
+
+    # NB UW
+    - ./apis/ao-new-business/billing-service-api.yaml
+    - ./apis/ao-new-business/journal-service-api.yaml
+    - ./apis/ao-new-business/new-business-service-api.yaml
+    - ./apis/ao-new-business/new-business-service-v2-api.yaml
+    - ./apis/ao-new-business/policy-service-api.yaml
+    - ./apis/ao-new-business/policy-service-v2-api.yaml
+    - ./apis/ao-new-business/proposal-service-api.yaml
+    - ./apis/ao-new-business/proposal-service-v2-api.yaml
+#    - ./apis/ao-new-business/underwriting-scheduler-service-api.yaml
+    - ./apis/ao-new-business/underwriting-service-api.yaml
+
+    # POS
+    - ./apis/ao-pos/alteration-service-api.yaml
+    - ./apis/ao-pos/corporate-alteration-service-api.yaml
+    - ./apis/ao-pos/scheduler-service-api.yaml
+    - ./apis/ao-pos/reinstatement-service-api.yaml
+    - ./apis/ao-pos/pos-scheduler-service-api.yaml
+
+    # PAS - Product Engine
+    - ./apis/ao-product-engine/product-calculator-corporate-service-api.yaml
+    - ./apis/ao-product-engine/product-calculator-service-api.yaml
+    - ./apis/ao-product-engine/product-config-service-api.yaml
+    - ./apis/ao-product-engine/product-initial-validation-service-api-uat.yaml
+    - ./apis/ao-product-engine/product-calculation-service-api-uat.yaml
+    - ./apis/ao-product-engine/product-post-validation-service-api-uat.yaml
+    - ./apis/ao-product-engine/product-formulation-corporate-service-api.yaml
+    - ./apis/ao-product-engine/product-formulation-retail-service-api.yaml
+    - ./apis/ao-product-engine/product-validator-corporate-service-api.yaml
+    - ./apis/ao-product-engine/product-validator-service-api.yaml
+
+    # Correspondence
+    - ./apis/correspondence/correspondence-wrapper-api.yaml
+    - ./apis/correspondence/generator-service-api.yaml
+    - ./apis/correspondence/notification-service-api.yaml
+    - ./apis/correspondence/pas-edoc-service-api.yaml
+    - ./apis/correspondence/pas-migration-service-api.yaml
+    - ./apis/correspondence/storage-service-api.yaml
+
+    # Workflow NB + UW + PAS + POS + FRAUD + CLAIM
+    - ./apis/ao-workflow/ao-workflow-claim-api.yaml
+    - ./apis/ao-workflow/ao-workflow-claim-wrapper-api.yaml
+    - ./apis/ao-workflow/ao-workflow-corporate-policy-api.yaml
+    - ./apis/ao-workflow/ao-workflow-corporate-policy-wrapper-api.yaml
+    - ./apis/ao-workflow/ao-workflow-fraud-api.yaml
+    - ./apis/ao-workflow/ao-workflow-fraud-wrapper-api.yaml
+    - ./apis/ao-workflow/ao-workflow-nb-api.yaml
+    - ./apis/ao-workflow/ao-workflow-nb-wrapper-api.yaml
+    - ./apis/ao-workflow/ao-workflow-policy-api.yaml
+    - ./apis/ao-workflow/ao-workflow-policy-wrapper-api.yaml
+#    - ./apis/claim/ao-workflow-policy-reinstatement-api.yaml
+#    - ./apis/claim/ao-workflow-policy-reinstatement-wrapper-api.yaml
+
+    # LIFESPACE / Corporate
+    - ./apis/corporate/activity-service-api.yaml
+    - ./apis/corporate/batch-service-api.yaml
+    - ./apis/corporate/billing-service-api.yaml
+    - ./apis/corporate/claim-service-api.yaml
+    - ./apis/corporate/contract-service-api.yaml
+    - ./apis/corporate/corporate-wrapper-api.yaml
+    - ./apis/corporate/member-service-api.yaml
+    - ./apis/corporate/meta-service-api.yaml
+    - ./apis/corporate/notification-service-api.yaml
+    - ./apis/corporate/policy-service-api.yaml
+    - ./apis/corporate/storage-service-api.yaml
+    - ./apis/corporate/submission-service-api.yaml
+    - ./apis/corporate/user-service-api.yaml
+
+    # LIFEBYIFG / Customer
+    - ./apis/customer/config-service-api.yaml
+    - ./apis/customer/content-service-api.yaml
+    - ./apis/customer/event-service-api.yaml
+    - ./apis/customer/leads-service-api.yaml
+    - ./apis/customer/meta-service-api.yaml
+    - ./apis/customer/notification-service-api.yaml
+    - ./apis/customer/partner-service-api.yaml
+    - ./apis/customer/policy-service-api.yaml
+    - ./apis/customer/product-service-api.yaml
+    - ./apis/customer/provider-service-api.yaml
+    - ./apis/customer/referral-service-api.yaml
+    - ./apis/customer/storage-service-api.yaml
+    - ./apis/customer/transaction-service-api.yaml
+    - ./apis/customer/user-wrapper-api.yaml
+  
+
+    # CWS
+    - ./apis/cws/cms-be-api.yaml
+    - ./apis/cws/corporate-be-api.yaml
+
+    # IFGID
+    - ./apis/ifgid/ekyc-service-api.yaml
+    - ./apis/ifgid/meta-service-api.yaml
+    - ./apis/ifgid/notification-service-api.yaml
+    - ./apis/ifgid/organization-service-api.yaml
+    - ./apis/ifgid/storage-service-api.yaml
+    - ./apis/ifgid/user-service-api.yaml
+    - ./apis/ifgid/entity-service-api.yaml
+
+    # LIFEFORCE-CORPORATE / Lifeforce group
+    - ./apis/lifeforce-group/group-new-business-service-api.yaml
+    - ./apis/lifeforce-group/group-storage-service-api.yaml
+    - ./apis/lifeforce-group/group-user-service-api.yaml
+    - ./apis/lifeforce-group/group-user-wrapper-api.yaml
+    - ./apis/lifeforce-group/group-bulk-service-api.yaml
+    - ./apis/lifeforce-group/group-policy-service-api.yaml
+
+    # LIFEFORCE-CORPORATE / Lifeforce Admin
+    - ./apis/lifeforce-admin/admin-admin-service-api.yaml
+
+    # LIFEFORCE-INDIVIDU
+    - ./apis/lifeforce-individu/individu-customer-360-wrapper-api.yaml
+    - ./apis/lifeforce-individu/individu-leads-service-api.yaml
+    - ./apis/lifeforce-individu/individu-new-business-service-api.yaml
+    - ./apis/lifeforce-individu/individu-notification-service-api.yaml
+    - ./apis/lifeforce-individu/individu-storage-service-api.yaml
+
+    # LIFEFORCE-REMUNERATION
+    - ./apis/lifeforce-remuneration/remuneration-config-service-api.yaml
+    - ./apis/lifeforce-remuneration/remuneration-transaction-service-api.yaml
+
+    # LIFENET / Lifenet acquirer
+    - ./apis/lifenet-acquirer/acquirer-ifgl-network-service-api.yaml
+    - ./apis/lifenet-acquirer/acquirer-other-ns-wrapper-service-api.yaml
+    - ./apis/lifenet-acquirer/acquirer-reference-service-api.yaml
+    - ./apis/lifenet-acquirer/lifenet-acquirer-admin-service-api.yaml
+    - ./apis/lifenet-acquirer/provider-service-api.yaml
+    - ./apis/lifenet-acquirer/report-service-api.yaml
+    - ./apis/lifenet-acquirer/scheduler-service-api.yaml
+    - ./apis/lifenet-acquirer/storage-service-api.yaml
+    - ./apis/lifenet-acquirer/user-service-api.yaml
+
+    # LIFENET / Lifenet issuer
+    - ./apis/lifenet-issuer/issuer-ifgl-case-monitoring-service-api.yaml
+    - ./apis/lifenet-issuer/issuer-ifgl-scheduler-service-api.yaml
+    - ./apis/lifenet-issuer/issuer-ifgl-wrapper-service-api.yaml
+    - ./apis/lifenet-issuer/network-issuer-ifgl-wrapper-service-api.yaml
+
+    # LIFENET / Lifenet network
+    - ./apis/lifenet-network/acquirer-ifgl-wrapper-service-api.yaml
+    - ./apis/lifenet-network/issuer-ifgl-issuer-wrapper-service-api.yaml
+    - ./apis/lifenet-network/network-discovery-service-api.yaml
+    - ./apis/lifenet-network/provider-mapping-network-service-api.yaml
+
+    # ONEBYIFG
+    - ./apis/oneifg/admin-service-api.yaml
+    - ./apis/oneifg/meta-service-api.yaml
+    - ./apis/oneifg/notification-service-api.yaml
+    - ./apis/oneifg/product-service-api.yaml
+    - ./apis/oneifg/storage-service-api.yaml
+    - ./apis/oneifg/transaction-service-api.yaml
+    - ./apis/oneifg/user-service-api.yaml
+
+    # Partnership
+    - ./apis/partnership/be-dashboard-client-api.yaml
+    - ./apis/partnership/fitaja-service-api.yaml
+    - ./apis/partnership/partnership-internal-service-api.yaml
+    - ./apis/partnership/service-btn-api.yaml
+
+    # Payment
+    - ./apis/payment/core-services-api.yaml
+    - ./apis/payment/dashboard-service-api.yaml
+    - ./apis/payment/direct-bill-service-api.yaml
+    - ./apis/payment/gateway-bcheck-api.yaml
+    - ./apis/payment/gateway-biller-api.yaml
+    - ./apis/payment/gateway-bni-api.yaml
+    - ./apis/payment/gateway-bri-api.yaml
+    - ./apis/payment/gateway-btn-api.yaml
+    - ./apis/payment/gateway-cts-api.yaml
+    - ./apis/payment/gateway-doku-api.yaml
+    - ./apis/payment/gateway-frontend-api.yaml
+    - ./apis/payment/gateway-linkaja-api.yaml
+    - ./apis/payment/gateway-mandiri-api.yaml
+    - ./apis/payment/gateway-midtrans-api.yaml
+    - ./apis/payment/gateway-partnership-api.yaml
+    - ./apis/payment/gateway-pospay-api.yaml
+    - ./apis/payment/gateway-tokopedia-api.yaml
+    - ./apis/payment/gateway-workflow-api.yaml
+    - ./apis/payment/gateway-xendit-api.yaml
+    - ./apis/payment/gateway-yokke-api.yaml
+    - ./apis/payment/inquiry-core-service-api.yaml
+    - ./apis/payment/out-core-service-api.yaml
+    - ./apis/payment/out-gateway-channel-service-api.yaml
+    - ./apis/payment/out-gateway-cts-service-api.yaml
+    - ./apis/payment/out-gateway-mandiri-service-api.yaml
+    - ./apis/payment/out-gateway-midtrans-service-api.yaml
+    - ./apis/payment/recon-service-api.yaml
+    - ./apis/payment/recurring-service-api.yaml
+    - ./apis/payment/utility-kafka-listener-api.yaml
+    - ./apis/payment/utility-scheduler-api.yaml
+
+    # DATA
+    - ./apis/data/base-producer-service-api.yaml
+    - ./apis/data/customer-service-api.yaml
+    - ./apis/data/dedupe-service-api.yaml
+
+    # DPLK
+    - ./apis/dplk/cashin-service-api.yaml
+    - ./apis/dplk/cashin-wrapper-service-api.yaml
+    - ./apis/dplk/cashout-service-api.yaml
+    - ./apis/dplk/cashout-wrapper-service-api.yaml
+    - ./apis/dplk/document-reporting-service-api.yaml
+    - ./apis/dplk/identity-service-api.yaml
+    - ./apis/dplk/investment-service-api.yaml
+    - ./apis/dplk/journal-service-api.yaml
+    - ./apis/dplk/membership-service-api.yaml
+    - ./apis/dplk/membership-wrapper-service-api.yaml
+    - ./apis/dplk/monitoring-service-api.yaml
+
+    # PSAK
+    - ./apis/psak/summary-service-api.yaml
+    - ./apis/psak/upload-ecf-gbq-service-api.yaml
+    - ./apis/psak/upload-ecf-dbpsak-service-api.yaml
+    - ./apis/psak/upload-ecf-all-table-service-api.yaml
+    - ./apis/psak/etl-run-job-service-api.yaml
+
+    # ONEVERSEINTERCO
+    - ./apis/oneverseinterco/poc-service-api.yaml
+
+    # DOCTORHUB
+    - ./apis/lifenet-doctorhub/doctorhub-acquirer-lms-service-api.yaml
+    - ./apis/lifenet-doctorhub/doctorhub-acquirer-mi-service-api.yaml
+    - ./apis/lifenet-doctorhub/doctorhub-acquirer-viva-service-api.yaml
+    - ./apis/lifenet-doctorhub/doctorhub-acquirer-yesdok-service-api.yaml
+    - ./apis/lifenet-doctorhub/doctorhub-appointment-service-api.yaml
+    - ./apis/lifenet-doctorhub/doctorhub-doctor-service-api.yaml
+    - ./apis/lifenet-doctorhub/doctorhub-one-wrapper-service-api.yaml
+
+    # PARMACHYHUB
+    - ./apis/lifenet-pharmacyhub/pharmacyhub-acquirer-fdn-service-api.yaml
+    - ./apis/lifenet-pharmacyhub/pharmacyhub-billing-service-api.yaml
+    - ./apis/lifenet-pharmacyhub/pharmacyhub-courier-service-api.yaml
+    - ./apis/lifenet-pharmacyhub/pharmacyhub-one-wrapper-service-api.yaml
+    - ./apis/lifenet-pharmacyhub/pharmacyhub-prescription-service-api.yaml
+
+    # AO-HOSPITAL
+    - ./apis/ao-hospital/hospital-service-api.yaml
+    - ./apis/psak/etl-export-job-service-api.yaml

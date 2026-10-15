@@ -1,0 +1,19 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: pas-migration-service-api
+  namespace: ao-product-engine
+  description: API Handle document migration/conversion from non-standard DCMS format to standard DCMS format
+  tags:
+    - api
+    - backend
+    - service
+    - correspondence
+spec:
+  type: openapi
+  owner: group:core/dcms
+  system: system:core/document-content-management-system
+  domain: domain:core/core-business
+  lifecycle: production
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifpc---correspondence/browse/pas-migration-service?at=release

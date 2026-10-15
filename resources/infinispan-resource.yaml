@@ -1,0 +1,73 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: infinispan
+  namespace: claim
+  description: >
+    Infinispan instance used by Claim squad for Kogito workflow
+    state management, user tasks, and timers.
+  tags:
+    - infinispan
+    - kogito
+    - workflow
+    - state-store
+spec:
+  type: datagrid
+  owner: group:automation/claim
+  system: system:workflow/workflow-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: infinispan
+  namespace: fraud
+  description: >
+    Infinispan instance used by Fraud squad for Kogito workflow
+    state management, user tasks, and timers.
+  tags:
+    - infinispan
+    - kogito
+    - workflow
+    - state-store
+spec:
+  type: datagrid
+  owner: group:automation/fraud
+  system: system:workflow/workflow-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: infinispan
+  namespace: new-business
+  description: >
+    Infinispan instance used by New Business squad for Kogito workflow
+    state management, user tasks, and timers.
+  tags:
+    - infinispan
+    - kogito
+    - workflow
+    - state-store
+spec:
+  type: datagrid
+  owner: group:automation/new-business
+  system: system:workflow/workflow-platform
+---
+apiVersion: backstage.io/v1alpha1
+kind: Resource
+metadata:
+  name: infinispan
+  namespace: policy-squad
+  description: >
+    Infinispan instance used by New Business squad for Kogito workflow
+    state management, user tasks, and timers.
+  tags:
+    - infinispan
+    - kogito
+    - workflow
+    - state-store
+spec:
+  type: datagrid
+  owner: group:automation/policy-squad
+  system: system:workflow/workflow-platform
+---

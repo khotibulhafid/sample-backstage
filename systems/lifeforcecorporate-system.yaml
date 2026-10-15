@@ -1,0 +1,10 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: lifeforce-corporate
+  namespace: lifeforce-group
+  description: Portal for corporate business salesforce, assisting the sales process for Group Insurance products
+spec:
+  owner: default/lifeforce-corporate
+  domain: lifeforce/lifeforce-corporate

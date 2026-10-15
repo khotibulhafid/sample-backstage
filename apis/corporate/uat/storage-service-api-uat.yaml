@@ -1,0 +1,21 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: storage-service-api-uat
+  namespace: corporate
+  description: The storage service api for storage management in LifeSpace
+  tags:
+    - api
+    - backend
+    - service
+    - lifespace
+    - corporate
+    - uat
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: default/lifespace
+  system: lifespace
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifco---corporate/browse/storage-service?at=uat
+           

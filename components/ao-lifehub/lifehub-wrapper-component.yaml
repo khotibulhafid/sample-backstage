@@ -1,0 +1,19 @@
+---     
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: lifehub-wrapper
+  namespace: ao-lifehub
+  description: service to handle wrapper for Lifehub System
+  tags:
+    - backend
+    - service
+    - lifehub
+spec:
+  type: service
+  lifecycle: production
+  owner: default/lifehub
+  system: lifehub
+  providesApis: [lifehub-wrapper-api]
+  dependsOn: [resource:ao-workflow/ifgl-1awvh-prd-automation-db]

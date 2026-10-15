@@ -1,0 +1,27 @@
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: base-service-uat
+  namespace: data
+  description: Base Service for Mongo DB Transformation Collection
+  tags:
+    - component
+    - backend
+    - service
+    - data
+    - uat
+spec:
+  type: service
+  lifecycle: experimental
+  owner: default/data
+  system: data
+  dependsOn: [
+    resource:default/cluster-data-prd, #Cluster
+    resource:default/eks-data-prd, #EKS
+    resource:default/data, #Namespace
+    resource:data/kong,
+    resource:data/konga,
+    resource:default/mongo
+  ]
+  consumesApis: [ ]
+  providesApis: [ base-service-api-uat ]

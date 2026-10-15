@@ -1,0 +1,38 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: cron-service
+  namespace: ao-product-engine
+  description: Service to run product config cron jobs
+  tags:
+    - cron
+    - component
+    - scheduler
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFPP/repos/cron-service/browse?at=uat
+#    - title: Documentation
+#      url: <url_documentation>
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/ao-product-engine-uat-cron-product-config-service
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-product-engine/cron-product-config-service-uat
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFCJ/repos/ifgl-uat-pflcb-product-config-service/browse
+spec:
+  type: Scheduler
+  owner: group:core/product
+  system: system:core/product-management-system
+  domain: domain:core/core-business
+  lifecycle: experimental
+  environments: uat
+  secretType: Kubernetes Secret
+  runtime:
+    cluster: autouat-pflcb-az2
+    namespace: ao-product-engine
+  limits: '-'
+  consumesApis: [
+    api:ao-product-engine/product-config-service-v2-api
+  ]

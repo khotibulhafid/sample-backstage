@@ -1,0 +1,16 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: partnership
+  namespace: partnership
+  description: Everything Related to Partnership Domain
+  title: 'Partnership Domain'
+  links:
+    - url: https://partner-portal.ifg-life.id
+      title: 'Partnership Url'
+    - url: https://partner-portal.ifg-life.id/back-office/
+      title: 'Partnership Admin Portal'
+    - url: https://konga-partnership.ifg-life.id
+      title: 'Konga Partnership Url'
+spec:
+  owner: default/partnership

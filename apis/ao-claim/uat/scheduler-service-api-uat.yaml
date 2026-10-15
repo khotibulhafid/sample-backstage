@@ -1,0 +1,20 @@
+apiVersion: backstage.io/v1alpha1
+kind: API
+metadata:
+  name: scheduler-service-api-uat
+  namespace: ao-claim
+  description: The scheduler service in claim
+  tags:
+    - api
+    - backend
+    - service
+    - claim
+    - scheduler
+    - uat
+spec:
+  type: openapi
+  lifecycle: experimental
+  owner: default/claim
+  system: claim
+  definition:
+    $text: https://code.ifg-life.id/projects/IFSC/repos/ifcl---claim/browse/scheduler-service?at=uat

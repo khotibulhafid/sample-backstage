@@ -1,0 +1,10 @@
+---
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: cws
+  namespace: cws
+  description: Official Public website IFG Life.
+spec:
+  owner: default/cws
+  domain: cws/cws

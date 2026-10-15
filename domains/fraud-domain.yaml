@@ -1,0 +1,12 @@
+apiVersion: backstage.io/v1alpha1
+kind: Domain
+metadata:
+  name: fraud
+  namespace: default
+  description: Everything Related to Fraud Domain
+  title: 'Fraud Domain'
+  links:
+    - url: https://api-automation.ifg-life.id
+      title: 'Fraud API Internal'
+spec:
+  owner: default/fraud

@@ -1,0 +1,73 @@
+---
+# https://backstage.io/docs/features/software-catalog/descriptor-format#kind-component
+apiVersion: backstage.io/v1alpha1
+kind: Component
+metadata:
+  name: document-generator-service
+  namespace: dev-product-engine
+  description: Generate PDF and Excel from HTML
+  tags:
+    - backend
+    - generator
+    - component
+    - dcms
+    - quarkus
+  links:
+    - title: Source Repository
+      url: https://code.ifg-life.id/projects/IFPC/repos/document-generator-service/browse
+    - title: Documentation
+      url: https://code.ifg-life.id/projects/IFPC/repos/document-generator-service/browse/README.md
+    - title: Monitoring / Logs (Datadog)
+      url: todo
+    - title: Deployment (ArgoCD)
+      url: https://deploy.ifg-life.id/applications/dev-product-engine-development-document-generator-service
+    - title: Docker Image
+      url: docker://docker-automation-operation.artifact.ifg-life.id/ao-product-engine/correspondence/document-generator-service-development:latest
+    - title: Deployment YAML (Env & Config)
+      url: https://code.ifg-life.id/projects/IFDE/repos/ifgl-pflcb-nprd-dev-automation-pas-corespondence-dev/browse?at=document-generator-service
+    - title: Base URL
+      url: https://api-core-dev.ifg-life.id
+    - title: Liveness Endpoints
+      url: http://document-generator-service:8080/q/health/live
+#    - title: Readiness Endpoints
+#      url: <url_readiness>
+    - title: Swagger / Open API
+      url: http://document-generator-service:8080/q/openapi
+    - title: Kafka Topic List
+      url: https://code.ifg-life.id/projects/IFPC/repos/document-generator-service/browse/kafka_topic_documentation.md
+    - title: Sample Kafka Message
+      url: https://code.ifg-life.id/projects/IFPC/repos/document-generator-service/browse/kafka_topic_documentation.md
+spec:
+  type: REST
+  owner: group:core/dcms
+  system: system:core/document-content-management-system
+  domain: domain:core/core-business
+  lifecycle: experimental
+  environments: development
+  language: java
+  framework:
+    - name: Quarkus
+    - version: 3.26.2
+  auth:
+    method: API Key
+    notes: >
+      Service uses Kong API Key for authorization
+  secretType: Kubernetes Secret
+  security:
+    rotationPolicy: manual
+  runtime:
+    cluster: autouat-pflcb-az2
+    namespace: dev-product-engine
+  limits: 'default kong'
+  providesApis: [
+    api:dev-product-engine/document-generator-service-api
+  ]
+  consumesApis: [
+    api:dev-product-engine/storage-service-api
+  ]
+  dependsOn: [
+    resource:cluster/autouat-pflcb-az2,
+    resource:namespace/dev-product-engine,
+    resource:infra/kafka,
+    resource:kong/ao-kong
+  ]
