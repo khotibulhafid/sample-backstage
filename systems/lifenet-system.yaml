@@ -38,7 +38,7 @@ kind: System
 metadata:
   name: lifenet
   namespace: lifenet-doctorhub
-  description: #need to be filled
+  description: particular
 spec:
   owner: default/lifenet
   domain: lifenet-doctorhub/lifenet
@@ -48,7 +48,7 @@ kind: System
 metadata:
   name: lifenet
   namespace: lifenet-pharmacyhub
-  description: #need to be filled
+  description: particular
 spec:
   owner: default/lifenet
   domain: lifenet-pharmacyhub/lifenet
